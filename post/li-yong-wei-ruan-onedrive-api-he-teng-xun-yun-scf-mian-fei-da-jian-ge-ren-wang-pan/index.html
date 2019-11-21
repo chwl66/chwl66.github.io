@@ -1,22 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://chwl66.github.io</id>
-    <title>温故知新</title>
-    <updated>2019-11-21T08:00:19.386Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://chwl66.github.io"/>
-    <link rel="self" href="https://chwl66.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://chwl66.github.io/images/avatar.png</logo>
-    <icon>https://chwl66.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, 温故知新</rights>
-    <entry>
-        <title type="html"><![CDATA[利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘]]></title>
-        <id>https://chwl66.github.io/post/li-yong-wei-ruan-onedrive-api-he-teng-xun-yun-scf-mian-fei-da-jian-ge-ren-wang-pan</id>
-        <link href="https://chwl66.github.io/post/li-yong-wei-ruan-onedrive-api-he-teng-xun-yun-scf-mian-fei-da-jian-ge-ren-wang-pan">
-        </link>
-        <updated>2019-11-21T07:58:47.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="scf-简介">SCF 简介</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘 | 温故知新</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1574323213311">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://chwl66.github.io">
+  <img class="avatar" src="https://chwl66.github.io/images/avatar.png?v=1574323213311" alt="">
+  </a>
+  <h1 class="site-title">
+    温故知新
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-11-21
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="scf-简介">SCF 简介</h2>
 <p>腾讯云云函数（Serverless Cloud Function，SCF）是腾讯云为企业和开发者们提供的无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码，是实时文件处理和数据处理等场景下理想的计算平台。您只需使用 SCF 平台支持的语言编写核心代码并设置代码运行的条件，即可在腾讯云基础设施上弹性、安全地运行代码。</p>
 <p>无服务器（Serverless）不是表示没有服务器，而表示当您在使用 Serverless 时，您无需关心底层资源，也无需登录服务器和优化服务器，只需关注最核心的代码片段，即可跳过复杂的、繁琐的基本工作。核心的代码片段完全由事件或者请求触发，平台根据请求自动平行调整服务资源。Serverless 拥有近乎无限的扩容能力，空闲时，不运行任何资源。代码运行无状态，可以轻易实现快速迭代、极速部署。</p>
 <p>腾讯云 SCF 目前仍在 <a href="https://cloud.tencent.com/document/product/583/17299">公测</a> 阶段，所有用户可免费使用，结束日期待定。公测结束后，每月仍可享受足量的 <a href="https://cloud.tencent.com/document/product/583/12282">免费资源使用量和免费调用次数</a>，但收取 <code>外网出流量</code> 费用。</p>
@@ -162,38 +233,90 @@
 <p>下拉该页面，找到 <code>Github Pages</code>，将 <code>Source</code> 下拉框的值改成 <code>master branch</code>，如果没有则无需修改。</p>
 <figure data-type="image" tabindex="28"><img src="https://img12.360buyimg.com/img/jfs/t1/43663/2/13575/33132/5d6ba655E9e64f8c4/b8a6c84311f74234.png" alt="}`R6~2N@)LINVXYJ5LEP59.png"></figure>
 <p>现在，就可以通过 <code>你的 Github 用户名.github.io</code> 访问网盘了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://chwl66.github.io/post/hello-gridea</id>
-        <link href="https://chwl66.github.io/post/hello-gridea">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-</feed>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#scf-%E7%AE%80%E4%BB%8B">SCF 简介</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96-onedrive-%E8%B4%A6%E5%8F%B7">获取 Onedrive 账号</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0%E6%9C%8D%E5%8A%A1">创建函数服务</a></li>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81">上传函数代码</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">配置环境变量</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E8%A7%A6%E5%8F%91%E6%96%B9%E5%BC%8F">添加触发方式</a></li>
+<li><a href="#%E5%85%B3%E8%81%94%E7%BD%91%E7%9B%98">关联网盘</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%AF%E9%80%89">自定义域名（可选）</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-github-pages-%E7%BC%A9%E7%9F%AD%E9%95%BF%E9%93%BE%E6%8E%A5%E5%8F%AF%E9%80%89">使用 Github Pages 缩短长链接（可选）</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://chwl66.github.io/post/hello-gridea">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
