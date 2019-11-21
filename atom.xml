@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chwl66.github.io</id>
     <title>温故知新</title>
-    <updated>2019-11-21T13:09:26.818Z</updated>
+    <updated>2019-11-21T13:12:54.860Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chwl66.github.io"/>
     <link rel="self" href="https://chwl66.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2019, 温故知新</rights>
     <entry>
         <title type="html"><![CDATA[利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘]]></title>
-        <id>https://chwl66.github.io/post/li-yong-wei-ruan-onedrive-api-he-teng-xun-yun-scf-mian-fei-da-jian-ge-ren-wang-pan</id>
-        <link href="https://chwl66.github.io/post/li-yong-wei-ruan-onedrive-api-he-teng-xun-yun-scf-mian-fei-da-jian-ge-ren-wang-pan">
+        <id>https://chwl66.github.io/post/one-scf</id>
+        <link href="https://chwl66.github.io/post/one-scf">
         </link>
         <updated>2019-11-21T07:58:47.000Z</updated>
         <content type="html"><![CDATA[<h2 id="scf-简介">SCF 简介</h2>
