@@ -1,122 +1,102 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" >
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+ | 温故知新
-</title>
-<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1574387850326">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<title>PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+ | 温故知新</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1574387917838">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://chwl66.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://chwl66.github.io">温故知新</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
         
+          <li>
             
-
-                    
-                        <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
-                        <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-                        
-                            
-</head>
-
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://chwl66.github.io">
-                <img class="avatar" src="https://chwl66.github.io/images/avatar.png?v=1574387850326" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    温故知新
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
     </div>
-</div>
+  </div>
+</nav>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-detail main-container">
-                <!-- left -->
-                <div id="content" class="main-container-left">
-                    <article class="post i-card">
-                        <h2 class="post-title">
-                            PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+
-                        </h2>
-                        <div class="post-info">
-                            <time class="post-time">2019-11-22</time>
-                            
-                        </div>
-                        
-                            <div class="post-feature-image" style="background-image: url('https://fbi.gs/2019/10/21/5dad4fcc9d2c7.png')"></div>
-                            
-                                <div class="post-content">
-                                    <p><strong>说明：</strong><code>PyOne</code>最近凭着离线下载(完成并自动上传至<code>Onedrive</code>)和绑定多网盘的功能被越来越多的人使用，如果你还不知道<code>PyOne</code>是何物的可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和<code>Docker</code>安装教程，查看：<a href="https://www.moerats.com/archives/734/">手动安装</a>、<a href="https://www.moerats.com/archives/799/">Docker安装</a>。不过由于宝塔的<code>Mongodb</code>很容易出错，有些小白也不会解决，而<code>Docker</code>也不支持<code>OpenVZ</code>，所以博主写了个一键脚本，这里分享下。</p>
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+</h1>
+            <p class="article-meta">
+              2019-11-22
+              
+            </p>
+            
+              <img src="https://fbi.gs/2019/10/21/5dad4fcc9d2c7.png" alt="PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+">
+            
+            <div class="post-content">
+              <p><strong>说明：</strong><code>PyOne</code>最近凭着离线下载(完成并自动上传至<code>Onedrive</code>)和绑定多网盘的功能被越来越多的人使用，如果你还不知道<code>PyOne</code>是何物的可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和<code>Docker</code>安装教程，查看：<a href="https://www.moerats.com/archives/734/">手动安装</a>、<a href="https://www.moerats.com/archives/799/">Docker安装</a>。不过由于宝塔的<code>Mongodb</code>很容易出错，有些小白也不会解决，而<code>Docker</code>也不支持<code>OpenVZ</code>，所以博主写了个一键脚本，这里分享下。</p>
 <h2 id="脚本说明">脚本说明</h2>
 <pre><code>#脚本会一键安装PyOne所需要的Mongodb、Redis、Aria2等环境，域名使用Caddy反代，自动配置SSL证书。
 
@@ -210,116 +190,156 @@ Aria2配置文件的下载路径为/root/Download，但该程序自带的离线�
 </code></pre>
 <p>最后更多的使用方法(包括程序更新)可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>，除了<code>PyOne</code>启动命令不一样以外，其它都一样，包括上传等命令。</p>
 
-                                </div>
-                    </article>
-                    <!--  -->
-                    
-                        <div class="next-post">
-                            <div class="next">下一篇</div>
-                            <a href="https://chwl66.github.io/post/pLeXJDL_N">
-                                <h3 class="post-title">
-                                    利用CloudFlare Worker 免费部署 JSProxy 服务
-                                </h3>
-                            </a>
-                        </div>
-                        
-                            <div id="disqus_thread"></div>
-                            <div id="gitalk-container"></div>
-                </div>
-                <!-- middle -->
-                <div class="main-container-middle"></div>
-                <!-- right -->
-                <div id="sidebar" class="main-container-right">
-                    
-                        <!-- toc -->
-                        
-    <div class="toc-card i-card ">
-        <div class="toc-title i-card-title">目录</div>
-        <div class="toc-content">
-            <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E">脚本说明</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0">更新</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
-<li><a href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4">相关命令</a></li>
-<li><a href="#%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95">相关目录</a></li>
-<li><a href="#%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E">相关说明</a></li>
-</ul>
-</li>
-</ul>
-
-        </div>
-        <script>
-            function locateCatelogList() {
-                /*获取文章目录集合,可通过:header过滤器*/
-                var alis = $('.post-content :header');
-                /*获取侧边栏目录列表集合**/
-                var sidebar_alis = $('.markdownIt-TOC a');
-                /*获取滚动条到顶部的距离*/
-                var scroll_height = $(window).scrollTop();
-                for (var i = 0; i < alis.length; i++) {
-                    /*获取锚点集合中的元素分别到顶点的距离*/
-                    var a_height = $(alis[i]).offset().top;
-                    if (a_height < scroll_height) {
-                        /*高亮显示*/
-                        sidebar_alis.removeClass('on');
-                        $(sidebar_alis[i]).addClass('on');
-                    }
-                }
-            }
-            $(function() {
-                /*绑定滚动事件 */
-                $(window).bind('scroll', locateCatelogList);
-            });
-        </script>
-    </div>
-    
-                            
-
-                </div>
-
-
-
-
             </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://chwl66.github.io/post/pLeXJDL_N">
+                <h3 class="post-title">
+                  利用CloudFlare Worker 免费部署 JSProxy 服务
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
 
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="disqus_thread"></div>
+            </div>
+          
+        
+      </div>
 
-            <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://chwl66.github.io/images/avatar.png?v=1574387917838" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/OVI5xWH9j">AriaNg + rclone 实现 Google Drive 离线下载</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/sRQUu33vw">GoIndex部署教程，用Google Drive来做目录索引网盘</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/28IUd1HzY">PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/pLeXJDL_N">利用CloudFlare Worker 免费部署 JSProxy 服务</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/GLrSQjpqd">注册激活Navicat全系产品的开源代码分享</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/one-scf">利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://chwl66.github.io/post/hello-gridea">Hello Gridea</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://chwl66.github.io/tag/FX9cSONM-" class="badge ">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-    
-        
 
-                    
-                        <script>
-    window.onload = function() {
-        var options = {
-            shortname: 'gridea',
-            apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
-        }
-        if ('') {
-            options.api = ''
-        }
-        var dsqjs = new DisqusJS(options)
-    }
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
 </script>
-                            
-                                
-</body>
 
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'gridea',
+      apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+    }
+    if ('') {
+      options.api = ''
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
 </html>
