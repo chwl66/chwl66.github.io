@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>GoIndex部署教程，用Google Drive来做目录索引网盘 | 温故知新</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1574384991575">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chwl66.github.io">
+        <img src="https://chwl66.github.io/images/avatar.png?v=1574384991575" class="site-logo">
+        <h1 class="site-title">温故知新</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">GoIndex部署教程，用Google Drive来做目录索引网盘</h2>
+            <div class="post-date">2019-11-22</div>
+            
+              <div class="feature-container" style="background-image: url('https://shop.io.mi-img.com/app/shop/img?id=shop_09a468f93e5bf97d2fd771d2999c7c9b.png')">
+              </div>
+            
+            <div class="post-content">
+              <figure data-type="image" tabindex="1"><img src="https://shop.io.mi-img.com/app/shop/img?id=shop_09a468f93e5bf97d2fd771d2999c7c9b.png" alt="GoIndex部署教程，用Google Drive来做目录索引网盘"></figure>
+<p>感谢大佬@<a href="https://www.hostloc.com/space-uid-18200.html">donwa</a>又更新了一个针对Google Drive的文件目录代码！这里更新一篇文章介绍一下！！</p>
+<p>由于博主最近在疯狂加班，时间太紧张了，文章内容均来热情的网友！最后的【参考文献】一一列出！</p>
+<p>之前本博客更新过大佬的另一个开源代码！<a href="https://51.ruyo.net/9946.html">OneIndex部署教程，利用OneDrive打造专属分享型网盘</a></p>
+<h2 id="功能介绍">功能介绍</h2>
+<p>部署在 CloudFlare Workers的小程序。<br>
+可以将 Google Drive 文件以目录形式列出，并直连下载。<br>
+流量走 CloudFlare ，网速由 CloudFlare 决定。</p>
+<h2 id="开源地址">开源地址</h2>
+<p>https://github.com/donwa/goindex</p>
+<h2 id="演示地址">演示地址</h2>
+<p><a href="https://index.gd.workers.dev/">https://index.gd.workers.dev/</a></p>
+<h2 id="功能特点">功能特点</h2>
+<p>1、免费。<br>
+2、直链。<br>
+3、免番。</p>
+<h2 id="使用限制">使用限制</h2>
+<p>wokers一天10万请求限制<br>
+google drive 下载10T/24h（大佬说的）<br>
+google api 调用限制</p>
+<h2 id="部署步骤">部署步骤</h2>
+<p>1）访问 https://install.gd.workers.dev/ 点击 【1.获取认证码】登陆Google帐号，会有code(画线部分）。将上面的CODE复制到 Auth认证码部分。目录ID可以留空！</p>
+<figure data-type="image" tabindex="2"><img src="https://yanxuan.nosdn.127.net/f044b5331e6022c2f25e88635e056b5a.jpg" alt="img"></figure>
+<p>2）点【2.生成代码】，复制生成的代码，打开 https://dash.cloudflare.com/ 登陆帐号，选个域名，点击 Workers，如图</p>
+<figure data-type="image" tabindex="3"><img src="https://yanxuan.nosdn.127.net/1c502a8a7e1da3df69f4861e72596f60.png" alt="img"></figure>
+<p>3）点击 new Workers dashboard ，如图，需要起个名字，我已经起过了，就没有截图了，类似与  qwe.workers.dev的名字，只能修改前缀，后缀workers.dev 固定的。</p>
+<figure data-type="image" tabindex="4"><img src="https://yanxuan.nosdn.127.net/67c48700ec92a5696530070c57cc6a09.png" alt="img"></figure>
+<p>4）点击Create a Workers，如图，</p>
+<figure data-type="image" tabindex="5"><img src="https://yanxuan.nosdn.127.net/b78670ed2eb6ba0dd8d7adee51282767.png" alt="img"></figure>
+<p>5）在Script里复制刚才的代码code，右下角Run可以在右边看到浏览状态，右边上方有地址，左边上方可以修改地址，例如修改为121，Save and Deploy保存</p>
+<p>121.qwe.workers.dev 就是你的地址了。</p>
+<h2 id="其他内容">其他内容</h2>
+<p><strong>如何自定义域名</strong></p>
+<p>1）先让需要绑定的域名通过cf，指向ip随意。</p>
+<figure data-type="image" tabindex="6"><img src="https://yanxuan.nosdn.127.net/9d2b1828e80c5eab9fa46b4f92319117.png" alt="img"></figure>
+<p>2）添加Route</p>
+<figure data-type="image" tabindex="7"><img src="https://yanxuan.nosdn.127.net/4b0dffe93e199c469282bfb3d0b837ec.png" alt="img"></figure>
+<figure data-type="image" tabindex="8"><img src="https://yanxuan.nosdn.127.net/b6fe3d4fd9ae7eb47bfb5faa6c4a2c84.png" alt="img"></figure>
+<p><strong>关于目录ID</strong><br>
+打开团队盘(或文件夹或别人共享的文件夹)，看地址栏。<br>
+https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
+留空是根目录。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chwl66.github.io/post/28IUd1HzY">
+                  <h3 class="post-title">
+                    PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+
+              
+                <div id="disqus_thread" data-aos="fade-in"></div>
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'gridea',
+      apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+    }
+    if ('') {
+      options.api = ''
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

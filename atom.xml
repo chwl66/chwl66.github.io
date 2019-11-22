@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chwl66.github.io</id>
     <title>温故知新</title>
-    <updated>2019-11-21T13:54:05.238Z</updated>
+    <updated>2019-11-22T01:09:54.773Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chwl66.github.io"/>
     <link rel="self" href="https://chwl66.github.io/atom.xml"/>
@@ -10,6 +10,902 @@
     <logo>https://chwl66.github.io/images/avatar.png</logo>
     <icon>https://chwl66.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 温故知新</rights>
+    <entry>
+        <title type="html"><![CDATA[AriaNg + rclone 实现 Google Drive 离线下载]]></title>
+        <id>https://chwl66.github.io/post/OVI5xWH9j</id>
+        <link href="https://chwl66.github.io/post/OVI5xWH9j">
+        </link>
+        <updated>2019-11-22T01:09:31.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="准备环境">准备环境</h2>
+<ul>
+<li>一台 vps 主机，博主使用 CentOS 进行演示</li>
+<li>内存 &gt;= 512MB</li>
+<li>KVM 架构</li>
+<li>硬盘最好 &gt;= 10G</li>
+<li>一个谷歌 Drive 账号</li>
+</ul>
+<p>更新系统并安装必须组件，此处安装 nginx web 服务器。</p>
+<pre><code>yum -y update
+yum -y install epel-release
+yum -y install wget git unzip gcc gcc-c++ openssl-devel nginx
+</code></pre>
+<p>启动 nginx 并设置开机自启</p>
+<pre><code>systemctl start nginx
+systemctl enable nginx.service
+systemctl stop firewalld # 关闭防火墙
+</code></pre>
+<p>这个时候可以访问服务器的外网 IP 查看 nginx 启动成功。</p>
+<h2 id="安装-ariang">安装 AriaNg</h2>
+<h3 id="安装-aria2">安装 aria2</h3>
+<p>Aria2 是一个命令行下运行、多协议、多来源下载工具，支持磁力链接、BT 种子、HTTP、FTP 等下载协议，当然因为它是命令行下载工具，所以我们想下载一个东西还需要去敲命令自然是不方便，于是就有一些人根据 Aria2 的 API 开发了一些在线管理面板，可以直接在网页上面添加管理任务。</p>
+<hr>
+<p>先安装 aria2 服务端，使用逗比大佬的脚本</p>
+<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+</code></pre>
+<p>运行脚本后会出现脚本操作菜单，选择并输入 <code>1</code> 就会开始安装。</p>
+<pre><code>Aria2 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc4 --
+ 
+ 1. 升级脚本
+————————————
+ 1. 安装 Aria2
+ 2. 更新 Aria2
+ 3. 卸载 Aria2
+————————————
+ 4. 启动 Aria2
+ 5. 停止 Aria2
+ 6. 重启 Aria2
+————————————
+ 7. 修改 配置文件
+ 8. 查看 配置信息
+ 9. 查看 日志信息
+10. 配置 自动更新 BT-Tracker服务器
+————————————
+ 
+当前状态: 已安装 并 已启动
+ 
+请输入数字 [0-10]:
+</code></pre>
+<p>安装成功后配置文件在 <code>/root/.aria2/aria2.conf</code>，几个比较重要的配置：</p>
+<pre><code># aria2 下载文件后所在目录
+dir=/usr/local/caddy/www/aria2/Download
+# aria2 RPC 监听端口
+rpc-listen-port=6800
+# aria2 RPC 秘钥
+rpc-secret=codesofun
+# 下载成功后执行的脚本
+on-download-complete=/root/rcloneupload.sh
+</code></pre>
+<p>将下载目录修改为 <code>/data/Download</code></p>
+<p>创建目录</p>
+<pre><code>mkdir -p /data/Download
+</code></pre>
+<p>运行脚本</p>
+<pre><code>bash aria2.sh
+</code></pre>
+<p>运行脚本后会出现脚本操作菜单，选择并输入 <code>7</code> 就会按照选项进行修改。</p>
+<pre><code>Aria2 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc4 --
+ 
+ 0. 升级脚本
+————————————
+ 1. 安装 Aria2
+ 2. 更新 Aria2
+ 3. 卸载 Aria2
+————————————
+ 4. 启动 Aria2
+ 5. 停止 Aria2
+ 6. 重启 Aria2
+————————————
+ 7. 修改 配置文件
+ 8. 查看 配置信息
+ 9. 查看 日志信息
+10. 配置 自动更新 BT-Tracker服务器
+————————————
+ 
+当前状态: 已安装 并 已启动
+ 
+请输入数字 [0-10]:
+</code></pre>
+<p><strong>其他操作</strong></p>
+<ul>
+<li>启动：<code>/etc/init.d/aria2 start</code></li>
+<li>停止：<code>/etc/init.d/aria2 stop</code></li>
+<li>重启：<code>/etc/init.d/aria2 restart</code></li>
+<li>查看状态：<code>/etc/init.d/aria2 status</code></li>
+<li>配置文件：<code>/root/.aria2/aria2.conf</code> （配置文件包含中文注释，但是一些系统可能不支持显示中文）</li>
+<li>令牌密匙：随机生成（可以自己修改配置文件）</li>
+<li>下载目录：<code>/data/Download</code></li>
+</ul>
+<h2 id="安装-ariang-2">安装 AriaNg</h2>
+<p>AriaNg 是一个前端(HTML+JS静态)控制面板，不需要和 Aria2 (后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建 Aria2 后端，然后访问别人建好的 AriaNg 前端面板，也可以远程操作 Aria2 后端！</p>
+<p>Github 源码地址：https://github.com/mayswind/AriaNg</p>
+<p>不需要和 Aria2 (后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建 Aria2 后端，然后访问别人建好的 AriaNg 前端面板，也可以远程操作 Aria2 后端！</p>
+<p><strong>下载 AriaNg</strong></p>
+<pre><code>mkdir -p /data/www/ariang
+cd /data/www/ariang
+wget https://github.com/mayswind/AriaNg-DailyBuild/archive/master.zip &amp;&amp; unzip master.zip
+mv AriaNg-DailyBuild-master/* .
+rm -rf master.zip AriaNg-DailyBuild-master
+</code></pre>
+<p><strong>配置 Nginx 虚拟主机</strong></p>
+<pre><code>cd /etc/nginx/conf.d
+touch ariang.conf
+</code></pre>
+<p>编辑配置</p>
+<pre><code>vim ariang.conf
+</code></pre>
+<p>编辑nginx 配置，将下面的代码填入进去。</p>
+<pre><code>server {
+    listen 80;
+    server_name &lt;IP_ADDRESS&gt;;
+
+    location / {
+        root   /data/www/ariang;
+        index  index.html index.htm;
+    }
+}
+</code></pre>
+<blockquote>
+<p>这个时候也可以使用 <code>nginx -t</code> 测试一下配置文件是否修改正确</p>
+</blockquote>
+<p>重新加载 nginx 配置</p>
+<pre><code>systemctl reload nginx
+</code></pre>
+<p>访问 <code>http://IP_HOST</code> 即可看到 ariaNg 效果。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog.codesofun.com/assets/images/2018/11/ariang.png" alt="img"></figure>
+<h1 id="配置-google-drive">配置 Google Drive</h1>
+<h2 id="挂载-google-drive-到-vps">挂载 Google Drive 到 VPS</h2>
+<p>安装 Rclone</p>
+<pre><code>yum -y install unzip
+curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>配置</p>
+<pre><code>[root@vultr ~]# rclone config
+2018/11/25 09:31:54 NOTICE: Config file &quot;/root/.config/rclone/rclone.conf&quot; not found - using defaults
+No remotes found - make a new one
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q&gt; n
+name&gt; codesofun
+Type of storage to configure.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+Choose a number from below, or type in your own value
+ 1 / A stackable unification remote, which can appear to merge the contents of several remotes
+   \ &quot;union&quot;
+ 2 / Alias for a existing remote
+   \ &quot;alias&quot;
+ 3 / Amazon Drive
+   \ &quot;amazon cloud drive&quot;
+ 4 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ &quot;s3&quot;
+ 5 / Backblaze B2
+   \ &quot;b2&quot;
+ 6 / Box
+   \ &quot;box&quot;
+ 7 / Cache a remote
+   \ &quot;cache&quot;
+ 8 / Dropbox
+   \ &quot;dropbox&quot;
+ 9 / Encrypt/Decrypt a remote
+   \ &quot;crypt&quot;
+10 / FTP Connection
+   \ &quot;ftp&quot;
+11 / Google Cloud Storage (this is not Google Drive)
+   \ &quot;google cloud storage&quot;
+12 / Google Drive
+   \ &quot;drive&quot;
+13 / Hubic
+   \ &quot;hubic&quot;
+14 / JottaCloud
+   \ &quot;jottacloud&quot;
+15 / Local Disk
+   \ &quot;local&quot;
+16 / Mega
+   \ &quot;mega&quot;
+17 / Microsoft Azure Blob Storage
+   \ &quot;azureblob&quot;
+18 / Microsoft OneDrive
+   \ &quot;onedrive&quot;
+19 / OpenDrive
+   \ &quot;opendrive&quot;
+20 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &quot;swift&quot;
+21 / Pcloud
+   \ &quot;pcloud&quot;
+22 / QingCloud Object Storage
+   \ &quot;qingstor&quot;
+23 / SSH/SFTP Connection
+   \ &quot;sftp&quot;
+24 / Webdav
+   \ &quot;webdav&quot;
+25 / Yandex Disk
+   \ &quot;yandex&quot;
+26 / http Connection
+   \ &quot;http&quot;
+Storage&gt; 12
+** See help for drive backend at: https://rclone.org/drive/ **
+
+Google Application Client Id
+Leave blank normally.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+client_id&gt;
+Google Application Client Secret
+Leave blank normally.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+client_secret&gt;
+Scope that rclone should use when requesting access from drive.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ &quot;drive&quot;
+ 2 / Read-only access to file metadata and file contents.
+   \ &quot;drive.readonly&quot;
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ &quot;drive.file&quot;
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ &quot;drive.appfolder&quot;
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ &quot;drive.metadata.readonly&quot;
+scope&gt; 1
+ID of the root folder
+Leave blank normally.
+Fill in to access &quot;Computers&quot; folders. (see docs).
+Enter a string value. Press Enter for the default (&quot;&quot;).
+root_folder_id&gt;
+Service Account Credentials JSON file path
+Leave blank normally.
+Needed only if you want use SA instead of interactive login.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+service_account_file&gt;
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n&gt; n
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine or Y didn't work
+y) Yes
+n) No
+y/n&gt; n
+If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=0fbdd**********************05a3b00e23
+Log in and authorize rclone for access
+Enter verification code&gt; 4/owSACseTxM*************c2HtEVX_yEhBcr--JiFTA7-Pfg
+
+Configure this as a team drive?
+y) Yes
+n) No
+y/n&gt; y
+Fetching team drive list...
+No team drives found in your account--------------------
+[codesofun]
+type = drive
+scope = drive
+token = {&quot;access_token&quot;:&quot;ya29.GltfBn_YA8e0lgJNKeMAHZ3b_IeIBXHHrJxMO7wfW0AsY6v_Nso8YczhZafVe8UIIgK6ft1dn6BqP-UWp-W2YXBtcf6zbLuIZgKcPqwnhsVAkx3f7QcO5m0EUvAv&quot;,&quot;token_type&quot;:&quot;Bearer&quot;,&quot;refresh_token&quot;:&quot;1/hFSVnEeJ8CkFmrpdd7IGNx69mhkj8Cpny6JUktv3xcY&quot;,&quot;expiry&quot;:&quot;2018-11-25T10:42:09.400295503Z&quot;}
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt; y
+Current remotes:
+
+Name                 Type
+====                 ====
+codesofun            drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; q
+</code></pre>
+<h1 id="整合-aria2-rclone">整合 Aria2 + Rclone</h1>
+<p>这个时候我们使用 aria2 去下载文件，下载成功后触发一个脚本让它将文件移动到 Rclone 同步的文件夹内，这样在 Google Drive 就会自动有这个文件啦。</p>
+<p>新建一个名为 <code>rcloneupload.sh</code> 的脚本。</p>
+<pre><code>vim /root/rcloneupload.sh
+</code></pre>
+<p>编辑脚本，将下面内容全部填入脚本中保存。</p>
+<pre><code>#!/bin/bash
+
+filepath=$3	 #取文件原始路径，如果是单文件则为/Download/a.mp4，如果是文件夹则该值为文件夹内第一个文件比如/Download/a/1.mp4
+path=${3%/*}	 #取文件根路径，如把/Download/a/1.mp4变成/Download/a
+downloadpath='/data/Download'	#Aria2下载目录
+name='codesofun' #配置Rclone时的name
+folder='/share'	 #网盘里的文件夹，如果是根目录直接留空
+MinSize='10k'	 #限制最低上传大小，默认10k，BT下载时可防止上传其他无用文件。会删除文件，谨慎设置。
+MaxSize='15G'	 #限制最高文件大小，默认15G，OneDrive上传限制。
+
+if [ $2 -eq 0 ]; then exit 0; fi
+
+while true; do
+if [ &quot;$path&quot; = &quot;$downloadpath&quot; ] &amp;&amp; [ $2 -eq 1 ]	#如果下载的是单个文件
+    then
+    rclone move -v &quot;$filepath&quot; ${name}:${folder} --min-size $MinSize --max-size $MaxSize
+    rm -vf &quot;$filepath&quot;.aria2	#删除残留的.aria.2文件
+    exit 0
+elif [ &quot;$path&quot; != &quot;$downloadpath&quot; ]	#如果下载的是文件夹
+    then
+    while [[ &quot;`ls -A &quot;$path/&quot;`&quot; != &quot;&quot; ]]; do
+    rclone move -v &quot;$path&quot; ${name}:/${folder}/&quot;${path##*/}&quot; --min-size $MinSize --max-size $MaxSize --delete-empty-src-dirs
+    rclone delete -v &quot;$path&quot; --max-size $MinSize	#删除多余的文件
+    rclone rmdirs -v &quot;$downloadpath&quot; --leave-root	#删除空目录，--delete-empty-src-dirs 参数已实现，加上无所谓。
+    done
+    rm -vf &quot;$path&quot;.aria2	#删除残留的.aria2文件
+    exit 0
+fi
+done
+</code></pre>
+<p>需要修改几个地方：</p>
+<ul>
+<li><code>downloadpath</code>：填写 aria2 的下载目录</li>
+<li><code>name</code>：填写 rclone 配置的名称</li>
+<li><code>folder</code>：填写谷歌云盘的文件夹名称，根目录填 <code>/</code> 即可</li>
+</ul>
+<p>保存后给予执行权限</p>
+<pre><code>chmod +x /root/rcloneupload.sh
+</code></pre>
+<p>然后再到 Aria2 配置文件中加上一行 <code>on-download-complete=/root/rcloneupload.sh</code> 即可，后面为脚本的路径。重启 Aria2 生效。</p>
+<pre><code>vim /root/.aria2/aria2.conf
+
+on-download-complete=/root/rcloneupload.sh
+/etc/init.d/aria2 restart
+</code></pre>
+<h1 id="请开始你的表演">请开始你的表演</h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GoIndex部署教程，用Google Drive来做目录索引网盘]]></title>
+        <id>https://chwl66.github.io/post/sRQUu33vw</id>
+        <link href="https://chwl66.github.io/post/sRQUu33vw">
+        </link>
+        <updated>2019-11-22T01:08:54.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://shop.io.mi-img.com/app/shop/img?id=shop_09a468f93e5bf97d2fd771d2999c7c9b.png" alt="GoIndex部署教程，用Google Drive来做目录索引网盘"></figure>
+<p>感谢大佬@<a href="https://www.hostloc.com/space-uid-18200.html">donwa</a>又更新了一个针对Google Drive的文件目录代码！这里更新一篇文章介绍一下！！</p>
+<p>由于博主最近在疯狂加班，时间太紧张了，文章内容均来热情的网友！最后的【参考文献】一一列出！</p>
+<p>之前本博客更新过大佬的另一个开源代码！<a href="https://51.ruyo.net/9946.html">OneIndex部署教程，利用OneDrive打造专属分享型网盘</a></p>
+<h2 id="功能介绍">功能介绍</h2>
+<p>部署在 CloudFlare Workers的小程序。<br>
+可以将 Google Drive 文件以目录形式列出，并直连下载。<br>
+流量走 CloudFlare ，网速由 CloudFlare 决定。</p>
+<h2 id="开源地址">开源地址</h2>
+<p>https://github.com/donwa/goindex</p>
+<h2 id="演示地址">演示地址</h2>
+<p><a href="https://index.gd.workers.dev/">https://index.gd.workers.dev/</a></p>
+<h2 id="功能特点">功能特点</h2>
+<p>1、免费。<br>
+2、直链。<br>
+3、免番。</p>
+<h2 id="使用限制">使用限制</h2>
+<p>wokers一天10万请求限制<br>
+google drive 下载10T/24h（大佬说的）<br>
+google api 调用限制</p>
+<h2 id="部署步骤">部署步骤</h2>
+<p>1）访问 https://install.gd.workers.dev/ 点击 【1.获取认证码】登陆Google帐号，会有code(画线部分）。将上面的CODE复制到 Auth认证码部分。目录ID可以留空！</p>
+<figure data-type="image" tabindex="2"><img src="https://yanxuan.nosdn.127.net/f044b5331e6022c2f25e88635e056b5a.jpg" alt="img"></figure>
+<p>2）点【2.生成代码】，复制生成的代码，打开 https://dash.cloudflare.com/ 登陆帐号，选个域名，点击 Workers，如图</p>
+<figure data-type="image" tabindex="3"><img src="https://yanxuan.nosdn.127.net/1c502a8a7e1da3df69f4861e72596f60.png" alt="img"></figure>
+<p>3）点击 new Workers dashboard ，如图，需要起个名字，我已经起过了，就没有截图了，类似与  qwe.workers.dev的名字，只能修改前缀，后缀workers.dev 固定的。</p>
+<figure data-type="image" tabindex="4"><img src="https://yanxuan.nosdn.127.net/67c48700ec92a5696530070c57cc6a09.png" alt="img"></figure>
+<p>4）点击Create a Workers，如图，</p>
+<figure data-type="image" tabindex="5"><img src="https://yanxuan.nosdn.127.net/b78670ed2eb6ba0dd8d7adee51282767.png" alt="img"></figure>
+<p>5）在Script里复制刚才的代码code，右下角Run可以在右边看到浏览状态，右边上方有地址，左边上方可以修改地址，例如修改为121，Save and Deploy保存</p>
+<p>121.qwe.workers.dev 就是你的地址了。</p>
+<h2 id="其他内容">其他内容</h2>
+<p><strong>如何自定义域名</strong></p>
+<p>1）先让需要绑定的域名通过cf，指向ip随意。</p>
+<figure data-type="image" tabindex="6"><img src="https://yanxuan.nosdn.127.net/9d2b1828e80c5eab9fa46b4f92319117.png" alt="img"></figure>
+<p>2）添加Route</p>
+<figure data-type="image" tabindex="7"><img src="https://yanxuan.nosdn.127.net/4b0dffe93e199c469282bfb3d0b837ec.png" alt="img"></figure>
+<figure data-type="image" tabindex="8"><img src="https://yanxuan.nosdn.127.net/b6fe3d4fd9ae7eb47bfb5faa6c4a2c84.png" alt="img"></figure>
+<p><strong>关于目录ID</strong><br>
+打开团队盘(或文件夹或别人共享的文件夹)，看地址栏。<br>
+https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
+留空是根目录。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+]]></title>
+        <id>https://chwl66.github.io/post/28IUd1HzY</id>
+        <link href="https://chwl66.github.io/post/28IUd1HzY">
+        </link>
+        <updated>2019-11-22T01:07:27.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>说明：</strong><code>PyOne</code>最近凭着离线下载(完成并自动上传至<code>Onedrive</code>)和绑定多网盘的功能被越来越多的人使用，如果你还不知道<code>PyOne</code>是何物的可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和<code>Docker</code>安装教程，查看：<a href="https://www.moerats.com/archives/734/">手动安装</a>、<a href="https://www.moerats.com/archives/799/">Docker安装</a>。不过由于宝塔的<code>Mongodb</code>很容易出错，有些小白也不会解决，而<code>Docker</code>也不支持<code>OpenVZ</code>，所以博主写了个一键脚本，这里分享下。</p>
+<h2 id="脚本说明">脚本说明</h2>
+<pre><code>#脚本会一键安装PyOne所需要的Mongodb、Redis、Aria2等环境，域名使用Caddy反代，自动配置SSL证书。
+
+#本脚本使用的Aria2为某大佬编译的多线程版本，其特点可以将下载速度最大化优化，博主已配置完毕，如服务器性能不足，可将线程自行调整。
+方法：修改配置文件/root/.aria2/aria2.conf，线程参数split=64，请自行调整。
+
+#Aria2已添加了BT-Trackers服务器，并定时自动更新服务器地址。
+
+#脚本使用systemctl替换了程序所使用的supervisord进程守护，所以程序的重启等命令会和官方文档上的不一样，详细的使用命令可以看文章后面。
+
+#选择域名访问的，需要提前让解析生效，不然脚本会自动断开，因为后面需要签发SSL证书，ip必须为服务器ip。
+</code></pre>
+<h2 id="更新">更新</h2>
+<pre><code>【2019.9.28】
+新增Debian 10，升级MongoDB版本到4.0，有问题可以留言。
+【2019.6.27】
+修复部分CentOS 7安装出错的问题，并新增Ubuntu系统，已在Vultr的Ubuntu 16.04、18.04、18.10、19.04上测试通过
+【2019.2.23】
+鉴于有人需要3.0版本，现已增加安装3.0版本选项，多个选择，并使用的3.0最后一个版本。
+【2019.2.16】
+修改脚本部分安装步骤，使其支持PyOne4.0
+【2019.1.31】
+修复部分系统安装启动pyone失败的问题
+【2018.11.30】
+修复PyOne刷新不出文件夹/文件的问题。
+</code></pre>
+<h2 id="安装">安装</h2>
+<p><strong>系统要求：</strong><code>CentOS 7</code>、<code>Debian 8+</code>、<code>Ubuntu 16+</code>，建议<code>Debian 9</code>，且为刚安装好的系统，尽量不要用精简版系统。</p>
+<p>使用命令：</p>
+<pre><code>wget -N --no-check-certificate https://www.moerats.com/usr/shell/PyOne/PyOne.sh
+bash PyOne.sh
+</code></pre>
+<p>根据需求选择是否使用域名访问，然后输入域名和<code>Aria2</code>密匙即可。<br>
+<a href="https://www.moerats.com/usr/picture/PyOne_shell.png"><img src="https://www.moerats.com/usr/picture/PyOne_shell.png" alt="请输入图片描述"></a></p>
+<p>安装完成后，如果打不开网站的，可以使用命令一起查看下各程序状态。</p>
+<pre><code>#使用域名访问的
+systemctl status aria2 mongod redis-server pyone caddy
+#使用IP访问的
+systemctl status aria2 mongod redis-server pyone
+</code></pre>
+<p>如果有显示<code>Active:inactive</code>的，可以留言说下具体程序和系统。反之如果都为<code>running</code>，可以检查下防火墙端口，比如阿里云，谷歌云等，还需要在服务器管理面板上开放<code>34567</code>端口才行。</p>
+<h2 id="相关命令">相关命令</h2>
+<pre><code>#以下程序均已配置开机自启，所以就不说开机自启命令了。
+
+#Redis使用命令
+启动：systemctl start redis-server
+重启：systemctl restart redis-server
+停止：systemctl stop redis-server
+状态：systemctl status redis-server
+
+#Mongodb使用命令
+启动：systemctl start mongod
+重启：systemctl restart mongod
+停止：systemctl stop mongod
+状态：systemctl status mongod
+
+#Aria2使用命令
+启动：systemctl start aria2
+重启：systemctl restart aria2
+停止：systemctl stop aria2
+状态：systemctl status aria2
+
+#Caddy使用命令(使用域名的才会安装Caddy)
+启动：systemctl start caddy
+重启：systemctl restart caddy
+停止：systemctl stop caddy
+状态：systemctl status caddy
+
+#PyOne使用命令
+启动：systemctl start pyone
+重启：systemctl restart pyone
+停止：systemctl stop pyone
+状态：systemctl status pyone
+</code></pre>
+<h2 id="相关目录">相关目录</h2>
+<pre><code>PyOne程序目录：/root/PyOne
+Caddy配置文件目录：/root/.caddy
+Aria2配置文件目录：/root/.aria2
+</code></pre>
+<h2 id="相关说明">相关说明</h2>
+<pre><code>#关于操作说明
+由于更换了原程序进程守护，所以网站右上角的重启网站按钮已失效，请在SSH客户端使用systemctl restart pyone命令重启程序。
+
+#关于离线下载
+Aria2配置文件的下载路径为/root/Download，但该程序自带的离线下载不调用配置文件，所以使用本程序离线下载的目录为/root/PyOne/upload。
+
+由于本程序离线下载不调用配置文件，所以Aria2多线程可能会发挥不出来，BT服务器也无效，不过会玩的，可以通过修改根目录的aria2.py文件某些参数达到目的，或者直接研究该教程：https://www.moerats.com/archives/697/，使用Aria2面板来离线下载更好，毕竟后者用的脚本比自带离线下载更稳定。
+
+#刷新缓存问题
+如果你在后台执行缓存刷新操作，可能短时间不会生效，建议直接在SSH客户端使用python /root/PyOne/function.py UpdateFile命令刷新
+</code></pre>
+<p>最后更多的使用方法(包括程序更新)可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>，除了<code>PyOne</code>启动命令不一样以外，其它都一样，包括上传等命令。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[利用CloudFlare Worker 免费部署 JSProxy 服务]]></title>
+        <id>https://chwl66.github.io/post/pLeXJDL_N</id>
+        <link href="https://chwl66.github.io/post/pLeXJDL_N">
+        </link>
+        <updated>2019-11-22T01:06:45.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="利用cloudflare-worker-免费部署-jsproxy-服务">利用CloudFlare Worker 免费部署 JSProxy 服务</h1>
+<figure data-type="image" tabindex="1"><img src="https://ae04.alicdn.com/kf/HTB1d3AHaAT2gK0jSZPc763KkpXaT.png" alt="img"></figure>
+<p>JSProxy 一个基于浏览器端 JS 实现的在线代理，这里不多介绍！</p>
+<p>本文主要介绍一下利用<code>CloudFlare Worker</code> 来搭建一个JSProxy服务。</p>
+<p><code>CloudFlare Worker</code> 是 CloudFlare 的边缘计算服务。开发者可通过 JavaScript 对 CDN 进行编程，从而能灵活处理 HTTP 请求。这使得很多任务可在 CDN 上完成，无需自己的服务器参与。</p>
+<p>CFW免费服务，支持每天10 万次免费请求！基本也够用了！</p>
+<h2 id="项目介绍">项目介绍</h2>
+<p>项目地址：<a href="https://github.com/EtherDream/jsproxy">https://github.com/EtherDream/jsproxy</a></p>
+<h2 id="准备工作">准备工作</h2>
+<p>Cloudflare 账号一个</p>
+<h2 id="使用教程">使用教程</h2>
+<p>1）打开 <a href="https://workers.cloudflare.com">https://workers.cloudflare.com</a>，登陆上你的 Cloudflare 账号激活 Workers 服务</p>
+<figure data-type="image" tabindex="2"><img src="https://ae04.alicdn.com/kf/HTB1BwEMaET1gK0jSZFr763NCXXaY.png" alt="img"></figure>
+<p>然后创建一个 Workers【Create a Worker】</p>
+<figure data-type="image" tabindex="3"><img src="https://ae02.alicdn.com/kf/HTB16NsHaEY1gK0jSZFM761WcVXat.png" alt="img"></figure>
+<p>2）修改一下子域名，创建出来的域名格式 自定义的内容.Cloudflare用户名.workers.dev</p>
+<figure data-type="image" tabindex="4"><img src="https://ae06.alicdn.com/kf/HTB10hkMaxz1gK0jSZSg761vwpXaj.png" alt="img"></figure>
+<p>3）复制<a href="https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js"> https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js</a> 的内容到左侧代码（Script）区域</p>
+<p>文章最下方有代码备份！！</p>
+<figure data-type="image" tabindex="5"><img src="https://ae03.alicdn.com/kf/HTB1EA.LaAL0gK0jSZFA763A9pXas.png" alt="img"></figure>
+<p>4）先点击【Run】右侧看执行效果，再点击 【Save and deploy】 部署代码</p>
+<p>5）届时你可以访问你的站点https://xxx.子域名.workers.dev查看效果</p>
+<p>进入站点后将线路选择切换为当前站点即可使用</p>
+<p>特别提示：浏览网站的时候，有时候会提示加载不安全脚本，点击允许即可！</p>
+<h2 id="代码备份">代码备份</h2>
+<pre><code>'use strict'
+
+/**
+ * static files (404.html, sw.js, conf.js)
+ */
+const ASSET_URL = 'https://etherdream.github.io/jsproxy'
+
+const JS_VER = 10
+const MAX_RETRY = 1
+
+/** @type {RequestInit} */
+const PREFLIGHT_INIT = {
+  status: 204,
+  headers: new Headers({
+    'access-control-allow-origin': '*',
+    'access-control-allow-methods': 'GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS',
+    'access-control-max-age': '1728000',
+  }),
+}
+
+/**
+ * @param {any} body
+ * @param {number} status
+ * @param {Object&lt;string, string&gt;} headers
+ */
+function makeRes(body, status = 200, headers = {}) {
+  headers['--ver'] = JS_VER
+  headers['access-control-allow-origin'] = '*'
+  return new Response(body, {status, headers})
+}
+
+
+/**
+ * @param {string} urlStr 
+ */
+function newUrl(urlStr) {
+  try {
+    return new URL(urlStr)
+  } catch (err) {
+    return null
+  }
+}
+
+
+addEventListener('fetch', e =&gt; {
+  const ret = fetchHandler(e)
+    .catch(err =&gt; makeRes('cfworker error:\n' + err.stack, 502))
+  e.respondWith(ret)
+})
+
+
+/**
+ * @param {FetchEvent} e 
+ */
+async function fetchHandler(e) {
+  const req = e.request
+  const urlStr = req.url
+  const urlObj = new URL(urlStr)
+  const path = urlObj.href.substr(urlObj.origin.length)
+
+  if (urlObj.protocol === 'http:') {
+    urlObj.protocol = 'https:'
+    return makeRes('', 301, {
+      'strict-transport-security': 'max-age=99999999; includeSubDomains; preload',
+      'location': urlObj.href,
+    })
+  }
+
+  if (path.startsWith('/http/')) {
+    return httpHandler(req, path.substr(6))
+  }
+
+  switch (path) {
+  case '/http':
+    return makeRes('请更新 cfworker 到最新版本!')
+  case '/ws':
+    return makeRes('not support', 400)
+  case '/works':
+    return makeRes('it works')
+  default:
+    // static files
+    return fetch(ASSET_URL + path)
+  }
+}
+
+
+/**
+ * @param {Request} req
+ * @param {string} pathname
+ */
+function httpHandler(req, pathname) {
+  const reqHdrRaw = req.headers
+  if (reqHdrRaw.has('x-jsproxy')) {
+    return Response.error()
+  }
+
+  // preflight
+  if (req.method === 'OPTIONS' &amp;&amp;
+      reqHdrRaw.has('access-control-request-headers')
+  ) {
+    return new Response(null, PREFLIGHT_INIT)
+  }
+
+  let acehOld = false
+  let rawSvr = ''
+  let rawLen = ''
+  let rawEtag = ''
+
+  const reqHdrNew = new Headers(reqHdrRaw)
+  reqHdrNew.set('x-jsproxy', '1')
+
+  // 此处逻辑和 http-dec-req-hdr.lua 大致相同
+  // https://github.com/EtherDream/jsproxy/blob/master/lua/http-dec-req-hdr.lua
+  const refer = reqHdrNew.get('referer')
+  const query = refer.substr(refer.indexOf('?') + 1)
+  if (!query) {
+    return makeRes('missing params', 403)
+  }
+  const param = new URLSearchParams(query)
+
+  for (const [k, v] of Object.entries(param)) {
+    if (k.substr(0, 2) === '--') {
+      // 系统信息
+      switch (k.substr(2)) {
+      case 'aceh':
+        acehOld = true
+        break
+      case 'raw-info':
+        [rawSvr, rawLen, rawEtag] = v.split('|')
+        break
+      }
+    } else {
+      // 还原 HTTP 请求头
+      if (v) {
+        reqHdrNew.set(k, v)
+      } else {
+        reqHdrNew.delete(k)
+      }
+    }
+  }
+  if (!param.has('referer')) {
+    reqHdrNew.delete('referer')
+  }
+
+  // cfworker 会把路径中的 `//` 合并成 `/`
+  const urlStr = pathname.replace(/^(https?):\/+/, '$1://')
+  const urlObj = newUrl(urlStr)
+  if (!urlObj) {
+    return makeRes('invalid proxy url: ' + urlStr, 403)
+  }
+
+  /** @type {RequestInit} */
+  const reqInit = {
+    method: req.method,
+    headers: reqHdrNew,
+    redirect: 'manual',
+  }
+  if (req.method === 'POST') {
+    reqInit.body = req.body
+  }
+  return proxy(urlObj, reqInit, acehOld, rawLen, 0)
+}
+
+
+/**
+ * 
+ * @param {URL} urlObj 
+ * @param {RequestInit} reqInit 
+ * @param {number} retryTimes 
+ */
+async function proxy(urlObj, reqInit, acehOld, rawLen, retryTimes) {
+  const res = await fetch(urlObj.href, reqInit)
+  const resHdrOld = res.headers
+  const resHdrNew = new Headers(resHdrOld)
+
+  let expose = '*'
+  
+  for (const [k, v] of resHdrOld.entries()) {
+    if (k === 'access-control-allow-origin' ||
+        k === 'access-control-expose-headers' ||
+        k === 'location' ||
+        k === 'set-cookie'
+    ) {
+      const x = '--' + k
+      resHdrNew.set(x, v)
+      if (acehOld) {
+        expose = expose + ',' + x
+      }
+      resHdrNew.delete(k)
+    }
+    else if (acehOld &amp;&amp;
+      k !== 'cache-control' &amp;&amp;
+      k !== 'content-language' &amp;&amp;
+      k !== 'content-type' &amp;&amp;
+      k !== 'expires' &amp;&amp;
+      k !== 'last-modified' &amp;&amp;
+      k !== 'pragma'
+    ) {
+      expose = expose + ',' + k
+    }
+  }
+
+  if (acehOld) {
+    expose = expose + ',--s'
+    resHdrNew.set('--t', '1')
+  }
+
+  // verify
+  if (rawLen) {
+    const newLen = resHdrOld.get('content-length') || ''
+    const badLen = (rawLen !== newLen)
+
+    if (badLen) {
+      if (retryTimes &lt; MAX_RETRY) {
+        urlObj = await parseYtVideoRedir(urlObj, newLen, res)
+        if (urlObj) {
+          return proxy(urlObj, reqInit, acehOld, rawLen, retryTimes + 1)
+        }
+      }
+      return makeRes(res.body, 400, {
+        '--error': `bad len: ${newLen}, except: ${rawLen}`,
+        'access-control-expose-headers': '--error',
+      })
+    }
+
+    if (retryTimes &gt; 1) {
+      resHdrNew.set('--retry', retryTimes)
+    }
+  }
+
+  let status = res.status
+
+  resHdrNew.set('access-control-expose-headers', expose)
+  resHdrNew.set('access-control-allow-origin', '*')
+  resHdrNew.set('--s', status)
+  resHdrNew.set('--ver', JS_VER)
+
+  resHdrNew.delete('content-security-policy')
+  resHdrNew.delete('content-security-policy-report-only')
+  resHdrNew.delete('clear-site-data')
+
+  if (status === 301 ||
+      status === 302 ||
+      status === 303 ||
+      status === 307 ||
+      status === 308
+  ) {
+    status = status + 10
+  }
+
+  return new Response(res.body, {
+    status,
+    headers: resHdrNew,
+  })
+}
+
+
+/**
+ * @param {URL} urlObj 
+ */
+function isYtUrl(urlObj) {
+  return (
+    urlObj.host.endsWith('.googlevideo.com') &amp;&amp;
+    urlObj.pathname.startsWith('/videoplayback')
+  )
+}
+
+/**
+ * @param {URL} urlObj 
+ * @param {number} newLen 
+ * @param {Response} res 
+ */
+async function parseYtVideoRedir(urlObj, newLen, res) {
+  if (newLen &gt; 2000) {
+    return null
+  }
+  if (!isYtUrl(urlObj)) {
+    return null
+  }
+  try {
+    const data = await res.text()
+    urlObj = new URL(data)
+  } catch (err) {
+    return null
+  }
+  if (!isYtUrl(urlObj)) {
+    return null
+  }
+  return urlObj
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[注册激活Navicat全系产品的开源代码分享]]></title>
+        <id>https://chwl66.github.io/post/GLrSQjpqd</id>
+        <link href="https://chwl66.github.io/post/GLrSQjpqd">
+        </link>
+        <updated>2019-11-22T01:05:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="注册激活navicat全系产品的开源代码分享">注册激活Navicat全系产品的开源代码分享</h1>
+<figure data-type="image" tabindex="1"><img src="https://fbi.gs/2019/10/18/5da949518a576.png" alt="注册激活Navicat全系产品的开源代码分享"></figure>
+<p>前一段儿时间我水了一篇文章介绍了PJ版本的Navicat，当时有大佬PM我，说有一个开源的注册机。当时也没时间测试一直没写文章！</p>
+<p>最近几天我的Navicat出问题了，打算新装一下！正好试一试这个开源代码！果然可行！！</p>
+<p>博主亲测：Navicat Premium 12.1.22 + Windows 10 X64 激活成功！</p>
+<h2 id="开源地址">开源地址</h2>
+<p><a href="https://github.com/DoubleLabyrinth/navicat-keygen">https://github.com/DoubleLabyrinth/navicat-keygen</a></p>
+<h2 id="软件下载">软件下载</h2>
+<p>访问 <a href="https://www.navicat.com.cn/products">https://www.navicat.com.cn/products</a>，选择自己需要的产品点击【免费试用】即可下载软件！</p>
+<h2 id="操作过程">操作过程</h2>
+<p>1）<a href="https://github.com/DoubleLabyrinth/navicat-keygen/releases">访问地址</a>，下载PJ程序！注意X64的系统要选择X64的软件！</p>
+<p>2）将软件包解压，将里面的2个文件复制到D盘！</p>
+<p>3）以管理员运行 CMD 命令（<strong>按Win + X，选择 命令提示符（管理员）</strong>）</p>
+<p>4）分别执行以下命令！其中第一条命令中引号中的内容伟Navicat安装目录！</p>
+<pre><code>navicat-patcher.exe &quot;C:\Program Files\PremiumSoft\Navicat Premium 12&quot;
+navicat-keygen.exe -text ./RegPrivateKey.pem
+</code></pre>
+<p>执行第二条命令后，选择产品和语言以及版本！最后生成一个激活码。</p>
+<pre><code>Select Navicat product:
+0. DataModeler
+1. Premium
+2. MySQL
+3. PostgreSQL
+4. Oracle
+5. SQLServer
+6. SQLite
+7. MariaDB
+8. MongoDB
+9. ReportViewer
+ 
+(Input index)&amp;gt; 1
+ 
+Select product language:
+0. English
+1. Simplified Chinese
+2. Traditional Chinese
+3. Japanese
+4. Polish
+5. Spanish
+6. French
+7. German
+8. Korean
+9. Russian
+10. Portuguese
+ 
+(Input index)&amp;gt; 1
+ 
+(Input major version number, range: 0 ~ 15, default: 12)&amp;gt; 12
+ 
+Serial number:
+NAVO-2ORP-IN5A-GQEE
+</code></pre>
+<p>5）启动Navicat程序 – 菜单 – 帮助 – 注册。将序列号填入。</p>
+<p>6）电脑断网，然后点击【激活】- 选择【手动激活】会生成请求码</p>
+<p>7）将请求码复制到命令提示符框内，按<strong>2</strong>次回车！会生成激活码！</p>
+<p>8）将激活码复制到升级框内，点击【激活】，然后激活成功！</p>
+<figure data-type="image" tabindex="2"><img src="https://fbi.gs/2019/10/18/5da949517d237.png" alt="img"></figure>
+<h2 id="注意事项">注意事项</h2>
+<p>1）之前使用其他破解版，需要卸载后重启电脑，然后删除原安装目录。</p>
+<p>2）操作过程中错误，从头再来一次即可。</p>
+<p>3）PJ输入的组织名不要太长！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘]]></title>
         <id>https://chwl66.github.io/post/one-scf</id>
