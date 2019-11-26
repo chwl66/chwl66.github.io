@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘 | 温故知新</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1574793574883">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chwl66.github.io">
+        <img src="https://chwl66.github.io/images/avatar.png?v=1574793574883" class="site-logo">
+        <h1 class="site-title">温故知新</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘</h2>
+            <div class="post-date">2019-11-27</div>
+            
+            <div class="post-content">
+              <h2 id="关于folderclone">关于Folderclone</h2>
+<blockquote>
+<p><code>Folderclone</code>，增加了服务帐户的团队成员和上载数据TB的，在使用某种算法每个服务帐户（<code>750GB</code> /天）的载配额。基本上我们可以通过一个项目在团队网盘中添加<code>100</code>个服务帐户。因此，每天可以复制的最大数据是每个项目最大<code>750GB</code> * <code>100</code> = <code>75TB</code>（每天）。</p>
+</blockquote>
+<p>首先计算您每天要复制的数据大小，取决于创建的项目数量。每个项目最多可以创建<code>100</code>个服务帐户。所以每个项目的复制容量是<code>75tb</code>。复制需要至少<code>2</code>个项目。</p>
+<p><strong>详情请查看：</strong></p>
+<blockquote>
+<p>https://github.com/Spazzlo/folderclone<br>
+https://github.com/SameerkumarP/Multifolderclone<br>
+https://blackpearl.biz/threads/7408/<br>
+https://blackpearl.biz/threads/7892/</p>
+</blockquote>
+<h2 id="新建项目">新建项目</h2>
+<p>在<code>Google</code>云端控制台上设置<code>2</code>个项目点击<a href="https://console.developers.google.com/">此处</a> 在【<code>**Google Cloud Platform**</code>】 【<strong>服务条款</strong>】中勾选【<strong>同意并继续</strong>】</p>
+<figure data-type="image" tabindex="1"><a href="https://52mip.com/usr/uploads/2019/09/3101688677.png"><img src="https://52mip.com/usr/uploads/2019/09/3101688677.png" alt="1.png"></a></figure>
+<p>我们必须创建<code>2</code>个新项目，项目名称随便，例如这里设置的项目名称是“<code>foldercloneA</code>”和“<code>foldercloneB</code>”。</p>
+<h2 id="新建项目folderclonea">新建项目foldercloneA</h2>
+<p>在Google云端控制台 【<strong>选择项目</strong>】【<strong>新建项目</strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/4083586491.png"><img src="https://52mip.com/usr/uploads/2019/09/4083586491.png" alt="2.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3326266508.png"><img src="https://52mip.com/usr/uploads/2019/09/3326266508.png" alt="3.png"></a></p>
+<p>在【<strong>API和服务</strong>】【<strong>库</strong>】里面搜索【<code>**Google Drive API**</code>】和【<code>**Identity and Access Management (IAM) API**</code>】并启用它们。<br>
+<a href="https://52mip.com/usr/uploads/2019/09/3669283620.png"><img src="https://52mip.com/usr/uploads/2019/09/3669283620.png" alt="apis.png"></a></p>
+<p>【<strong>导航菜单</strong>】【<strong>IAM和管理</strong>】【<code>**IAM**</code>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2920108775.png"><img src="https://52mip.com/usr/uploads/2019/09/2920108775.png" alt="apis1.png"></a></p>
+<p>【<strong>服务账号</strong>】【<strong>创建服务账号</strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2956986365.png"><img src="https://52mip.com/usr/uploads/2019/09/2956986365.png" alt="apis2.png"></a></p>
+<p>【<strong>服务帐号详情</strong>】【<strong>服务帐号名称</strong>】随便填 比如这里填写的是：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/3485192594.png"><img src="https://52mip.com/usr/uploads/2019/09/3485192594.png" alt="iam_admin_serviceaccounts.png"></a></p>
+<p>【<strong>服务帐号权限（可选）</strong>】【<strong>请选择一个角色</strong>】【<code>**Project**</code>】【<strong>所有者</strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/1840329678.png"><img src="https://52mip.com/usr/uploads/2019/09/1840329678.png" alt="iam_admin_serviceaccounts1.png"></a></p>
+<p>【<strong><code>+</code>添加其它角色</strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/41081976.png"><img src="https://52mip.com/usr/uploads/2019/09/41081976.png" alt="iam_admin_serviceaccounts2.png"></a></p>
+<p>【<strong>请选择一个角色</strong>】【<strong><code>Service Accounts</code></strong>】【<strong><code>Service Account Admin</code></strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2750924325.png"><img src="https://52mip.com/usr/uploads/2019/09/2750924325.png" alt="iam_admin_serviceaccounts3.png"></a></p>
+<p><code>2</code>个角色【<strong><code>Project</code>-所有者</strong>】和【<strong><code>Service Account Admin</code></strong>】【<strong>继续</strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/1602555657.png"><img src="https://52mip.com/usr/uploads/2019/09/1602555657.png" alt="iam_admin_serviceaccounts4.png"></a></p>
+<p>【<strong>创建密钥</strong>】【<strong>密钥类型</strong>】选择默认的【<strong><code>JSON</code></strong>】【<strong>创建</strong>】<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2082809350.png"><img src="https://52mip.com/usr/uploads/2019/09/2082809350.png" alt="iam_admin_serviceaccounts5.png"></a></p>
+<p>私钥已保存到您的计算机<code>folderclonea-253301-XXXXXXf.json</code>可用来访问您的云端资源，请妥善保存。<br>
+<a href="https://52mip.com/usr/uploads/2019/09/385053296.png"><img src="https://52mip.com/usr/uploads/2019/09/385053296.png" alt="iam_admin_serviceaccounts6.png"></a></p>
+<p>打开刚才创建下载的文件<code>folderclonea-253301-XXXXXXf.json</code>找到<code>client_email</code>把里面生成的邮箱记下来<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2240831046.png"><img src="https://52mip.com/usr/uploads/2019/09/2240831046.png" alt="folderclone_client_email.png"></a></p>
+<p>比如我的是【<strong><code>folderclone@folderclonea-253301.iam.gserviceaccount.com</code></strong>】</p>
+<h2 id="新建项目foldercloneb">新建项目foldercloneB</h2>
+<p>在<code>Google</code><a href="https://console.developers.google.com/">云端控制台</a>【<strong>创建项目</strong>】【<strong><code>foldercloneB</code></strong>】【<strong>选择项目</strong>】并切换到项目<code>foldercloneB</code></p>
+<p>添加<code>API</code>【<strong><code>Google Drive API</code></strong>】和【<strong><code>Identity and Access Management (IAM) API</code></strong>】并启用它们。方法跟新建项目<code>foldercloneA</code>一样</p>
+<p>【<strong>导航菜单</strong>】【<strong><code>IAM</code>和管理</strong>】【<strong><code>IAM</code></strong>】【<strong>添加</strong>】项目<code>foldercloneA</code>文件<code>folderclonea-253301-XXXXXXf.json</code>里的邮箱地址<br>
+<a href="https://52mip.com/usr/uploads/2019/09/1624358953.png"><img src="https://52mip.com/usr/uploads/2019/09/1624358953.png" alt="foldercloneB_add_iam_admin.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3818985999.png"><img src="https://52mip.com/usr/uploads/2019/09/3818985999.png" alt="foldercloneB_add_iam_admin1.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3986138146.png"><img src="https://52mip.com/usr/uploads/2019/09/3986138146.png" alt="foldercloneB_add_iam_admin2.png"></a></p>
+<p>并记录保存好<code>foldercloneB_ID</code><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3992917527.png"><img src="https://52mip.com/usr/uploads/2019/09/3992917527.png" alt="foldercloneB_ID.png"></a></p>
+<p>比如这里的是<code>foldercloneb-253302</code></p>
+<h2 id="安装python并配置依赖环境">安装Python并配置依赖环境</h2>
+<p>使用<code>64-bit</code>的<code>Windows</code></p>
+<h3 id="下载python并安装">下载Python并安装</h3>
+<p><a href="https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe">下载Python 3.7.4 64-bit</a>， 并按如下图所示安装<br>
+<a href="https://52mip.com/usr/uploads/2019/09/4118890716.png"><img src="https://52mip.com/usr/uploads/2019/09/4118890716.png" alt="install_python1.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/186223995.png"><img src="https://52mip.com/usr/uploads/2019/09/186223995.png" alt="install_python2.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/4045478632.png"><img src="https://52mip.com/usr/uploads/2019/09/4045478632.png" alt="install_python3.png"></a></p>
+<h3 id="安装依赖环境">安装依赖环境</h3>
+<p>在<code>C:\Program Files\Python37</code>目录中按【<strong><code>Shift</code>+鼠标右键</strong>】，或者在<code>C:\Program Files\Python37</code>目录地址栏中输入“<code>CMD</code>”，然后点击回车键：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2438276197.png"><img src="https://52mip.com/usr/uploads/2019/09/2438276197.png" alt="Python99.png"></a></p>
+<p>打开<code>CMD</code>安装以下依赖环境</p>
+<pre><code>python -m pip install --upgrade pip
+pip install oauth2client
+pip install google-api-python-client
+pip install progress
+pip install progressbar2
+pip install  httplib2shim
+</code></pre>
+<h2 id="设置folderclone">设置folderclone</h2>
+<p>项目地址<code>https://github.com/SameerkumarP/Multifolderclone</code></p>
+<h3 id="设置folderclone文件">设置<code>folderclone</code>文件</h3>
+<p>克隆<a href="https://github.com/SameerkumarP/Multifolderclone/archive/master.zip">下载</a><code>folderclone</code>到本地，解压并移动文件夹到您想要的地方。</p>
+<p>在该目录下新建文件夹名为<code>CONTROLLER</code><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3839061081.png"><img src="https://52mip.com/usr/uploads/2019/09/3839061081.png" alt="CONTROLLER.png"></a></p>
+<p>把项目<code>foldercloneA</code>文件<code>folderclonea-253301-XXXXXXf.json</code>复制到文件夹<code>CONTROLLER</code>目录下：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2532663970.png"><img src="https://52mip.com/usr/uploads/2019/09/2532663970.png" alt="CONTROLLER1.png"></a></p>
+<h3 id="生成并创建folderclone用户及配置文件">生成并创建<code>folderclone</code>用户及配置文件</h3>
+<p>进入<code>folderclone</code>文件夹目录<br>
+<a href="https://52mip.com/usr/uploads/2019/09/122986206.png"><img src="https://52mip.com/usr/uploads/2019/09/122986206.png" alt="folderclone_add_user.png"></a></p>
+<p>运行以下命令</p>
+<blockquote>
+<p>python serviceaccountfactory.py</p>
+</blockquote>
+<p>然后第<code>2</code>步的时候，手动输入<code>foldercloneB_ID</code>空格加数字<code>100</code>回车，回车。</p>
+<p>输入生成的自定义邮箱前缀，比如我用的是<code>users</code>。</p>
+<p>比如这里的是<code>foldercloneb-253302</code> <code>100</code>：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/1430641121.png"><img src="https://52mip.com/usr/uploads/2019/09/1430641121.png" alt="folderclone_users_config.png"></a></p>
+<p>等待完成后会生成文件夹<code>accounts</code>里面会看到<code>1</code>到<code>199</code>的用户配置文件：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/3705285315.png"><img src="https://52mip.com/usr/uploads/2019/09/3705285315.png" alt="accounts.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/2827667328.png"><img src="https://52mip.com/usr/uploads/2019/09/2827667328.png" alt="accounts1.png"></a></p>
+<p>这时我们可以压缩保存整个文件夹了。</p>
+<h2 id="共享云端硬盘添加成员">共享云端硬盘添加成员</h2>
+<p>查看【<strong>共享云端硬盘</strong>】的<code>ID</code>：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/910341819.png"><img src="https://52mip.com/usr/uploads/2019/09/910341819.png" alt="team_ID.png"></a></p>
+<p>进入【<strong>共享云端硬盘</strong>】添加新成员项目<code>folderclone-253301-XXXXXXf.json</code>找到<code>client_email</code>里面的邮箱为管理员：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/177925209.png"><img src="https://52mip.com/usr/uploads/2019/09/177925209.png" alt="team_add_admin.png"></a></p>
+<p>进入<code>folderclone</code>文件夹目录：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/2165363132.png"><img src="https://52mip.com/usr/uploads/2019/09/2165363132.png" alt="folderclone_add_user (1).png"></a></p>
+<p>执行<code>python masshare.py -d YYYYYY</code> 其中<code>YYYYYY</code>替换成【<strong>共享云端硬盘</strong>】的<code>ID</code>：</p>
+<pre><code>python masshare.py -d YYYYYY
+</code></pre>
+<p><a href="https://52mip.com/usr/uploads/2019/09/3433358180.png"><img src="https://52mip.com/usr/uploads/2019/09/3433358180.png" alt="folderclone_add_user1.png"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3683405700.png"><img src="https://52mip.com/usr/uploads/2019/09/3683405700.png" alt="folderclone_add_user2.png"></a></p>
+<h2 id="拷贝文件到共享云端硬盘">拷贝文件到共享云端硬盘</h2>
+<p>先获取共享链接，且设置成知道此链接的任何人都可以查看：</p>
+<p>例如分享链接<code>https://drive.google.com/open?id=1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA</code><br>
+<a href="https://52mip.com/usr/uploads/2019/09/4204873847.png"><img src="https://52mip.com/usr/uploads/2019/09/4204873847.png" alt="sharefileID.png"></a></p>
+<pre><code>id=1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA
+</code></pre>
+<p>如果是别人分享的链接，先右击选择添加到我的云端硬盘：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/3619131553.png"><img src="https://52mip.com/usr/uploads/2019/09/3619131553.png" alt="add_my_drive.png"></a></p>
+<p>查看【<strong>共享云端硬盘</strong>】的<code>ID</code>：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/492178085.png"><img src="https://52mip.com/usr/uploads/2019/09/492178085.png" alt="team_ID.png"></a></p>
+<p>进入<code>folderclone</code>文件夹目录：<br>
+<a href="https://52mip.com/usr/uploads/2019/09/207284959.png"><img src="https://52mip.com/usr/uploads/2019/09/207284959.png" alt="folderclone_add_user.png"></a></p>
+<p>在<code>CMD</code>窗口执行：</p>
+<pre><code>python multifolderclone.py -s 源文件ID -d TD-ID
+</code></pre>
+<p>例如：</p>
+<pre><code>python multifolderclone.py -s 1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA -d 0ANSyUOxsS0C7Uk9PVA
+</code></pre>
+<h2 id="共享云端硬盘文件转移到我的云端硬盘">【<strong>共享云端硬盘</strong>】文件转移到【<strong>我的云端硬盘</strong>】</h2>
+<p>借助【<strong>共享云端硬盘</strong>】作为文件中转站，我们可以从【<strong>共享云端硬盘</strong>】把文件或文件夹移动到【<strong>我的云端硬盘</strong>】</p>
+<p>注意及说明</p>
+<ol>
+<li><code>folderclone</code>在拷贝文件夹数目多的时候不全会丢文件，文件夹较少就不会，比如就在那么几个文件夹，哪怕每个文件夹目录下有成千上万个文件也没事。</li>
+<li>运行<code>CMD</code>窗口不要太多，最好最多就俩个吧，多少会大概率丢文件。</li>
+<li>速度比【<strong>Copy, URL to Google Drive</strong>】【<strong>rclone</strong>】【<strong>air explorer</strong>】等快得多，并且不占用本地带宽。</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chwl66.github.io/post/OVI5xWH9j">
+                  <h3 class="post-title">
+                    AriaNg + rclone 实现 Google Drive 离线下载
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+
+              
+                <div id="disqus_thread" data-aos="fade-in"></div>
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'gridea',
+      apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+    }
+    if ('') {
+      options.api = ''
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>
