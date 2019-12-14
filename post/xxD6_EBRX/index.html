@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Hello Gridea | 温故知新</title>
+<title>typecho在后台增加图床上传图片按钮 | 温故知新</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -98,45 +98,34 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Hello Gridea</h2>
-            <div class="post-date">2018-12-12</div>
-            
-              <div class="feature-container" style="background-image: url('https://chwl66.github.io/post-images/hello-gridea.png')">
-              </div>
+            <h2 class="post-title">typecho在后台增加图床上传图片按钮</h2>
+            <div class="post-date">2019-12-14</div>
             
             <div class="post-content">
-              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+              <h4 id="路过图床httpsimgsecom是一个不错的图床网站图片放到图床将有效缓解网站服务器带宽和存储空间的压力">路过图床](https://imgse.com/)是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力</h4>
+<h4 id="官方提供的插件代码支持的网站程序很多如下图">官方提供的插件代码支持的网站程序很多，如下图</h4>
+<figure data-type="image" tabindex="1"><a href="https://blog.mioshu.com/usr/uploads/2018/10/4026538358.png"><img src="https://blog.mioshu.com/usr/uploads/2018/10/4026538358.png" alt="路过图床1.png"></a></figure>
+<h4 id="其中并未显示支持typecho所以我们需要稍作修改下面是修改好的代码">其中并未显示支持typecho，所以我们需要稍作修改，下面是修改好的代码</h4>
+<pre><code>&lt;script async id=&quot;chevereto-pup-src&quot; src=&quot;https://imgse.com/sdk/pup.js&quot; data-url=&quot;https://imgse.com/upload&quot; data-auto-insert=&quot;markdown-embed&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h4 id="将代码放到需要上传图片的文件内一般放在footerphp的body之前">将代码放到需要上传图片的文件内，一般放在footer.php的</body>之前</h4>
+<p>如果要实现后台上传图片，则需要在typecho的安装目录admin/footer.php里增加以上代码</p>
+<figure data-type="image" tabindex="2"><a href="https://blog.mioshu.com/usr/uploads/2018/10/3204539990.png"><img src="https://blog.mioshu.com/usr/uploads/2018/10/3204539990.png" alt="路过图床2.png"></a></figure>
+<h4 id="设置好之后后台编辑框出现如下效果">设置好之后后台编辑框出现如下效果</h4>
+<figure data-type="image" tabindex="3"><a href="https://blog.mioshu.com/usr/uploads/2018/10/1206380899.png"><img src="https://blog.mioshu.com/usr/uploads/2018/10/1206380899.png" alt="路过图床3.png"></a></figure>
+<h4 id="上传完成后markdown格式的代码会自动出现在编辑框里插入图片的操作将会非常方便">上传完成后markdown格式的代码会自动出现在编辑框里，插入图片的操作将会非常方便</h4>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://chwl66.github.io/tag/FX9cSONM-" class="tag">
-                    Gridea
-                  </a>
-                
-              </div>
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chwl66.github.io/post/FNHwd2cm5">
+                  <h3 class="post-title">
+                    WordPress编辑器中添加“上传到Chevereto图床”按钮
+                  </h3>
+                </a>
+              </div>
             
 
             
