@@ -1,108 +1,52 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
-
-<title>WordPress采集插件 | 温故知新</title>
-<meta name="description" content="温故而知新">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1577263019646">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
-
-
-  
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://chwl66.github.io">
-        <img src="https://chwl66.github.io/images/avatar.png?v=1577263019646" class="site-logo">
-        <h1 class="site-title">温故知新</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+      <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="referrer" content="never">
+        <title>WordPress采集插件 | 温故知新</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+          <script src="https://chwl66.github.io/media/scripts/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+        <script src="https://chwl66.github.io/media/scripts/script.js"></script>
+        <script >hljs.initHighlightingOnLoad();</script>
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      温故而知新
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
 
+    </head>
+    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
+        <header class="index-img mdui-m-b-3" >
+                          <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
+                <ul class="mdui-menu" id="demo-attr-cascade">
+                
+                        <li class="mdui-menu-item">
+                          <a href="/" class="mdui-ripple">首页</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/archives" class="mdui-ripple">归档</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/tags" class="mdui-ripple">标签</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/post/about" class="mdui-ripple">关于</a>
+                        </li>
+                
+                      </ul>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">WordPress采集插件</h2>
-            <div class="post-date">2019-11-29</div>
-            
-            <div class="post-content">
-              <p><strong>简介</strong>如何安装下载插件长腿蜘蛛-CTspider 然后到WordPress插件页面点击上传，安装启用即可。 如果使用FTP上传,请使用二进制上传协议。如何授权登录长腿蜘蛛-CTspider官网注册账号（P</p>
+        </header>
+        <div class="mdui-container post">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
+                         <article class="mdui-shadow-10 mdui-p-a-2 post-list">
+                           <div class="mdui-typo-display-1 mdui-m-b-3">WordPress采集插件</div>
+                           <a  class="index-list-biaoqian ">2019-11-29</a>
+                           <div class="mdui-typo mdui-m-t-3 post-neirong"><p><strong>简介</strong>如何安装下载插件长腿蜘蛛-CTspider 然后到WordPress插件页面点击上传，安装启用即可。 如果使用FTP上传,请使用二进制上传协议。如何授权登录长腿蜘蛛-CTspider官网注册账号（P</p>
 <h2 id="如何安装">如何安装</h2>
 <p>下载插件<a href="https://www.ctspider.com/">长腿蜘蛛-CTspider</a></p>
 <ol>
@@ -173,89 +117,144 @@
 <figure data-type="image" tabindex="9"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%952.png" alt="img"></figure>
 <p>接代写规则，出已有规则，有意者私聊。<br>
 <img src="https://ravpf.cn/d/file/p/2019/11-23/c7f4e20fbf5bbf51b7347711cd83bca9.png" alt="img"></p>
+</div>
+                              <div class="mdui-divider mdui-m-t-3"></div>
+                              <div class="mdui-row-xs-2 mdui-m-t-2">
+  <div class="mdui-col"> <div class="mdui-text-left"><a href="https://chwl66.github.io/post/Y80xYA7z9">typecho在后台增加图床上传图片按钮</a></div></div>
+ <div class="mdui-col"><div class="mdui-text-right "><a href="https://chwl66.github.io/post/d8paPRJx0">【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘</a></div> </div>
+                                </div>
+                                <div class="mdui-divider mdui-m-t-2"></div>
+   
+          
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://chwl66.github.io/tag/yx9gJ4UCy" class="tag">
-                    WordPress
-                  </a>
-                
-                  <a href="https://chwl66.github.io/tag/D6zWGHBikg" class="tag">
-                    采集
-                  </a>
-                
-                  <a href="https://chwl66.github.io/tag/bApOkhwQIw" class="tag">
-                    插件
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://chwl66.github.io/post/d8paPRJx0">
-                  <h3 class="post-title">
-                    【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘
-                  </h3>
-                </a>
-              </div>
-            
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
 
-            
-              
+<div id="disqus_thread"></div>
 
-              
-                <div id="disqus_thread" data-aos="fade-in"></div>
-              
-            
+<script>
 
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+var options = {
+  shortname: 'gridea',
+  apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
 
 </script>
 
+          
+        
+ <script src="https://chwl66.github.io/media/scripts/Valine.min.js"></script>
+ <div class="comment"></div>
+
+<script>
+      new Valine({
+            el: '.comment',
 
 
-  
 
-  
-    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-    <script>
+            path: window.location.pathname,
+            pageSize: 30,
+            avatar:'mm', 
+       })
 
-    var options = {
-      shortname: 'gridea',
-      apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+    </script> 
+<script>
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
     }
-    if ('') {
-      options.api = ''
-    }
-    var dsqjs = new DisqusJS(options)
+</script>
+                         </article>
+                 <div class="toc-container mdui-float-right">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85">如何安装</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E6%8E%88%E6%9D%83">如何授权</a></li>
+<li><a href="#%E6%9C%80%E8%BF%91%E6%9C%89%E5%BE%88%E5%A4%9A%E7%BD%91%E5%8F%8B%E9%97%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E7%82%B9%E5%87%BB%E9%87%87%E9%9B%86%E5%90%8E%E6%98%BE%E7%A4%BA%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E6%95%B0%E6%8D%AE%E5%8F%AA%E6%9C%89%E4%B8%A4%E7%A7%8D%E5%8F%AF%E8%83%BD">最近有很多网友问：为什么点击采集后显示没有任何数据只有两种可能</a></li>
+<li><a href="#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE">新建项目 / 基本配置</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8%E8%AE%BE%E7%BD%AE">列表设置</a>
+<ul>
+<li><a href="#%E7%82%B9%E5%87%BB%E5%88%97%E8%A1%A8%E6%B5%8B%E8%AF%95%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%E5%88%97%E8%A1%A8%E9%85%8D%E7%BD%AE%E6%83%85%E5%86%B5"><strong>点击列表测试可以查看当前项目列表配置情况</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE">文章设置</a>
+<ul>
+<li><a href="#%E7%82%B9%E5%87%BB%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%95"><strong>点击采集测试</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E5%86%85%E5%AE%B9%E8%BF%87%E6%BB%A4">内容过滤</a>
+<ul>
+<li><a href="#%E5%85%B7%E4%BD%93%E8%AE%BE%E7%BD%AE%E5%A6%82%E4%B8%8B%E5%9B%BE"><strong>具体设置如下图：</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E%E5%9C%A8%E8%BF%9B%E8%A1%8C%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%95%E5%BE%97%E5%88%B0%E7%BA%AF%E5%87%80%E7%9A%84%E6%95%B0%E6%8D%AE">最后在进行采集测试（得到纯净的数据）</a></li>
+</ul>
+</li>
+</ul>
 
-    </script>
-  
+              </div>
 
-
-
-
-  </body>
+                        </div>
+                 </div>
+          
+        </div>
+        <script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $.viewImage({
+                    'target'  : '.post-neirong img',
+                    'exclude' : '.vsmile-icons img , .song-links-item img',
+                    'delay'   : 300
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+        <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                      </ul>
+                    </nav>
+                    <div class="copyright">
+                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
+                  </div>
+              </footer>
+    </body>
 </html>

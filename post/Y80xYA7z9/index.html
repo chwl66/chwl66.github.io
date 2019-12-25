@@ -1,108 +1,52 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
-
-<title>typecho在后台增加图床上传图片按钮 | 温故知新</title>
-<meta name="description" content="温故而知新">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1577263019646">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
-
-
-  
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://chwl66.github.io">
-        <img src="https://chwl66.github.io/images/avatar.png?v=1577263019646" class="site-logo">
-        <h1 class="site-title">温故知新</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+      <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="referrer" content="never">
+        <title>typecho在后台增加图床上传图片按钮 | 温故知新</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+          <script src="https://chwl66.github.io/media/scripts/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+        <script src="https://chwl66.github.io/media/scripts/script.js"></script>
+        <script >hljs.initHighlightingOnLoad();</script>
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      温故而知新
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
 
+    </head>
+    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
+        <header class="index-img mdui-m-b-3" >
+                          <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
+                <ul class="mdui-menu" id="demo-attr-cascade">
+                
+                        <li class="mdui-menu-item">
+                          <a href="/" class="mdui-ripple">首页</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/archives" class="mdui-ripple">归档</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/tags" class="mdui-ripple">标签</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/post/about" class="mdui-ripple">关于</a>
+                        </li>
+                
+                      </ul>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">typecho在后台增加图床上传图片按钮</h2>
-            <div class="post-date">2019-11-30</div>
-            
-            <div class="post-content">
-              <h4 id="路过图床"><a href="https://imgse.com/">路过图床</a>是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力</h4>
+        </header>
+        <div class="mdui-container post">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
+                         <article class="mdui-shadow-10 mdui-p-a-2 post-list">
+                           <div class="mdui-typo-display-1 mdui-m-b-3">typecho在后台增加图床上传图片按钮</div>
+                           <a  class="index-list-biaoqian ">2019-11-30</a>
+                           <div class="mdui-typo mdui-m-t-3 post-neirong"><h4 id="路过图床"><a href="https://imgse.com/">路过图床</a>是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力</h4>
 <h4 id="官方提供的插件代码支持的网站程序很多如下图">官方提供的插件代码支持的网站程序很多，如下图</h4>
 <figure data-type="image" tabindex="1"><a href="https://s2.ax1x.com/2019/12/02/Qmhx1K.png"><img src="https://s2.ax1x.com/2019/12/02/Qmhx1K.png" alt="路过图床1.png"></a></figure>
 <h4 id="其中并未显示支持typecho所以我们需要稍作修改下面是修改好的代码">其中并未显示支持typecho，所以我们需要稍作修改，下面是修改好的代码</h4>
@@ -114,73 +58,138 @@
 <h4 id="设置好之后后台编辑框出现如下效果">设置好之后后台编辑框出现如下效果</h4>
 <figure data-type="image" tabindex="3"><a href="https://s2.ax1x.com/2019/12/02/Qm4P7d.png"><img src="https://s2.ax1x.com/2019/12/02/Qm4P7d.png" alt="路过图床3.png"></a></figure>
 <h4 id="上传完成后markdown格式的代码会自动出现在编辑框里插入图片的操作将会非常方便">上传完成后markdown格式的代码会自动出现在编辑框里，插入图片的操作将会非常方便</h4>
+</div>
+                              <div class="mdui-divider mdui-m-t-3"></div>
+                              <div class="mdui-row-xs-2 mdui-m-t-2">
+  <div class="mdui-col"> <div class="mdui-text-left"><a href="https://chwl66.github.io/post/FNHwd2cm5">WordPress编辑器中添加“上传到Chevereto图床”按钮</a></div></div>
+ <div class="mdui-col"><div class="mdui-text-right "><a href="https://chwl66.github.io/post/DmB2y0jPB">WordPress采集插件</a></div> </div>
+                                </div>
+                                <div class="mdui-divider mdui-m-t-2"></div>
+   
+          
 
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://chwl66.github.io/post/DmB2y0jPB">
-                  <h3 class="post-title">
-                    WordPress采集插件
-                  </h3>
-                </a>
-              </div>
-            
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
 
-            
-              
+<div id="disqus_thread"></div>
 
-              
-                <div id="disqus_thread" data-aos="fade-in"></div>
-              
-            
+<script>
 
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+var options = {
+  shortname: 'gridea',
+  apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
 
 </script>
 
+          
+        
+ <script src="https://chwl66.github.io/media/scripts/Valine.min.js"></script>
+ <div class="comment"></div>
+
+<script>
+      new Valine({
+            el: '.comment',
 
 
-  
 
-  
-    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-    <script>
+            path: window.location.pathname,
+            pageSize: 30,
+            avatar:'mm', 
+       })
 
-    var options = {
-      shortname: 'gridea',
-      apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+    </script> 
+<script>
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
     }
-    if ('') {
-      options.api = ''
-    }
-    var dsqjs = new DisqusJS(options)
+</script>
+                         </article>
+                 <div class="toc-container mdui-float-right">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E8%B7%AF%E8%BF%87%E5%9B%BE%E5%BA%8A">路过图床</a></li>
+<li><a href="#%E5%AE%98%E6%96%B9%E6%8F%90%E4%BE%9B%E7%9A%84%E6%8F%92%E4%BB%B6%E4%BB%A3%E7%A0%81%E6%94%AF%E6%8C%81%E7%9A%84%E7%BD%91%E7%AB%99%E7%A8%8B%E5%BA%8F%E5%BE%88%E5%A4%9A%E5%A6%82%E4%B8%8B%E5%9B%BE">官方提供的插件代码支持的网站程序很多，如下图</a></li>
+<li><a href="#%E5%85%B6%E4%B8%AD%E5%B9%B6%E6%9C%AA%E6%98%BE%E7%A4%BA%E6%94%AF%E6%8C%81typecho%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E7%A8%8D%E4%BD%9C%E4%BF%AE%E6%94%B9%E4%B8%8B%E9%9D%A2%E6%98%AF%E4%BF%AE%E6%94%B9%E5%A5%BD%E7%9A%84%E4%BB%A3%E7%A0%81">其中并未显示支持typecho，所以我们需要稍作修改，下面是修改好的代码</a></li>
+<li><a href="#%E5%B0%86%E4%BB%A3%E7%A0%81%E6%94%BE%E5%88%B0%E9%9C%80%E8%A6%81%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E6%96%87%E4%BB%B6%E5%86%85%E4%B8%80%E8%88%AC%E6%94%BE%E5%9C%A8footerphp%E7%9A%84body%E4%B9%8B%E5%89%8D">将代码放到需要上传图片的文件内，一般放在footer.php的</body>之前</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E5%A5%BD%E4%B9%8B%E5%90%8E%E5%90%8E%E5%8F%B0%E7%BC%96%E8%BE%91%E6%A1%86%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E6%95%88%E6%9E%9C">设置好之后后台编辑框出现如下效果</a></li>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E5%AE%8C%E6%88%90%E5%90%8Emarkdown%E6%A0%BC%E5%BC%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%87%BA%E7%8E%B0%E5%9C%A8%E7%BC%96%E8%BE%91%E6%A1%86%E9%87%8C%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E6%93%8D%E4%BD%9C%E5%B0%86%E4%BC%9A%E9%9D%9E%E5%B8%B8%E6%96%B9%E4%BE%BF">上传完成后markdown格式的代码会自动出现在编辑框里，插入图片的操作将会非常方便</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-    </script>
-  
+              </div>
 
-
-
-
-  </body>
+                        </div>
+                 </div>
+          
+        </div>
+        <script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $.viewImage({
+                    'target'  : '.post-neirong img',
+                    'exclude' : '.vsmile-icons img , .song-links-item img',
+                    'delay'   : 300
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+        <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                      </ul>
+                    </nav>
+                    <div class="copyright">
+                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
+                  </div>
+              </footer>
+    </body>
 </html>

@@ -1,308 +1,293 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
-
-<title>温故知新</title>
-<meta name="description" content="温故而知新">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chwl66.github.io/favicon.ico?v=1577263019646">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://chwl66.github.io">
-        <img src="https://chwl66.github.io/images/avatar.png?v=1577263019646" class="site-logo">
-        <h1 class="site-title">温故知新</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+      <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="referrer" content="never">
+        <title>温故知新</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+          <script src="https://chwl66.github.io/media/scripts/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+        <script src="https://chwl66.github.io/media/scripts/script.js"></script>
+        <script >hljs.initHighlightingOnLoad();</script>
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      温故而知新
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chwl66.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
 
+    </head>
+    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
+        <header class=" mdui-m-b-3 header">
+                          <button class="mdui-btn daohang mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
+                <ul class="mdui-menu " id="demo-attr-cascade">
+                
+                        <li class="mdui-menu-item">
+                          <a href="/" class="mdui-ripple">首页</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/archives" class="mdui-ripple">归档</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/tags" class="mdui-ripple">标签</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/post/about" class="mdui-ripple">关于</a>
+                        </li>
+                
+                      </ul>
+                      <div class="mdui-text-center">
+                      <div class="mdui-typo-display-4 mdui-m-b-3 index-title">温故知新</div>
+                      <div class="mdui-typo-headline">温故而知新</div>
+                      </div>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
+        </header >
+        <div class="mdui-container">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-6 mdui-col-offset-md-3 ">
+                                                     
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/FNHwd2cm5" class="index-list-title">WordPress编辑器中添加“上传到Chevereto图床”按钮</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://s2.ax1x.com/2019/12/01/Qmrvq0.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/FNHwd2cm5" class="index-list-biaoqian mdui-float-right yinying">2019-12-01</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/Y80xYA7z9" class="index-list-title">typecho在后台增加图床上传图片按钮</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/Y80xYA7z9" class="index-list-biaoqian mdui-float-right yinying">2019-11-30</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/DmB2y0jPB" class="index-list-title">WordPress采集插件</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/tag/yx9gJ4UCy" class="index-list-biaoqian mdui-float-left yinying">WordPress</a>
+                                               
+                                              <a href="https://chwl66.github.io/tag/D6zWGHBikg" class="index-list-biaoqian mdui-float-left yinying">采集</a>
+                                               
+                                              <a href="https://chwl66.github.io/tag/bApOkhwQIw" class="index-list-biaoqian mdui-float-left yinying">插件</a>
+                                               
+                                              <a href="https://chwl66.github.io/post/DmB2y0jPB" class="index-list-biaoqian mdui-float-right yinying">2019-11-29</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/d8paPRJx0" class="index-list-title">【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/d8paPRJx0" class="index-list-biaoqian mdui-float-right yinying">2019-11-27</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/OVI5xWH9j" class="index-list-title">AriaNg + rclone 实现 Google Drive 离线下载</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/OVI5xWH9j" class="index-list-biaoqian mdui-float-right yinying">2019-11-22</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/sRQUu33vw" class="index-list-title">GoIndex部署教程，用Google Drive来做目录索引网盘</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://shop.io.mi-img.com/app/shop/img?id=shop_09a468f93e5bf97d2fd771d2999c7c9b.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/sRQUu33vw" class="index-list-biaoqian mdui-float-right yinying">2019-11-22</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/28IUd1HzY" class="index-list-title">PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://fbi.gs/2019/10/21/5dad4fcc9d2c7.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/28IUd1HzY" class="index-list-biaoqian mdui-float-right yinying">2019-11-22</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/pLeXJDL_N" class="index-list-title">利用CloudFlare Worker 免费部署 JSProxy 服务</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://ae04.alicdn.com/kf/HTB1d3AHaAT2gK0jSZPc763KkpXaT.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/pLeXJDL_N" class="index-list-biaoqian mdui-float-right yinying">2019-11-22</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/GLrSQjpqd" class="index-list-title">注册激活Navicat全系产品的开源代码分享</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://fbi.gs/2019/10/18/5da949518a576.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/GLrSQjpqd" class="index-list-biaoqian mdui-float-right yinying">2019-11-22</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://chwl66.github.io/post/one-scf" class="index-list-title">利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://ae04.alicdn.com/kf/H31fa58e3c58a4b189ac37c25508b9715W.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://chwl66.github.io/post/one-scf" class="index-list-biaoqian mdui-float-right yinying">2019-11-21</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+                                                   <nav class="mdui-m-y-3">
+                         
+                         
+                          <button class="mdui-btn mdui-color-theme-500 yinying mdui-btn-icon mdui-float-right"><a href="https://chwl66.github.io/page/2/"><i class="mdui-icon mdui-text-color-white material-icons">&#xe5c8;</i></a></button>
+                          
+                         </nav>
+
+                        </div>
+                 </div>
           
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/FNHwd2cm5">
-                  <h2 class="post-title">WordPress编辑器中添加“上传到Chevereto图床”按钮</h2>
-                </a>
-                <div class="post-date">
-                  2019-12-01
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://chwl66.github.io/post/FNHwd2cm5">
-                  <div class="feature-container" style="background-image: url('https://s2.ax1x.com/2019/12/01/Qmrvq0.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/Y80xYA7z9">
-                  <h2 class="post-title">typecho在后台增加图床上传图片按钮</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-30
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/DmB2y0jPB">
-                  <h2 class="post-title">WordPress采集插件</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-29
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/d8paPRJx0">
-                  <h2 class="post-title">【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-27
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/OVI5xWH9j">
-                  <h2 class="post-title">AriaNg + rclone 实现 Google Drive 离线下载</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/sRQUu33vw">
-                  <h2 class="post-title">GoIndex部署教程，用Google Drive来做目录索引网盘</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://chwl66.github.io/post/sRQUu33vw">
-                  <div class="feature-container" style="background-image: url('https://shop.io.mi-img.com/app/shop/img?id=shop_09a468f93e5bf97d2fd771d2999c7c9b.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/28IUd1HzY">
-                  <h2 class="post-title">PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://chwl66.github.io/post/28IUd1HzY">
-                  <div class="feature-container" style="background-image: url('https://fbi.gs/2019/10/21/5dad4fcc9d2c7.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/pLeXJDL_N">
-                  <h2 class="post-title">利用CloudFlare Worker 免费部署 JSProxy 服务</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://chwl66.github.io/post/pLeXJDL_N">
-                  <div class="feature-container" style="background-image: url('https://ae04.alicdn.com/kf/HTB1d3AHaAT2gK0jSZPc763KkpXaT.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/GLrSQjpqd">
-                  <h2 class="post-title">注册激活Navicat全系产品的开源代码分享</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://chwl66.github.io/post/GLrSQjpqd">
-                  <div class="feature-container" style="background-image: url('https://fbi.gs/2019/10/18/5da949518a576.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chwl66.github.io/post/one-scf">
-                  <h2 class="post-title">利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-21
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://chwl66.github.io/post/one-scf">
-                  <div class="feature-container" style="background-image: url('https://ae04.alicdn.com/kf/H31fa58e3c58a4b189ac37c25508b9715W.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-
-          <div class="pagination-container">
-  
-  
-    <a href="https://chwl66.github.io/page/2/" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
-  
-</div>
-
         </div>
-      </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
-</script>
-
-
-
-
-  </body>
+        <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                      </ul>
+                    </nav>
+                    <div class="copyright">
+                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
+                  </div>
+              </footer>
+    </body>
 </html>
