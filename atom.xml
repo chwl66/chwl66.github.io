@@ -2,18 +2,231 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chwl66.github.io</id>
     <title>温故知新</title>
-    <updated>2019-12-25T09:23:16.105Z</updated>
+    <updated>2020-03-17T01:51:50.961Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chwl66.github.io"/>
     <link rel="self" href="https://chwl66.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://chwl66.github.io/images/avatar.png</logo>
     <icon>https://chwl66.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, 温故知新</rights>
+    <rights>All rights reserved 2020, 温故知新</rights>
+    <entry>
+        <title type="html"><![CDATA[GitHub+Hexo 搭建个人网站详细教程]]></title>
+        <id>https://chwl66.github.io/post/WlKJ1XeEq/</id>
+        <link href="https://chwl66.github.io/post/WlKJ1XeEq/">
+        </link>
+        <updated>2020-03-17T01:50:50.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="前言"><strong>前言：</strong></h2>
+<p>随着互联网浪潮的翻腾，国内外涌现出越来越多优秀的社交网站让用户分享信息更加便捷。然后，如果你是一个不甘寂寞的程序猿（媛），是否也想要搭建一个属于自己的个人网站，如果你曾经或者现在正有这样的想法，请跟随这篇文章发挥你的Geek精神，让你快速拥有自己的博客网站，写文章记录生活，享受这种从0到1的过程。</p>
+<p><a href="https://www.zhihu.com/question/29755481">你见过的最棒的个人博客界面是什么样的？</a></p>
+<h2 id="什么是hexo"><strong>什么是Hexo ?</strong></h2>
+<figure data-type="image" tabindex="1"><img src="https://pic2.zhimg.com/80/v2-6890485c84748900d9dae824b7f7cbb1_720w.jpg" alt="img" loading="lazy"></figure>
+<p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。Hexo同时也是GitHub上的开源项目，参见：<a href="https://link.zhihu.com/?target=https%3A//github.com/hexojs/hexo">hexojs/hexo</a> 如果想要更加全面的了解Hexo，可以到其官网 <a href="https://link.zhihu.com/?target=https%3A//hexo.io/">Hexo</a> 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。</p>
+<p><strong>这是我的个人博客效果:</strong> <a href="https://link.zhihu.com/?target=http%3A//iamwr.com/">吴润 · RunDouble</a></p>
+<p>下面正式从零开始搭建年轻人的第一个网站。</p>
+<h2 id="搭建步骤"><strong>搭建步骤：</strong></h2>
+<ul>
+<li>获得个人网站域名</li>
+<li>GitHub创建个人仓库</li>
+<li>安装Git</li>
+<li>安装Node.js</li>
+<li>安装Hexo</li>
+<li>推送网站</li>
+<li>绑定域名</li>
+<li>更换主题</li>
+<li>初识MarkDown语法</li>
+<li>发布文章</li>
+<li>寻找图床</li>
+<li>个性化设置</li>
+<li>其他</li>
+<li>附录</li>
+</ul>
+<p><strong>获得个人网站域名</strong></p>
+<p>域名是网站的入口，也是网站的第一印象，比如饿了么的官网的域名是：<a href="https://link.zhihu.com/?target=https%3A//www.ele.me/">https://www.ele.me/</a> ，很是巧妙。常见的有com,cn,net,org等后缀，也有小众的xyz,me,io等后缀，根据你自己的喜好，选择不同的后缀，比如我选择就是常见的com后缀。很多小众奇特的后缀在大陆是没办法备案的，网站也就无法上线。然而使用GitHub托管我们的网站，完全不需要备案，因为托管我们的网站内容的服务器在美国，而且在国内备案流程也比较繁杂，时间需要一周左右。</p>
+<p>申请域名的地方有很多，这里推荐阿里云：<a href="https://link.zhihu.com/?target=https%3A//www.aliyun.com/">阿里云-为了无法计算的价值</a> 申请入口：<a href="https://link.zhihu.com/?target=https%3A//wanwang.aliyun.com/domain/">域名注册</a> 购买域名这也是我们整个搭建过程中惟一一个需要花钱的地方。如果你已经有了空闲域名就无需购买，直接使用即可。</p>
+<p><strong>GitHub创建个人仓库</strong></p>
+<p>登录到GitHub,如果没有GitHub帐号，使用你的邮箱注册GitHub帐号：<a href="https://link.zhihu.com/?target=https%3A//github.com/">Build software better, together</a> 点击GitHub中的New repository创建新仓库，仓库名应该为：<strong>用户名</strong>.<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a> 这个<strong>用户名</strong>使用你的GitHub帐号名称代替，这是固定写法，比如我的仓库名为：</p>
+<figure data-type="image" tabindex="2"><img src="https://pic4.zhimg.com/80/v2-832168e58b4ac4ce7c3cca797711d2d3_720w.jpg" alt="img" loading="lazy"></figure>
+<p><strong>安装Git</strong></p>
+<p>什么是Git ?简单来说Git是开源的分布式版本控制系统，用于敏捷高效地处理项目。我们网站在本地搭建好了，需要使用Git同步到GitHub上。如果想要了解Git的细节，参看<a href="https://link.zhihu.com/?target=http%3A//weibo.com/liaoxuefeng">廖雪峰</a>老师的Git教程：<a href="https://link.zhihu.com/?target=http%3A//www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程</a> 从Git官网下载：<a href="https://link.zhihu.com/?target=https%3A//git-scm.com/download/win">Git - Downloading Package</a> 现在的机子基本都是64位的，选择64位的安装包，下载后安装，在命令行里输入git测试是否安装成功，若安装失败，参看其他详细的Git安装教程。安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash</p>
+<figure data-type="image" tabindex="3"><img src="https://pic3.zhimg.com/80/v2-8b1cbe253d6e0301bd9a68c6f98a9f52_720w.jpg" alt="img" loading="lazy"></figure>
+<p>或者在菜单里搜索Git Bash，设置user.name和user.email配置信息：</p>
+<pre><code class="language-bash">git config --global user.name &quot;你的GitHub用户名&quot;
+git config --global user.email &quot;你的GitHub注册邮箱&quot;
+</code></pre>
+<p>生成ssh密钥文件：</p>
+<pre><code class="language-bash">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;
+</code></pre>
+<p>然后直接三个回车即可，默认不需要设置密码<br>
+然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</p>
+<figure data-type="image" tabindex="4"><img src="https://pic4.zhimg.com/80/v2-d1e47103ec1aa8675f68688c5d63bd27_720w.jpg" alt="img" loading="lazy"></figure>
+<p>打开<a href="https://link.zhihu.com/?target=https%3A//github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建new SSH Key</p>
+<figure data-type="image" tabindex="5"><img src="https://pic1.zhimg.com/80/v2-72a3f22c080e99343c3cc4aabce10e3c_720w.jpg" alt="img" loading="lazy"></figure>
+<p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>
+在Git Bash中检测GitHub公钥设置是否成功，输入 ssh git@github.com ：</p>
+<figure data-type="image" tabindex="6"><img src="https://pic3.zhimg.com/80/v2-da481ffa686410becd4186c656b4ebd6_720w.jpg" alt="img" loading="lazy"></figure>
+<p>如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+<p><strong>安装Node.js</strong></p>
+<p>Hexo基于Node.js，Node.js下载地址：<a href="https://link.zhihu.com/?target=https%3A//nodejs.org/en/download/">Download | Node.js</a> 下载安装包，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v :</p>
+<figure data-type="image" tabindex="7"><img src="https://pic1.zhimg.com/80/v2-76ea38e9545e606f975781e47933b010_720w.jpg" alt="img" loading="lazy"></figure>
+<p>检测npm是否安装成功，在命令行中输入npm -v :</p>
+<figure data-type="image" tabindex="8"><img src="https://pic2.zhimg.com/80/v2-bede250b8456df92475b455fda8c1dd9_720w.jpg" alt="img" loading="lazy"></figure>
+<p>到这了，安装Hexo的环境已经全部搭建完成。</p>
+<p><strong>安装Hexo</strong></p>
+<p>Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中，按住shift键，右击鼠标点击命令行</p>
+<figure data-type="image" tabindex="9"><img src="https://pic1.zhimg.com/80/v2-a5450a466c0927c25dff8ad6f1d2046c_720w.jpg" alt="img" loading="lazy"></figure>
+<p>使用npm命令安装Hexo，输入：</p>
+<pre><code class="language-bash">npm install -g hexo-cli 
+</code></pre>
+<p>这个安装时间较长耐心等待，安装完成后，初始化我们的博客，输入：</p>
+<pre><code class="language-bash">hexo init blog
+</code></pre>
+<p>注意，这里的命令都是作用在刚刚创建的Blog文件夹中。</p>
+<p>为了检测我们的网站雏形，分别按顺序输入以下三条命令：</p>
+<pre><code class="language-bash">hexo new test_my_site
+
+hexo g
+
+hexo s
+</code></pre>
+<p>这些命令在后面作介绍，完成后，打开浏览器输入地址：</p>
+<p>localhost:4000</p>
+<p>可以看出我们写出第一篇博客，只不过我下图是我修改过的配置，和你的显示不一样。</p>
+<figure data-type="image" tabindex="10"><img src="https://pic4.zhimg.com/80/v2-123e73c0630d299b1c856d99b04b55bb_720w.jpg" alt="img" loading="lazy"></figure>
+<p>现在来介绍常用的Hexo 命令</p>
+<p>npm install hexo -g #安装Hexo<br>
+npm update hexo -g #升级<br>
+hexo init #初始化博客</p>
+<p>命令简写<br>
+hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章<br>
+hexo g == hexo generate #生成<br>
+hexo s == hexo server #启动服务预览<br>
+hexo d == hexo deploy #部署</p>
+<p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器<br>
+hexo server -s #静态模式<br>
+hexo server -p 5000 #更改端口<br>
+hexo server -i 192.168.1.1 #自定义 IP<br>
+hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
+<p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p>
+<p><strong>推送网站</strong></p>
+<p>上面只是在本地预览，接下来要做的就是就是推送网站，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，需要解释一个概念，在blog根目录里的_config.yml文件称为<strong>站点</strong>配置文件，如下图</p>
+<figure data-type="image" tabindex="11"><img src="https://pic2.zhimg.com/80/v2-cb1fd5e5a2e73f513234e434724c7c55_720w.jpg" alt="img" loading="lazy"></figure>
+<p>进入根目录里的themes文件夹，里面也有个_config.yml文件，这个称为<strong>主题</strong>配置文件，如下图</p>
+<figure data-type="image" tabindex="12"><img src="https://pic4.zhimg.com/80/v2-4252029e5634bf91c7d58916ae2b8ac3_720w.jpg" alt="img" loading="lazy"></figure>
+<p>下一步将我们的Hexo与GitHub关联起来，打开站点的配置文件_config.yml，翻到最后修改为：</p>
+<p>deploy:<br>
+type: git<br>
+repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git<br>
+branch: master参考如下：</p>
+<figure data-type="image" tabindex="13"><img src="https://pic1.zhimg.com/80/v2-279ac5149b577f04dc099defbb12eaa8_720w.jpg" alt="img" loading="lazy"></figure>
+<p>保存站点配置文件。</p>
+<p>其实就是给hexo d 这个命令做相应的配置，让hexo知道你要把blog部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。最后安装Git部署插件，输入命令：</p>
+<pre><code class="language-basemake">npm install hexo-deployer-git --save
+</code></pre>
+<p>这时，我们分别输入三条命令：</p>
+<pre><code class="language-bash">hexo clean 
+hexo g 
+hexo d
+</code></pre>
+<p>其实第三条的 hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io">http://xxxx.github.io</a> (知乎排版可能会出现&quot;http://&quot;字样，参考下图) 比如我的xxxx就是我的GitHub用户名：</p>
+<figure data-type="image" tabindex="14"><img src="https://pic1.zhimg.com/80/v2-d750452f4258bf0967d5629ef23d1b10_720w.jpg" alt="img" loading="lazy"></figure>
+<p>你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
+<p><strong>绑定域名</strong></p>
+<p>虽然在Internet上可以访问我们的网站，但是网址是GitHub提供的:<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io">http://xxxx.github.io</a> (知乎排版可能会出现&quot;http://&quot;字样) 而我们想使用我们自己的个性化域名，这就需要绑定我们自己的域名。这里演示的是在阿里云万网的域名绑定，在国内主流的域名代理厂商也就阿里云和腾讯云。登录到阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析</p>
+<figure data-type="image" tabindex="15"><img src="https://pic3.zhimg.com/80/v2-47323ad4490e206aef93a3d68f0670b6_720w.jpg" alt="img" loading="lazy"></figure>
+<p>然后添加解析</p>
+<figure data-type="image" tabindex="16"><img src="https://pic3.zhimg.com/80/v2-40222b3a295bb692aac22829a8ec3be2_720w.jpg" alt="img" loading="lazy"></figure>
+<p>包括添加三条解析记录，192.30.252.153是GitHub的地址，你也可以ping你的 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io">http://xxxx.github.io</a> 的ip地址，填入进去。第三个记录类型是CNAME，CNAME的记录值是：你的用户名.<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a> 这里千万别弄错了。第二步，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名</p>
+<figure data-type="image" tabindex="17"><img src="https://pic4.zhimg.com/80/v2-85ba6dda906f22dea4c03df2b47d994b_720w.jpg" alt="img" loading="lazy"></figure>
+<p>点击save保存。第三步，进入本地博客文件夹 ，进入blog/source目录下，创建一个记事本文件，输入你的域名，对，只要写进你自己的域名即可。如果带有www，那么以后访问的时候必须带有www完整的域名才可以访问，但如果不带有www，以后访问的时候带不带www都可以访问。所以建议，不要带有www。这里我还是写了www(不建议带有www):</p>
+<figure data-type="image" tabindex="18"><img src="https://pic1.zhimg.com/80/v2-79abfff91af3f520e24cb91acf6aa994_720w.jpg" alt="img" loading="lazy"></figure>
+<p>保存，命名为CNAME ，注意保存成<strong>所有文件</strong>而不是<strong>txt文件</strong>。</p>
+<p>完成这三步，进入blog目录中，按住shift键右击打开命令行，依次输入：</p>
+<pre><code class="language-bash">hexo clean
+hexo g
+hexo d
+</code></pre>
+<p>这时候打开浏览器在地址栏输入你的个性化域名将会直接进入你自己搭建的网站。</p>
+<p><strong>更换主题</strong></p>
+<p>如果你不喜欢Hexo默认的主题，可以更换不同的主题，主题传送门：<a href="https://link.zhihu.com/?target=https%3A//hexo.io/themes/">Themes</a> 我自己使用的是Next主题，可以在blog目录中的themes文件夹中查看你自己主题是什么。现在把默认主题更改成Next主题，在blog目录中（就是命令行的位置处于blog目录）打开命令行输入：</p>
+<pre><code class="language-bash">git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre>
+<p>这是将Next主题下载到blog目录的themes主题下的next文件夹中。打开<strong>站点</strong>的_config.yml配置文件，修改主题为next</p>
+<figure data-type="image" tabindex="19"><img src="https://pic1.zhimg.com/80/v2-b1997377e82408cb15b485c65ae00f70_720w.jpg" alt="img" loading="lazy"></figure>
+<p>打开<strong>主题</strong>的_config.yml配置文件，不是站点主题文件，找到Scheme Settings</p>
+<figure data-type="image" tabindex="20"><img src="https://pic2.zhimg.com/80/v2-1ac152c4aabe4c10b762ee27552f1105_720w.jpg" alt="img" loading="lazy"></figure>
+<p>next主题有三个样式，我用的是Pisces，你们可以自己试试看，选择你自己喜欢的样式（只需要把行首的#去除，#是注释），选择好后，再次部署网站，hexo g、hexo d，查看效果。选择其他主题，按照上述过程即可实现。</p>
+<p><strong>初识Markdown语法</strong></p>
+<p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown语法简洁明了、容易掌握，而且功能比纯文本更强，因此写博客使用它，可以让用户更加专注的写文章，而不需要费尽心力的考虑样式，相对于html已经算是轻量级语言，像有道云笔记也支持Markdown写作。并且Markdown完全兼容html，也就是可以在文章里直接插入html代码。比如给博文添加音乐，就可以直接把音乐的外链html代码插入文章中。具体语法参看：<a href="https://link.zhihu.com/?target=http%3A//www.appinn.com/markdown/">Markdown 语法说明(简体中文版)</a> 可以说十分钟就可以入门。当然，工欲善其事必先利其器，选择一个好的Markdown编辑器也是非常重要的，这里推荐<a href="https://link.zhihu.com/?target=http%3A//code52.org/DownmarkerWPF/">MarkPad</a> 和<a href="https://link.zhihu.com/?target=http%3A//www.markdownpad.com/">The Markdown Editor for Windows</a> ，这是带有预览效果的编辑器，也可以使用本地的文本编辑器，更多的Markdown的语法与编辑器自己可以搜索了解。</p>
+<p><strong>发布文章</strong></p>
+<p>我们开始正式发布上线博客文章，在命令行中输入：</p>
+<pre><code class="language-bash">hexo n &quot;博客名字&quot;
+</code></pre>
+<p>我们会发现在blog根目录下的source文件夹中的_post文件夹中多了一个 <strong>博客名字.md</strong> 文件，使用Markdown编辑器打开，就可以开始你的个人博客之旅了，Markdown常用的样式也就十来种，完全能够满足一般博文的样式要求，这是我的一篇博文内容示例：</p>
+<figure data-type="image" tabindex="21"><img src="https://pic1.zhimg.com/80/v2-4f96cd03a88e68b8ae86c38bfb0808ac_720w.jpg" alt="img" loading="lazy"></figure>
+<p>通过带有预览样式的Markdown编辑器实时预览书写的博文样式，也可以通过命令 hexo s --debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。</p>
+<p><strong>寻找图床</strong></p>
+<p>图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，<strong><img src="%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5" alt="图片信息" loading="lazy"></strong> 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：<a href="https://link.zhihu.com/?target=http%3A//www.tietuku.com/">贴图库图片外链</a> 国内算比较好的图床我认为有两个：新浪微博和 <a href="https://link.zhihu.com/?target=https%3A//www.qiniu.com/">七牛云</a> ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：</p>
+<figure data-type="image" tabindex="22"><img src="https://pic4.zhimg.com/80/v2-92372e522595af139ace5f371aae3ff3_720w.jpg" alt="img" loading="lazy"></figure>
+<p><strong>个性化设置</strong></p>
+<p>所谓的个性化设置就是根据个人需要添加不同的插件及功能。</p>
+<p>基本的有：</p>
+<p>在站点配置文件_config.yml修改基本的站点信息</p>
+<figure data-type="image" tabindex="23"><img src="https://pic4.zhimg.com/80/v2-78bc0e4e6498c9c3cb269b3254d8379f_720w.jpg" alt="img" loading="lazy"></figure>
+<p>依次是网站标题、副标题、网站描述、作者、网站头像外部链接、网站语言、时区等。</p>
+<p>在主题配置文件_config.yml修改基本的主题信息，如：</p>
+<figure data-type="image" tabindex="24"><img src="https://pic2.zhimg.com/80/v2-451c5cb2fd6516650ad8ca608031bf0d_720w.jpg" alt="img" loading="lazy"></figure>
+<p>博文打赏的微信、支付宝二维码图片，这里我是直接把这两张放在根目录的source文件夹中，并没有使用图床外链。</p>
+<figure data-type="image" tabindex="25"><img src="https://pic2.zhimg.com/80/v2-69bbc45e973eb6916e08187ed8b33a55_720w.jpg" alt="img" loading="lazy"></figure>
+<p>社交外链的设置，即在侧栏展示你的个人社交网站信息。</p>
+<figure data-type="image" tabindex="26"><img src="https://pic4.zhimg.com/80/v2-5b3f6e02e0d3a0cdb685a4d2fd2718cb_720w.jpg" alt="img" loading="lazy"></figure>
+<p>博文分享的插件jiathis，值设置为true。在配置文件中有很多的个性化设置，可以自尝试更多的修改。</p>
+<p>进阶个性化：</p>
+<ul>
+<li>添加网易云音乐</li>
+</ul>
+<p>打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器</p>
+<figure data-type="image" tabindex="27"><img src="https://pic2.zhimg.com/80/v2-fcb7d44ccdca3760c98db0d13817f2b5_720w.jpg" alt="img" loading="lazy"></figure>
+<p>复制外链的代码</p>
+<figure data-type="image" tabindex="28"><img src="https://pic4.zhimg.com/80/v2-16eec195312cde7b1d257fac6f3c8d0b_720w.jpg" alt="img" loading="lazy"></figure>
+<p>比如在侧栏插入这首歌的音乐播放器，修改 blog\themes\next\layout_macro的sidebar.swig文件，添加刚刚复制的外链代码</p>
+<figure data-type="image" tabindex="29"><img src="https://pic4.zhimg.com/80/v2-03db51002497b27e4d5888e0efd577c7_720w.jpg" alt="img" loading="lazy"></figure>
+<p>重新生成、部署网页，效果如下</p>
+<figure data-type="image" tabindex="30"><img src="https://pic2.zhimg.com/80/v2-3d587bf919df92db38e2608f034e50f1_720w.jpg" alt="img" loading="lazy"></figure>
+<ul>
+<li>设置背景</li>
+</ul>
+<p>把你挑选的背景图片命名为：background.jpg，放在blog\themes\next\source\images里，在blog\themes\next\source\css_custom文件的custom.styl首部添加：</p>
+<pre><code class="language-css">body {
+  background:url(/images/background.jpg);
+  background-attachment: fixed;
+}
+</code></pre>
+<p>background-attachment: fixed;是固定背景图片。</p>
+<p>这是设置一张静态图片作为背景，其实Next主题自带有动态的背景效果，修改主题配置文件中的canvas_nest: false为canvas_nest: true即可。</p>
+<ul>
+<li>增加侧栏菜单条目</li>
+</ul>
+<p>默认的侧栏菜单条目有：首页、归档、标签、关于、搜索等。如果你想要增加其他的菜单条目，修改主题配置文件_config.yml里的Menu Settings中的menu和menu_icons两个地方</p>
+<figure data-type="image" tabindex="31"><img src="https://pic3.zhimg.com/80/v2-666a22fedbba95d979eeb26e52fc29e2_720w.jpg" alt="img" loading="lazy"></figure>
+<p>其中menu里是配置菜单项对应的页面位置（如：/love），menu_icons对应菜单项的图标，这里的图标是来自于<a href="https://link.zhihu.com/?target=http%3A//fontawesome.io/">Font Awesome</a> ，所以你需要在Font Awesome网站上找到你需要的icon，然后把该icon的名字写在menu_icons对应菜单名后面，注意冒号有一个英文输入状态的空格。设置好后，在命令行里输入：</p>
+<pre><code class="language-bash">hexo new page &quot;你所要增加的菜单项名称（要和你在menu中的填写要匹配）&quot;
+</code></pre>
+<p>新建的页面在博客根目录下的source文件里，这时你就可以对新建的页面自定义设计。</p>
+<p>还有更多的进阶个性化设置，如SEO、评论系统、个人头像、博客分享、订阅功能、High功能、404网页设置等，可以参看：</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/theme-settings.html">主题配置 - NexT 使用文档</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/third-party-services.html">第三方服务集成 - NexT 使用文档</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/tag-plugins.html">内置标签 - NexT 使用文</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/tag-plugins.html">档</a><a href="https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/advanced-settings.html">进阶设定 - NexT 使用文档</a></p>
+<p>有很多人私信问我High功能特效如何设置，这里推荐一篇同是Next主题网站博主的文章：<a href="https://link.zhihu.com/?target=http%3A//www.iamlj.com/2016/08/add-special-effect-harlem-shake-for-hexo/">为Hexo Next主题添加哈林摇特效（五）</a></p>
+<p><strong>其他</strong></p>
+<p>终于写到这里了，也算是基本圆满完成了我的写作初衷，总结自己的一些经验，分享一些有趣的东西，不过脖子也是僵硬的受不了。我知道很多人想要建立自己的个人网站却一直没有付诸行动，希望这篇文章能给你一点点灵感与想法，just do it。本文是windows平台的搭建过程，其他平台可以参看相关资料，也有很多其他优秀的博客框架值得学习。如果有任何建议或想法、或疑问欢迎在评论区交流， 做好的网站不妨在评论区贴出网址，让大家一起学习。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[博客基于Handsome主题的一些小修改教程]]></title>
-        <id>https://chwl66.github.io/post/gIzm3nngu</id>
-        <link href="https://chwl66.github.io/post/gIzm3nngu">
+        <id>https://chwl66.github.io/post/gIzm3nngu/</id>
+        <link href="https://chwl66.github.io/post/gIzm3nngu/">
         </link>
         <updated>2019-12-25T09:22:40.000Z</updated>
         <content type="html"><![CDATA[<p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
@@ -222,12 +435,12 @@ jQuery(document).ready(function($) {
     </entry>
     <entry>
         <title type="html"><![CDATA[WordPress编辑器中添加“上传到Chevereto图床”按钮]]></title>
-        <id>https://chwl66.github.io/post/FNHwd2cm5</id>
-        <link href="https://chwl66.github.io/post/FNHwd2cm5">
+        <id>https://chwl66.github.io/post/FNHwd2cm5/</id>
+        <link href="https://chwl66.github.io/post/FNHwd2cm5/">
         </link>
         <updated>2019-12-01T15:20:04.000Z</updated>
         <content type="html"><![CDATA[<p>前段时间搭建了 Chevereto 图床，但在 WordPress 编辑器里需要上传图片的时候，需要另外打开图床上传比较麻烦。这时候可以在 WordPress 的编辑器里添加个上传按钮，利用 API 上传到 Chevereto 图床，这样上传图片到图床就方便啦！</p>
-<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2019/12/01/Qmrvq0.png" alt="Qmrvq0.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2019/12/01/Qmrvq0.png" alt="Qmrvq0.png" loading="lazy"></figure>
 <p>下面我把详细啊方法记录一下：</p>
 <h3 id="chevereto">Chevereto</h3>
 <p>获取 API KEY: 登录，转到 <code>仪表盘-设置-API</code>，将  <code>API v1 key</code>  记录下来;</p>
@@ -366,34 +579,34 @@ jQuery('#up_to_chevereto').change(function() {
 <p>style里的样式可以根据自己偏好自定义</p>
 <h3 id="使用预览">使用预览</h3>
 <p>这里我的编辑器用的是WP Editor.md，界面不同但不影响上传按钮的使用</p>
-<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2019/12/01/QmrzZV.gif" alt="QmrzZV.gif"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2019/12/01/QmrzZV.gif" alt="QmrzZV.gif" loading="lazy"></figure>
 <h4 id="文章引用至-spirit的小站-转载请注明出处">文章引用至 <a href="https://spiritx.xyz/843.html">spirit的小站</a> 转载请注明出处！</h4>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[typecho在后台增加图床上传图片按钮]]></title>
-        <id>https://chwl66.github.io/post/Y80xYA7z9</id>
-        <link href="https://chwl66.github.io/post/Y80xYA7z9">
+        <id>https://chwl66.github.io/post/Y80xYA7z9/</id>
+        <link href="https://chwl66.github.io/post/Y80xYA7z9/">
         </link>
         <updated>2019-11-30T15:52:32.000Z</updated>
         <content type="html"><![CDATA[<h4 id="路过图床"><a href="https://imgse.com/">路过图床</a>是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力</h4>
 <h4 id="官方提供的插件代码支持的网站程序很多如下图">官方提供的插件代码支持的网站程序很多，如下图</h4>
-<figure data-type="image" tabindex="1"><a href="https://s2.ax1x.com/2019/12/02/Qmhx1K.png"><img src="https://s2.ax1x.com/2019/12/02/Qmhx1K.png" alt="路过图床1.png"></a></figure>
+<figure data-type="image" tabindex="1"><a href="https://s2.ax1x.com/2019/12/02/Qmhx1K.png"><img src="https://s2.ax1x.com/2019/12/02/Qmhx1K.png" alt="路过图床1.png" loading="lazy"></a></figure>
 <h4 id="其中并未显示支持typecho所以我们需要稍作修改下面是修改好的代码">其中并未显示支持typecho，所以我们需要稍作修改，下面是修改好的代码</h4>
 <pre><code>&lt;script async id=&quot;chevereto-pup-src&quot; src=&quot;https://imgse.com/sdk/pup.js&quot; data-url=&quot;https://imgse.com/upload&quot; data-auto-insert=&quot;markdown-embed&quot;&gt;&lt;/script&gt;
 </code></pre>
 <h4 id="将代码放到需要上传图片的文件内一般放在footerphp的body之前">将代码放到需要上传图片的文件内，一般放在footer.php的</body>之前</h4>
 <p>如果要实现后台上传图片，则需要在typecho的安装目录admin/footer.php里增加以上代码</p>
-<figure data-type="image" tabindex="2"><a href="https://s2.ax1x.com/2019/12/02/Qm4C0H.png"><img src="https://s2.ax1x.com/2019/12/02/Qm4C0H.png" alt="路过图床2.png"></a></figure>
+<figure data-type="image" tabindex="2"><a href="https://s2.ax1x.com/2019/12/02/Qm4C0H.png"><img src="https://s2.ax1x.com/2019/12/02/Qm4C0H.png" alt="路过图床2.png" loading="lazy"></a></figure>
 <h4 id="设置好之后后台编辑框出现如下效果">设置好之后后台编辑框出现如下效果</h4>
-<figure data-type="image" tabindex="3"><a href="https://s2.ax1x.com/2019/12/02/Qm4P7d.png"><img src="https://s2.ax1x.com/2019/12/02/Qm4P7d.png" alt="路过图床3.png"></a></figure>
+<figure data-type="image" tabindex="3"><a href="https://s2.ax1x.com/2019/12/02/Qm4P7d.png"><img src="https://s2.ax1x.com/2019/12/02/Qm4P7d.png" alt="路过图床3.png" loading="lazy"></a></figure>
 <h4 id="上传完成后markdown格式的代码会自动出现在编辑框里插入图片的操作将会非常方便">上传完成后markdown格式的代码会自动出现在编辑框里，插入图片的操作将会非常方便</h4>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[WordPress采集插件]]></title>
-        <id>https://chwl66.github.io/post/DmB2y0jPB</id>
-        <link href="https://chwl66.github.io/post/DmB2y0jPB">
+        <id>https://chwl66.github.io/post/DmB2y0jPB/</id>
+        <link href="https://chwl66.github.io/post/DmB2y0jPB/">
         </link>
         <updated>2019-11-28T17:16:02.000Z</updated>
         <content type="html"><![CDATA[<p><strong>简介</strong>如何安装下载插件长腿蜘蛛-CTspider 然后到WordPress插件页面点击上传，安装启用即可。 如果使用FTP上传,请使用二进制上传协议。如何授权登录长腿蜘蛛-CTspider官网注册账号（P</p>
@@ -409,7 +622,7 @@ jQuery('#up_to_chevereto').change(function() {
 <li>点击用户中心-&gt;添加授权域名（PS：目前每位用户可以授权3个域名）。</li>
 <li>得到授权码后，点击CTspider插件-&gt;系统配置-&gt;授权码配置-&gt;填入授权码-&gt;保存配置-&gt;验证授权</li>
 </ol>
-<figure data-type="image" tabindex="1"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E6%8E%88%E6%9D%83.png" alt="img"></figure>
+<figure data-type="image" tabindex="1"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E6%8E%88%E6%9D%83.png" alt="img" loading="lazy"></figure>
 <h2 id="最近有很多网友问为什么点击采集后显示没有任何数据只有两种可能">最近有很多网友问：为什么点击采集后显示没有任何数据只有两种可能</h2>
 <ol>
 <li>采集规则没有设置好。</li>
@@ -427,33 +640,33 @@ jQuery('#up_to_chevereto').change(function() {
 <li>多线程采集：开启 （PS：开启后可提高采集速度）</li>
 <li>多线程数量：默认10（PS：根据自己服务器配置酌情使用）</li>
 </ol>
-<figure data-type="image" tabindex="2"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" alt="img"></figure>
+<figure data-type="image" tabindex="2"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" alt="img" loading="lazy"></figure>
 <h2 id="列表设置">列表设置</h2>
 <ul>
 <li>列表URL: http://roll.tech.sina.com.cn/internet_all/index.shtml （PS：如需多个，可换行添加）</li>
 <li>列表区域选择器：<code>.contList&gt;ul&gt;li</code> （PS：【<code>完全和CSS选择器用法一样</code>】【<code>可填，可不填</code>】如果采集当前页面有多个相同列表DOM节点就要填写，确保采集精准度）用谷歌浏览器右键审查元素，可以看出当前列表数据都在<code>.contList&gt;ul&gt;li</code>下面</li>
 </ul>
-<figure data-type="image" tabindex="3"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/URLcss_2.png" alt="img"></figure>
+<figure data-type="image" tabindex="3"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/URLcss_2.png" alt="img" loading="lazy"></figure>
 <ul>
 <li>列表缩略图：如果有图可以直接填写当前缩略图CSS选择器</li>
 <li>文章网址匹配：<code>a</code> （PS：由于上面区域选择器已经定位,我们可以直接填入<code>a标签</code>即可，如果区域选择器没有定位则设置：<code>.contList li a</code> 或者<code>.contList a</code> 具体根据你采集页面dom结构自己分析）</li>
 <li>添加来源网址到自定义字段：<code>source_url</code>（PS：【自定义】可开启或不开启，设置后会在每天文章添加一个自定义字段<code>source_url</code>并且会把当前采集到网址链接赋值给该字段用于前台调用显示）如: <code>get_post_meta('source_url')</code> 可调用该字段的值。</li>
 </ul>
 <h3 id="点击列表测试可以查看当前项目列表配置情况"><strong>点击列表测试可以查看当前项目列表配置情况</strong></h3>
-<figure data-type="image" tabindex="4"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E5%88%97%E8%A1%A8%E6%B5%8B%E8%AF%95.png" alt="img"></figure>
+<figure data-type="image" tabindex="4"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E5%88%97%E8%A1%A8%E6%B5%8B%E8%AF%95.png" alt="img" loading="lazy"></figure>
 <h2 id="文章设置">文章设置</h2>
 <p>标题匹配规则：<code>h1</code></p>
 <p>文章内容设置：<code>#article_content</code></p>
-<figure data-type="image" tabindex="5"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E6%96%87%E7%AB%A0_2.png" alt="img"></figure>
+<figure data-type="image" tabindex="5"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E6%96%87%E7%AB%A0_2.png" alt="img" loading="lazy"></figure>
 <p>可以看到标题在<code>h1</code>标签下，也可使用<code>.main-title</code>来获取标题</p>
 <p>正文内容看上去有好多 <code>class和id</code> 如果有id属性尽量采用id，毕竟id是唯一性，定位精准。</p>
 <p>我们还可以增加规则来采集<code>TAG标签</code></p>
 <p>长腿蜘蛛-CTspider 提供了6总规则添加采集，并且可以自定义字段规则（PS：自定义字段规则可以添加多个）</p>
-<figure data-type="image" tabindex="6"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E6%96%87%E7%AB%A0%E8%A7%84%E5%88%99.png" alt="img"></figure>
+<figure data-type="image" tabindex="6"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E6%96%87%E7%AB%A0%E8%A7%84%E5%88%99.png" alt="img" loading="lazy"></figure>
 <h3 id="点击采集测试"><strong>点击采集测试</strong></h3>
 <p>采集结果完美呈现（原文：标题：TAG）正确显示</p>
 <p>但是我们发现结果中出现了<code>a链接</code>和一些多于的<code>css属性</code>和<code>id属性</code>还有<code>span标签</code></p>
-<figure data-type="image" tabindex="7"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%95.png" alt="img"></figure>
+<figure data-type="image" tabindex="7"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%95.png" alt="img" loading="lazy"></figure>
 <p><strong>我们可以利用<code>长腿蜘蛛-CTspider</code>强大的<code>内容过滤</code>模块进行数据清洗工作</strong></p>
 <h2 id="内容过滤">内容过滤</h2>
 <ol>
@@ -462,17 +675,17 @@ jQuery('#up_to_chevereto').change(function() {
 <li>删除数据中无用的<code>class</code>属性和<code>id</code>属性</li>
 </ol>
 <h3 id="具体设置如下图"><strong>具体设置如下图：</strong></h3>
-<figure data-type="image" tabindex="8"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E8%BF%87%E6%BB%A4.png" alt="img"></figure>
+<figure data-type="image" tabindex="8"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E8%BF%87%E6%BB%A4.png" alt="img" loading="lazy"></figure>
 <h2 id="最后在进行采集测试得到纯净的数据">最后在进行采集测试（得到纯净的数据）</h2>
-<figure data-type="image" tabindex="9"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%952.png" alt="img"></figure>
+<figure data-type="image" tabindex="9"><img src="https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%952.png" alt="img" loading="lazy"></figure>
 <p>接代写规则，出已有规则，有意者私聊。<br>
-<img src="https://ravpf.cn/d/file/p/2019/11-23/c7f4e20fbf5bbf51b7347711cd83bca9.png" alt="img"></p>
+<img src="https://ravpf.cn/d/file/p/2019/11-23/c7f4e20fbf5bbf51b7347711cd83bca9.png" alt="img" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘]]></title>
-        <id>https://chwl66.github.io/post/d8paPRJx0</id>
-        <link href="https://chwl66.github.io/post/d8paPRJx0">
+        <id>https://chwl66.github.io/post/d8paPRJx0/</id>
+        <link href="https://chwl66.github.io/post/d8paPRJx0/">
         </link>
         <updated>2019-11-26T18:39:03.000Z</updated>
         <content type="html"><![CDATA[<h2 id="关于folderclone">关于Folderclone</h2>
@@ -489,55 +702,55 @@ https://blackpearl.biz/threads/7892/</p>
 </blockquote>
 <h2 id="新建项目">新建项目</h2>
 <p>在<code>Google</code>云端控制台上设置<code>2</code>个项目点击<a href="https://console.developers.google.com/">此处</a> 在【<code>**Google Cloud Platform**</code>】 【<strong>服务条款</strong>】中勾选【<strong>同意并继续</strong>】</p>
-<figure data-type="image" tabindex="1"><a href="https://52mip.com/usr/uploads/2019/09/3101688677.png"><img src="https://52mip.com/usr/uploads/2019/09/3101688677.png" alt="1.png"></a></figure>
+<figure data-type="image" tabindex="1"><a href="https://52mip.com/usr/uploads/2019/09/3101688677.png"><img src="https://52mip.com/usr/uploads/2019/09/3101688677.png" alt="1.png" loading="lazy"></a></figure>
 <p>我们必须创建<code>2</code>个新项目，项目名称随便，例如这里设置的项目名称是“<code>foldercloneA</code>”和“<code>foldercloneB</code>”。</p>
 <h2 id="新建项目folderclonea">新建项目foldercloneA</h2>
 <p>在Google云端控制台 【<strong>选择项目</strong>】【<strong>新建项目</strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/4083586491.png"><img src="https://52mip.com/usr/uploads/2019/09/4083586491.png" alt="2.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/3326266508.png"><img src="https://52mip.com/usr/uploads/2019/09/3326266508.png" alt="3.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/4083586491.png"><img src="https://52mip.com/usr/uploads/2019/09/4083586491.png" alt="2.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3326266508.png"><img src="https://52mip.com/usr/uploads/2019/09/3326266508.png" alt="3.png" loading="lazy"></a></p>
 <p>在【<strong>API和服务</strong>】【<strong>库</strong>】里面搜索【<code>**Google Drive API**</code>】和【<code>**Identity and Access Management (IAM) API**</code>】并启用它们。<br>
-<a href="https://52mip.com/usr/uploads/2019/09/3669283620.png"><img src="https://52mip.com/usr/uploads/2019/09/3669283620.png" alt="apis.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/3669283620.png"><img src="https://52mip.com/usr/uploads/2019/09/3669283620.png" alt="apis.png" loading="lazy"></a></p>
 <p>【<strong>导航菜单</strong>】【<strong>IAM和管理</strong>】【<code>**IAM**</code>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2920108775.png"><img src="https://52mip.com/usr/uploads/2019/09/2920108775.png" alt="apis1.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2920108775.png"><img src="https://52mip.com/usr/uploads/2019/09/2920108775.png" alt="apis1.png" loading="lazy"></a></p>
 <p>【<strong>服务账号</strong>】【<strong>创建服务账号</strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2956986365.png"><img src="https://52mip.com/usr/uploads/2019/09/2956986365.png" alt="apis2.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2956986365.png"><img src="https://52mip.com/usr/uploads/2019/09/2956986365.png" alt="apis2.png" loading="lazy"></a></p>
 <p>【<strong>服务帐号详情</strong>】【<strong>服务帐号名称</strong>】随便填 比如这里填写的是：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/3485192594.png"><img src="https://52mip.com/usr/uploads/2019/09/3485192594.png" alt="iam_admin_serviceaccounts.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/3485192594.png"><img src="https://52mip.com/usr/uploads/2019/09/3485192594.png" alt="iam_admin_serviceaccounts.png" loading="lazy"></a></p>
 <p>【<strong>服务帐号权限（可选）</strong>】【<strong>请选择一个角色</strong>】【<code>**Project**</code>】【<strong>所有者</strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/1840329678.png"><img src="https://52mip.com/usr/uploads/2019/09/1840329678.png" alt="iam_admin_serviceaccounts1.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/1840329678.png"><img src="https://52mip.com/usr/uploads/2019/09/1840329678.png" alt="iam_admin_serviceaccounts1.png" loading="lazy"></a></p>
 <p>【<strong><code>+</code>添加其它角色</strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/41081976.png"><img src="https://52mip.com/usr/uploads/2019/09/41081976.png" alt="iam_admin_serviceaccounts2.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/41081976.png"><img src="https://52mip.com/usr/uploads/2019/09/41081976.png" alt="iam_admin_serviceaccounts2.png" loading="lazy"></a></p>
 <p>【<strong>请选择一个角色</strong>】【<strong><code>Service Accounts</code></strong>】【<strong><code>Service Account Admin</code></strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2750924325.png"><img src="https://52mip.com/usr/uploads/2019/09/2750924325.png" alt="iam_admin_serviceaccounts3.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2750924325.png"><img src="https://52mip.com/usr/uploads/2019/09/2750924325.png" alt="iam_admin_serviceaccounts3.png" loading="lazy"></a></p>
 <p><code>2</code>个角色【<strong><code>Project</code>-所有者</strong>】和【<strong><code>Service Account Admin</code></strong>】【<strong>继续</strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/1602555657.png"><img src="https://52mip.com/usr/uploads/2019/09/1602555657.png" alt="iam_admin_serviceaccounts4.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/1602555657.png"><img src="https://52mip.com/usr/uploads/2019/09/1602555657.png" alt="iam_admin_serviceaccounts4.png" loading="lazy"></a></p>
 <p>【<strong>创建密钥</strong>】【<strong>密钥类型</strong>】选择默认的【<strong><code>JSON</code></strong>】【<strong>创建</strong>】<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2082809350.png"><img src="https://52mip.com/usr/uploads/2019/09/2082809350.png" alt="iam_admin_serviceaccounts5.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2082809350.png"><img src="https://52mip.com/usr/uploads/2019/09/2082809350.png" alt="iam_admin_serviceaccounts5.png" loading="lazy"></a></p>
 <p>私钥已保存到您的计算机<code>folderclonea-253301-XXXXXXf.json</code>可用来访问您的云端资源，请妥善保存。<br>
-<a href="https://52mip.com/usr/uploads/2019/09/385053296.png"><img src="https://52mip.com/usr/uploads/2019/09/385053296.png" alt="iam_admin_serviceaccounts6.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/385053296.png"><img src="https://52mip.com/usr/uploads/2019/09/385053296.png" alt="iam_admin_serviceaccounts6.png" loading="lazy"></a></p>
 <p>打开刚才创建下载的文件<code>folderclonea-253301-XXXXXXf.json</code>找到<code>client_email</code>把里面生成的邮箱记下来<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2240831046.png"><img src="https://52mip.com/usr/uploads/2019/09/2240831046.png" alt="folderclone_client_email.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2240831046.png"><img src="https://52mip.com/usr/uploads/2019/09/2240831046.png" alt="folderclone_client_email.png" loading="lazy"></a></p>
 <p>比如我的是【<strong><code>folderclone@folderclonea-253301.iam.gserviceaccount.com</code></strong>】</p>
 <h2 id="新建项目foldercloneb">新建项目foldercloneB</h2>
 <p>在<code>Google</code><a href="https://console.developers.google.com/">云端控制台</a>【<strong>创建项目</strong>】【<strong><code>foldercloneB</code></strong>】【<strong>选择项目</strong>】并切换到项目<code>foldercloneB</code></p>
 <p>添加<code>API</code>【<strong><code>Google Drive API</code></strong>】和【<strong><code>Identity and Access Management (IAM) API</code></strong>】并启用它们。方法跟新建项目<code>foldercloneA</code>一样</p>
 <p>【<strong>导航菜单</strong>】【<strong><code>IAM</code>和管理</strong>】【<strong><code>IAM</code></strong>】【<strong>添加</strong>】项目<code>foldercloneA</code>文件<code>folderclonea-253301-XXXXXXf.json</code>里的邮箱地址<br>
-<a href="https://52mip.com/usr/uploads/2019/09/1624358953.png"><img src="https://52mip.com/usr/uploads/2019/09/1624358953.png" alt="foldercloneB_add_iam_admin.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/3818985999.png"><img src="https://52mip.com/usr/uploads/2019/09/3818985999.png" alt="foldercloneB_add_iam_admin1.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/3986138146.png"><img src="https://52mip.com/usr/uploads/2019/09/3986138146.png" alt="foldercloneB_add_iam_admin2.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/1624358953.png"><img src="https://52mip.com/usr/uploads/2019/09/1624358953.png" alt="foldercloneB_add_iam_admin.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3818985999.png"><img src="https://52mip.com/usr/uploads/2019/09/3818985999.png" alt="foldercloneB_add_iam_admin1.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3986138146.png"><img src="https://52mip.com/usr/uploads/2019/09/3986138146.png" alt="foldercloneB_add_iam_admin2.png" loading="lazy"></a></p>
 <p>并记录保存好<code>foldercloneB_ID</code><br>
-<a href="https://52mip.com/usr/uploads/2019/09/3992917527.png"><img src="https://52mip.com/usr/uploads/2019/09/3992917527.png" alt="foldercloneB_ID.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/3992917527.png"><img src="https://52mip.com/usr/uploads/2019/09/3992917527.png" alt="foldercloneB_ID.png" loading="lazy"></a></p>
 <p>比如这里的是<code>foldercloneb-253302</code></p>
 <h2 id="安装python并配置依赖环境">安装Python并配置依赖环境</h2>
 <p>使用<code>64-bit</code>的<code>Windows</code></p>
 <h3 id="下载python并安装">下载Python并安装</h3>
 <p><a href="https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe">下载Python 3.7.4 64-bit</a>， 并按如下图所示安装<br>
-<a href="https://52mip.com/usr/uploads/2019/09/4118890716.png"><img src="https://52mip.com/usr/uploads/2019/09/4118890716.png" alt="install_python1.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/186223995.png"><img src="https://52mip.com/usr/uploads/2019/09/186223995.png" alt="install_python2.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/4045478632.png"><img src="https://52mip.com/usr/uploads/2019/09/4045478632.png" alt="install_python3.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/4118890716.png"><img src="https://52mip.com/usr/uploads/2019/09/4118890716.png" alt="install_python1.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/186223995.png"><img src="https://52mip.com/usr/uploads/2019/09/186223995.png" alt="install_python2.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/4045478632.png"><img src="https://52mip.com/usr/uploads/2019/09/4045478632.png" alt="install_python3.png" loading="lazy"></a></p>
 <h3 id="安装依赖环境">安装依赖环境</h3>
 <p>在<code>C:\Program Files\Python37</code>目录中按【<strong><code>Shift</code>+鼠标右键</strong>】，或者在<code>C:\Program Files\Python37</code>目录地址栏中输入“<code>CMD</code>”，然后点击回车键：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2438276197.png"><img src="https://52mip.com/usr/uploads/2019/09/2438276197.png" alt="Python99.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2438276197.png"><img src="https://52mip.com/usr/uploads/2019/09/2438276197.png" alt="Python99.png" loading="lazy"></a></p>
 <p>打开<code>CMD</code>安装以下依赖环境</p>
 <pre><code>python -m pip install --upgrade pip
 pip install oauth2client
@@ -551,12 +764,12 @@ pip install  httplib2shim
 <h3 id="设置folderclone文件">设置<code>folderclone</code>文件</h3>
 <p>克隆<a href="https://github.com/SameerkumarP/Multifolderclone/archive/master.zip">下载</a><code>folderclone</code>到本地，解压并移动文件夹到您想要的地方。</p>
 <p>在该目录下新建文件夹名为<code>CONTROLLER</code><br>
-<a href="https://52mip.com/usr/uploads/2019/09/3839061081.png"><img src="https://52mip.com/usr/uploads/2019/09/3839061081.png" alt="CONTROLLER.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/3839061081.png"><img src="https://52mip.com/usr/uploads/2019/09/3839061081.png" alt="CONTROLLER.png" loading="lazy"></a></p>
 <p>把项目<code>foldercloneA</code>文件<code>folderclonea-253301-XXXXXXf.json</code>复制到文件夹<code>CONTROLLER</code>目录下：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2532663970.png"><img src="https://52mip.com/usr/uploads/2019/09/2532663970.png" alt="CONTROLLER1.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2532663970.png"><img src="https://52mip.com/usr/uploads/2019/09/2532663970.png" alt="CONTROLLER1.png" loading="lazy"></a></p>
 <h3 id="生成并创建folderclone用户及配置文件">生成并创建<code>folderclone</code>用户及配置文件</h3>
 <p>进入<code>folderclone</code>文件夹目录<br>
-<a href="https://52mip.com/usr/uploads/2019/09/122986206.png"><img src="https://52mip.com/usr/uploads/2019/09/122986206.png" alt="folderclone_add_user.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/122986206.png"><img src="https://52mip.com/usr/uploads/2019/09/122986206.png" alt="folderclone_add_user.png" loading="lazy"></a></p>
 <p>运行以下命令</p>
 <blockquote>
 <p>python serviceaccountfactory.py</p>
@@ -564,35 +777,35 @@ pip install  httplib2shim
 <p>然后第<code>2</code>步的时候，手动输入<code>foldercloneB_ID</code>空格加数字<code>100</code>回车，回车。</p>
 <p>输入生成的自定义邮箱前缀，比如我用的是<code>users</code>。</p>
 <p>比如这里的是<code>foldercloneb-253302</code> <code>100</code>：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/1430641121.png"><img src="https://52mip.com/usr/uploads/2019/09/1430641121.png" alt="folderclone_users_config.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/1430641121.png"><img src="https://52mip.com/usr/uploads/2019/09/1430641121.png" alt="folderclone_users_config.png" loading="lazy"></a></p>
 <p>等待完成后会生成文件夹<code>accounts</code>里面会看到<code>1</code>到<code>199</code>的用户配置文件：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/3705285315.png"><img src="https://52mip.com/usr/uploads/2019/09/3705285315.png" alt="accounts.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/2827667328.png"><img src="https://52mip.com/usr/uploads/2019/09/2827667328.png" alt="accounts1.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/3705285315.png"><img src="https://52mip.com/usr/uploads/2019/09/3705285315.png" alt="accounts.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/2827667328.png"><img src="https://52mip.com/usr/uploads/2019/09/2827667328.png" alt="accounts1.png" loading="lazy"></a></p>
 <p>这时我们可以压缩保存整个文件夹了。</p>
 <h2 id="共享云端硬盘添加成员">共享云端硬盘添加成员</h2>
 <p>查看【<strong>共享云端硬盘</strong>】的<code>ID</code>：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/910341819.png"><img src="https://52mip.com/usr/uploads/2019/09/910341819.png" alt="team_ID.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/910341819.png"><img src="https://52mip.com/usr/uploads/2019/09/910341819.png" alt="team_ID.png" loading="lazy"></a></p>
 <p>进入【<strong>共享云端硬盘</strong>】添加新成员项目<code>folderclone-253301-XXXXXXf.json</code>找到<code>client_email</code>里面的邮箱为管理员：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/177925209.png"><img src="https://52mip.com/usr/uploads/2019/09/177925209.png" alt="team_add_admin.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/177925209.png"><img src="https://52mip.com/usr/uploads/2019/09/177925209.png" alt="team_add_admin.png" loading="lazy"></a></p>
 <p>进入<code>folderclone</code>文件夹目录：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/2165363132.png"><img src="https://52mip.com/usr/uploads/2019/09/2165363132.png" alt="folderclone_add_user (1).png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/2165363132.png"><img src="https://52mip.com/usr/uploads/2019/09/2165363132.png" alt="folderclone_add_user (1).png" loading="lazy"></a></p>
 <p>执行<code>python masshare.py -d YYYYYY</code> 其中<code>YYYYYY</code>替换成【<strong>共享云端硬盘</strong>】的<code>ID</code>：</p>
 <pre><code>python masshare.py -d YYYYYY
 </code></pre>
-<p><a href="https://52mip.com/usr/uploads/2019/09/3433358180.png"><img src="https://52mip.com/usr/uploads/2019/09/3433358180.png" alt="folderclone_add_user1.png"></a><br>
-<a href="https://52mip.com/usr/uploads/2019/09/3683405700.png"><img src="https://52mip.com/usr/uploads/2019/09/3683405700.png" alt="folderclone_add_user2.png"></a></p>
+<p><a href="https://52mip.com/usr/uploads/2019/09/3433358180.png"><img src="https://52mip.com/usr/uploads/2019/09/3433358180.png" alt="folderclone_add_user1.png" loading="lazy"></a><br>
+<a href="https://52mip.com/usr/uploads/2019/09/3683405700.png"><img src="https://52mip.com/usr/uploads/2019/09/3683405700.png" alt="folderclone_add_user2.png" loading="lazy"></a></p>
 <h2 id="拷贝文件到共享云端硬盘">拷贝文件到共享云端硬盘</h2>
 <p>先获取共享链接，且设置成知道此链接的任何人都可以查看：</p>
 <p>例如分享链接<code>https://drive.google.com/open?id=1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA</code><br>
-<a href="https://52mip.com/usr/uploads/2019/09/4204873847.png"><img src="https://52mip.com/usr/uploads/2019/09/4204873847.png" alt="sharefileID.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/4204873847.png"><img src="https://52mip.com/usr/uploads/2019/09/4204873847.png" alt="sharefileID.png" loading="lazy"></a></p>
 <pre><code>id=1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA
 </code></pre>
 <p>如果是别人分享的链接，先右击选择添加到我的云端硬盘：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/3619131553.png"><img src="https://52mip.com/usr/uploads/2019/09/3619131553.png" alt="add_my_drive.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/3619131553.png"><img src="https://52mip.com/usr/uploads/2019/09/3619131553.png" alt="add_my_drive.png" loading="lazy"></a></p>
 <p>查看【<strong>共享云端硬盘</strong>】的<code>ID</code>：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/492178085.png"><img src="https://52mip.com/usr/uploads/2019/09/492178085.png" alt="team_ID.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/492178085.png"><img src="https://52mip.com/usr/uploads/2019/09/492178085.png" alt="team_ID.png" loading="lazy"></a></p>
 <p>进入<code>folderclone</code>文件夹目录：<br>
-<a href="https://52mip.com/usr/uploads/2019/09/207284959.png"><img src="https://52mip.com/usr/uploads/2019/09/207284959.png" alt="folderclone_add_user.png"></a></p>
+<a href="https://52mip.com/usr/uploads/2019/09/207284959.png"><img src="https://52mip.com/usr/uploads/2019/09/207284959.png" alt="folderclone_add_user.png" loading="lazy"></a></p>
 <p>在<code>CMD</code>窗口执行：</p>
 <pre><code>python multifolderclone.py -s 源文件ID -d TD-ID
 </code></pre>
@@ -611,8 +824,8 @@ pip install  httplib2shim
     </entry>
     <entry>
         <title type="html"><![CDATA[AriaNg + rclone 实现 Google Drive 离线下载]]></title>
-        <id>https://chwl66.github.io/post/OVI5xWH9j</id>
-        <link href="https://chwl66.github.io/post/OVI5xWH9j">
+        <id>https://chwl66.github.io/post/OVI5xWH9j/</id>
+        <link href="https://chwl66.github.io/post/OVI5xWH9j/">
         </link>
         <updated>2019-11-22T01:09:31.000Z</updated>
         <content type="html"><![CDATA[<h2 id="准备环境">准备环境</h2>
@@ -752,7 +965,7 @@ touch ariang.conf
 <pre><code>systemctl reload nginx
 </code></pre>
 <p>访问 <code>http://IP_HOST</code> 即可看到 ariaNg 效果。</p>
-<figure data-type="image" tabindex="1"><img src="https://blog.codesofun.com/assets/images/2018/11/ariang.png" alt="img"></figure>
+<figure data-type="image" tabindex="1"><img src="https://blog.codesofun.com/assets/images/2018/11/ariang.png" alt="img" loading="lazy"></figure>
 <h1 id="配置-google-drive">配置 Google Drive</h1>
 <h2 id="挂载-google-drive-到-vps">挂载 Google Drive 到 VPS</h2>
 <p>安装 Rclone</p>
@@ -963,8 +1176,8 @@ on-download-complete=/root/rcloneupload.sh
     </entry>
     <entry>
         <title type="html"><![CDATA[GoIndex部署教程，用Google Drive来做目录索引网盘]]></title>
-        <id>https://chwl66.github.io/post/sRQUu33vw</id>
-        <link href="https://chwl66.github.io/post/sRQUu33vw">
+        <id>https://chwl66.github.io/post/sRQUu33vw/</id>
+        <link href="https://chwl66.github.io/post/sRQUu33vw/">
         </link>
         <updated>2019-11-22T01:08:54.000Z</updated>
         <content type="html"><![CDATA[<p>感谢大佬@<a href="https://www.hostloc.com/space-uid-18200.html">donwa</a>又更新了一个针对Google Drive的文件目录代码！这里更新一篇文章介绍一下！！</p>
@@ -988,22 +1201,22 @@ google drive 下载10T/24h（大佬说的）<br>
 google api 调用限制</p>
 <h2 id="部署步骤">部署步骤</h2>
 <p>1）访问 https://install.gd.workers.dev/ 点击 【1.获取认证码】登陆Google帐号，会有code(画线部分）。将上面的CODE复制到 Auth认证码部分。目录ID可以留空！</p>
-<figure data-type="image" tabindex="1"><img src="https://yanxuan.nosdn.127.net/f044b5331e6022c2f25e88635e056b5a.jpg" alt="img"></figure>
+<figure data-type="image" tabindex="1"><img src="https://yanxuan.nosdn.127.net/f044b5331e6022c2f25e88635e056b5a.jpg" alt="img" loading="lazy"></figure>
 <p>2）点【2.生成代码】，复制生成的代码，打开 https://dash.cloudflare.com/ 登陆帐号，选个域名，点击 Workers，如图</p>
-<figure data-type="image" tabindex="2"><img src="https://yanxuan.nosdn.127.net/1c502a8a7e1da3df69f4861e72596f60.png" alt="img"></figure>
+<figure data-type="image" tabindex="2"><img src="https://yanxuan.nosdn.127.net/1c502a8a7e1da3df69f4861e72596f60.png" alt="img" loading="lazy"></figure>
 <p>3）点击 new Workers dashboard ，如图，需要起个名字，我已经起过了，就没有截图了，类似与  qwe.workers.dev的名字，只能修改前缀，后缀workers.dev 固定的。</p>
-<figure data-type="image" tabindex="3"><img src="https://yanxuan.nosdn.127.net/67c48700ec92a5696530070c57cc6a09.png" alt="img"></figure>
+<figure data-type="image" tabindex="3"><img src="https://yanxuan.nosdn.127.net/67c48700ec92a5696530070c57cc6a09.png" alt="img" loading="lazy"></figure>
 <p>4）点击Create a Workers，如图，</p>
-<figure data-type="image" tabindex="4"><img src="https://yanxuan.nosdn.127.net/b78670ed2eb6ba0dd8d7adee51282767.png" alt="img"></figure>
+<figure data-type="image" tabindex="4"><img src="https://yanxuan.nosdn.127.net/b78670ed2eb6ba0dd8d7adee51282767.png" alt="img" loading="lazy"></figure>
 <p>5）在Script里复制刚才的代码code，右下角Run可以在右边看到浏览状态，右边上方有地址，左边上方可以修改地址，例如修改为121，Save and Deploy保存</p>
 <p>121.qwe.workers.dev 就是你的地址了。</p>
 <h2 id="其他内容">其他内容</h2>
 <p><strong>如何自定义域名</strong></p>
 <p>1）先让需要绑定的域名通过cf，指向ip随意。</p>
-<figure data-type="image" tabindex="5"><img src="https://yanxuan.nosdn.127.net/9d2b1828e80c5eab9fa46b4f92319117.png" alt="img"></figure>
+<figure data-type="image" tabindex="5"><img src="https://yanxuan.nosdn.127.net/9d2b1828e80c5eab9fa46b4f92319117.png" alt="img" loading="lazy"></figure>
 <p>2）添加Route</p>
-<figure data-type="image" tabindex="6"><img src="https://yanxuan.nosdn.127.net/4b0dffe93e199c469282bfb3d0b837ec.png" alt="img"></figure>
-<figure data-type="image" tabindex="7"><img src="https://yanxuan.nosdn.127.net/b6fe3d4fd9ae7eb47bfb5faa6c4a2c84.png" alt="img"></figure>
+<figure data-type="image" tabindex="6"><img src="https://yanxuan.nosdn.127.net/4b0dffe93e199c469282bfb3d0b837ec.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://yanxuan.nosdn.127.net/b6fe3d4fd9ae7eb47bfb5faa6c4a2c84.png" alt="img" loading="lazy"></figure>
 <p><strong>关于目录ID</strong><br>
 打开团队盘(或文件夹或别人共享的文件夹)，看地址栏。<br>
 https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
@@ -1012,8 +1225,8 @@ https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+]]></title>
-        <id>https://chwl66.github.io/post/28IUd1HzY</id>
-        <link href="https://chwl66.github.io/post/28IUd1HzY">
+        <id>https://chwl66.github.io/post/28IUd1HzY/</id>
+        <link href="https://chwl66.github.io/post/28IUd1HzY/">
         </link>
         <updated>2019-11-22T01:07:27.000Z</updated>
         <content type="html"><![CDATA[<p><strong>说明：</strong><code>PyOne</code>最近凭着离线下载(完成并自动上传至<code>Onedrive</code>)和绑定多网盘的功能被越来越多的人使用，如果你还不知道<code>PyOne</code>是何物的可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和<code>Docker</code>安装教程，查看：<a href="https://www.moerats.com/archives/734/">手动安装</a>、<a href="https://www.moerats.com/archives/799/">Docker安装</a>。不过由于宝塔的<code>Mongodb</code>很容易出错，有些小白也不会解决，而<code>Docker</code>也不支持<code>OpenVZ</code>，所以博主写了个一键脚本，这里分享下。</p>
@@ -1050,7 +1263,7 @@ https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
 bash PyOne.sh
 </code></pre>
 <p>根据需求选择是否使用域名访问，然后输入域名和<code>Aria2</code>密匙即可。<br>
-<a href="https://www.moerats.com/usr/picture/PyOne_shell.png"><img src="https://www.moerats.com/usr/picture/PyOne_shell.png" alt="请输入图片描述"></a></p>
+<a href="https://www.moerats.com/usr/picture/PyOne_shell.png"><img src="https://www.moerats.com/usr/picture/PyOne_shell.png" alt="请输入图片描述" loading="lazy"></a></p>
 <p>安装完成后，如果打不开网站的，可以使用命令一起查看下各程序状态。</p>
 <pre><code>#使用域名访问的
 systemctl status aria2 mongod redis-server pyone caddy
@@ -1113,8 +1326,8 @@ Aria2配置文件的下载路径为/root/Download，但该程序自带的离线�
     </entry>
     <entry>
         <title type="html"><![CDATA[利用CloudFlare Worker 免费部署 JSProxy 服务]]></title>
-        <id>https://chwl66.github.io/post/pLeXJDL_N</id>
-        <link href="https://chwl66.github.io/post/pLeXJDL_N">
+        <id>https://chwl66.github.io/post/pLeXJDL_N/</id>
+        <link href="https://chwl66.github.io/post/pLeXJDL_N/">
         </link>
         <updated>2019-11-22T01:06:45.000Z</updated>
         <content type="html"><![CDATA[<p>JSProxy 一个基于浏览器端 JS 实现的在线代理，这里不多介绍！</p>
@@ -1127,14 +1340,14 @@ Aria2配置文件的下载路径为/root/Download，但该程序自带的离线�
 <p>Cloudflare 账号一个</p>
 <h2 id="使用教程">使用教程</h2>
 <p>1）打开 <a href="https://workers.cloudflare.com">https://workers.cloudflare.com</a>，登陆上你的 Cloudflare 账号激活 Workers 服务</p>
-<figure data-type="image" tabindex="1"><img src="https://ae04.alicdn.com/kf/HTB1BwEMaET1gK0jSZFr763NCXXaY.png" alt="img"></figure>
+<figure data-type="image" tabindex="1"><img src="https://ae04.alicdn.com/kf/HTB1BwEMaET1gK0jSZFr763NCXXaY.png" alt="img" loading="lazy"></figure>
 <p>然后创建一个 Workers【Create a Worker】</p>
-<figure data-type="image" tabindex="2"><img src="https://ae02.alicdn.com/kf/HTB16NsHaEY1gK0jSZFM761WcVXat.png" alt="img"></figure>
+<figure data-type="image" tabindex="2"><img src="https://ae02.alicdn.com/kf/HTB16NsHaEY1gK0jSZFM761WcVXat.png" alt="img" loading="lazy"></figure>
 <p>2）修改一下子域名，创建出来的域名格式 自定义的内容.Cloudflare用户名.workers.dev</p>
-<figure data-type="image" tabindex="3"><img src="https://ae06.alicdn.com/kf/HTB10hkMaxz1gK0jSZSg761vwpXaj.png" alt="img"></figure>
+<figure data-type="image" tabindex="3"><img src="https://ae06.alicdn.com/kf/HTB10hkMaxz1gK0jSZSg761vwpXaj.png" alt="img" loading="lazy"></figure>
 <p>3）复制<a href="https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js"> https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js</a> 的内容到左侧代码（Script）区域</p>
 <p>文章最下方有代码备份！！</p>
-<figure data-type="image" tabindex="4"><img src="https://ae03.alicdn.com/kf/HTB1EA.LaAL0gK0jSZFA763A9pXas.png" alt="img"></figure>
+<figure data-type="image" tabindex="4"><img src="https://ae03.alicdn.com/kf/HTB1EA.LaAL0gK0jSZFA763A9pXas.png" alt="img" loading="lazy"></figure>
 <p>4）先点击【Run】右侧看执行效果，再点击 【Save and deploy】 部署代码</p>
 <p>5）届时你可以访问你的站点https://xxx.子域名.workers.dev查看效果</p>
 <p>进入站点后将线路选择切换为当前站点即可使用</p>
@@ -1431,73 +1644,6 @@ async function parseYtVideoRedir(urlObj, newLen, res) {
   return urlObj
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[注册激活Navicat全系产品的开源代码分享]]></title>
-        <id>https://chwl66.github.io/post/GLrSQjpqd</id>
-        <link href="https://chwl66.github.io/post/GLrSQjpqd">
-        </link>
-        <updated>2019-11-22T01:05:56.000Z</updated>
-        <content type="html"><![CDATA[<p>前一段儿时间我水了一篇文章介绍了PJ版本的Navicat，当时有大佬PM我，说有一个开源的注册机。当时也没时间测试一直没写文章！</p>
-<p>最近几天我的Navicat出问题了，打算新装一下！正好试一试这个开源代码！果然可行！！</p>
-<p>博主亲测：Navicat Premium 12.1.22 + Windows 10 X64 激活成功！</p>
-<h2 id="开源地址">开源地址</h2>
-<p><a href="https://github.com/DoubleLabyrinth/navicat-keygen">https://github.com/DoubleLabyrinth/navicat-keygen</a></p>
-<h2 id="软件下载">软件下载</h2>
-<p>访问 <a href="https://www.navicat.com.cn/products">https://www.navicat.com.cn/products</a>，选择自己需要的产品点击【免费试用】即可下载软件！</p>
-<h2 id="操作过程">操作过程</h2>
-<p>1）<a href="https://github.com/DoubleLabyrinth/navicat-keygen/releases">访问地址</a>，下载PJ程序！注意X64的系统要选择X64的软件！</p>
-<p>2）将软件包解压，将里面的2个文件复制到D盘！</p>
-<p>3）以管理员运行 CMD 命令（<strong>按Win + X，选择 命令提示符（管理员）</strong>）</p>
-<p>4）分别执行以下命令！其中第一条命令中引号中的内容伟Navicat安装目录！</p>
-<pre><code>navicat-patcher.exe &quot;C:\Program Files\PremiumSoft\Navicat Premium 12&quot;
-navicat-keygen.exe -text ./RegPrivateKey.pem
-</code></pre>
-<p>执行第二条命令后，选择产品和语言以及版本！最后生成一个激活码。</p>
-<pre><code>Select Navicat product:
-0. DataModeler
-1. Premium
-2. MySQL
-3. PostgreSQL
-4. Oracle
-5. SQLServer
-6. SQLite
-7. MariaDB
-8. MongoDB
-9. ReportViewer
- 
-(Input index)&amp;gt; 1
- 
-Select product language:
-0. English
-1. Simplified Chinese
-2. Traditional Chinese
-3. Japanese
-4. Polish
-5. Spanish
-6. French
-7. German
-8. Korean
-9. Russian
-10. Portuguese
- 
-(Input index)&amp;gt; 1
- 
-(Input major version number, range: 0 ~ 15, default: 12)&amp;gt; 12
- 
-Serial number:
-NAVO-2ORP-IN5A-GQEE
-</code></pre>
-<p>5）启动Navicat程序 – 菜单 – 帮助 – 注册。将序列号填入。</p>
-<p>6）电脑断网，然后点击【激活】- 选择【手动激活】会生成请求码</p>
-<p>7）将请求码复制到命令提示符框内，按<strong>2</strong>次回车！会生成激活码！</p>
-<p>8）将激活码复制到升级框内，点击【激活】，然后激活成功！</p>
-<figure data-type="image" tabindex="1"><img src="https://fbi.gs/2019/10/18/5da949517d237.png" alt="img"></figure>
-<h2 id="注意事项">注意事项</h2>
-<p>1）之前使用其他破解版，需要卸载后重启电脑，然后删除原安装目录。</p>
-<p>2）操作过程中错误，从头再来一次即可。</p>
-<p>3）PJ输入的组织名不要太长！</p>
 ]]></content>
     </entry>
 </feed>
