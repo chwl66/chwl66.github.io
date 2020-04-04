@@ -1,0 +1,203 @@
+<html>
+      <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="referrer" content="never">
+        <title>使用PicGo对接Hidove图床 | 温故知新</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://chwl66.github.io/styles/main.css">
+          <script src="https://chwl66.github.io/media/scripts/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+        <script src="https://chwl66.github.io/media/scripts/script.js"></script>
+        <script >hljs.initHighlightingOnLoad();</script>
+        
+
+    </head>
+    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
+        <header class="index-img mdui-m-b-3" >
+                          <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
+                <ul class="mdui-menu" id="demo-attr-cascade">
+                
+                        <li class="mdui-menu-item">
+                          <a href="/" class="mdui-ripple">首页</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/archives" class="mdui-ripple">归档</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/tags" class="mdui-ripple">标签</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/post/about" class="mdui-ripple">关于</a>
+                        </li>
+                
+                      </ul>
+
+        </header>
+        <div class="mdui-container post">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
+                         <article class="mdui-shadow-10 mdui-p-a-2 post-list">
+                           <div class="mdui-typo-display-1 mdui-m-b-3">使用PicGo对接Hidove图床</div>
+                           <a  class="index-list-biaoqian ">2020-04-04</a>
+                           <div class="mdui-typo mdui-m-t-3 post-neirong"><p><strong>说明</strong><br>
+最近几天陆续有小伙伴问我如何使用<code>PicGo</code>、<code>UPic</code>等客户端图床工具该如何配置对接<code>Hidove图床</code>。<br>
+我挨个看了看，觉得<code>PicGo</code>很不错，各种系统都支持，所以介绍一下<code>PicGo</code>的用法，其他工具用法也可以照葫芦画瓢，就不说了。</p>
+<h1 id="安装需要">安装需要</h1>
+<h2 id="安装picgo">安装PicGo</h2>
+<ul>
+<li><a href="https://blog.hidove.cn/go/aHR0cHM6Ly9tb2x1bmVyZmlubi5jb20vUGljR28v">https://molunerfinn.com/PicGo/</a></li>
+</ul>
+<h2 id="安装nodejs">安装Node.js</h2>
+<ul>
+<li><a href="https://blog.hidove.cn/go/aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">https://nodejs.org/en/</a></li>
+</ul>
+<blockquote>
+<p>在插件界面的搜索栏搜索插件名<code>web-uploader</code>并安装</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><a href="https://dlolb.top/2020/03/31/3655a0d9b9aa43dc.png"><img src="https://dlolb.top/2020/03/31/3655a0d9b9aa43dc.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
+<h2 id="配置web-uploader">配置<code>web-uploader</code></h2>
+<figure data-type="image" tabindex="2"><a href="https://dlolb.top/2020/04/01/8f06b9a51e6ece1d.png"><img src="https://dlolb.top/2020/04/01/8f06b9a51e6ece1d.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
+<ul>
+<li>Json路径</li>
+</ul>
+<pre><code>data.url.distribute
+</code></pre>
+<ul>
+<li>自定义Body问标准Json格式数据，请按需求修改</li>
+</ul>
+<pre><code>{&quot;token&quot;:&quot;xxxxxxxxxxxxx&quot;,&quot;apiType&quot;:&quot;ali&quot;}
+</code></pre>
+<h2 id="上传完毕">上传完毕</h2>
+<figure data-type="image" tabindex="3"><a href="https://dlolb.top/2020/04/01/68fc9e9ec0006948.png"><img src="https://dlolb.top/2020/04/01/68fc9e9ec0006948.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
+</div>
+                              <div class="mdui-divider mdui-m-t-3"></div>
+                              <div class="mdui-row-xs-2 mdui-m-t-2">
+  <div class="mdui-col"> </div>
+ <div class="mdui-col"><div class="mdui-text-right "><a href="https://chwl66.github.io/post/WlKJ1XeEq/">GitHub+Hexo 搭建个人网站详细教程</a></div> </div>
+                                </div>
+                                <div class="mdui-divider mdui-m-t-2"></div>
+   
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'gridea',
+  apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+ <script src="https://chwl66.github.io/media/scripts/Valine.min.js"></script>
+ <div class="comment"></div>
+
+<script>
+      new Valine({
+            el: '.comment',
+
+
+
+            path: window.location.pathname,
+            pageSize: 30,
+            avatar:'mm', 
+       })
+
+    </script> 
+<script>
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
+    }
+</script>
+                         </article>
+                 <div class="toc-container mdui-float-right">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81">安装需要</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85picgo">安装PicGo</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85nodejs">安装Node.js</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEweb-uploader">配置<code>web-uploader</code></a></li>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E5%AE%8C%E6%AF%95">上传完毕</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+
+                        </div>
+                 </div>
+          
+        </div>
+        <script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $.viewImage({
+                    'target'  : '.post-neirong img',
+                    'exclude' : '.vsmile-icons img , .song-links-item img',
+                    'delay'   : 300
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+        <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                      </ul>
+                    </nav>
+                    <div class="copyright">
+                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
+                  </div>
+              </footer>
+    </body>
+</html>
