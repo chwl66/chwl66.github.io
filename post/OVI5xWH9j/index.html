@@ -1,52 +1,301 @@
-<html>
-      <head>
-        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
-        <meta charset="utf-8">
-        <meta name="referrer" content="never">
-        <title>AriaNg + rclone 实现 Google Drive 离线下载 | 温故知新</title>
-        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
-        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://home.dlolb.best/styles/main.css">
-          <script src="https://home.dlolb.best/media/scripts/mdui.min.js"></script>
-        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
-        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-        <script src="https://home.dlolb.best/media/scripts/script.js"></script>
-        <script >hljs.initHighlightingOnLoad();</script>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="准备环境
+
+一台 vps 主机，博主使用 CentOS 进行演示
+内存 &gt;= 512MB
+KVM 架构
+硬盘最好 &gt;= 10G
+一个谷歌 Drive 账号
+
+更新系统并安装必须组件，此处安装 nginx web 服务器。
+yum..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://home.dlolb.best/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/dracula.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://home.dlolb.best/media/css/bootstrap.min.css">
+    <title>温故知新</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://home.dlolb.best/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://home.dlolb.best/images/avatar.png?v=1586507255188" class="avatar">
+        </div>
+        <div class="sitename">温故知新</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
         
+    <div class="share-button">
+        <span>Contact</span>
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none"></div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none"></div>
+    </div>
+</body>
 
-    </head>
-    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
-        <header class="index-img mdui-m-b-3" >
-                          <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
-                <ul class="mdui-menu" id="demo-attr-cascade">
-                
-                        <li class="mdui-menu-item">
-                          <a href="/" class="mdui-ripple">首页</a>
-                        </li>
-                
-                        <li class="mdui-menu-item">
-                          <a href="/archives" class="mdui-ripple">归档</a>
-                        </li>
-                
-                        <li class="mdui-menu-item">
-                          <a href="/tags" class="mdui-ripple">标签</a>
-                        </li>
-                
-                        <li class="mdui-menu-item">
-                          <a href="/post/about" class="mdui-ripple">关于</a>
-                        </li>
-                
-                      </ul>
+</html>
+<script src="https://home.dlolb.best/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
 
-        </header>
-        <div class="mdui-container post">
-                <div class="mdui-row">
-                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
-                         <article class="mdui-shadow-10 mdui-p-a-2 post-list">
-                           <div class="mdui-typo-display-1 mdui-m-b-3">AriaNg + rclone 实现 Google Drive 离线下载</div>
-                           <a  class="index-list-biaoqian ">2019-11-22</a>
-                           <div class="mdui-typo mdui-m-t-3 post-neirong"><h2 id="准备环境">准备环境</h2>
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://home.dlolb.best/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-11-22</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 12 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>AriaNg + rclone 实现 Google Drive 离线下载</h2>
+            </div>
+            <div class="text ">
+                <h2 id="准备环境">准备环境</h2>
 <ul>
 <li>一台 vps 主机，博主使用 CentOS 进行演示</li>
 <li>内存 &gt;= 512MB</li>
@@ -390,18 +639,65 @@ on-download-complete=/root/rcloneupload.sh
 /etc/init.d/aria2 restart
 </code></pre>
 <h1 id="请开始你的表演">请开始你的表演</h1>
-</div>
-                              <div class="mdui-divider mdui-m-t-3"></div>
-                              <div class="mdui-row-xs-2 mdui-m-t-2">
-  <div class="mdui-col"> <div class="mdui-text-left"><a href="https://home.dlolb.best/post/d8paPRJx0/">【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘</a></div></div>
- <div class="mdui-col"><div class="mdui-text-right "><a href="https://home.dlolb.best/post/sRQUu33vw/">GoIndex部署教程，用Google Drive来做目录索引网盘</a></div> </div>
-                                </div>
-                                <div class="mdui-divider mdui-m-t-2"></div>
-   
-          
 
-          
-            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://home.dlolb.best/post/d8paPRJx0/">
+                    【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://home.dlolb.best/post/sRQUu33vw/">
+                    GoIndex部署教程，用Google Drive来做目录索引网盘
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            
+                            
+                            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
 <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
 
 <div id="disqus_thread"></div>
@@ -419,36 +715,13 @@ var dsqjs = new DisqusJS(options)
 
 </script>
 
-          
-        
- <script src="https://home.dlolb.best/media/scripts/Valine.min.js"></script>
- <div class="comment"></div>
-
-<script>
-      new Valine({
-            el: '.comment',
-
-
-
-            path: window.location.pathname,
-            pageSize: 30,
-            avatar:'mm', 
-       })
-
-    </script> 
-<script>
-    if(window.location.hash){
-        var checkExist = setInterval(function() {
-           if ($(window.location.hash).length) {
-              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
-              clearInterval(checkExist);
-           }
-        }, 100);
-    }
-</script>
-                         </article>
-                 <div class="toc-container mdui-float-right">
-                <ul class="markdownIt-TOC">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
 <li>
 <ul>
 <li><a href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83">准备环境</a></li>
@@ -469,59 +742,537 @@ var dsqjs = new DisqusJS(options)
 <li><a href="#%E8%AF%B7%E5%BC%80%E5%A7%8B%E4%BD%A0%E7%9A%84%E8%A1%A8%E6%BC%94">请开始你的表演</a></li>
 </ul>
 
-              </div>
-
-                        </div>
-                 </div>
-          
+                </div>
+            </div>
         </div>
-        <script data-no-instant>
-    (function ($) {
-        $.extend({
-            adamsOverload: function () {
-                $.viewImage({
-                    'target'  : '.post-neirong img',
-                    'exclude' : '.vsmile-icons img , .song-links-item img',
-                    'delay'   : 300
-                });
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none"></div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://home.dlolb.best/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">温故知新&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://home.dlolb.best/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-11-22</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 12 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>AriaNg + rclone 实现 Google Drive 离线下载</h2>
+            </div>
+            <div class="text ">
+                <h2 id="准备环境">准备环境</h2>
+<ul>
+<li>一台 vps 主机，博主使用 CentOS 进行演示</li>
+<li>内存 &gt;= 512MB</li>
+<li>KVM 架构</li>
+<li>硬盘最好 &gt;= 10G</li>
+<li>一个谷歌 Drive 账号</li>
+</ul>
+<p>更新系统并安装必须组件，此处安装 nginx web 服务器。</p>
+<pre><code>yum -y update
+yum -y install epel-release
+yum -y install wget git unzip gcc gcc-c++ openssl-devel nginx
+</code></pre>
+<p>启动 nginx 并设置开机自启</p>
+<pre><code>systemctl start nginx
+systemctl enable nginx.service
+systemctl stop firewalld # 关闭防火墙
+</code></pre>
+<p>这个时候可以访问服务器的外网 IP 查看 nginx 启动成功。</p>
+<h2 id="安装-ariang">安装 AriaNg</h2>
+<h3 id="安装-aria2">安装 aria2</h3>
+<p>Aria2 是一个命令行下运行、多协议、多来源下载工具，支持磁力链接、BT 种子、HTTP、FTP 等下载协议，当然因为它是命令行下载工具，所以我们想下载一个东西还需要去敲命令自然是不方便，于是就有一些人根据 Aria2 的 API 开发了一些在线管理面板，可以直接在网页上面添加管理任务。</p>
+<hr>
+<p>先安装 aria2 服务端，使用逗比大佬的脚本</p>
+<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+</code></pre>
+<p>运行脚本后会出现脚本操作菜单，选择并输入 <code>1</code> 就会开始安装。</p>
+<pre><code>Aria2 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc4 --
+ 
+ 1. 升级脚本
+————————————
+ 1. 安装 Aria2
+ 2. 更新 Aria2
+ 3. 卸载 Aria2
+————————————
+ 4. 启动 Aria2
+ 5. 停止 Aria2
+ 6. 重启 Aria2
+————————————
+ 7. 修改 配置文件
+ 8. 查看 配置信息
+ 9. 查看 日志信息
+10. 配置 自动更新 BT-Tracker服务器
+————————————
+ 
+当前状态: 已安装 并 已启动
+ 
+请输入数字 [0-10]:
+</code></pre>
+<p>安装成功后配置文件在 <code>/root/.aria2/aria2.conf</code>，几个比较重要的配置：</p>
+<pre><code># aria2 下载文件后所在目录
+dir=/usr/local/caddy/www/aria2/Download
+# aria2 RPC 监听端口
+rpc-listen-port=6800
+# aria2 RPC 秘钥
+rpc-secret=codesofun
+# 下载成功后执行的脚本
+on-download-complete=/root/rcloneupload.sh
+</code></pre>
+<p>将下载目录修改为 <code>/data/Download</code></p>
+<p>创建目录</p>
+<pre><code>mkdir -p /data/Download
+</code></pre>
+<p>运行脚本</p>
+<pre><code>bash aria2.sh
+</code></pre>
+<p>运行脚本后会出现脚本操作菜单，选择并输入 <code>7</code> 就会按照选项进行修改。</p>
+<pre><code>Aria2 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc4 --
+ 
+ 0. 升级脚本
+————————————
+ 1. 安装 Aria2
+ 2. 更新 Aria2
+ 3. 卸载 Aria2
+————————————
+ 4. 启动 Aria2
+ 5. 停止 Aria2
+ 6. 重启 Aria2
+————————————
+ 7. 修改 配置文件
+ 8. 查看 配置信息
+ 9. 查看 日志信息
+10. 配置 自动更新 BT-Tracker服务器
+————————————
+ 
+当前状态: 已安装 并 已启动
+ 
+请输入数字 [0-10]:
+</code></pre>
+<p><strong>其他操作</strong></p>
+<ul>
+<li>启动：<code>/etc/init.d/aria2 start</code></li>
+<li>停止：<code>/etc/init.d/aria2 stop</code></li>
+<li>重启：<code>/etc/init.d/aria2 restart</code></li>
+<li>查看状态：<code>/etc/init.d/aria2 status</code></li>
+<li>配置文件：<code>/root/.aria2/aria2.conf</code> （配置文件包含中文注释，但是一些系统可能不支持显示中文）</li>
+<li>令牌密匙：随机生成（可以自己修改配置文件）</li>
+<li>下载目录：<code>/data/Download</code></li>
+</ul>
+<h2 id="安装-ariang-2">安装 AriaNg</h2>
+<p>AriaNg 是一个前端(HTML+JS静态)控制面板，不需要和 Aria2 (后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建 Aria2 后端，然后访问别人建好的 AriaNg 前端面板，也可以远程操作 Aria2 后端！</p>
+<p>Github 源码地址：https://github.com/mayswind/AriaNg</p>
+<p>不需要和 Aria2 (后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建 Aria2 后端，然后访问别人建好的 AriaNg 前端面板，也可以远程操作 Aria2 后端！</p>
+<p><strong>下载 AriaNg</strong></p>
+<pre><code>mkdir -p /data/www/ariang
+cd /data/www/ariang
+wget https://github.com/mayswind/AriaNg-DailyBuild/archive/master.zip &amp;&amp; unzip master.zip
+mv AriaNg-DailyBuild-master/* .
+rm -rf master.zip AriaNg-DailyBuild-master
+</code></pre>
+<p><strong>配置 Nginx 虚拟主机</strong></p>
+<pre><code>cd /etc/nginx/conf.d
+touch ariang.conf
+</code></pre>
+<p>编辑配置</p>
+<pre><code>vim ariang.conf
+</code></pre>
+<p>编辑nginx 配置，将下面的代码填入进去。</p>
+<pre><code>server {
+    listen 80;
+    server_name &lt;IP_ADDRESS&gt;;
+
+    location / {
+        root   /data/www/ariang;
+        index  index.html index.htm;
+    }
+}
+</code></pre>
+<blockquote>
+<p>这个时候也可以使用 <code>nginx -t</code> 测试一下配置文件是否修改正确</p>
+</blockquote>
+<p>重新加载 nginx 配置</p>
+<pre><code>systemctl reload nginx
+</code></pre>
+<p>访问 <code>http://IP_HOST</code> 即可看到 ariaNg 效果。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog.codesofun.com/assets/images/2018/11/ariang.png" alt="img" loading="lazy"></figure>
+<h1 id="配置-google-drive">配置 Google Drive</h1>
+<h2 id="挂载-google-drive-到-vps">挂载 Google Drive 到 VPS</h2>
+<p>安装 Rclone</p>
+<pre><code>yum -y install unzip
+curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>配置</p>
+<pre><code>[root@vultr ~]# rclone config
+2018/11/25 09:31:54 NOTICE: Config file &quot;/root/.config/rclone/rclone.conf&quot; not found - using defaults
+No remotes found - make a new one
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q&gt; n
+name&gt; codesofun
+Type of storage to configure.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+Choose a number from below, or type in your own value
+ 1 / A stackable unification remote, which can appear to merge the contents of several remotes
+   \ &quot;union&quot;
+ 2 / Alias for a existing remote
+   \ &quot;alias&quot;
+ 3 / Amazon Drive
+   \ &quot;amazon cloud drive&quot;
+ 4 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ &quot;s3&quot;
+ 5 / Backblaze B2
+   \ &quot;b2&quot;
+ 6 / Box
+   \ &quot;box&quot;
+ 7 / Cache a remote
+   \ &quot;cache&quot;
+ 8 / Dropbox
+   \ &quot;dropbox&quot;
+ 9 / Encrypt/Decrypt a remote
+   \ &quot;crypt&quot;
+10 / FTP Connection
+   \ &quot;ftp&quot;
+11 / Google Cloud Storage (this is not Google Drive)
+   \ &quot;google cloud storage&quot;
+12 / Google Drive
+   \ &quot;drive&quot;
+13 / Hubic
+   \ &quot;hubic&quot;
+14 / JottaCloud
+   \ &quot;jottacloud&quot;
+15 / Local Disk
+   \ &quot;local&quot;
+16 / Mega
+   \ &quot;mega&quot;
+17 / Microsoft Azure Blob Storage
+   \ &quot;azureblob&quot;
+18 / Microsoft OneDrive
+   \ &quot;onedrive&quot;
+19 / OpenDrive
+   \ &quot;opendrive&quot;
+20 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &quot;swift&quot;
+21 / Pcloud
+   \ &quot;pcloud&quot;
+22 / QingCloud Object Storage
+   \ &quot;qingstor&quot;
+23 / SSH/SFTP Connection
+   \ &quot;sftp&quot;
+24 / Webdav
+   \ &quot;webdav&quot;
+25 / Yandex Disk
+   \ &quot;yandex&quot;
+26 / http Connection
+   \ &quot;http&quot;
+Storage&gt; 12
+** See help for drive backend at: https://rclone.org/drive/ **
+
+Google Application Client Id
+Leave blank normally.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+client_id&gt;
+Google Application Client Secret
+Leave blank normally.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+client_secret&gt;
+Scope that rclone should use when requesting access from drive.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ &quot;drive&quot;
+ 2 / Read-only access to file metadata and file contents.
+   \ &quot;drive.readonly&quot;
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ &quot;drive.file&quot;
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ &quot;drive.appfolder&quot;
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ &quot;drive.metadata.readonly&quot;
+scope&gt; 1
+ID of the root folder
+Leave blank normally.
+Fill in to access &quot;Computers&quot; folders. (see docs).
+Enter a string value. Press Enter for the default (&quot;&quot;).
+root_folder_id&gt;
+Service Account Credentials JSON file path
+Leave blank normally.
+Needed only if you want use SA instead of interactive login.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+service_account_file&gt;
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n&gt; n
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine or Y didn't work
+y) Yes
+n) No
+y/n&gt; n
+If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=0fbdd**********************05a3b00e23
+Log in and authorize rclone for access
+Enter verification code&gt; 4/owSACseTxM*************c2HtEVX_yEhBcr--JiFTA7-Pfg
+
+Configure this as a team drive?
+y) Yes
+n) No
+y/n&gt; y
+Fetching team drive list...
+No team drives found in your account--------------------
+[codesofun]
+type = drive
+scope = drive
+token = {&quot;access_token&quot;:&quot;ya29.GltfBn_YA8e0lgJNKeMAHZ3b_IeIBXHHrJxMO7wfW0AsY6v_Nso8YczhZafVe8UIIgK6ft1dn6BqP-UWp-W2YXBtcf6zbLuIZgKcPqwnhsVAkx3f7QcO5m0EUvAv&quot;,&quot;token_type&quot;:&quot;Bearer&quot;,&quot;refresh_token&quot;:&quot;1/hFSVnEeJ8CkFmrpdd7IGNx69mhkj8Cpny6JUktv3xcY&quot;,&quot;expiry&quot;:&quot;2018-11-25T10:42:09.400295503Z&quot;}
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt; y
+Current remotes:
+
+Name                 Type
+====                 ====
+codesofun            drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; q
+</code></pre>
+<h1 id="整合-aria2-rclone">整合 Aria2 + Rclone</h1>
+<p>这个时候我们使用 aria2 去下载文件，下载成功后触发一个脚本让它将文件移动到 Rclone 同步的文件夹内，这样在 Google Drive 就会自动有这个文件啦。</p>
+<p>新建一个名为 <code>rcloneupload.sh</code> 的脚本。</p>
+<pre><code>vim /root/rcloneupload.sh
+</code></pre>
+<p>编辑脚本，将下面内容全部填入脚本中保存。</p>
+<pre><code>#!/bin/bash
+
+filepath=$3	 #取文件原始路径，如果是单文件则为/Download/a.mp4，如果是文件夹则该值为文件夹内第一个文件比如/Download/a/1.mp4
+path=${3%/*}	 #取文件根路径，如把/Download/a/1.mp4变成/Download/a
+downloadpath='/data/Download'	#Aria2下载目录
+name='codesofun' #配置Rclone时的name
+folder='/share'	 #网盘里的文件夹，如果是根目录直接留空
+MinSize='10k'	 #限制最低上传大小，默认10k，BT下载时可防止上传其他无用文件。会删除文件，谨慎设置。
+MaxSize='15G'	 #限制最高文件大小，默认15G，OneDrive上传限制。
+
+if [ $2 -eq 0 ]; then exit 0; fi
+
+while true; do
+if [ &quot;$path&quot; = &quot;$downloadpath&quot; ] &amp;&amp; [ $2 -eq 1 ]	#如果下载的是单个文件
+    then
+    rclone move -v &quot;$filepath&quot; ${name}:${folder} --min-size $MinSize --max-size $MaxSize
+    rm -vf &quot;$filepath&quot;.aria2	#删除残留的.aria.2文件
+    exit 0
+elif [ &quot;$path&quot; != &quot;$downloadpath&quot; ]	#如果下载的是文件夹
+    then
+    while [[ &quot;`ls -A &quot;$path/&quot;`&quot; != &quot;&quot; ]]; do
+    rclone move -v &quot;$path&quot; ${name}:/${folder}/&quot;${path##*/}&quot; --min-size $MinSize --max-size $MaxSize --delete-empty-src-dirs
+    rclone delete -v &quot;$path&quot; --max-size $MinSize	#删除多余的文件
+    rclone rmdirs -v &quot;$downloadpath&quot; --leave-root	#删除空目录，--delete-empty-src-dirs 参数已实现，加上无所谓。
+    done
+    rm -vf &quot;$path&quot;.aria2	#删除残留的.aria2文件
+    exit 0
+fi
+done
+</code></pre>
+<p>需要修改几个地方：</p>
+<ul>
+<li><code>downloadpath</code>：填写 aria2 的下载目录</li>
+<li><code>name</code>：填写 rclone 配置的名称</li>
+<li><code>folder</code>：填写谷歌云盘的文件夹名称，根目录填 <code>/</code> 即可</li>
+</ul>
+<p>保存后给予执行权限</p>
+<pre><code>chmod +x /root/rcloneupload.sh
+</code></pre>
+<p>然后再到 Aria2 配置文件中加上一行 <code>on-download-complete=/root/rcloneupload.sh</code> 即可，后面为脚本的路径。重启 Aria2 生效。</p>
+<pre><code>vim /root/.aria2/aria2.conf
+
+on-download-complete=/root/rcloneupload.sh
+/etc/init.d/aria2 restart
+</code></pre>
+<h1 id="请开始你的表演">请开始你的表演</h1>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://home.dlolb.best/post/d8paPRJx0/">
+                    【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://home.dlolb.best/post/sRQUu33vw/">
+                    GoIndex部署教程，用Google Drive来做目录索引网盘
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
             }
         });
-    })(jQuery);
-    jQuery.adamsOverload();
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
 </script>
-        <footer class="footer mdui-m-t-5 mdui-text-center">
-               <nav class="social-links">
-                      <ul>
-                      
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                      </ul>
-                    </nav>
-                    <div class="copyright">
-                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
-                  </div>
-              </footer>
-    </body>
-</html>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                
+                
+                <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'gridea',
+  apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+                
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://home.dlolb.best/media/js/post.js"></script>

@@ -1,52 +1,292 @@
-<html>
-      <head>
-        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
-        <meta charset="utf-8">
-        <meta name="referrer" content="never">
-        <title>博客基于Handsome主题的一些小修改教程 | 温故知新</title>
-        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
-        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://home.dlolb.best/styles/main.css">
-          <script src="https://home.dlolb.best/media/scripts/mdui.min.js"></script>
-        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
-        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-        <script src="https://home.dlolb.best/media/scripts/script.js"></script>
-        <script >hljs.initHighlightingOnLoad();</script>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="**说明：**博客用Handsome主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用Handso..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://home.dlolb.best/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/dracula.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://home.dlolb.best/media/css/bootstrap.min.css">
+    <title>温故知新</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://home.dlolb.best/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://home.dlolb.best/images/avatar.png?v=1586507255188" class="avatar">
+        </div>
+        <div class="sitename">温故知新</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
         
+    <div class="share-button">
+        <span>Contact</span>
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none"></div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none"></div>
+    </div>
+</body>
 
-    </head>
-    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
-        <header class="index-img mdui-m-b-3" >
-                          <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
-                <ul class="mdui-menu" id="demo-attr-cascade">
-                
-                        <li class="mdui-menu-item">
-                          <a href="/" class="mdui-ripple">首页</a>
-                        </li>
-                
-                        <li class="mdui-menu-item">
-                          <a href="/archives" class="mdui-ripple">归档</a>
-                        </li>
-                
-                        <li class="mdui-menu-item">
-                          <a href="/tags" class="mdui-ripple">标签</a>
-                        </li>
-                
-                        <li class="mdui-menu-item">
-                          <a href="/post/about" class="mdui-ripple">关于</a>
-                        </li>
-                
-                      </ul>
+</html>
+<script src="https://home.dlolb.best/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
 
-        </header>
-        <div class="mdui-container post">
-                <div class="mdui-row">
-                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
-                         <article class="mdui-shadow-10 mdui-p-a-2 post-list">
-                           <div class="mdui-typo-display-1 mdui-m-b-3">博客基于Handsome主题的一些小修改教程</div>
-                           <a  class="index-list-biaoqian ">2019-12-25</a>
-                           <div class="mdui-typo mdui-m-t-3 post-neirong"><p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://home.dlolb.best/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-12-25</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>博客基于Handsome主题的一些小修改教程</h2>
+            </div>
+            <div class="text ">
+                <p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
 <h2 id="方法">方法</h2>
 <p><strong>1、首页文章版式圆角化</strong><br>
 本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
@@ -248,18 +488,65 @@ jQuery(document).ready(function($) {
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;(JS文件路径)&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>暂时只说这么多，修改方案很多由<a href="https://mikuac.com/">Zero博主</a>提供，还有通过本博客联系作者购买<code>Handsome</code>主题的，可打<code>9</code>折优惠。</p>
-</div>
-                              <div class="mdui-divider mdui-m-t-3"></div>
-                              <div class="mdui-row-xs-2 mdui-m-t-2">
-  <div class="mdui-col"> <div class="mdui-text-left"><a href="https://home.dlolb.best/post/WlKJ1XeEq/">GitHub+Hexo 搭建个人网站详细教程</a></div></div>
- <div class="mdui-col"><div class="mdui-text-right "><a href="https://home.dlolb.best/post/FNHwd2cm5/">WordPress编辑器中添加“上传到Chevereto图床”按钮</a></div> </div>
-                                </div>
-                                <div class="mdui-divider mdui-m-t-2"></div>
-   
-          
 
-          
-            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://home.dlolb.best/post/WlKJ1XeEq/">
+                    GitHub+Hexo 搭建个人网站详细教程
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://home.dlolb.best/post/FNHwd2cm5/">
+                    WordPress编辑器中添加“上传到Chevereto图床”按钮
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            
+                            
+                            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
 <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
 
 <div id="disqus_thread"></div>
@@ -277,36 +564,13 @@ var dsqjs = new DisqusJS(options)
 
 </script>
 
-          
-        
- <script src="https://home.dlolb.best/media/scripts/Valine.min.js"></script>
- <div class="comment"></div>
-
-<script>
-      new Valine({
-            el: '.comment',
-
-
-
-            path: window.location.pathname,
-            pageSize: 30,
-            avatar:'mm', 
-       })
-
-    </script> 
-<script>
-    if(window.location.hash){
-        var checkExist = setInterval(function() {
-           if ($(window.location.hash).length) {
-              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
-              clearInterval(checkExist);
-           }
-        }, 100);
-    }
-</script>
-                         </article>
-                 <div class="toc-container mdui-float-right">
-                <ul class="markdownIt-TOC">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
 <li>
 <ul>
 <li><a href="#%E6%96%B9%E6%B3%95">方法</a></li>
@@ -314,59 +578,395 @@ var dsqjs = new DisqusJS(options)
 </li>
 </ul>
 
-              </div>
-
-                        </div>
-                 </div>
-          
+                </div>
+            </div>
         </div>
-        <script data-no-instant>
-    (function ($) {
-        $.extend({
-            adamsOverload: function () {
-                $.viewImage({
-                    'target'  : '.post-neirong img',
-                    'exclude' : '.vsmile-icons img , .song-links-item img',
-                    'delay'   : 300
-                });
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none"></div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://home.dlolb.best/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">温故知新&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://home.dlolb.best/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-12-25</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>博客基于Handsome主题的一些小修改教程</h2>
+            </div>
+            <div class="text ">
+                <p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
+<h2 id="方法">方法</h2>
+<p><strong>1、首页文章版式圆角化</strong><br>
+本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>#圆角大小可修改15px数值(别复制该行)
+/*首页文章版式圆角化*/
+.panel{
+    border: none;
+    border-radius: 15px;
+}
+
+.panel-small{
+    border: none;
+    border-radius: 15px;
+}
+
+.item-thumb{
+    border-radius: 15px;  
+}
+</code></pre>
+<p><strong>2、首页文章图片获取焦点放大</strong><br>
+本项修改的是首页文章图片，将鼠标放到首页头图后使其放大。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>#放大的时间和大小自行修改以下数值(别复制该行)
+/*首页文章图片获取焦点放大*/
+.item-thumb{
+    cursor: pointer;  
+    transition: all 0.6s;  
+}
+
+.item-thumb:hover{
+      transform: scale(1.05);  
+}
+
+.item-thumb-small{
+    cursor: pointer;  
+    transition: all 0.6s;
+}
+
+.item-thumb-small:hover{
+    transform: scale(1.05);
+}
+</code></pre>
+<p><strong>3、首页头像转动并放大</strong><br>
+本项修改的是首页头像，将鼠标放至头像后使其转动并放大。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>#转动快慢和头像大小自行修改数值(别复制该行)
+/*首页头像自动旋转*/
+.thumb-lg{
+    width:130px;
+}
+
+.avatar{
+    -webkit-transition: 0.4s;
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    transition: transform 0.4s ease-out;
+    -moz-transition: -moz-transform 0.4s ease-out; 
+}
+
+.avatar:hover{
+    transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+}
+
+#aside-user span.avatar{
+    animation-timing-function:cubic-bezier(0,0,.07,1)!important;
+    border:0 solid
+}
+
+#aside-user span.avatar:hover{
+    transform:rotate(360deg) scale(1.2);
+    border-width:5px;
+    animation:avatar .5s
+}
+</code></pre>
+<p><strong>4、首页头像放大并自动旋转</strong><br>
+本项修改的是首页头像，效果就是将首页头像放大，并使其自动旋转。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>#旋转速度请修改3s数值(别复制该行)
+/*首页头像放大并自动旋转*/
+.thumb-lg{
+    width:130px;
+}
+
+@-webkit-keyframes rotation{
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.img-full{
+    -webkit-transform: rotate(360deg);
+    animation: rotation 3s linear infinite;
+    -moz-animation: rotation 3s linear infinite;
+    -webkit-animation: rotation 3s linear infinite;
+    -o-animation: rotation 3s linear infinite;
+}
+</code></pre>
+<p><strong>5、文章标题居中</strong><br>
+本项修改的是文章标题，使其居中。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>/*文章标题居中*/
+.panel h2{
+    text-align: center; 
+}
+.post-item-foot-icon{
+    text-align: center;
+}
+</code></pre>
+<p><strong>6、首页文章版式阴影化</strong><br>
+本项修改的是首页文章版式，包括图片使其四周加上一层绚丽的阴影。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>#阴影颜色修改rgba后面的值(别复制该行)
+/*panel阴影*/
+.panel{
+   box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+.panel:hover{
+    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+.panel-small{
+    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+.panel-small:hover{
+    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+#如果也想使盒子四周也有阴影，加上以下代码
+.app.container {
+    box-shadow: 0 0 30px rgba(255, 112, 173, 0.35);
+}
+</code></pre>
+<p><strong>7、自定义滚动条滑块</strong><br>
+本项修改针对浏览器最右边的滚动条滑块，使其改变样式。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
+<pre><code>/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar{
+    width: 3px;
+    height: 16px;
+    background-color: rgba(255,255,255,0);
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0);
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+</code></pre>
+<p><strong>8、评论表情修改</strong><br>
+本项修改评论表情，将原始表情替换成泡泡和阿鲁，只需要替换主题文件里的<code>OwO.min.js</code>和<code>OwO.json</code>文件就可以了。文件下载：<a href="https://www.moerats.com/usr/down/HS_OwO.zip">HS_OwO.zip</a>。<code>OwO.min.js</code>在<code>handsome/assets/js/features</code>文件夹，<code>OwO.json</code>在<code>handsome/usr</code>文件夹。</p>
+<p><strong>9、鼠标点击特效</strong><br>
+将以下代码放在主题的<code>handsome/component/footer.php</code>中的``之前即可。</p>
+<pre><code>#字体自行修改
+&lt;script type=&quot;text/javascript&quot;&gt; 
+/* 鼠标特效 */
+var a_idx = 0; 
+jQuery(document).ready(function($) { 
+    $(&quot;body&quot;).click(function(e) { 
+        var a = new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;); 
+        var $i = $(&quot;&lt;span/&gt;&quot;).text(a[a_idx]); 
+        a_idx = (a_idx + 1) % a.length; 
+        var x = e.pageX, 
+        y = e.pageY; 
+        $i.css({ 
+            &quot;z-index&quot;: 999999999999999999999999999999999999999999999999999999999999999999999, 
+            &quot;top&quot;: y - 20, 
+            &quot;left&quot;: x, 
+            &quot;position&quot;: &quot;absolute&quot;, 
+            &quot;font-weight&quot;: &quot;bold&quot;, 
+            &quot;color&quot;: &quot;#ff6651&quot; 
+        }); 
+        $(&quot;body&quot;).append($i); 
+        $i.animate({ 
+            &quot;top&quot;: y - 180, 
+            &quot;opacity&quot;: 0 
+        }, 
+        1500, 
+        function() { 
+            $i.remove(); 
+        }); 
+    }); 
+}); 
+&lt;/script&gt;
+</code></pre>
+<p><strong>10、评论框特效</strong><br>
+下载特效<code>JS</code>文件：<a href="https://www.moerats.com/usr/down/commentTyping.js">commentTyping.js</a>，将其放在网站目录某个地方，然后编辑主题文件<code>handsome/component/footer.php</code>，在``后面添加以下代码。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;(JS文件路径)&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>暂时只说这么多，修改方案很多由<a href="https://mikuac.com/">Zero博主</a>提供，还有通过本博客联系作者购买<code>Handsome</code>主题的，可打<code>9</code>折优惠。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://home.dlolb.best/post/WlKJ1XeEq/">
+                    GitHub+Hexo 搭建个人网站详细教程
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://home.dlolb.best/post/FNHwd2cm5/">
+                    WordPress编辑器中添加“上传到Chevereto图床”按钮
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
             }
         });
-    })(jQuery);
-    jQuery.adamsOverload();
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
 </script>
-        <footer class="footer mdui-m-t-5 mdui-text-center">
-               <nav class="social-links">
-                      <ul>
-                      
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                      </ul>
-                    </nav>
-                    <div class="copyright">
-                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
-                  </div>
-              </footer>
-    </body>
-</html>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                
+                
+                <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'gridea',
+  apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+                
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://home.dlolb.best/media/js/post.js"></script>
