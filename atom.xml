@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://chwl66.github.io</id>
+    <id>https://home.dlolb.best</id>
     <title>温故知新</title>
-    <updated>2020-04-04T00:12:04.988Z</updated>
+    <updated>2020-04-10T07:37:30.305Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://chwl66.github.io"/>
-    <link rel="self" href="https://chwl66.github.io/atom.xml"/>
+    <link rel="alternate" href="https://home.dlolb.best"/>
+    <link rel="self" href="https://home.dlolb.best/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://chwl66.github.io/images/avatar.png</logo>
-    <icon>https://chwl66.github.io/favicon.ico</icon>
+    <logo>https://home.dlolb.best/images/avatar.png</logo>
+    <icon>https://home.dlolb.best/favicon.ico</icon>
     <rights>All rights reserved 2020, 温故知新</rights>
     <entry>
         <title type="html"><![CDATA[使用PicGo对接Hidove图床]]></title>
-        <id>https://chwl66.github.io/post/bAdEMrK5G/</id>
-        <link href="https://chwl66.github.io/post/bAdEMrK5G/">
+        <id>https://home.dlolb.best/post/bAdEMrK5G/</id>
+        <link href="https://home.dlolb.best/post/bAdEMrK5G/">
         </link>
         <updated>2020-04-04T00:10:14.000Z</updated>
         <content type="html"><![CDATA[<p><strong>说明</strong><br>
@@ -50,8 +50,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[GitHub+Hexo 搭建个人网站详细教程]]></title>
-        <id>https://chwl66.github.io/post/WlKJ1XeEq/</id>
-        <link href="https://chwl66.github.io/post/WlKJ1XeEq/">
+        <id>https://home.dlolb.best/post/WlKJ1XeEq/</id>
+        <link href="https://home.dlolb.best/post/WlKJ1XeEq/">
         </link>
         <updated>2020-03-17T01:50:50.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言"><strong>前言：</strong></h2>
@@ -263,8 +263,8 @@ hexo d
     </entry>
     <entry>
         <title type="html"><![CDATA[博客基于Handsome主题的一些小修改教程]]></title>
-        <id>https://chwl66.github.io/post/gIzm3nngu/</id>
-        <link href="https://chwl66.github.io/post/gIzm3nngu/">
+        <id>https://home.dlolb.best/post/gIzm3nngu/</id>
+        <link href="https://home.dlolb.best/post/gIzm3nngu/">
         </link>
         <updated>2019-12-25T09:22:40.000Z</updated>
         <content type="html"><![CDATA[<p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
@@ -473,8 +473,8 @@ jQuery(document).ready(function($) {
     </entry>
     <entry>
         <title type="html"><![CDATA[WordPress编辑器中添加“上传到Chevereto图床”按钮]]></title>
-        <id>https://chwl66.github.io/post/FNHwd2cm5/</id>
-        <link href="https://chwl66.github.io/post/FNHwd2cm5/">
+        <id>https://home.dlolb.best/post/FNHwd2cm5/</id>
+        <link href="https://home.dlolb.best/post/FNHwd2cm5/">
         </link>
         <updated>2019-12-01T15:20:04.000Z</updated>
         <content type="html"><![CDATA[<p>前段时间搭建了 Chevereto 图床，但在 WordPress 编辑器里需要上传图片的时候，需要另外打开图床上传比较麻烦。这时候可以在 WordPress 的编辑器里添加个上传按钮，利用 API 上传到 Chevereto 图床，这样上传图片到图床就方便啦！</p>
@@ -623,8 +623,8 @@ jQuery('#up_to_chevereto').change(function() {
     </entry>
     <entry>
         <title type="html"><![CDATA[typecho在后台增加图床上传图片按钮]]></title>
-        <id>https://chwl66.github.io/post/Y80xYA7z9/</id>
-        <link href="https://chwl66.github.io/post/Y80xYA7z9/">
+        <id>https://home.dlolb.best/post/Y80xYA7z9/</id>
+        <link href="https://home.dlolb.best/post/Y80xYA7z9/">
         </link>
         <updated>2019-11-30T15:52:32.000Z</updated>
         <content type="html"><![CDATA[<h4 id="路过图床"><a href="https://imgse.com/">路过图床</a>是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力</h4>
@@ -643,8 +643,8 @@ jQuery('#up_to_chevereto').change(function() {
     </entry>
     <entry>
         <title type="html"><![CDATA[WordPress采集插件]]></title>
-        <id>https://chwl66.github.io/post/DmB2y0jPB/</id>
-        <link href="https://chwl66.github.io/post/DmB2y0jPB/">
+        <id>https://home.dlolb.best/post/DmB2y0jPB/</id>
+        <link href="https://home.dlolb.best/post/DmB2y0jPB/">
         </link>
         <updated>2019-11-28T17:16:02.000Z</updated>
         <content type="html"><![CDATA[<p><strong>简介</strong>如何安装下载插件长腿蜘蛛-CTspider 然后到WordPress插件页面点击上传，安装启用即可。 如果使用FTP上传,请使用二进制上传协议。如何授权登录长腿蜘蛛-CTspider官网注册账号（P</p>
@@ -722,8 +722,8 @@ jQuery('#up_to_chevereto').change(function() {
     </entry>
     <entry>
         <title type="html"><![CDATA[【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘]]></title>
-        <id>https://chwl66.github.io/post/d8paPRJx0/</id>
-        <link href="https://chwl66.github.io/post/d8paPRJx0/">
+        <id>https://home.dlolb.best/post/d8paPRJx0/</id>
+        <link href="https://home.dlolb.best/post/d8paPRJx0/">
         </link>
         <updated>2019-11-26T18:39:03.000Z</updated>
         <content type="html"><![CDATA[<h2 id="关于folderclone">关于Folderclone</h2>
@@ -862,8 +862,8 @@ pip install  httplib2shim
     </entry>
     <entry>
         <title type="html"><![CDATA[AriaNg + rclone 实现 Google Drive 离线下载]]></title>
-        <id>https://chwl66.github.io/post/OVI5xWH9j/</id>
-        <link href="https://chwl66.github.io/post/OVI5xWH9j/">
+        <id>https://home.dlolb.best/post/OVI5xWH9j/</id>
+        <link href="https://home.dlolb.best/post/OVI5xWH9j/">
         </link>
         <updated>2019-11-22T01:09:31.000Z</updated>
         <content type="html"><![CDATA[<h2 id="准备环境">准备环境</h2>
@@ -1214,8 +1214,8 @@ on-download-complete=/root/rcloneupload.sh
     </entry>
     <entry>
         <title type="html"><![CDATA[GoIndex部署教程，用Google Drive来做目录索引网盘]]></title>
-        <id>https://chwl66.github.io/post/sRQUu33vw/</id>
-        <link href="https://chwl66.github.io/post/sRQUu33vw/">
+        <id>https://home.dlolb.best/post/sRQUu33vw/</id>
+        <link href="https://home.dlolb.best/post/sRQUu33vw/">
         </link>
         <updated>2019-11-22T01:08:54.000Z</updated>
         <content type="html"><![CDATA[<p>感谢大佬@<a href="https://www.hostloc.com/space-uid-18200.html">donwa</a>又更新了一个针对Google Drive的文件目录代码！这里更新一篇文章介绍一下！！</p>
@@ -1263,8 +1263,8 @@ https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+]]></title>
-        <id>https://chwl66.github.io/post/28IUd1HzY/</id>
-        <link href="https://chwl66.github.io/post/28IUd1HzY/">
+        <id>https://home.dlolb.best/post/28IUd1HzY/</id>
+        <link href="https://home.dlolb.best/post/28IUd1HzY/">
         </link>
         <updated>2019-11-22T01:07:27.000Z</updated>
         <content type="html"><![CDATA[<p><strong>说明：</strong><code>PyOne</code>最近凭着离线下载(完成并自动上传至<code>Onedrive</code>)和绑定多网盘的功能被越来越多的人使用，如果你还不知道<code>PyOne</code>是何物的可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和<code>Docker</code>安装教程，查看：<a href="https://www.moerats.com/archives/734/">手动安装</a>、<a href="https://www.moerats.com/archives/799/">Docker安装</a>。不过由于宝塔的<code>Mongodb</code>很容易出错，有些小白也不会解决，而<code>Docker</code>也不支持<code>OpenVZ</code>，所以博主写了个一键脚本，这里分享下。</p>
