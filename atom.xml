@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://home.dlolb.best</id>
     <title>温故知新</title>
-    <updated>2020-05-30T06:58:04.179Z</updated>
+    <updated>2020-05-30T10:47:54.892Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://home.dlolb.best"/>
     <link rel="self" href="https://home.dlolb.best/atom.xml"/>
@@ -10,6 +10,80 @@
     <logo>https://home.dlolb.best/images/avatar.png</logo>
     <icon>https://home.dlolb.best/favicon.ico</icon>
     <rights>All rights reserved 2020, 温故知新</rights>
+    <entry>
+        <title type="html"><![CDATA[shareX对接hidove图床]]></title>
+        <id>https://home.dlolb.best/post/W3anuXLuL/</id>
+        <link href="https://home.dlolb.best/post/W3anuXLuL/">
+        </link>
+        <updated>2020-05-30T10:44:24.000Z</updated>
+        <content type="html"><![CDATA[<p>替换token以及URL，导入sharex即可使用！</p>
+<pre><code>{
+  &quot;Version&quot;: &quot;13.1.0&quot;,
+  &quot;Name&quot;: &quot;Hidove图床&quot;,
+  &quot;DestinationType&quot;: &quot;ImageUploader&quot;,
+  &quot;RequestMethod&quot;: &quot;POST&quot;,
+  &quot;RequestURL&quot;: &quot;https://img.abcyun.co/api/upload&quot;,
+  &quot;Body&quot;: &quot;MultipartFormData&quot;,
+  &quot;Arguments&quot;: {
+    &quot;token&quot;: &quot;**************************&quot;,
+    &quot;apiType&quot;: &quot;this,ali,toutiao,Huluxia&quot;
+  },
+  &quot;FileFormName&quot;: &quot;image&quot;,
+  &quot;URL&quot;: &quot;$json:data.url.distribute$&quot;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[wps自动签到打卡无限白嫖wps会员]]></title>
+        <id>https://home.dlolb.best/post/KgN4IP3L_/</id>
+        <link href="https://home.dlolb.best/post/KgN4IP3L_/">
+        </link>
+        <updated>2020-05-30T10:40:37.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://pic.abcyun.co/image/5ecf0d0f79957.jpg" alt="WPS" loading="lazy"><br>
+WPS是一款非常实用且模板超多的免费软件，可是WPS的很多功能都需要会员才可以使用<br>
+正巧，WPS有个签到免费领取试用会员的活动，本次将讲解利用阿里云（腾讯云自动打卡签到）完成无限试用</p>
+<ol>
+<li>
+<p><strong>获取WPS账号的cookies</strong><br>
+获取方式：<a href="https://account.wps.cn/?cb=https://www.wps.cn/">单击登陆WPS</a><br>
+登陆之后我们浏览器F12进入审查元素，选择network，然后我们刷新下网页再搜索<em>wps_sid</em>即可获取到我们自己账号的wps_sid保存下来，之后需要使用的<br>
+<img src="https://ae01.alicdn.com/kf/H209edcde2bb546e4ab0d478d31d9a039q.jpg" alt="获取wps_sid" loading="lazy"><br>
+然后获取我们的自己账号的ID，点击刚刚登陆的网页的右上角，自己的头像，即可查看自己的ID<br>
+<img src="https://ae01.alicdn.com/kf/Hdc67f6fb0b74480eba2c88c5490381e98.jpg" alt="user_id" loading="lazy"></p>
+</li>
+<li>
+<p><strong>下载工具包</strong><br>
+下载地址：[WPS自动签到工具](https://pan.52ruoli.cn/other tool/PC tool/WPS自动签到工具.zip?preview)</p>
+</li>
+<li>
+<p><strong>阿里云创建函数计算</strong><br>
+（腾讯云叫云函数，一个道理）<br>
+新建函数其他一般默认或随意，需要更改的有</p>
+<blockquote>
+<p>运行环境：nodejs10<br>
+函数入口：index.main_handler</p>
+</blockquote>
+<p><img src="https://ae01.alicdn.com/kf/He6677545b38e49b18615e9c6cc29b28d4.jpg" alt="创建函数" loading="lazy"><br>
+之后进入<em>函数详情</em>，选择<em>代码执行</em>，选择<em>代码包上传</em><br>
+上传第2步下载的代表包然后编辑如图<br>
+<img src="https://ae01.alicdn.com/kf/Hb6e9eef8cd0948f2a35c1d4718b635ac1.jpg" alt="编辑代码" loading="lazy"><br>
+sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
+</li>
+<li>
+<p>创建定时触发<br>
+选择代码执行右边的触发器，新建触发器<br>
+时间配置选择<em>Cron表达式</em>，输入</p>
+<blockquote>
+<p>0 0 0 * * *</p>
+</blockquote>
+<p>配置完成即可每天早晨8点自动执行函数<br>
+<img src="https://ae01.alicdn.com/kf/Hc7c28bd1c2d34710886152590cab88741.jpg" alt="触发器" loading="lazy"></p>
+</li>
+</ol>
+<p>转载自<a href="http://ruoli.vip/11.html">若离博客</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[使用PicGo对接Hidove图床]]></title>
         <id>https://home.dlolb.best/post/bAdEMrK5G/</id>
@@ -58,7 +132,7 @@
 <p>随着互联网浪潮的翻腾，国内外涌现出越来越多优秀的社交网站让用户分享信息更加便捷。然后，如果你是一个不甘寂寞的程序猿（媛），是否也想要搭建一个属于自己的个人网站，如果你曾经或者现在正有这样的想法，请跟随这篇文章发挥你的Geek精神，让你快速拥有自己的博客网站，写文章记录生活，享受这种从0到1的过程。</p>
 <p><a href="https://www.zhihu.com/question/29755481">你见过的最棒的个人博客界面是什么样的？</a></p>
 <h2 id="什么是hexo"><strong>什么是Hexo ?</strong></h2>
-<figure data-type="image" tabindex="1"><img src="https://pic2.zhimg.com/80/v2-6890485c84748900d9dae824b7f7cbb1_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/73bc091c3174d.jpg" alt="img" loading="lazy"></figure>
 <p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。Hexo同时也是GitHub上的开源项目，参见：<a href="https://link.zhihu.com/?target=https%3A//github.com/hexojs/hexo">hexojs/hexo</a> 如果想要更加全面的了解Hexo，可以到其官网 <a href="https://link.zhihu.com/?target=https%3A//hexo.io/">Hexo</a> 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。</p>
 <p><strong>这是我的个人博客效果:</strong> <a href="https://link.zhihu.com/?target=http%3A//iamwr.com/">吴润 · RunDouble</a></p>
 <p>下面正式从零开始搭建年轻人的第一个网站。</p>
@@ -97,22 +171,22 @@ git config --global user.email &quot;你的GitHub注册邮箱&quot;
 </code></pre>
 <p>然后直接三个回车即可，默认不需要设置密码<br>
 然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</p>
-<figure data-type="image" tabindex="4"><img src="https://pic4.zhimg.com/80/v2-d1e47103ec1aa8675f68688c5d63bd27_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://bit.ly/3cldH5D" alt="img" loading="lazy"></figure>
 <p>打开<a href="https://link.zhihu.com/?target=https%3A//github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建new SSH Key</p>
-<figure data-type="image" tabindex="5"><img src="https://pic1.zhimg.com/80/v2-72a3f22c080e99343c3cc4aabce10e3c_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://bit.ly/2MeU2K5" alt="img" loading="lazy"></figure>
 <p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>
 在Git Bash中检测GitHub公钥设置是否成功，输入 ssh git@github.com ：</p>
-<figure data-type="image" tabindex="6"><img src="https://pic3.zhimg.com/80/v2-da481ffa686410becd4186c656b4ebd6_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://bit.ly/2ArZVAX" alt="img" loading="lazy"></figure>
 <p>如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
 <p><strong>安装Node.js</strong></p>
 <p>Hexo基于Node.js，Node.js下载地址：<a href="https://link.zhihu.com/?target=https%3A//nodejs.org/en/download/">Download | Node.js</a> 下载安装包，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v :</p>
-<figure data-type="image" tabindex="7"><img src="https://pic1.zhimg.com/80/v2-76ea38e9545e606f975781e47933b010_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/3860017ef4102.jpg" alt="img" loading="lazy"></figure>
 <p>检测npm是否安装成功，在命令行中输入npm -v :</p>
-<figure data-type="image" tabindex="8"><img src="https://pic2.zhimg.com/80/v2-bede250b8456df92475b455fda8c1dd9_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/67da85eafe071.jpg" alt="img" loading="lazy"></figure>
 <p>到这了，安装Hexo的环境已经全部搭建完成。</p>
 <p><strong>安装Hexo</strong></p>
 <p>Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中，按住shift键，右击鼠标点击命令行</p>
-<figure data-type="image" tabindex="9"><img src="https://pic1.zhimg.com/80/v2-a5450a466c0927c25dff8ad6f1d2046c_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/07c5cf68b1ecb.jpg" alt="img" loading="lazy"></figure>
 <p>使用npm命令安装Hexo，输入：</p>
 <pre><code class="language-bash">npm install -g hexo-cli 
 </code></pre>
@@ -130,7 +204,7 @@ hexo s
 <p>这些命令在后面作介绍，完成后，打开浏览器输入地址：</p>
 <p>localhost:4000</p>
 <p>可以看出我们写出第一篇博客，只不过我下图是我修改过的配置，和你的显示不一样。</p>
-<figure data-type="image" tabindex="10"><img src="https://pic4.zhimg.com/80/v2-123e73c0630d299b1c856d99b04b55bb_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/f6652c45938b4.jpg" alt="img" loading="lazy"></figure>
 <p>现在来介绍常用的Hexo 命令</p>
 <p>npm install hexo -g #安装Hexo<br>
 npm update hexo -g #升级<br>
@@ -148,15 +222,15 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</
 <p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p>
 <p><strong>推送网站</strong></p>
 <p>上面只是在本地预览，接下来要做的就是就是推送网站，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，需要解释一个概念，在blog根目录里的_config.yml文件称为<strong>站点</strong>配置文件，如下图</p>
-<figure data-type="image" tabindex="11"><img src="https://pic2.zhimg.com/80/v2-cb1fd5e5a2e73f513234e434724c7c55_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/e6535838d2556.jpg" alt="img" loading="lazy"></figure>
 <p>进入根目录里的themes文件夹，里面也有个_config.yml文件，这个称为<strong>主题</strong>配置文件，如下图</p>
-<figure data-type="image" tabindex="12"><img src="https://pic4.zhimg.com/80/v2-4252029e5634bf91c7d58916ae2b8ac3_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/c2b2ad5cc8337.jpg" alt="img" loading="lazy"></figure>
 <p>下一步将我们的Hexo与GitHub关联起来，打开站点的配置文件_config.yml，翻到最后修改为：</p>
 <p>deploy:<br>
 type: git<br>
 repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git<br>
 branch: master参考如下：</p>
-<figure data-type="image" tabindex="13"><img src="https://pic1.zhimg.com/80/v2-279ac5149b577f04dc099defbb12eaa8_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/5d13fa2bb6fa0.jpg" alt="img" loading="lazy"></figure>
 <p>保存站点配置文件。</p>
 <p>其实就是给hexo d 这个命令做相应的配置，让hexo知道你要把blog部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。最后安装Git部署插件，输入命令：</p>
 <pre><code class="language-basemake">npm install hexo-deployer-git --save
@@ -167,17 +241,17 @@ hexo g
 hexo d
 </code></pre>
 <p>其实第三条的 hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io">http://xxxx.github.io</a> (知乎排版可能会出现&quot;http://&quot;字样，参考下图) 比如我的xxxx就是我的GitHub用户名：</p>
-<figure data-type="image" tabindex="14"><img src="https://pic1.zhimg.com/80/v2-d750452f4258bf0967d5629ef23d1b10_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/fccfe6f1ed7b7.jpg" alt="img" loading="lazy"></figure>
 <p>你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
 <p><strong>绑定域名</strong></p>
 <p>虽然在Internet上可以访问我们的网站，但是网址是GitHub提供的:<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io">http://xxxx.github.io</a> (知乎排版可能会出现&quot;http://&quot;字样) 而我们想使用我们自己的个性化域名，这就需要绑定我们自己的域名。这里演示的是在阿里云万网的域名绑定，在国内主流的域名代理厂商也就阿里云和腾讯云。登录到阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析</p>
-<figure data-type="image" tabindex="15"><img src="https://pic3.zhimg.com/80/v2-47323ad4490e206aef93a3d68f0670b6_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/c6839790d5a6c.jpg" alt="img" loading="lazy"></figure>
 <p>然后添加解析</p>
-<figure data-type="image" tabindex="16"><img src="https://pic3.zhimg.com/80/v2-40222b3a295bb692aac22829a8ec3be2_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/b890a62b40e48.jpg" alt="img" loading="lazy"></figure>
 <p>包括添加三条解析记录，192.30.252.153是GitHub的地址，你也可以ping你的 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io">http://xxxx.github.io</a> 的ip地址，填入进去。第三个记录类型是CNAME，CNAME的记录值是：你的用户名.<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a> 这里千万别弄错了。第二步，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名</p>
-<figure data-type="image" tabindex="17"><img src="https://pic4.zhimg.com/80/v2-85ba6dda906f22dea4c03df2b47d994b_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/93826a5b1b937.jpg" alt="img" loading="lazy"></figure>
 <p>点击save保存。第三步，进入本地博客文件夹 ，进入blog/source目录下，创建一个记事本文件，输入你的域名，对，只要写进你自己的域名即可。如果带有www，那么以后访问的时候必须带有www完整的域名才可以访问，但如果不带有www，以后访问的时候带不带www都可以访问。所以建议，不要带有www。这里我还是写了www(不建议带有www):</p>
-<figure data-type="image" tabindex="18"><img src="https://pic1.zhimg.com/80/v2-79abfff91af3f520e24cb91acf6aa994_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="18"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/dfebca9b8320d.jpg" alt="img" loading="lazy"></figure>
 <p>保存，命名为CNAME ，注意保存成<strong>所有文件</strong>而不是<strong>txt文件</strong>。</p>
 <p>完成这三步，进入blog目录中，按住shift键右击打开命令行，依次输入：</p>
 <pre><code class="language-bash">hexo clean
@@ -190,9 +264,9 @@ hexo d
 <pre><code class="language-bash">git clone https://github.com/iissnan/hexo-theme-next themes/next
 </code></pre>
 <p>这是将Next主题下载到blog目录的themes主题下的next文件夹中。打开<strong>站点</strong>的_config.yml配置文件，修改主题为next</p>
-<figure data-type="image" tabindex="19"><img src="https://pic1.zhimg.com/80/v2-b1997377e82408cb15b485c65ae00f70_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/450c92ed241d9.jpg" alt="img" loading="lazy"></figure>
 <p>打开<strong>主题</strong>的_config.yml配置文件，不是站点主题文件，找到Scheme Settings</p>
-<figure data-type="image" tabindex="20"><img src="https://pic2.zhimg.com/80/v2-1ac152c4aabe4c10b762ee27552f1105_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="20"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/ef283df92ad9f.jpg" alt="img" loading="lazy"></figure>
 <p>next主题有三个样式，我用的是Pisces，你们可以自己试试看，选择你自己喜欢的样式（只需要把行首的#去除，#是注释），选择好后，再次部署网站，hexo g、hexo d，查看效果。选择其他主题，按照上述过程即可实现。</p>
 <p><strong>初识Markdown语法</strong></p>
 <p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown语法简洁明了、容易掌握，而且功能比纯文本更强，因此写博客使用它，可以让用户更加专注的写文章，而不需要费尽心力的考虑样式，相对于html已经算是轻量级语言，像有道云笔记也支持Markdown写作。并且Markdown完全兼容html，也就是可以在文章里直接插入html代码。比如给博文添加音乐，就可以直接把音乐的外链html代码插入文章中。具体语法参看：<a href="https://link.zhihu.com/?target=http%3A//www.appinn.com/markdown/">Markdown 语法说明(简体中文版)</a> 可以说十分钟就可以入门。当然，工欲善其事必先利其器，选择一个好的Markdown编辑器也是非常重要的，这里推荐<a href="https://link.zhihu.com/?target=http%3A//code52.org/DownmarkerWPF/">MarkPad</a> 和<a href="https://link.zhihu.com/?target=http%3A//www.markdownpad.com/">The Markdown Editor for Windows</a> ，这是带有预览效果的编辑器，也可以使用本地的文本编辑器，更多的Markdown的语法与编辑器自己可以搜索了解。</p>
@@ -201,36 +275,36 @@ hexo d
 <pre><code class="language-bash">hexo n &quot;博客名字&quot;
 </code></pre>
 <p>我们会发现在blog根目录下的source文件夹中的_post文件夹中多了一个 <strong>博客名字.md</strong> 文件，使用Markdown编辑器打开，就可以开始你的个人博客之旅了，Markdown常用的样式也就十来种，完全能够满足一般博文的样式要求，这是我的一篇博文内容示例：</p>
-<figure data-type="image" tabindex="21"><img src="https://pic1.zhimg.com/80/v2-4f96cd03a88e68b8ae86c38bfb0808ac_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/2e3d19970c709.jpg" alt="img" loading="lazy"></figure>
 <p>通过带有预览样式的Markdown编辑器实时预览书写的博文样式，也可以通过命令 hexo s --debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。</p>
 <p><strong>寻找图床</strong></p>
 <p>图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，<strong><img src="%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5" alt="图片信息" loading="lazy"></strong> 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：<a href="https://link.zhihu.com/?target=http%3A//www.tietuku.com/">贴图库图片外链</a> 国内算比较好的图床我认为有两个：新浪微博和 <a href="https://link.zhihu.com/?target=https%3A//www.qiniu.com/">七牛云</a> ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：</p>
-<figure data-type="image" tabindex="22"><img src="https://pic4.zhimg.com/80/v2-92372e522595af139ace5f371aae3ff3_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="22"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/f853587ebae8c.jpg" alt="img" loading="lazy"></figure>
 <p><strong>个性化设置</strong></p>
 <p>所谓的个性化设置就是根据个人需要添加不同的插件及功能。</p>
 <p>基本的有：</p>
 <p>在站点配置文件_config.yml修改基本的站点信息</p>
-<figure data-type="image" tabindex="23"><img src="https://pic4.zhimg.com/80/v2-78bc0e4e6498c9c3cb269b3254d8379f_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/928052ff44cf6.jpg" alt="img" loading="lazy"></figure>
 <p>依次是网站标题、副标题、网站描述、作者、网站头像外部链接、网站语言、时区等。</p>
 <p>在主题配置文件_config.yml修改基本的主题信息，如：</p>
-<figure data-type="image" tabindex="24"><img src="https://pic2.zhimg.com/80/v2-451c5cb2fd6516650ad8ca608031bf0d_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="24"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/98300104de472.jpg" alt="img" loading="lazy"></figure>
 <p>博文打赏的微信、支付宝二维码图片，这里我是直接把这两张放在根目录的source文件夹中，并没有使用图床外链。</p>
-<figure data-type="image" tabindex="25"><img src="https://pic2.zhimg.com/80/v2-69bbc45e973eb6916e08187ed8b33a55_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/7b69c11c80b26.jpg" alt="img" loading="lazy"></figure>
 <p>社交外链的设置，即在侧栏展示你的个人社交网站信息。</p>
-<figure data-type="image" tabindex="26"><img src="https://pic4.zhimg.com/80/v2-5b3f6e02e0d3a0cdb685a4d2fd2718cb_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="26"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/c36842cdf53cc.jpg" alt="img" loading="lazy"></figure>
 <p>博文分享的插件jiathis，值设置为true。在配置文件中有很多的个性化设置，可以自尝试更多的修改。</p>
 <p>进阶个性化：</p>
 <ul>
 <li>添加网易云音乐</li>
 </ul>
 <p>打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器</p>
-<figure data-type="image" tabindex="27"><img src="https://pic2.zhimg.com/80/v2-fcb7d44ccdca3760c98db0d13817f2b5_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="27"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/a3d8619a3f44e.jpg" alt="img" loading="lazy"></figure>
 <p>复制外链的代码</p>
-<figure data-type="image" tabindex="28"><img src="https://pic4.zhimg.com/80/v2-16eec195312cde7b1d257fac6f3c8d0b_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="28"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/acdf6b3697a14.jpg" alt="img" loading="lazy"></figure>
 <p>比如在侧栏插入这首歌的音乐播放器，修改 blog\themes\next\layout_macro的sidebar.swig文件，添加刚刚复制的外链代码</p>
-<figure data-type="image" tabindex="29"><img src="https://pic4.zhimg.com/80/v2-03db51002497b27e4d5888e0efd577c7_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="29"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/f717bc0e96b63.jpg" alt="img" loading="lazy"></figure>
 <p>重新生成、部署网页，效果如下</p>
-<figure data-type="image" tabindex="30"><img src="https://pic2.zhimg.com/80/v2-3d587bf919df92db38e2608f034e50f1_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="30"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/53cd793b738f4.jpg" alt="img" loading="lazy"></figure>
 <ul>
 <li>设置背景</li>
 </ul>
@@ -246,7 +320,7 @@ hexo d
 <li>增加侧栏菜单条目</li>
 </ul>
 <p>默认的侧栏菜单条目有：首页、归档、标签、关于、搜索等。如果你想要增加其他的菜单条目，修改主题配置文件_config.yml里的Menu Settings中的menu和menu_icons两个地方</p>
-<figure data-type="image" tabindex="31"><img src="https://pic3.zhimg.com/80/v2-666a22fedbba95d979eeb26e52fc29e2_720w.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="31"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/24aba7b6aeef5.jpg" alt="img" loading="lazy"></figure>
 <p>其中menu里是配置菜单项对应的页面位置（如：/love），menu_icons对应菜单项的图标，这里的图标是来自于<a href="https://link.zhihu.com/?target=http%3A//fontawesome.io/">Font Awesome</a> ，所以你需要在Font Awesome网站上找到你需要的icon，然后把该icon的名字写在menu_icons对应菜单名后面，注意冒号有一个英文输入状态的空格。设置好后，在命令行里输入：</p>
 <pre><code class="language-bash">hexo new page &quot;你所要增加的菜单项名称（要和你在menu中的填写要匹配）&quot;
 </code></pre>
@@ -1210,156 +1284,6 @@ on-download-complete=/root/rcloneupload.sh
 /etc/init.d/aria2 restart
 </code></pre>
 <h1 id="请开始你的表演">请开始你的表演</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GoIndex部署教程，用Google Drive来做目录索引网盘]]></title>
-        <id>https://home.dlolb.best/post/sRQUu33vw/</id>
-        <link href="https://home.dlolb.best/post/sRQUu33vw/">
-        </link>
-        <updated>2019-11-22T01:08:54.000Z</updated>
-        <content type="html"><![CDATA[<p>感谢大佬@<a href="https://www.hostloc.com/space-uid-18200.html">donwa</a>又更新了一个针对Google Drive的文件目录代码！这里更新一篇文章介绍一下！！</p>
-<p>由于博主最近在疯狂加班，时间太紧张了，文章内容均来热情的网友！最后的【参考文献】一一列出！</p>
-<p>之前本博客更新过大佬的另一个开源代码！<a href="https://51.ruyo.net/9946.html">OneIndex部署教程，利用OneDrive打造专属分享型网盘</a></p>
-<h2 id="功能介绍">功能介绍</h2>
-<p>部署在 CloudFlare Workers的小程序。<br>
-可以将 Google Drive 文件以目录形式列出，并直连下载。<br>
-流量走 CloudFlare ，网速由 CloudFlare 决定。</p>
-<h2 id="开源地址">开源地址</h2>
-<p>https://github.com/donwa/goindex</p>
-<h2 id="演示地址">演示地址</h2>
-<p><a href="https://index.gd.workers.dev/">https://index.gd.workers.dev/</a></p>
-<h2 id="功能特点">功能特点</h2>
-<p>1、免费。<br>
-2、直链。<br>
-3、免番。</p>
-<h2 id="使用限制">使用限制</h2>
-<p>wokers一天10万请求限制<br>
-google drive 下载10T/24h（大佬说的）<br>
-google api 调用限制</p>
-<h2 id="部署步骤">部署步骤</h2>
-<p>1）访问 https://install.gd.workers.dev/ 点击 【1.获取认证码】登陆Google帐号，会有code(画线部分）。将上面的CODE复制到 Auth认证码部分。目录ID可以留空！</p>
-<figure data-type="image" tabindex="1"><img src="https://yanxuan.nosdn.127.net/f044b5331e6022c2f25e88635e056b5a.jpg" alt="img" loading="lazy"></figure>
-<p>2）点【2.生成代码】，复制生成的代码，打开 https://dash.cloudflare.com/ 登陆帐号，选个域名，点击 Workers，如图</p>
-<figure data-type="image" tabindex="2"><img src="https://yanxuan.nosdn.127.net/1c502a8a7e1da3df69f4861e72596f60.png" alt="img" loading="lazy"></figure>
-<p>3）点击 new Workers dashboard ，如图，需要起个名字，我已经起过了，就没有截图了，类似与  qwe.workers.dev的名字，只能修改前缀，后缀workers.dev 固定的。</p>
-<figure data-type="image" tabindex="3"><img src="https://yanxuan.nosdn.127.net/67c48700ec92a5696530070c57cc6a09.png" alt="img" loading="lazy"></figure>
-<p>4）点击Create a Workers，如图，</p>
-<figure data-type="image" tabindex="4"><img src="https://yanxuan.nosdn.127.net/b78670ed2eb6ba0dd8d7adee51282767.png" alt="img" loading="lazy"></figure>
-<p>5）在Script里复制刚才的代码code，右下角Run可以在右边看到浏览状态，右边上方有地址，左边上方可以修改地址，例如修改为121，Save and Deploy保存</p>
-<p>121.qwe.workers.dev 就是你的地址了。</p>
-<h2 id="其他内容">其他内容</h2>
-<p><strong>如何自定义域名</strong></p>
-<p>1）先让需要绑定的域名通过cf，指向ip随意。</p>
-<figure data-type="image" tabindex="5"><img src="https://yanxuan.nosdn.127.net/9d2b1828e80c5eab9fa46b4f92319117.png" alt="img" loading="lazy"></figure>
-<p>2）添加Route</p>
-<figure data-type="image" tabindex="6"><img src="https://yanxuan.nosdn.127.net/4b0dffe93e199c469282bfb3d0b837ec.png" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="7"><img src="https://yanxuan.nosdn.127.net/b6fe3d4fd9ae7eb47bfb5faa6c4a2c84.png" alt="img" loading="lazy"></figure>
-<p><strong>关于目录ID</strong><br>
-打开团队盘(或文件夹或别人共享的文件夹)，看地址栏。<br>
-https://drive.google.com/drive/folders/{这后面一堆代码就是id}<br>
-留空是根目录。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+]]></title>
-        <id>https://home.dlolb.best/post/28IUd1HzY/</id>
-        <link href="https://home.dlolb.best/post/28IUd1HzY/">
-        </link>
-        <updated>2019-11-22T01:07:27.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>说明：</strong><code>PyOne</code>最近凭着离线下载(完成并自动上传至<code>Onedrive</code>)和绑定多网盘的功能被越来越多的人使用，如果你还不知道<code>PyOne</code>是何物的可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和<code>Docker</code>安装教程，查看：<a href="https://www.moerats.com/archives/734/">手动安装</a>、<a href="https://www.moerats.com/archives/799/">Docker安装</a>。不过由于宝塔的<code>Mongodb</code>很容易出错，有些小白也不会解决，而<code>Docker</code>也不支持<code>OpenVZ</code>，所以博主写了个一键脚本，这里分享下。</p>
-<h2 id="脚本说明">脚本说明</h2>
-<pre><code>#脚本会一键安装PyOne所需要的Mongodb、Redis、Aria2等环境，域名使用Caddy反代，自动配置SSL证书。
-
-#本脚本使用的Aria2为某大佬编译的多线程版本，其特点可以将下载速度最大化优化，博主已配置完毕，如服务器性能不足，可将线程自行调整。
-方法：修改配置文件/root/.aria2/aria2.conf，线程参数split=64，请自行调整。
-
-#Aria2已添加了BT-Trackers服务器，并定时自动更新服务器地址。
-
-#脚本使用systemctl替换了程序所使用的supervisord进程守护，所以程序的重启等命令会和官方文档上的不一样，详细的使用命令可以看文章后面。
-
-#选择域名访问的，需要提前让解析生效，不然脚本会自动断开，因为后面需要签发SSL证书，ip必须为服务器ip。
-</code></pre>
-<h2 id="更新">更新</h2>
-<pre><code>【2019.9.28】
-新增Debian 10，升级MongoDB版本到4.0，有问题可以留言。
-【2019.6.27】
-修复部分CentOS 7安装出错的问题，并新增Ubuntu系统，已在Vultr的Ubuntu 16.04、18.04、18.10、19.04上测试通过
-【2019.2.23】
-鉴于有人需要3.0版本，现已增加安装3.0版本选项，多个选择，并使用的3.0最后一个版本。
-【2019.2.16】
-修改脚本部分安装步骤，使其支持PyOne4.0
-【2019.1.31】
-修复部分系统安装启动pyone失败的问题
-【2018.11.30】
-修复PyOne刷新不出文件夹/文件的问题。
-</code></pre>
-<h2 id="安装">安装</h2>
-<p><strong>系统要求：</strong><code>CentOS 7</code>、<code>Debian 8+</code>、<code>Ubuntu 16+</code>，建议<code>Debian 9</code>，且为刚安装好的系统，尽量不要用精简版系统。</p>
-<p>使用命令：</p>
-<pre><code>wget -N --no-check-certificate https://www.moerats.com/usr/shell/PyOne/PyOne.sh
-bash PyOne.sh
-</code></pre>
-<p>根据需求选择是否使用域名访问，然后输入域名和<code>Aria2</code>密匙即可。<br>
-<a href="https://www.moerats.com/usr/picture/PyOne_shell.png"><img src="https://www.moerats.com/usr/picture/PyOne_shell.png" alt="请输入图片描述" loading="lazy"></a></p>
-<p>安装完成后，如果打不开网站的，可以使用命令一起查看下各程序状态。</p>
-<pre><code>#使用域名访问的
-systemctl status aria2 mongod redis-server pyone caddy
-#使用IP访问的
-systemctl status aria2 mongod redis-server pyone
-</code></pre>
-<p>如果有显示<code>Active:inactive</code>的，可以留言说下具体程序和系统。反之如果都为<code>running</code>，可以检查下防火墙端口，比如阿里云，谷歌云等，还需要在服务器管理面板上开放<code>34567</code>端口才行。</p>
-<h2 id="相关命令">相关命令</h2>
-<pre><code>#以下程序均已配置开机自启，所以就不说开机自启命令了。
-
-#Redis使用命令
-启动：systemctl start redis-server
-重启：systemctl restart redis-server
-停止：systemctl stop redis-server
-状态：systemctl status redis-server
-
-#Mongodb使用命令
-启动：systemctl start mongod
-重启：systemctl restart mongod
-停止：systemctl stop mongod
-状态：systemctl status mongod
-
-#Aria2使用命令
-启动：systemctl start aria2
-重启：systemctl restart aria2
-停止：systemctl stop aria2
-状态：systemctl status aria2
-
-#Caddy使用命令(使用域名的才会安装Caddy)
-启动：systemctl start caddy
-重启：systemctl restart caddy
-停止：systemctl stop caddy
-状态：systemctl status caddy
-
-#PyOne使用命令
-启动：systemctl start pyone
-重启：systemctl restart pyone
-停止：systemctl stop pyone
-状态：systemctl status pyone
-</code></pre>
-<h2 id="相关目录">相关目录</h2>
-<pre><code>PyOne程序目录：/root/PyOne
-Caddy配置文件目录：/root/.caddy
-Aria2配置文件目录：/root/.aria2
-</code></pre>
-<h2 id="相关说明">相关说明</h2>
-<pre><code>#关于操作说明
-由于更换了原程序进程守护，所以网站右上角的重启网站按钮已失效，请在SSH客户端使用systemctl restart pyone命令重启程序。
-
-#关于离线下载
-Aria2配置文件的下载路径为/root/Download，但该程序自带的离线下载不调用配置文件，所以使用本程序离线下载的目录为/root/PyOne/upload。
-
-由于本程序离线下载不调用配置文件，所以Aria2多线程可能会发挥不出来，BT服务器也无效，不过会玩的，可以通过修改根目录的aria2.py文件某些参数达到目的，或者直接研究该教程：https://www.moerats.com/archives/697/，使用Aria2面板来离线下载更好，毕竟后者用的脚本比自带离线下载更稳定。
-
-#刷新缓存问题
-如果你在后台执行缓存刷新操作，可能短时间不会生效，建议直接在SSH客户端使用python /root/PyOne/function.py UpdateFile命令刷新
-</code></pre>
-<p>最后更多的使用方法(包括程序更新)可以查看该教程→<a href="https://www.moerats.com/archives/734/">点击查看</a>，除了<code>PyOne</code>启动命令不一样以外，其它都一样，包括上传等命令。</p>
 ]]></content>
     </entry>
 </feed>

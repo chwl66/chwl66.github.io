@@ -1,0 +1,2819 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="温故而知新">
+<meta name="theme-color" content="#000">
+<title>温故知新</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1590835666318">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
+
+<link href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/hljs/styles/Xcode.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/styles/main.css">
+
+<script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?685ae5ff285b6cd7aa66594c0faeb18d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="pisces">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>温故知新</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">为了一切努力奋斗！</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_blank">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout  pisces">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/images/avatar.png"/>
+    <p class="site-author-name">努力的村哥</p>
+    
+    <div class="site-description right-motion">
+      
+        <p id="binft">而立之年，努力奋斗吧！</p>
+      
+    </div>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">33</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">33</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+  
+  
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'pisces';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box tag-line box-shadow-wrapper">
+          <section class="section tags-section posts-expand bg-color">
+            <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          目录列表
+          <small class="language" data-lan="tag">标签</small>
+        </h2>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://home.dlolb.best/post/28IUd1HzY/">
+        <div class="motion-warpper">
+          <div class="tag-post-node">
+            <h1>
+              11-22
+              <small>PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+</small>
+            </h1>
+          </div>
+        </div>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a
+        href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      
+    </div>
+  </footer>
+  
+  
+  <div class="pisces back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+
+  let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        window.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch.addEventListener('click', function () {
+    document.querySelector('#search_mask').style = ''
+  })
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+  
+  // 离开当前页title变化
+  var leaveTitle = '';
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
+</script>
+  </div>
+</body>
+
+  <div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/W3anuXLuL/"" data-c="
+          &lt;p&gt;替换token以及URL，导入sharex即可使用！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;Version&amp;quot;: &amp;quot;13.1.0&amp;quot;,
+  &amp;quot;Name&amp;quot;: &amp;quot;Hidove图床&amp;quot;,
+  &amp;quot;DestinationType&amp;quot;: &amp;quot;ImageUploader&amp;quot;,
+  &amp;quot;RequestMethod&amp;quot;: &amp;quot;POST&amp;quot;,
+  &amp;quot;RequestURL&amp;quot;: &amp;quot;https://img.abcyun.co/api/upload&amp;quot;,
+  &amp;quot;Body&amp;quot;: &amp;quot;MultipartFormData&amp;quot;,
+  &amp;quot;Arguments&amp;quot;: {
+    &amp;quot;token&amp;quot;: &amp;quot;**************************&amp;quot;,
+    &amp;quot;apiType&amp;quot;: &amp;quot;this,ali,toutiao,Huluxia&amp;quot;
+  },
+  &amp;quot;FileFormName&amp;quot;: &amp;quot;image&amp;quot;,
+  &amp;quot;URL&amp;quot;: &amp;quot;$json:data.url.distribute$&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+">shareX对接hidove图床</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/KgN4IP3L_/"" data-c="
+          &lt;p&gt;&lt;img src=&#34;https://pic.abcyun.co/image/5ecf0d0f79957.jpg&#34; alt=&#34;WPS&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+WPS是一款非常实用且模板超多的免费软件，可是WPS的很多功能都需要会员才可以使用&lt;br&gt;
+正巧，WPS有个签到免费领取试用会员的活动，本次将讲解利用阿里云（腾讯云自动打卡签到）完成无限试用&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;获取WPS账号的cookies&lt;/strong&gt;&lt;br&gt;
+获取方式：&lt;a href=&#34;https://account.wps.cn/?cb=https://www.wps.cn/&#34;&gt;单击登陆WPS&lt;/a&gt;&lt;br&gt;
+登陆之后我们浏览器F12进入审查元素，选择network，然后我们刷新下网页再搜索&lt;em&gt;wps_sid&lt;/em&gt;即可获取到我们自己账号的wps_sid保存下来，之后需要使用的&lt;br&gt;
+&lt;img src=&#34;https://ae01.alicdn.com/kf/H209edcde2bb546e4ab0d478d31d9a039q.jpg&#34; alt=&#34;获取wps_sid&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+然后获取我们的自己账号的ID，点击刚刚登陆的网页的右上角，自己的头像，即可查看自己的ID&lt;br&gt;
+&lt;img src=&#34;https://ae01.alicdn.com/kf/Hdc67f6fb0b74480eba2c88c5490381e98.jpg&#34; alt=&#34;user_id&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;下载工具包&lt;/strong&gt;&lt;br&gt;
+下载地址：[WPS自动签到工具](https://pan.52ruoli.cn/other tool/PC tool/WPS自动签到工具.zip?preview)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;阿里云创建函数计算&lt;/strong&gt;&lt;br&gt;
+（腾讯云叫云函数，一个道理）&lt;br&gt;
+新建函数其他一般默认或随意，需要更改的有&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;运行环境：nodejs10&lt;br&gt;
+函数入口：index.main_handler&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://ae01.alicdn.com/kf/He6677545b38e49b18615e9c6cc29b28d4.jpg&#34; alt=&#34;创建函数&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+之后进入&lt;em&gt;函数详情&lt;/em&gt;，选择&lt;em&gt;代码执行&lt;/em&gt;，选择&lt;em&gt;代码包上传&lt;/em&gt;&lt;br&gt;
+上传第2步下载的代表包然后编辑如图&lt;br&gt;
+&lt;img src=&#34;https://ae01.alicdn.com/kf/Hb6e9eef8cd0948f2a35c1d4718b635ac1.jpg&#34; alt=&#34;编辑代码&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+sckey获取链接：&lt;a href=&#34;http://sc.ftqq.com/3.version&#34;&gt;单击注册&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建定时触发&lt;br&gt;
+选择代码执行右边的触发器，新建触发器&lt;br&gt;
+时间配置选择&lt;em&gt;Cron表达式&lt;/em&gt;，输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;0 0 0 * * *&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;配置完成即可每天早晨8点自动执行函数&lt;br&gt;
+&lt;img src=&#34;https://ae01.alicdn.com/kf/Hc7c28bd1c2d34710886152590cab88741.jpg&#34; alt=&#34;触发器&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;转载自&lt;a href=&#34;http://ruoli.vip/11.html&#34;&gt;若离博客&lt;/a&gt;&lt;/p&gt;
+">wps自动签到打卡无限白嫖wps会员</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/bAdEMrK5G/"" data-c="
+          &lt;p&gt;##&lt;strong&gt;说明&lt;/strong&gt;&lt;br&gt;
+最近几天陆续有小伙伴问我如何使用&lt;code&gt;PicGo&lt;/code&gt;、&lt;code&gt;UPic&lt;/code&gt;等客户端图床工具该如何配置对接&lt;code&gt;Hidove图床&lt;/code&gt;。&lt;br&gt;
+我挨个看了看，觉得&lt;code&gt;PicGo&lt;/code&gt;很不错，各种系统都支持，所以介绍一下&lt;code&gt;PicGo&lt;/code&gt;的用法，其他工具用法也可以照葫芦画瓢，就不说了。&lt;/p&gt;
+&lt;h1 id=&#34;安装需要&#34;&gt;安装需要&lt;/h1&gt;
+&lt;h2 id=&#34;安装picgo&#34;&gt;安装PicGo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.hidove.cn/go/aHR0cHM6Ly9tb2x1bmVyZmlubi5jb20vUGljR28v&#34;&gt;https://molunerfinn.com/PicGo/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装nodejs&#34;&gt;安装Node.js&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.hidove.cn/go/aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;https://nodejs.org/en/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在插件界面的搜索栏搜索插件名&lt;code&gt;web-uploader&lt;/code&gt;并安装&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://dlolb.top/2020/03/31/3655a0d9b9aa43dc.png&#34;&gt;&lt;img src=&#34;https://dlolb.top/2020/03/31/3655a0d9b9aa43dc.png&#34; alt=&#34;使用PicGo对接Hidove图床&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;配置web-uploader&#34;&gt;配置&lt;code&gt;web-uploader&lt;/code&gt;&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;a href=&#34;https://dlolb.top/2020/04/01/8f06b9a51e6ece1d.png&#34;&gt;&lt;img src=&#34;https://dlolb.top/2020/04/01/8f06b9a51e6ece1d.png&#34; alt=&#34;使用PicGo对接Hidove图床&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Json路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;data.url.distribute
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;自定义Body问标准Json格式数据，请按需求修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;{&amp;quot;token&amp;quot;:&amp;quot;xxxxxxxxxxxxx&amp;quot;,&amp;quot;apiType&amp;quot;:&amp;quot;ali&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;上传完毕&#34;&gt;上传完毕&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;a href=&#34;https://dlolb.top/2020/04/01/68fc9e9ec0006948.png&#34;&gt;&lt;img src=&#34;https://dlolb.top/2020/04/01/68fc9e9ec0006948.png&#34; alt=&#34;使用PicGo对接Hidove图床&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+">使用PicGo对接Hidove图床</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/WlKJ1XeEq/"" data-c="
+          &lt;h2 id=&#34;前言&#34;&gt;&lt;strong&gt;前言：&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;随着互联网浪潮的翻腾，国内外涌现出越来越多优秀的社交网站让用户分享信息更加便捷。然后，如果你是一个不甘寂寞的程序猿（媛），是否也想要搭建一个属于自己的个人网站，如果你曾经或者现在正有这样的想法，请跟随这篇文章发挥你的Geek精神，让你快速拥有自己的博客网站，写文章记录生活，享受这种从0到1的过程。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/29755481&#34;&gt;你见过的最棒的个人博客界面是什么样的？&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;什么是hexo&#34;&gt;&lt;strong&gt;什么是Hexo ?&lt;/strong&gt;&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/73bc091c3174d.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。Hexo同时也是GitHub上的开源项目，参见：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//github.com/hexojs/hexo&#34;&gt;hexojs/hexo&lt;/a&gt; 如果想要更加全面的了解Hexo，可以到其官网 &lt;a href=&#34;https://link.zhihu.com/?target=https%3A//hexo.io/&#34;&gt;Hexo&lt;/a&gt; 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这是我的个人博客效果:&lt;/strong&gt; &lt;a href=&#34;https://link.zhihu.com/?target=http%3A//iamwr.com/&#34;&gt;吴润 · RunDouble&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面正式从零开始搭建年轻人的第一个网站。&lt;/p&gt;
+&lt;h2 id=&#34;搭建步骤&#34;&gt;&lt;strong&gt;搭建步骤：&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;获得个人网站域名&lt;/li&gt;
+&lt;li&gt;GitHub创建个人仓库&lt;/li&gt;
+&lt;li&gt;安装Git&lt;/li&gt;
+&lt;li&gt;安装Node.js&lt;/li&gt;
+&lt;li&gt;安装Hexo&lt;/li&gt;
+&lt;li&gt;推送网站&lt;/li&gt;
+&lt;li&gt;绑定域名&lt;/li&gt;
+&lt;li&gt;更换主题&lt;/li&gt;
+&lt;li&gt;初识MarkDown语法&lt;/li&gt;
+&lt;li&gt;发布文章&lt;/li&gt;
+&lt;li&gt;寻找图床&lt;/li&gt;
+&lt;li&gt;个性化设置&lt;/li&gt;
+&lt;li&gt;其他&lt;/li&gt;
+&lt;li&gt;附录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;获得个人网站域名&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;域名是网站的入口，也是网站的第一印象，比如饿了么的官网的域名是：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//www.ele.me/&#34;&gt;https://www.ele.me/&lt;/a&gt; ，很是巧妙。常见的有com,cn,net,org等后缀，也有小众的xyz,me,io等后缀，根据你自己的喜好，选择不同的后缀，比如我选择就是常见的com后缀。很多小众奇特的后缀在大陆是没办法备案的，网站也就无法上线。然而使用GitHub托管我们的网站，完全不需要备案，因为托管我们的网站内容的服务器在美国，而且在国内备案流程也比较繁杂，时间需要一周左右。&lt;/p&gt;
+&lt;p&gt;申请域名的地方有很多，这里推荐阿里云：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//www.aliyun.com/&#34;&gt;阿里云-为了无法计算的价值&lt;/a&gt; 申请入口：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//wanwang.aliyun.com/domain/&#34;&gt;域名注册&lt;/a&gt; 购买域名这也是我们整个搭建过程中惟一一个需要花钱的地方。如果你已经有了空闲域名就无需购买，直接使用即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub创建个人仓库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;登录到GitHub,如果没有GitHub帐号，使用你的邮箱注册GitHub帐号：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//github.com/&#34;&gt;Build software better, together&lt;/a&gt; 点击GitHub中的New repository创建新仓库，仓库名应该为：&lt;strong&gt;用户名&lt;/strong&gt;.&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//github.io&#34;&gt;http://github.io&lt;/a&gt; 这个&lt;strong&gt;用户名&lt;/strong&gt;使用你的GitHub帐号名称代替，这是固定写法，比如我的仓库名为：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://api.dj.ci/image/5ec11e397c7aa&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;安装Git&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;什么是Git ?简单来说Git是开源的分布式版本控制系统，用于敏捷高效地处理项目。我们网站在本地搭建好了，需要使用Git同步到GitHub上。如果想要了解Git的细节，参看&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//weibo.com/liaoxuefeng&#34;&gt;廖雪峰&lt;/a&gt;老师的Git教程：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000&#34;&gt;Git教程&lt;/a&gt; 从Git官网下载：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//git-scm.com/download/win&#34;&gt;Git - Downloading Package&lt;/a&gt; 现在的机子基本都是64位的，选择64位的安装包，下载后安装，在命令行里输入git测试是否安装成功，若安装失败，参看其他详细的Git安装教程。安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://api.dj.ci/image/5ec11e91cda44&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;或者在菜单里搜索Git Bash，设置user.name和user.email配置信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git config --global user.name &amp;quot;你的GitHub用户名&amp;quot;
+git config --global user.email &amp;quot;你的GitHub注册邮箱&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成ssh密钥文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ssh-keygen -t rsa -C &amp;quot;你的GitHub注册邮箱&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后直接三个回车即可，默认不需要设置密码&lt;br&gt;
+然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://bit.ly/3cldH5D&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;打开&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//github.com/settings/keys&#34;&gt;GitHub_Settings_keys&lt;/a&gt; 页面，新建new SSH Key&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://bit.ly/2MeU2K5&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。&lt;br&gt;
+在Git Bash中检测GitHub公钥设置是否成功，输入 ssh git@github.com ：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://bit.ly/2ArZVAX&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装Node.js&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hexo基于Node.js，Node.js下载地址：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//nodejs.org/en/download/&#34;&gt;Download | Node.js&lt;/a&gt; 下载安装包，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v :&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/3860017ef4102.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;检测npm是否安装成功，在命令行中输入npm -v :&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/67da85eafe071.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;到这了，安装Hexo的环境已经全部搭建完成。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装Hexo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中，按住shift键，右击鼠标点击命令行&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/07c5cf68b1ecb.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;使用npm命令安装Hexo，输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install -g hexo-cli 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个安装时间较长耐心等待，安装完成后，初始化我们的博客，输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hexo init blog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意，这里的命令都是作用在刚刚创建的Blog文件夹中。&lt;/p&gt;
+&lt;p&gt;为了检测我们的网站雏形，分别按顺序输入以下三条命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hexo new test_my_site
+
+hexo g
+
+hexo s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这些命令在后面作介绍，完成后，打开浏览器输入地址：&lt;/p&gt;
+&lt;p&gt;localhost:4000&lt;/p&gt;
+&lt;p&gt;可以看出我们写出第一篇博客，只不过我下图是我修改过的配置，和你的显示不一样。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/f6652c45938b4.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;现在来介绍常用的Hexo 命令&lt;/p&gt;
+&lt;p&gt;npm install hexo -g #安装Hexo&lt;br&gt;
+npm update hexo -g #升级&lt;br&gt;
+hexo init #初始化博客&lt;/p&gt;
+&lt;p&gt;命令简写&lt;br&gt;
+hexo n &amp;quot;我的博客&amp;quot; == hexo new &amp;quot;我的博客&amp;quot; #新建文章&lt;br&gt;
+hexo g == hexo generate #生成&lt;br&gt;
+hexo s == hexo server #启动服务预览&lt;br&gt;
+hexo d == hexo deploy #部署&lt;/p&gt;
+&lt;p&gt;hexo server #Hexo会监视文件变动并自动更新，无须重启服务器&lt;br&gt;
+hexo server -s #静态模式&lt;br&gt;
+hexo server -p 5000 #更改端口&lt;br&gt;
+hexo server -i 192.168.1.1 #自定义 IP&lt;br&gt;
+hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令&lt;/p&gt;
+&lt;p&gt;刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;推送网站&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上面只是在本地预览，接下来要做的就是就是推送网站，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，需要解释一个概念，在blog根目录里的_config.yml文件称为&lt;strong&gt;站点&lt;/strong&gt;配置文件，如下图&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/e6535838d2556.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;进入根目录里的themes文件夹，里面也有个_config.yml文件，这个称为&lt;strong&gt;主题&lt;/strong&gt;配置文件，如下图&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/c2b2ad5cc8337.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;下一步将我们的Hexo与GitHub关联起来，打开站点的配置文件_config.yml，翻到最后修改为：&lt;/p&gt;
+&lt;p&gt;deploy:&lt;br&gt;
+type: git&lt;br&gt;
+repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git&lt;br&gt;
+branch: master参考如下：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/5d13fa2bb6fa0.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;保存站点配置文件。&lt;/p&gt;
+&lt;p&gt;其实就是给hexo d 这个命令做相应的配置，让hexo知道你要把blog部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。最后安装Git部署插件，输入命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-basemake&#34;&gt;npm install hexo-deployer-git --save
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时，我们分别输入三条命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hexo clean 
+hexo g 
+hexo d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其实第三条的 hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 &lt;a href=&#34;https://link.zhihu.com/?target=http%3A//xxxx.github.io&#34;&gt;http://xxxx.github.io&lt;/a&gt; (知乎排版可能会出现&amp;quot;http://&amp;quot;字样，参考下图) 比如我的xxxx就是我的GitHub用户名：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;14&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/fccfe6f1ed7b7.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;你就会发现你的博客已经上线了，可以在网络上被访问了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;绑定域名&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;虽然在Internet上可以访问我们的网站，但是网址是GitHub提供的:&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//xxxx.github.io&#34;&gt;http://xxxx.github.io&lt;/a&gt; (知乎排版可能会出现&amp;quot;http://&amp;quot;字样) 而我们想使用我们自己的个性化域名，这就需要绑定我们自己的域名。这里演示的是在阿里云万网的域名绑定，在国内主流的域名代理厂商也就阿里云和腾讯云。登录到阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;15&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/c6839790d5a6c.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;然后添加解析&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;16&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/b890a62b40e48.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;包括添加三条解析记录，192.30.252.153是GitHub的地址，你也可以ping你的 &lt;a href=&#34;https://link.zhihu.com/?target=http%3A//xxxx.github.io&#34;&gt;http://xxxx.github.io&lt;/a&gt; 的ip地址，填入进去。第三个记录类型是CNAME，CNAME的记录值是：你的用户名.&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//github.io&#34;&gt;http://github.io&lt;/a&gt; 这里千万别弄错了。第二步，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;17&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/93826a5b1b937.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;点击save保存。第三步，进入本地博客文件夹 ，进入blog/source目录下，创建一个记事本文件，输入你的域名，对，只要写进你自己的域名即可。如果带有www，那么以后访问的时候必须带有www完整的域名才可以访问，但如果不带有www，以后访问的时候带不带www都可以访问。所以建议，不要带有www。这里我还是写了www(不建议带有www):&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;18&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/dfebca9b8320d.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;保存，命名为CNAME ，注意保存成&lt;strong&gt;所有文件&lt;/strong&gt;而不是&lt;strong&gt;txt文件&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;完成这三步，进入blog目录中，按住shift键右击打开命令行，依次输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hexo clean
+hexo g
+hexo d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时候打开浏览器在地址栏输入你的个性化域名将会直接进入你自己搭建的网站。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;更换主题&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果你不喜欢Hexo默认的主题，可以更换不同的主题，主题传送门：&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//hexo.io/themes/&#34;&gt;Themes&lt;/a&gt; 我自己使用的是Next主题，可以在blog目录中的themes文件夹中查看你自己主题是什么。现在把默认主题更改成Next主题，在blog目录中（就是命令行的位置处于blog目录）打开命令行输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/iissnan/hexo-theme-next themes/next
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这是将Next主题下载到blog目录的themes主题下的next文件夹中。打开&lt;strong&gt;站点&lt;/strong&gt;的_config.yml配置文件，修改主题为next&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;19&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/450c92ed241d9.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;打开&lt;strong&gt;主题&lt;/strong&gt;的_config.yml配置文件，不是站点主题文件，找到Scheme Settings&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;20&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/ef283df92ad9f.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;next主题有三个样式，我用的是Pisces，你们可以自己试试看，选择你自己喜欢的样式（只需要把行首的#去除，#是注释），选择好后，再次部署网站，hexo g、hexo d，查看效果。选择其他主题，按照上述过程即可实现。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;初识Markdown语法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown语法简洁明了、容易掌握，而且功能比纯文本更强，因此写博客使用它，可以让用户更加专注的写文章，而不需要费尽心力的考虑样式，相对于html已经算是轻量级语言，像有道云笔记也支持Markdown写作。并且Markdown完全兼容html，也就是可以在文章里直接插入html代码。比如给博文添加音乐，就可以直接把音乐的外链html代码插入文章中。具体语法参看：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.appinn.com/markdown/&#34;&gt;Markdown 语法说明(简体中文版)&lt;/a&gt; 可以说十分钟就可以入门。当然，工欲善其事必先利其器，选择一个好的Markdown编辑器也是非常重要的，这里推荐&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//code52.org/DownmarkerWPF/&#34;&gt;MarkPad&lt;/a&gt; 和&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.markdownpad.com/&#34;&gt;The Markdown Editor for Windows&lt;/a&gt; ，这是带有预览效果的编辑器，也可以使用本地的文本编辑器，更多的Markdown的语法与编辑器自己可以搜索了解。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;发布文章&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们开始正式发布上线博客文章，在命令行中输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hexo n &amp;quot;博客名字&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们会发现在blog根目录下的source文件夹中的_post文件夹中多了一个 &lt;strong&gt;博客名字.md&lt;/strong&gt; 文件，使用Markdown编辑器打开，就可以开始你的个人博客之旅了，Markdown常用的样式也就十来种，完全能够满足一般博文的样式要求，这是我的一篇博文内容示例：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;21&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/2e3d19970c709.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;通过带有预览样式的Markdown编辑器实时预览书写的博文样式，也可以通过命令 hexo s --debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;寻找图床&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，&lt;strong&gt;&lt;img src=&#34;%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5&#34; alt=&#34;图片信息&#34; loading=&#34;lazy&#34;&gt;&lt;/strong&gt; 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.tietuku.com/&#34;&gt;贴图库图片外链&lt;/a&gt; 国内算比较好的图床我认为有两个：新浪微博和 &lt;a href=&#34;https://link.zhihu.com/?target=https%3A//www.qiniu.com/&#34;&gt;七牛云&lt;/a&gt; ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;22&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/f853587ebae8c.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;个性化设置&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;所谓的个性化设置就是根据个人需要添加不同的插件及功能。&lt;/p&gt;
+&lt;p&gt;基本的有：&lt;/p&gt;
+&lt;p&gt;在站点配置文件_config.yml修改基本的站点信息&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;23&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/928052ff44cf6.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;依次是网站标题、副标题、网站描述、作者、网站头像外部链接、网站语言、时区等。&lt;/p&gt;
+&lt;p&gt;在主题配置文件_config.yml修改基本的主题信息，如：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;24&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/98300104de472.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;博文打赏的微信、支付宝二维码图片，这里我是直接把这两张放在根目录的source文件夹中，并没有使用图床外链。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;25&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/7b69c11c80b26.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;社交外链的设置，即在侧栏展示你的个人社交网站信息。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;26&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/c36842cdf53cc.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;博文分享的插件jiathis，值设置为true。在配置文件中有很多的个性化设置，可以自尝试更多的修改。&lt;/p&gt;
+&lt;p&gt;进阶个性化：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加网易云音乐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;27&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/a3d8619a3f44e.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;复制外链的代码&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;28&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/acdf6b3697a14.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;比如在侧栏插入这首歌的音乐播放器，修改 blog\themes\next\layout_macro的sidebar.swig文件，添加刚刚复制的外链代码&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;29&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/f717bc0e96b63.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;重新生成、部署网页，效果如下&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;30&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/53cd793b738f4.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;设置背景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;把你挑选的背景图片命名为：background.jpg，放在blog\themes\next\source\images里，在blog\themes\next\source\css_custom文件的custom.styl首部添加：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;body {
+  background:url(/images/background.jpg);
+  background-attachment: fixed;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;background-attachment: fixed;是固定背景图片。&lt;/p&gt;
+&lt;p&gt;这是设置一张静态图片作为背景，其实Next主题自带有动态的背景效果，修改主题配置文件中的canvas_nest: false为canvas_nest: true即可。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增加侧栏菜单条目&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;默认的侧栏菜单条目有：首页、归档、标签、关于、搜索等。如果你想要增加其他的菜单条目，修改主题配置文件_config.yml里的Menu Settings中的menu和menu_icons两个地方&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;31&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/24aba7b6aeef5.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;其中menu里是配置菜单项对应的页面位置（如：/love），menu_icons对应菜单项的图标，这里的图标是来自于&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//fontawesome.io/&#34;&gt;Font Awesome&lt;/a&gt; ，所以你需要在Font Awesome网站上找到你需要的icon，然后把该icon的名字写在menu_icons对应菜单名后面，注意冒号有一个英文输入状态的空格。设置好后，在命令行里输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hexo new page &amp;quot;你所要增加的菜单项名称（要和你在menu中的填写要匹配）&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;新建的页面在博客根目录下的source文件里，这时你就可以对新建的页面自定义设计。&lt;/p&gt;
+&lt;p&gt;还有更多的进阶个性化设置，如SEO、评论系统、个人头像、博客分享、订阅功能、High功能、404网页设置等，可以参看：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/theme-settings.html&#34;&gt;主题配置 - NexT 使用文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/third-party-services.html&#34;&gt;第三方服务集成 - NexT 使用文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/tag-plugins.html&#34;&gt;内置标签 - NexT 使用文&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/tag-plugins.html&#34;&gt;档&lt;/a&gt;&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//theme-next.iissnan.com/advanced-settings.html&#34;&gt;进阶设定 - NexT 使用文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有很多人私信问我High功能特效如何设置，这里推荐一篇同是Next主题网站博主的文章：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.iamlj.com/2016/08/add-special-effect-harlem-shake-for-hexo/&#34;&gt;为Hexo Next主题添加哈林摇特效（五）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其他&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;终于写到这里了，也算是基本圆满完成了我的写作初衷，总结自己的一些经验，分享一些有趣的东西，不过脖子也是僵硬的受不了。我知道很多人想要建立自己的个人网站却一直没有付诸行动，希望这篇文章能给你一点点灵感与想法，just do it。本文是windows平台的搭建过程，其他平台可以参看相关资料，也有很多其他优秀的博客框架值得学习。如果有任何建议或想法、或疑问欢迎在评论区交流， 做好的网站不妨在评论区贴出网址，让大家一起学习。&lt;/p&gt;
+">GitHub+Hexo 搭建个人网站详细教程</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/gIzm3nngu/"" data-c="
+          &lt;p&gt;**说明：**博客用&lt;code&gt;Handsome&lt;/code&gt;主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用&lt;code&gt;Handsome&lt;/code&gt;主题的做下参考。&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1、首页文章版式圆角化&lt;/strong&gt;&lt;br&gt;
+本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#圆角大小可修改15px数值(别复制该行)
+/*首页文章版式圆角化*/
+.panel{
+    border: none;
+    border-radius: 15px;
+}
+
+.panel-small{
+    border: none;
+    border-radius: 15px;
+}
+
+.item-thumb{
+    border-radius: 15px;  
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;2、首页文章图片获取焦点放大&lt;/strong&gt;&lt;br&gt;
+本项修改的是首页文章图片，将鼠标放到首页头图后使其放大。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#放大的时间和大小自行修改以下数值(别复制该行)
+/*首页文章图片获取焦点放大*/
+.item-thumb{
+    cursor: pointer;  
+    transition: all 0.6s;  
+}
+
+.item-thumb:hover{
+      transform: scale(1.05);  
+}
+
+.item-thumb-small{
+    cursor: pointer;  
+    transition: all 0.6s;
+}
+
+.item-thumb-small:hover{
+    transform: scale(1.05);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;3、首页头像转动并放大&lt;/strong&gt;&lt;br&gt;
+本项修改的是首页头像，将鼠标放至头像后使其转动并放大。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#转动快慢和头像大小自行修改数值(别复制该行)
+/*首页头像自动旋转*/
+.thumb-lg{
+    width:130px;
+}
+
+.avatar{
+    -webkit-transition: 0.4s;
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    transition: transform 0.4s ease-out;
+    -moz-transition: -moz-transform 0.4s ease-out; 
+}
+
+.avatar:hover{
+    transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+}
+
+#aside-user span.avatar{
+    animation-timing-function:cubic-bezier(0,0,.07,1)!important;
+    border:0 solid
+}
+
+#aside-user span.avatar:hover{
+    transform:rotate(360deg) scale(1.2);
+    border-width:5px;
+    animation:avatar .5s
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;4、首页头像放大并自动旋转&lt;/strong&gt;&lt;br&gt;
+本项修改的是首页头像，效果就是将首页头像放大，并使其自动旋转。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#旋转速度请修改3s数值(别复制该行)
+/*首页头像放大并自动旋转*/
+.thumb-lg{
+    width:130px;
+}
+
+@-webkit-keyframes rotation{
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.img-full{
+    -webkit-transform: rotate(360deg);
+    animation: rotation 3s linear infinite;
+    -moz-animation: rotation 3s linear infinite;
+    -webkit-animation: rotation 3s linear infinite;
+    -o-animation: rotation 3s linear infinite;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;5、文章标题居中&lt;/strong&gt;&lt;br&gt;
+本项修改的是文章标题，使其居中。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/*文章标题居中*/
+.panel h2{
+    text-align: center; 
+}
+.post-item-foot-icon{
+    text-align: center;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;6、首页文章版式阴影化&lt;/strong&gt;&lt;br&gt;
+本项修改的是首页文章版式，包括图片使其四周加上一层绚丽的阴影。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#阴影颜色修改rgba后面的值(别复制该行)
+/*panel阴影*/
+.panel{
+   box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+.panel:hover{
+    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+.panel-small{
+    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+.panel-small:hover{
+    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
+}
+
+#如果也想使盒子四周也有阴影，加上以下代码
+.app.container {
+    box-shadow: 0 0 30px rgba(255, 112, 173, 0.35);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;7、自定义滚动条滑块&lt;/strong&gt;&lt;br&gt;
+本项修改针对浏览器最右边的滚动条滑块，使其改变样式。将以下代码添加至后台主题设置 自定义&lt;code&gt;CSS&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar{
+    width: 3px;
+    height: 16px;
+    background-color: rgba(255,255,255,0);
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0);
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;8、评论表情修改&lt;/strong&gt;&lt;br&gt;
+本项修改评论表情，将原始表情替换成泡泡和阿鲁，只需要替换主题文件里的&lt;code&gt;OwO.min.js&lt;/code&gt;和&lt;code&gt;OwO.json&lt;/code&gt;文件就可以了。文件下载：&lt;a href=&#34;https://www.moerats.com/usr/down/HS_OwO.zip&#34;&gt;HS_OwO.zip&lt;/a&gt;。&lt;code&gt;OwO.min.js&lt;/code&gt;在&lt;code&gt;handsome/assets/js/features&lt;/code&gt;文件夹，&lt;code&gt;OwO.json&lt;/code&gt;在&lt;code&gt;handsome/usr&lt;/code&gt;文件夹。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9、鼠标点击特效&lt;/strong&gt;&lt;br&gt;
+将以下代码放在主题的&lt;code&gt;handsome/component/footer.php&lt;/code&gt;中的``之前即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#字体自行修改
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; 
+/* 鼠标特效 */
+var a_idx = 0; 
+jQuery(document).ready(function($) { 
+    $(&amp;quot;body&amp;quot;).click(function(e) { 
+        var a = new Array(&amp;quot;富强&amp;quot;, &amp;quot;民主&amp;quot;, &amp;quot;文明&amp;quot;, &amp;quot;和谐&amp;quot;, &amp;quot;自由&amp;quot;, &amp;quot;平等&amp;quot;, &amp;quot;公正&amp;quot; ,&amp;quot;法治&amp;quot;, &amp;quot;爱国&amp;quot;, &amp;quot;敬业&amp;quot;, &amp;quot;诚信&amp;quot;, &amp;quot;友善&amp;quot;); 
+        var $i = $(&amp;quot;&amp;lt;span/&amp;gt;&amp;quot;).text(a[a_idx]); 
+        a_idx = (a_idx + 1) % a.length; 
+        var x = e.pageX, 
+        y = e.pageY; 
+        $i.css({ 
+            &amp;quot;z-index&amp;quot;: 999999999999999999999999999999999999999999999999999999999999999999999, 
+            &amp;quot;top&amp;quot;: y - 20, 
+            &amp;quot;left&amp;quot;: x, 
+            &amp;quot;position&amp;quot;: &amp;quot;absolute&amp;quot;, 
+            &amp;quot;font-weight&amp;quot;: &amp;quot;bold&amp;quot;, 
+            &amp;quot;color&amp;quot;: &amp;quot;#ff6651&amp;quot; 
+        }); 
+        $(&amp;quot;body&amp;quot;).append($i); 
+        $i.animate({ 
+            &amp;quot;top&amp;quot;: y - 180, 
+            &amp;quot;opacity&amp;quot;: 0 
+        }, 
+        1500, 
+        function() { 
+            $i.remove(); 
+        }); 
+    }); 
+}); 
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;10、评论框特效&lt;/strong&gt;&lt;br&gt;
+下载特效&lt;code&gt;JS&lt;/code&gt;文件：&lt;a href=&#34;https://www.moerats.com/usr/down/commentTyping.js&#34;&gt;commentTyping.js&lt;/a&gt;，将其放在网站目录某个地方，然后编辑主题文件&lt;code&gt;handsome/component/footer.php&lt;/code&gt;，在``后面添加以下代码。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;(JS文件路径)&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;暂时只说这么多，修改方案很多由&lt;a href=&#34;https://mikuac.com/&#34;&gt;Zero博主&lt;/a&gt;提供，还有通过本博客联系作者购买&lt;code&gt;Handsome&lt;/code&gt;主题的，可打&lt;code&gt;9&lt;/code&gt;折优惠。&lt;/p&gt;
+">博客基于Handsome主题的一些小修改教程</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/FNHwd2cm5/"" data-c="
+          &lt;p&gt;前段时间搭建了 Chevereto 图床，但在 WordPress 编辑器里需要上传图片的时候，需要另外打开图床上传比较麻烦。这时候可以在 WordPress 的编辑器里添加个上传按钮，利用 API 上传到 Chevereto 图床，这样上传图片到图床就方便啦！&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/01/Qmrvq0.png&#34; alt=&#34;Qmrvq0.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;下面我把详细啊方法记录一下：&lt;/p&gt;
+&lt;h3 id=&#34;chevereto&#34;&gt;Chevereto&lt;/h3&gt;
+&lt;p&gt;获取 API KEY: 登录，转到 &lt;code&gt;仪表盘-设置-API&lt;/code&gt;，将  &lt;code&gt;API v1 key&lt;/code&gt;  记录下来;&lt;/p&gt;
+&lt;p&gt;API 后端设置: 进入 Chevereto 的安装目录，将 &lt;code&gt;app/routes/route.api.php&lt;/code&gt; 文件拷贝到 &lt;code&gt;app/routes/overrides/route.api.php&lt;/code&gt; 文件;&lt;/p&gt;
+&lt;p&gt;允许跨域: 打开 &lt;code&gt;app/routes/overrides/route.api.php&lt;/code&gt;，添加&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;header(&#39;Access-Control-Allow-Origin: https://spiritx.xyz&#39;);
+header(&#39;Access-Control-Allow-Methods: POST&#39;);
+header(&#39;Access-Control-Allow-Headers: Content-Type, Accept, Authorization, X-Requested-With, Origin, Accept&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;记得把白名单 &lt;code&gt;https://spiritx.xyz&lt;/code&gt; 改成自己的域名或者改成* （所有域名可用）；&lt;/p&gt;
+&lt;p&gt;设置 API user(可选): 在 &lt;code&gt;app/routes/overrides/route.api.php&lt;/code&gt; 中，找到&lt;code&gt;$uploaded_id = CHV\Image::uploadToWebsite($source);&lt;/code&gt;那一行，更改为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$uploaded_id = CHV\Image::uploadToWebsite($source,admin);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将 admin 替换为图床中的用户;&lt;/p&gt;
+&lt;h3 id=&#34;wordpress-53版本以下用&#34;&gt;WordPress 5.3版本以下用&lt;/h3&gt;
+&lt;p&gt;前端添加上传按钮(media button)： 将以下代码添加到&lt;a href=&#34;https://www.yunloc.com/tag/wordpress&#34;&gt;WordPress&lt;/a&gt;正在使用的主题目录的 functions.php 中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//添加图床上传按钮
+add_action(&#39;media_buttons&#39;, &#39;add_my_media_button&#39;);
+function add_my_media_button() {
+    $currentUser = wp_get_current_user();
+        if(!empty($currentUser-&amp;gt;roles) &amp;amp;&amp;amp; in_array(&#39;administrator&#39;, $currentUser-&amp;gt;roles)){
+            $DOMAIN=&amp;quot;图床的域名&amp;quot;;
+            $APIkey=&amp;quot;图床的API v1 key&amp;quot;;// 是管理员
+        }
+        else
+            return 0;  // 非管理员
+    echo &#39;
+            &amp;lt;input id=&amp;quot;up_to_chevereto&amp;quot; type=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; multiple=&amp;quot;multiple&amp;quot;/&amp;gt;
+            &amp;lt;label for=&amp;quot;up_to_chevereto&amp;quot; id=&amp;quot;up_img_label&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;fa fa-picture-o&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 上传图片到Chevereto&amp;lt;/label&amp;gt;
+          &#39;;
+?&amp;gt;
+&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+#up_to_chevereto {
+  display: none;
+}
+#up_img_label {
+  color: #fff;
+  background-color: #16a085;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5.2px;
+}
+&amp;lt;/style&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+$(&#39;#up_to_chevereto&#39;).change(function() {
+  window.wpActiveEditor = null;
+  for (var i = 0; i &amp;lt; this.files.length; i++) {
+    var f=this.files[i];
+    var formData=new FormData();
+    formData.append(&#39;source&#39;,f);
+    $.ajax({
+        async:true,
+        crossDomain:true,
+        url:&#39;https://&amp;lt;?php echo $DOMAIN; ?&amp;gt;/api/1/upload/?key=&amp;lt;?php echo $APIkey; ?&amp;gt;&amp;amp;format=json&#39;,
+        type : &#39;POST&#39;,
+        processData : false,
+        contentType : false,
+        data:formData,
+        beforeSend: function (xhr) {
+            $(&#39;#up_img_label&#39;).html(&#39;&amp;lt;i class=&amp;quot;fa fa-spinner rotating&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; Uploading...&#39;);
+        },
+        success:function(res){
+            wp.media.editor.insert(&#39;&amp;lt;a href=&#39;+res.image.url+&#39;&amp;gt;&amp;lt;img src=&#39;+res.image.url+&#39; alt=&#39;+res.image.title+&#39;&amp;gt;&amp;lt;/img&amp;gt;&amp;lt;/a&amp;gt;&#39;);
+            $(&amp;quot;#up_img_label&amp;quot;).html(&#39;&amp;lt;i class=&amp;quot;fa fa-check&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 上传成功,继续上传&#39;);
+        },
+        error: function (){
+            $(&amp;quot;#up_img_label&amp;quot;).html(&#39;&amp;lt;i class=&amp;quot;fa fa-times&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 上传失败，重新上传&#39;);
+        }
+    });
+  }
+});
+&amp;lt;/script&amp;gt;
+&amp;lt;?php
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;wordpress-53版本用&#34;&gt;WordPress 5.3版本用&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;//添加图床上传按钮
+add_action(&#39;media_buttons&#39;, &#39;add_my_media_button&#39;);
+function add_my_media_button() {
+    $currentUser = wp_get_current_user();
+        if(!empty($currentUser-&amp;gt;roles) &amp;amp;&amp;amp; in_array(&#39;administrator&#39;, $currentUser-&amp;gt;roles)){
+            $DOMAIN=&amp;quot;图床的域名&amp;quot;;
+            $APIkey=&amp;quot;图床的API v1 key&amp;quot;;// 是管理员
+        }
+        else
+            return 0;  // 非管理员
+    echo &#39;
+            &amp;lt;input id=&amp;quot;up_to_chevereto&amp;quot; type=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; multiple=&amp;quot;multiple&amp;quot;/&amp;gt;
+            &amp;lt;label for=&amp;quot;up_to_chevereto&amp;quot; id=&amp;quot;up_img_label&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;fa fa-picture-o&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 上传图片到Chevereto&amp;lt;/label&amp;gt;
+          &#39;;
+?&amp;gt;
+&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+#up_to_chevereto {
+  display: none;
+}
+#up_img_label {
+  color: #fff;
+  background-color: #16a085;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5.2px;
+}
+&amp;lt;/style&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+jQuery(&#39;#up_to_chevereto&#39;).change(function() {
+  window.wpActiveEditor = null;
+  for (var i = 0; i &amp;lt; this.files.length; i++) {
+    var f=this.files[i];
+    var formData=new FormData();
+    formData.append(&#39;source&#39;,f);
+    jQuery.ajax({
+        async:true,
+        crossDomain:true,
+        url:&#39;https://&amp;lt;?php echo $DOMAIN; ?&amp;gt;/api/1/upload/?key=&amp;lt;?php echo $APIkey; ?&amp;gt;&amp;amp;format=json&#39;,
+        type : &#39;POST&#39;,
+        processData : false,
+        contentType : false,
+        data:formData,
+        beforeSend: function (xhr) {
+            jQuery(&#39;#up_img_label&#39;).html(&#39;&amp;lt;i class=&amp;quot;fa fa-spinner rotating&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; Uploading...&#39;);
+        },
+        success:function(res){
+            wp.media.editor.insert(&#39;&amp;lt;a href=&#39;+res.image.url+&#39;&amp;gt;&amp;lt;img src=&#39;+res.image.url+&#39; alt=&#39;+res.image.title+&#39;&amp;gt;&amp;lt;/img&amp;gt;&amp;lt;/a&amp;gt;&#39;);
+            jQuery(&amp;quot;#up_img_label&amp;quot;).html(&#39;&amp;lt;i class=&amp;quot;fa fa-check&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 上传成功,继续上传&#39;);
+        },
+        error: function (){
+            jQuery(&amp;quot;#up_img_label&amp;quot;).html(&#39;&amp;lt;i class=&amp;quot;fa fa-times&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 上传失败，重新上传&#39;);
+        }
+    });
+  }
+});
+&amp;lt;/script&amp;gt;
+&amp;lt;?php
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;style里的样式可以根据自己偏好自定义&lt;/p&gt;
+&lt;h3 id=&#34;使用预览&#34;&gt;使用预览&lt;/h3&gt;
+&lt;p&gt;这里我的编辑器用的是WP Editor.md，界面不同但不影响上传按钮的使用&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/01/QmrzZV.gif&#34; alt=&#34;QmrzZV.gif&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;文章引用至-spirit的小站-转载请注明出处&#34;&gt;文章引用至 &lt;a href=&#34;https://spiritx.xyz/843.html&#34;&gt;spirit的小站&lt;/a&gt; 转载请注明出处！&lt;/h4&gt;
+">WordPress编辑器中添加“上传到Chevereto图床”按钮</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/Y80xYA7z9/"" data-c="
+          &lt;h4 id=&#34;路过图床&#34;&gt;&lt;a href=&#34;https://imgse.com/&#34;&gt;路过图床&lt;/a&gt;是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力&lt;/h4&gt;
+&lt;h4 id=&#34;官方提供的插件代码支持的网站程序很多如下图&#34;&gt;官方提供的插件代码支持的网站程序很多，如下图&lt;/h4&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/02/Qmhx1K.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/02/Qmhx1K.png&#34; alt=&#34;路过图床1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;其中并未显示支持typecho所以我们需要稍作修改下面是修改好的代码&#34;&gt;其中并未显示支持typecho，所以我们需要稍作修改，下面是修改好的代码&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script async id=&amp;quot;chevereto-pup-src&amp;quot; src=&amp;quot;https://imgse.com/sdk/pup.js&amp;quot; data-url=&amp;quot;https://imgse.com/upload&amp;quot; data-auto-insert=&amp;quot;markdown-embed&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;将代码放到需要上传图片的文件内一般放在footerphp的body之前&#34;&gt;将代码放到需要上传图片的文件内，一般放在footer.php的&lt;/body&gt;之前&lt;/h4&gt;
+&lt;p&gt;如果要实现后台上传图片，则需要在typecho的安装目录admin/footer.php里增加以上代码&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/02/Qm4C0H.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/02/Qm4C0H.png&#34; alt=&#34;路过图床2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;设置好之后后台编辑框出现如下效果&#34;&gt;设置好之后后台编辑框出现如下效果&lt;/h4&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/02/Qm4P7d.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/02/Qm4P7d.png&#34; alt=&#34;路过图床3.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;上传完成后markdown格式的代码会自动出现在编辑框里插入图片的操作将会非常方便&#34;&gt;上传完成后markdown格式的代码会自动出现在编辑框里，插入图片的操作将会非常方便&lt;/h4&gt;
+">typecho在后台增加图床上传图片按钮</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/DmB2y0jPB/"" data-c="
+          &lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;如何安装下载插件长腿蜘蛛-CTspider 然后到WordPress插件页面点击上传，安装启用即可。 如果使用FTP上传,请使用二进制上传协议。如何授权登录长腿蜘蛛-CTspider官网注册账号（P&lt;/p&gt;
+&lt;h2 id=&#34;如何安装&#34;&gt;如何安装&lt;/h2&gt;
+&lt;p&gt;下载插件&lt;a href=&#34;https://www.ctspider.com/&#34;&gt;长腿蜘蛛-CTspider&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;然后到WordPress插件页面点击上传，安装启用即可。&lt;/li&gt;
+&lt;li&gt;如果使用FTP上传,请使用二进制上传协议。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;如何授权&#34;&gt;如何授权&lt;/h2&gt;
+&lt;p&gt;登录&lt;a href=&#34;https://www.ctspider.com/&#34;&gt;长腿蜘蛛-CTspider&lt;/a&gt;官网注册账号（PS：注册账号需要邮箱验证激活码，请认真填写邮箱账号）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击用户中心-&amp;gt;添加授权域名（PS：目前每位用户可以授权3个域名）。&lt;/li&gt;
+&lt;li&gt;得到授权码后，点击CTspider插件-&amp;gt;系统配置-&amp;gt;授权码配置-&amp;gt;填入授权码-&amp;gt;保存配置-&amp;gt;验证授权&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E6%8E%88%E6%9D%83.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;最近有很多网友问为什么点击采集后显示没有任何数据只有两种可能&#34;&gt;最近有很多网友问：为什么点击采集后显示没有任何数据只有两种可能&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;采集规则没有设置好。&lt;/li&gt;
+&lt;li&gt;如果确定采集规则没问题，请查看当前采集的网址是否是Ajax动态渲染加载（PS：目前长腿蜘蛛-CTspider &lt;code&gt;不支持动态渲染加载采集&lt;/code&gt;）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;新建项目-基本配置&#34;&gt;新建项目 / 基本配置&lt;/h2&gt;
+&lt;p&gt;接下来我们详细说下如何采集一个项目&lt;/p&gt;
+&lt;p&gt;我们使用新浪科技为示例：&lt;/p&gt;
+&lt;p&gt;首先基本配置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;任务名称：新浪科技（PS：自定义即可）&lt;/li&gt;
+&lt;li&gt;更新时间：默认60分钟（PS：当前任务60分钟自动执行一次）&lt;/li&gt;
+&lt;li&gt;字符集：默认选项就可以（PS：如果出现乱码情况，请针对当前web网页字符集选择即可）&lt;/li&gt;
+&lt;li&gt;随机IP：开启（PS：开启随机IP会在每次采集的时候自动更换IP,减少服务器IP被封的几率）&lt;/li&gt;
+&lt;li&gt;多线程采集：开启 （PS：开启后可提高采集速度）&lt;/li&gt;
+&lt;li&gt;多线程数量：默认10（PS：根据自己服务器配置酌情使用）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;列表设置&#34;&gt;列表设置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;列表URL: http://roll.tech.sina.com.cn/internet_all/index.shtml （PS：如需多个，可换行添加）&lt;/li&gt;
+&lt;li&gt;列表区域选择器：&lt;code&gt;.contList&amp;gt;ul&amp;gt;li&lt;/code&gt; （PS：【&lt;code&gt;完全和CSS选择器用法一样&lt;/code&gt;】【&lt;code&gt;可填，可不填&lt;/code&gt;】如果采集当前页面有多个相同列表DOM节点就要填写，确保采集精准度）用谷歌浏览器右键审查元素，可以看出当前列表数据都在&lt;code&gt;.contList&amp;gt;ul&amp;gt;li&lt;/code&gt;下面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/URLcss_2.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;列表缩略图：如果有图可以直接填写当前缩略图CSS选择器&lt;/li&gt;
+&lt;li&gt;文章网址匹配：&lt;code&gt;a&lt;/code&gt; （PS：由于上面区域选择器已经定位,我们可以直接填入&lt;code&gt;a标签&lt;/code&gt;即可，如果区域选择器没有定位则设置：&lt;code&gt;.contList li a&lt;/code&gt; 或者&lt;code&gt;.contList a&lt;/code&gt; 具体根据你采集页面dom结构自己分析）&lt;/li&gt;
+&lt;li&gt;添加来源网址到自定义字段：&lt;code&gt;source_url&lt;/code&gt;（PS：【自定义】可开启或不开启，设置后会在每天文章添加一个自定义字段&lt;code&gt;source_url&lt;/code&gt;并且会把当前采集到网址链接赋值给该字段用于前台调用显示）如: &lt;code&gt;get_post_meta(&#39;source_url&#39;)&lt;/code&gt; 可调用该字段的值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;点击列表测试可以查看当前项目列表配置情况&#34;&gt;&lt;strong&gt;点击列表测试可以查看当前项目列表配置情况&lt;/strong&gt;&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E5%88%97%E8%A1%A8%E6%B5%8B%E8%AF%95.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;文章设置&#34;&gt;文章设置&lt;/h2&gt;
+&lt;p&gt;标题匹配规则：&lt;code&gt;h1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;文章内容设置：&lt;code&gt;#article_content&lt;/code&gt;&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E6%96%87%E7%AB%A0_2.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;可以看到标题在&lt;code&gt;h1&lt;/code&gt;标签下，也可使用&lt;code&gt;.main-title&lt;/code&gt;来获取标题&lt;/p&gt;
+&lt;p&gt;正文内容看上去有好多 &lt;code&gt;class和id&lt;/code&gt; 如果有id属性尽量采用id，毕竟id是唯一性，定位精准。&lt;/p&gt;
+&lt;p&gt;我们还可以增加规则来采集&lt;code&gt;TAG标签&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;长腿蜘蛛-CTspider 提供了6总规则添加采集，并且可以自定义字段规则（PS：自定义字段规则可以添加多个）&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E6%96%87%E7%AB%A0%E8%A7%84%E5%88%99.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;点击采集测试&#34;&gt;&lt;strong&gt;点击采集测试&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;采集结果完美呈现（原文：标题：TAG）正确显示&lt;/p&gt;
+&lt;p&gt;但是我们发现结果中出现了&lt;code&gt;a链接&lt;/code&gt;和一些多于的&lt;code&gt;css属性&lt;/code&gt;和&lt;code&gt;id属性&lt;/code&gt;还有&lt;code&gt;span标签&lt;/code&gt;&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%95.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;我们可以利用&lt;code&gt;长腿蜘蛛-CTspider&lt;/code&gt;强大的&lt;code&gt;内容过滤&lt;/code&gt;模块进行数据清洗工作&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;内容过滤&#34;&gt;内容过滤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;首先删除数据中所有&lt;code&gt;a链接&lt;/code&gt;但不删除a标签内容&lt;/li&gt;
+&lt;li&gt;删除数据中&lt;code&gt;span标签&lt;/code&gt;并且也不删除内容&lt;/li&gt;
+&lt;li&gt;删除数据中无用的&lt;code&gt;class&lt;/code&gt;属性和&lt;code&gt;id&lt;/code&gt;属性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;具体设置如下图&#34;&gt;&lt;strong&gt;具体设置如下图：&lt;/strong&gt;&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E8%BF%87%E6%BB%A4.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;最后在进行采集测试得到纯净的数据&#34;&gt;最后在进行采集测试（得到纯净的数据）&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://www.ctspider.com/wp-content/uploads/2018/08/%E9%87%87%E9%9B%86%E6%B5%8B%E8%AF%952.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;接代写规则，出已有规则，有意者私聊。&lt;br&gt;
+&lt;img src=&#34;https://ravpf.cn/d/file/p/2019/11-23/c7f4e20fbf5bbf51b7347711cd83bca9.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+">WordPress采集插件</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/d8paPRJx0/"" data-c="
+          &lt;h2 id=&#34;关于folderclone&#34;&gt;关于Folderclone&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Folderclone&lt;/code&gt;，增加了服务帐户的团队成员和上载数据TB的，在使用某种算法每个服务帐户（&lt;code&gt;750GB&lt;/code&gt; /天）的载配额。基本上我们可以通过一个项目在团队网盘中添加&lt;code&gt;100&lt;/code&gt;个服务帐户。因此，每天可以复制的最大数据是每个项目最大&lt;code&gt;750GB&lt;/code&gt; * &lt;code&gt;100&lt;/code&gt; = &lt;code&gt;75TB&lt;/code&gt;（每天）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先计算您每天要复制的数据大小，取决于创建的项目数量。每个项目最多可以创建&lt;code&gt;100&lt;/code&gt;个服务帐户。所以每个项目的复制容量是&lt;code&gt;75tb&lt;/code&gt;。复制需要至少&lt;code&gt;2&lt;/code&gt;个项目。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;详情请查看：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;https://github.com/Spazzlo/folderclone&lt;br&gt;
+https://github.com/SameerkumarP/Multifolderclone&lt;br&gt;
+https://blackpearl.biz/threads/7408/&lt;br&gt;
+https://blackpearl.biz/threads/7892/&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;新建项目&#34;&gt;新建项目&lt;/h2&gt;
+&lt;p&gt;在&lt;code&gt;Google&lt;/code&gt;云端控制台上设置&lt;code&gt;2&lt;/code&gt;个项目点击&lt;a href=&#34;https://console.developers.google.com/&#34;&gt;此处&lt;/a&gt; 在【&lt;code&gt;**Google Cloud Platform**&lt;/code&gt;】 【&lt;strong&gt;服务条款&lt;/strong&gt;】中勾选【&lt;strong&gt;同意并继续&lt;/strong&gt;】&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3101688677.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3101688677.png&#34; alt=&#34;1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;我们必须创建&lt;code&gt;2&lt;/code&gt;个新项目，项目名称随便，例如这里设置的项目名称是“&lt;code&gt;foldercloneA&lt;/code&gt;”和“&lt;code&gt;foldercloneB&lt;/code&gt;”。&lt;/p&gt;
+&lt;h2 id=&#34;新建项目folderclonea&#34;&gt;新建项目foldercloneA&lt;/h2&gt;
+&lt;p&gt;在Google云端控制台 【&lt;strong&gt;选择项目&lt;/strong&gt;】【&lt;strong&gt;新建项目&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/4083586491.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/4083586491.png&#34; alt=&#34;2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3326266508.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3326266508.png&#34; alt=&#34;3.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在【&lt;strong&gt;API和服务&lt;/strong&gt;】【&lt;strong&gt;库&lt;/strong&gt;】里面搜索【&lt;code&gt;**Google Drive API**&lt;/code&gt;】和【&lt;code&gt;**Identity and Access Management (IAM) API**&lt;/code&gt;】并启用它们。&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3669283620.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3669283620.png&#34; alt=&#34;apis.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;导航菜单&lt;/strong&gt;】【&lt;strong&gt;IAM和管理&lt;/strong&gt;】【&lt;code&gt;**IAM**&lt;/code&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2920108775.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2920108775.png&#34; alt=&#34;apis1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;服务账号&lt;/strong&gt;】【&lt;strong&gt;创建服务账号&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2956986365.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2956986365.png&#34; alt=&#34;apis2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;服务帐号详情&lt;/strong&gt;】【&lt;strong&gt;服务帐号名称&lt;/strong&gt;】随便填 比如这里填写的是：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3485192594.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3485192594.png&#34; alt=&#34;iam_admin_serviceaccounts.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;服务帐号权限（可选）&lt;/strong&gt;】【&lt;strong&gt;请选择一个角色&lt;/strong&gt;】【&lt;code&gt;**Project**&lt;/code&gt;】【&lt;strong&gt;所有者&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/1840329678.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/1840329678.png&#34; alt=&#34;iam_admin_serviceaccounts1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;&lt;code&gt;+&lt;/code&gt;添加其它角色&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/41081976.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/41081976.png&#34; alt=&#34;iam_admin_serviceaccounts2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;请选择一个角色&lt;/strong&gt;】【&lt;strong&gt;&lt;code&gt;Service Accounts&lt;/code&gt;&lt;/strong&gt;】【&lt;strong&gt;&lt;code&gt;Service Account Admin&lt;/code&gt;&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2750924325.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2750924325.png&#34; alt=&#34;iam_admin_serviceaccounts3.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2&lt;/code&gt;个角色【&lt;strong&gt;&lt;code&gt;Project&lt;/code&gt;-所有者&lt;/strong&gt;】和【&lt;strong&gt;&lt;code&gt;Service Account Admin&lt;/code&gt;&lt;/strong&gt;】【&lt;strong&gt;继续&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/1602555657.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/1602555657.png&#34; alt=&#34;iam_admin_serviceaccounts4.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;创建密钥&lt;/strong&gt;】【&lt;strong&gt;密钥类型&lt;/strong&gt;】选择默认的【&lt;strong&gt;&lt;code&gt;JSON&lt;/code&gt;&lt;/strong&gt;】【&lt;strong&gt;创建&lt;/strong&gt;】&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2082809350.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2082809350.png&#34; alt=&#34;iam_admin_serviceaccounts5.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;私钥已保存到您的计算机&lt;code&gt;folderclonea-253301-XXXXXXf.json&lt;/code&gt;可用来访问您的云端资源，请妥善保存。&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/385053296.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/385053296.png&#34; alt=&#34;iam_admin_serviceaccounts6.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;打开刚才创建下载的文件&lt;code&gt;folderclonea-253301-XXXXXXf.json&lt;/code&gt;找到&lt;code&gt;client_email&lt;/code&gt;把里面生成的邮箱记下来&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2240831046.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2240831046.png&#34; alt=&#34;folderclone_client_email.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;比如我的是【&lt;strong&gt;&lt;code&gt;folderclone@folderclonea-253301.iam.gserviceaccount.com&lt;/code&gt;&lt;/strong&gt;】&lt;/p&gt;
+&lt;h2 id=&#34;新建项目foldercloneb&#34;&gt;新建项目foldercloneB&lt;/h2&gt;
+&lt;p&gt;在&lt;code&gt;Google&lt;/code&gt;&lt;a href=&#34;https://console.developers.google.com/&#34;&gt;云端控制台&lt;/a&gt;【&lt;strong&gt;创建项目&lt;/strong&gt;】【&lt;strong&gt;&lt;code&gt;foldercloneB&lt;/code&gt;&lt;/strong&gt;】【&lt;strong&gt;选择项目&lt;/strong&gt;】并切换到项目&lt;code&gt;foldercloneB&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;添加&lt;code&gt;API&lt;/code&gt;【&lt;strong&gt;&lt;code&gt;Google Drive API&lt;/code&gt;&lt;/strong&gt;】和【&lt;strong&gt;&lt;code&gt;Identity and Access Management (IAM) API&lt;/code&gt;&lt;/strong&gt;】并启用它们。方法跟新建项目&lt;code&gt;foldercloneA&lt;/code&gt;一样&lt;/p&gt;
+&lt;p&gt;【&lt;strong&gt;导航菜单&lt;/strong&gt;】【&lt;strong&gt;&lt;code&gt;IAM&lt;/code&gt;和管理&lt;/strong&gt;】【&lt;strong&gt;&lt;code&gt;IAM&lt;/code&gt;&lt;/strong&gt;】【&lt;strong&gt;添加&lt;/strong&gt;】项目&lt;code&gt;foldercloneA&lt;/code&gt;文件&lt;code&gt;folderclonea-253301-XXXXXXf.json&lt;/code&gt;里的邮箱地址&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/1624358953.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/1624358953.png&#34; alt=&#34;foldercloneB_add_iam_admin.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3818985999.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3818985999.png&#34; alt=&#34;foldercloneB_add_iam_admin1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3986138146.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3986138146.png&#34; alt=&#34;foldercloneB_add_iam_admin2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;并记录保存好&lt;code&gt;foldercloneB_ID&lt;/code&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3992917527.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3992917527.png&#34; alt=&#34;foldercloneB_ID.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;比如这里的是&lt;code&gt;foldercloneb-253302&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装python并配置依赖环境&#34;&gt;安装Python并配置依赖环境&lt;/h2&gt;
+&lt;p&gt;使用&lt;code&gt;64-bit&lt;/code&gt;的&lt;code&gt;Windows&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下载python并安装&#34;&gt;下载Python并安装&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe&#34;&gt;下载Python 3.7.4 64-bit&lt;/a&gt;， 并按如下图所示安装&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/4118890716.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/4118890716.png&#34; alt=&#34;install_python1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/186223995.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/186223995.png&#34; alt=&#34;install_python2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/4045478632.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/4045478632.png&#34; alt=&#34;install_python3.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安装依赖环境&#34;&gt;安装依赖环境&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;C:\Program Files\Python37&lt;/code&gt;目录中按【&lt;strong&gt;&lt;code&gt;Shift&lt;/code&gt;+鼠标右键&lt;/strong&gt;】，或者在&lt;code&gt;C:\Program Files\Python37&lt;/code&gt;目录地址栏中输入“&lt;code&gt;CMD&lt;/code&gt;”，然后点击回车键：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2438276197.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2438276197.png&#34; alt=&#34;Python99.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;打开&lt;code&gt;CMD&lt;/code&gt;安装以下依赖环境&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python -m pip install --upgrade pip
+pip install oauth2client
+pip install google-api-python-client
+pip install progress
+pip install progressbar2
+pip install  httplib2shim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;设置folderclone&#34;&gt;设置folderclone&lt;/h2&gt;
+&lt;p&gt;项目地址&lt;code&gt;https://github.com/SameerkumarP/Multifolderclone&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设置folderclone文件&#34;&gt;设置&lt;code&gt;folderclone&lt;/code&gt;文件&lt;/h3&gt;
+&lt;p&gt;克隆&lt;a href=&#34;https://github.com/SameerkumarP/Multifolderclone/archive/master.zip&#34;&gt;下载&lt;/a&gt;&lt;code&gt;folderclone&lt;/code&gt;到本地，解压并移动文件夹到您想要的地方。&lt;/p&gt;
+&lt;p&gt;在该目录下新建文件夹名为&lt;code&gt;CONTROLLER&lt;/code&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3839061081.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3839061081.png&#34; alt=&#34;CONTROLLER.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;把项目&lt;code&gt;foldercloneA&lt;/code&gt;文件&lt;code&gt;folderclonea-253301-XXXXXXf.json&lt;/code&gt;复制到文件夹&lt;code&gt;CONTROLLER&lt;/code&gt;目录下：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2532663970.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2532663970.png&#34; alt=&#34;CONTROLLER1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;生成并创建folderclone用户及配置文件&#34;&gt;生成并创建&lt;code&gt;folderclone&lt;/code&gt;用户及配置文件&lt;/h3&gt;
+&lt;p&gt;进入&lt;code&gt;folderclone&lt;/code&gt;文件夹目录&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/122986206.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/122986206.png&#34; alt=&#34;folderclone_add_user.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;运行以下命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;python serviceaccountfactory.py&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后第&lt;code&gt;2&lt;/code&gt;步的时候，手动输入&lt;code&gt;foldercloneB_ID&lt;/code&gt;空格加数字&lt;code&gt;100&lt;/code&gt;回车，回车。&lt;/p&gt;
+&lt;p&gt;输入生成的自定义邮箱前缀，比如我用的是&lt;code&gt;users&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;比如这里的是&lt;code&gt;foldercloneb-253302&lt;/code&gt; &lt;code&gt;100&lt;/code&gt;：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/1430641121.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/1430641121.png&#34; alt=&#34;folderclone_users_config.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;等待完成后会生成文件夹&lt;code&gt;accounts&lt;/code&gt;里面会看到&lt;code&gt;1&lt;/code&gt;到&lt;code&gt;199&lt;/code&gt;的用户配置文件：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3705285315.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3705285315.png&#34; alt=&#34;accounts.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2827667328.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2827667328.png&#34; alt=&#34;accounts1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这时我们可以压缩保存整个文件夹了。&lt;/p&gt;
+&lt;h2 id=&#34;共享云端硬盘添加成员&#34;&gt;共享云端硬盘添加成员&lt;/h2&gt;
+&lt;p&gt;查看【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】的&lt;code&gt;ID&lt;/code&gt;：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/910341819.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/910341819.png&#34; alt=&#34;team_ID.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;进入【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】添加新成员项目&lt;code&gt;folderclone-253301-XXXXXXf.json&lt;/code&gt;找到&lt;code&gt;client_email&lt;/code&gt;里面的邮箱为管理员：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/177925209.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/177925209.png&#34; alt=&#34;team_add_admin.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;进入&lt;code&gt;folderclone&lt;/code&gt;文件夹目录：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/2165363132.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/2165363132.png&#34; alt=&#34;folderclone_add_user (1).png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;执行&lt;code&gt;python masshare.py -d YYYYYY&lt;/code&gt; 其中&lt;code&gt;YYYYYY&lt;/code&gt;替换成【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】的&lt;code&gt;ID&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python masshare.py -d YYYYYY
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3433358180.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3433358180.png&#34; alt=&#34;folderclone_add_user1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3683405700.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3683405700.png&#34; alt=&#34;folderclone_add_user2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;拷贝文件到共享云端硬盘&#34;&gt;拷贝文件到共享云端硬盘&lt;/h2&gt;
+&lt;p&gt;先获取共享链接，且设置成知道此链接的任何人都可以查看：&lt;/p&gt;
+&lt;p&gt;例如分享链接&lt;code&gt;https://drive.google.com/open?id=1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA&lt;/code&gt;&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/4204873847.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/4204873847.png&#34; alt=&#34;sharefileID.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;id=1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果是别人分享的链接，先右击选择添加到我的云端硬盘：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/3619131553.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/3619131553.png&#34; alt=&#34;add_my_drive.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;查看【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】的&lt;code&gt;ID&lt;/code&gt;：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/492178085.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/492178085.png&#34; alt=&#34;team_ID.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;进入&lt;code&gt;folderclone&lt;/code&gt;文件夹目录：&lt;br&gt;
+&lt;a href=&#34;https://52mip.com/usr/uploads/2019/09/207284959.png&#34;&gt;&lt;img src=&#34;https://52mip.com/usr/uploads/2019/09/207284959.png&#34; alt=&#34;folderclone_add_user.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;CMD&lt;/code&gt;窗口执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python multifolderclone.py -s 源文件ID -d TD-ID
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python multifolderclone.py -s 1WyhcL9GbMQbtlhrmEGVSIGAltE_G5bRA -d 0ANSyUOxsS0C7Uk9PVA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;共享云端硬盘文件转移到我的云端硬盘&#34;&gt;【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】文件转移到【&lt;strong&gt;我的云端硬盘&lt;/strong&gt;】&lt;/h2&gt;
+&lt;p&gt;借助【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】作为文件中转站，我们可以从【&lt;strong&gt;共享云端硬盘&lt;/strong&gt;】把文件或文件夹移动到【&lt;strong&gt;我的云端硬盘&lt;/strong&gt;】&lt;/p&gt;
+&lt;p&gt;注意及说明&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;folderclone&lt;/code&gt;在拷贝文件夹数目多的时候不全会丢文件，文件夹较少就不会，比如就在那么几个文件夹，哪怕每个文件夹目录下有成千上万个文件也没事。&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;CMD&lt;/code&gt;窗口不要太多，最好最多就俩个吧，多少会大概率丢文件。&lt;/li&gt;
+&lt;li&gt;速度比【&lt;strong&gt;Copy, URL to Google Drive&lt;/strong&gt;】【&lt;strong&gt;rclone&lt;/strong&gt;】【&lt;strong&gt;air explorer&lt;/strong&gt;】等快得多，并且不占用本地带宽。&lt;/li&gt;
+&lt;/ol&gt;
+">【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/OVI5xWH9j/"" data-c="
+          &lt;h2 id=&#34;准备环境&#34;&gt;准备环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;一台 vps 主机，博主使用 CentOS 进行演示&lt;/li&gt;
+&lt;li&gt;内存 &amp;gt;= 512MB&lt;/li&gt;
+&lt;li&gt;KVM 架构&lt;/li&gt;
+&lt;li&gt;硬盘最好 &amp;gt;= 10G&lt;/li&gt;
+&lt;li&gt;一个谷歌 Drive 账号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更新系统并安装必须组件，此处安装 nginx web 服务器。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yum -y update
+yum -y install epel-release
+yum -y install wget git unzip gcc gcc-c++ openssl-devel nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;启动 nginx 并设置开机自启&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl start nginx
+systemctl enable nginx.service
+systemctl stop firewalld # 关闭防火墙
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个时候可以访问服务器的外网 IP 查看 nginx 启动成功。&lt;/p&gt;
+&lt;h2 id=&#34;安装-ariang&#34;&gt;安装 AriaNg&lt;/h2&gt;
+&lt;h3 id=&#34;安装-aria2&#34;&gt;安装 aria2&lt;/h3&gt;
+&lt;p&gt;Aria2 是一个命令行下运行、多协议、多来源下载工具，支持磁力链接、BT 种子、HTTP、FTP 等下载协议，当然因为它是命令行下载工具，所以我们想下载一个东西还需要去敲命令自然是不方便，于是就有一些人根据 Aria2 的 API 开发了一些在线管理面板，可以直接在网页上面添加管理任务。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;先安装 aria2 服务端，使用逗比大佬的脚本&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh &amp;amp;&amp;amp; chmod +x aria2.sh &amp;amp;&amp;amp; bash aria2.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;运行脚本后会出现脚本操作菜单，选择并输入 &lt;code&gt;1&lt;/code&gt; 就会开始安装。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Aria2 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc4 --
+ 
+ 1. 升级脚本
+————————————
+ 1. 安装 Aria2
+ 2. 更新 Aria2
+ 3. 卸载 Aria2
+————————————
+ 4. 启动 Aria2
+ 5. 停止 Aria2
+ 6. 重启 Aria2
+————————————
+ 7. 修改 配置文件
+ 8. 查看 配置信息
+ 9. 查看 日志信息
+10. 配置 自动更新 BT-Tracker服务器
+————————————
+ 
+当前状态: 已安装 并 已启动
+ 
+请输入数字 [0-10]:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装成功后配置文件在 &lt;code&gt;/root/.aria2/aria2.conf&lt;/code&gt;，几个比较重要的配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# aria2 下载文件后所在目录
+dir=/usr/local/caddy/www/aria2/Download
+# aria2 RPC 监听端口
+rpc-listen-port=6800
+# aria2 RPC 秘钥
+rpc-secret=codesofun
+# 下载成功后执行的脚本
+on-download-complete=/root/rcloneupload.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将下载目录修改为 &lt;code&gt;/data/Download&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建目录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p /data/Download
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;运行脚本&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bash aria2.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;运行脚本后会出现脚本操作菜单，选择并输入 &lt;code&gt;7&lt;/code&gt; 就会按照选项进行修改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Aria2 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc4 --
+ 
+ 0. 升级脚本
+————————————
+ 1. 安装 Aria2
+ 2. 更新 Aria2
+ 3. 卸载 Aria2
+————————————
+ 4. 启动 Aria2
+ 5. 停止 Aria2
+ 6. 重启 Aria2
+————————————
+ 7. 修改 配置文件
+ 8. 查看 配置信息
+ 9. 查看 日志信息
+10. 配置 自动更新 BT-Tracker服务器
+————————————
+ 
+当前状态: 已安装 并 已启动
+ 
+请输入数字 [0-10]:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;其他操作&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;启动：&lt;code&gt;/etc/init.d/aria2 start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;停止：&lt;code&gt;/etc/init.d/aria2 stop&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;重启：&lt;code&gt;/etc/init.d/aria2 restart&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看状态：&lt;code&gt;/etc/init.d/aria2 status&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;配置文件：&lt;code&gt;/root/.aria2/aria2.conf&lt;/code&gt; （配置文件包含中文注释，但是一些系统可能不支持显示中文）&lt;/li&gt;
+&lt;li&gt;令牌密匙：随机生成（可以自己修改配置文件）&lt;/li&gt;
+&lt;li&gt;下载目录：&lt;code&gt;/data/Download&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装-ariang-2&#34;&gt;安装 AriaNg&lt;/h2&gt;
+&lt;p&gt;AriaNg 是一个前端(HTML+JS静态)控制面板，不需要和 Aria2 (后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建 Aria2 后端，然后访问别人建好的 AriaNg 前端面板，也可以远程操作 Aria2 后端！&lt;/p&gt;
+&lt;p&gt;Github 源码地址：https://github.com/mayswind/AriaNg&lt;/p&gt;
+&lt;p&gt;不需要和 Aria2 (后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建 Aria2 后端，然后访问别人建好的 AriaNg 前端面板，也可以远程操作 Aria2 后端！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下载 AriaNg&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p /data/www/ariang
+cd /data/www/ariang
+wget https://github.com/mayswind/AriaNg-DailyBuild/archive/master.zip &amp;amp;&amp;amp; unzip master.zip
+mv AriaNg-DailyBuild-master/* .
+rm -rf master.zip AriaNg-DailyBuild-master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;配置 Nginx 虚拟主机&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /etc/nginx/conf.d
+touch ariang.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim ariang.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑nginx 配置，将下面的代码填入进去。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name &amp;lt;IP_ADDRESS&amp;gt;;
+
+    location / {
+        root   /data/www/ariang;
+        index  index.html index.htm;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个时候也可以使用 &lt;code&gt;nginx -t&lt;/code&gt; 测试一下配置文件是否修改正确&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重新加载 nginx 配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl reload nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;访问 &lt;code&gt;http://IP_HOST&lt;/code&gt; 即可看到 ariaNg 效果。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://blog.codesofun.com/assets/images/2018/11/ariang.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;配置-google-drive&#34;&gt;配置 Google Drive&lt;/h1&gt;
+&lt;h2 id=&#34;挂载-google-drive-到-vps&#34;&gt;挂载 Google Drive 到 VPS&lt;/h2&gt;
+&lt;p&gt;安装 Rclone&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yum -y install unzip
+curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@vultr ~]# rclone config
+2018/11/25 09:31:54 NOTICE: Config file &amp;quot;/root/.config/rclone/rclone.conf&amp;quot; not found - using defaults
+No remotes found - make a new one
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q&amp;gt; n
+name&amp;gt; codesofun
+Type of storage to configure.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+Choose a number from below, or type in your own value
+ 1 / A stackable unification remote, which can appear to merge the contents of several remotes
+   \ &amp;quot;union&amp;quot;
+ 2 / Alias for a existing remote
+   \ &amp;quot;alias&amp;quot;
+ 3 / Amazon Drive
+   \ &amp;quot;amazon cloud drive&amp;quot;
+ 4 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ &amp;quot;s3&amp;quot;
+ 5 / Backblaze B2
+   \ &amp;quot;b2&amp;quot;
+ 6 / Box
+   \ &amp;quot;box&amp;quot;
+ 7 / Cache a remote
+   \ &amp;quot;cache&amp;quot;
+ 8 / Dropbox
+   \ &amp;quot;dropbox&amp;quot;
+ 9 / Encrypt/Decrypt a remote
+   \ &amp;quot;crypt&amp;quot;
+10 / FTP Connection
+   \ &amp;quot;ftp&amp;quot;
+11 / Google Cloud Storage (this is not Google Drive)
+   \ &amp;quot;google cloud storage&amp;quot;
+12 / Google Drive
+   \ &amp;quot;drive&amp;quot;
+13 / Hubic
+   \ &amp;quot;hubic&amp;quot;
+14 / JottaCloud
+   \ &amp;quot;jottacloud&amp;quot;
+15 / Local Disk
+   \ &amp;quot;local&amp;quot;
+16 / Mega
+   \ &amp;quot;mega&amp;quot;
+17 / Microsoft Azure Blob Storage
+   \ &amp;quot;azureblob&amp;quot;
+18 / Microsoft OneDrive
+   \ &amp;quot;onedrive&amp;quot;
+19 / OpenDrive
+   \ &amp;quot;opendrive&amp;quot;
+20 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &amp;quot;swift&amp;quot;
+21 / Pcloud
+   \ &amp;quot;pcloud&amp;quot;
+22 / QingCloud Object Storage
+   \ &amp;quot;qingstor&amp;quot;
+23 / SSH/SFTP Connection
+   \ &amp;quot;sftp&amp;quot;
+24 / Webdav
+   \ &amp;quot;webdav&amp;quot;
+25 / Yandex Disk
+   \ &amp;quot;yandex&amp;quot;
+26 / http Connection
+   \ &amp;quot;http&amp;quot;
+Storage&amp;gt; 12
+** See help for drive backend at: https://rclone.org/drive/ **
+
+Google Application Client Id
+Leave blank normally.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+client_id&amp;gt;
+Google Application Client Secret
+Leave blank normally.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+client_secret&amp;gt;
+Scope that rclone should use when requesting access from drive.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ &amp;quot;drive&amp;quot;
+ 2 / Read-only access to file metadata and file contents.
+   \ &amp;quot;drive.readonly&amp;quot;
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ &amp;quot;drive.file&amp;quot;
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ &amp;quot;drive.appfolder&amp;quot;
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ &amp;quot;drive.metadata.readonly&amp;quot;
+scope&amp;gt; 1
+ID of the root folder
+Leave blank normally.
+Fill in to access &amp;quot;Computers&amp;quot; folders. (see docs).
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+root_folder_id&amp;gt;
+Service Account Credentials JSON file path
+Leave blank normally.
+Needed only if you want use SA instead of interactive login.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+service_account_file&amp;gt;
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n&amp;gt; n
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine or Y didn&#39;t work
+y) Yes
+n) No
+y/n&amp;gt; n
+If your browser doesn&#39;t open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;amp;client_id=202264815644.apps.googleusercontent.com&amp;amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;amp;response_type=code&amp;amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;amp;state=0fbdd**********************05a3b00e23
+Log in and authorize rclone for access
+Enter verification code&amp;gt; 4/owSACseTxM*************c2HtEVX_yEhBcr--JiFTA7-Pfg
+
+Configure this as a team drive?
+y) Yes
+n) No
+y/n&amp;gt; y
+Fetching team drive list...
+No team drives found in your account--------------------
+[codesofun]
+type = drive
+scope = drive
+token = {&amp;quot;access_token&amp;quot;:&amp;quot;ya29.GltfBn_YA8e0lgJNKeMAHZ3b_IeIBXHHrJxMO7wfW0AsY6v_Nso8YczhZafVe8UIIgK6ft1dn6BqP-UWp-W2YXBtcf6zbLuIZgKcPqwnhsVAkx3f7QcO5m0EUvAv&amp;quot;,&amp;quot;token_type&amp;quot;:&amp;quot;Bearer&amp;quot;,&amp;quot;refresh_token&amp;quot;:&amp;quot;1/hFSVnEeJ8CkFmrpdd7IGNx69mhkj8Cpny6JUktv3xcY&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2018-11-25T10:42:09.400295503Z&amp;quot;}
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&amp;gt; y
+Current remotes:
+
+Name                 Type
+====                 ====
+codesofun            drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&amp;gt; q
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;整合-aria2-rclone&#34;&gt;整合 Aria2 + Rclone&lt;/h1&gt;
+&lt;p&gt;这个时候我们使用 aria2 去下载文件，下载成功后触发一个脚本让它将文件移动到 Rclone 同步的文件夹内，这样在 Google Drive 就会自动有这个文件啦。&lt;/p&gt;
+&lt;p&gt;新建一个名为 &lt;code&gt;rcloneupload.sh&lt;/code&gt; 的脚本。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim /root/rcloneupload.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑脚本，将下面内容全部填入脚本中保存。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+filepath=$3	 #取文件原始路径，如果是单文件则为/Download/a.mp4，如果是文件夹则该值为文件夹内第一个文件比如/Download/a/1.mp4
+path=${3%/*}	 #取文件根路径，如把/Download/a/1.mp4变成/Download/a
+downloadpath=&#39;/data/Download&#39;	#Aria2下载目录
+name=&#39;codesofun&#39; #配置Rclone时的name
+folder=&#39;/share&#39;	 #网盘里的文件夹，如果是根目录直接留空
+MinSize=&#39;10k&#39;	 #限制最低上传大小，默认10k，BT下载时可防止上传其他无用文件。会删除文件，谨慎设置。
+MaxSize=&#39;15G&#39;	 #限制最高文件大小，默认15G，OneDrive上传限制。
+
+if [ $2 -eq 0 ]; then exit 0; fi
+
+while true; do
+if [ &amp;quot;$path&amp;quot; = &amp;quot;$downloadpath&amp;quot; ] &amp;amp;&amp;amp; [ $2 -eq 1 ]	#如果下载的是单个文件
+    then
+    rclone move -v &amp;quot;$filepath&amp;quot; ${name}:${folder} --min-size $MinSize --max-size $MaxSize
+    rm -vf &amp;quot;$filepath&amp;quot;.aria2	#删除残留的.aria.2文件
+    exit 0
+elif [ &amp;quot;$path&amp;quot; != &amp;quot;$downloadpath&amp;quot; ]	#如果下载的是文件夹
+    then
+    while [[ &amp;quot;`ls -A &amp;quot;$path/&amp;quot;`&amp;quot; != &amp;quot;&amp;quot; ]]; do
+    rclone move -v &amp;quot;$path&amp;quot; ${name}:/${folder}/&amp;quot;${path##*/}&amp;quot; --min-size $MinSize --max-size $MaxSize --delete-empty-src-dirs
+    rclone delete -v &amp;quot;$path&amp;quot; --max-size $MinSize	#删除多余的文件
+    rclone rmdirs -v &amp;quot;$downloadpath&amp;quot; --leave-root	#删除空目录，--delete-empty-src-dirs 参数已实现，加上无所谓。
+    done
+    rm -vf &amp;quot;$path&amp;quot;.aria2	#删除残留的.aria2文件
+    exit 0
+fi
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;需要修改几个地方：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;downloadpath&lt;/code&gt;：填写 aria2 的下载目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt;：填写 rclone 配置的名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;folder&lt;/code&gt;：填写谷歌云盘的文件夹名称，根目录填 &lt;code&gt;/&lt;/code&gt; 即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;保存后给予执行权限&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chmod +x /root/rcloneupload.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后再到 Aria2 配置文件中加上一行 &lt;code&gt;on-download-complete=/root/rcloneupload.sh&lt;/code&gt; 即可，后面为脚本的路径。重启 Aria2 生效。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim /root/.aria2/aria2.conf
+
+on-download-complete=/root/rcloneupload.sh
+/etc/init.d/aria2 restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;请开始你的表演&#34;&gt;请开始你的表演&lt;/h1&gt;
+">AriaNg + rclone 实现 Google Drive 离线下载</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/sRQUu33vw/"" data-c="
+          &lt;p&gt;感谢大佬@&lt;a href=&#34;https://www.hostloc.com/space-uid-18200.html&#34;&gt;donwa&lt;/a&gt;又更新了一个针对Google Drive的文件目录代码！这里更新一篇文章介绍一下！！&lt;/p&gt;
+&lt;p&gt;由于博主最近在疯狂加班，时间太紧张了，文章内容均来热情的网友！最后的【参考文献】一一列出！&lt;/p&gt;
+&lt;p&gt;之前本博客更新过大佬的另一个开源代码！&lt;a href=&#34;https://51.ruyo.net/9946.html&#34;&gt;OneIndex部署教程，利用OneDrive打造专属分享型网盘&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;功能介绍&#34;&gt;功能介绍&lt;/h2&gt;
+&lt;p&gt;部署在 CloudFlare Workers的小程序。&lt;br&gt;
+可以将 Google Drive 文件以目录形式列出，并直连下载。&lt;br&gt;
+流量走 CloudFlare ，网速由 CloudFlare 决定。&lt;/p&gt;
+&lt;h2 id=&#34;开源地址&#34;&gt;开源地址&lt;/h2&gt;
+&lt;p&gt;https://github.com/donwa/goindex&lt;/p&gt;
+&lt;h2 id=&#34;演示地址&#34;&gt;演示地址&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://index.gd.workers.dev/&#34;&gt;https://index.gd.workers.dev/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;功能特点&#34;&gt;功能特点&lt;/h2&gt;
+&lt;p&gt;1、免费。&lt;br&gt;
+2、直链。&lt;br&gt;
+3、免番。&lt;/p&gt;
+&lt;h2 id=&#34;使用限制&#34;&gt;使用限制&lt;/h2&gt;
+&lt;p&gt;wokers一天10万请求限制&lt;br&gt;
+google drive 下载10T/24h（大佬说的）&lt;br&gt;
+google api 调用限制&lt;/p&gt;
+&lt;h2 id=&#34;部署步骤&#34;&gt;部署步骤&lt;/h2&gt;
+&lt;p&gt;1）访问 https://install.gd.workers.dev/ 点击 【1.获取认证码】登陆Google帐号，会有code(画线部分）。将上面的CODE复制到 Auth认证码部分。目录ID可以留空！&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/f044b5331e6022c2f25e88635e056b5a.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;2）点【2.生成代码】，复制生成的代码，打开 https://dash.cloudflare.com/ 登陆帐号，选个域名，点击 Workers，如图&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/1c502a8a7e1da3df69f4861e72596f60.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;3）点击 new Workers dashboard ，如图，需要起个名字，我已经起过了，就没有截图了，类似与  qwe.workers.dev的名字，只能修改前缀，后缀workers.dev 固定的。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/67c48700ec92a5696530070c57cc6a09.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;4）点击Create a Workers，如图，&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/b78670ed2eb6ba0dd8d7adee51282767.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;5）在Script里复制刚才的代码code，右下角Run可以在右边看到浏览状态，右边上方有地址，左边上方可以修改地址，例如修改为121，Save and Deploy保存&lt;/p&gt;
+&lt;p&gt;121.qwe.workers.dev 就是你的地址了。&lt;/p&gt;
+&lt;h2 id=&#34;其他内容&#34;&gt;其他内容&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;如何自定义域名&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1）先让需要绑定的域名通过cf，指向ip随意。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/9d2b1828e80c5eab9fa46b4f92319117.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;2）添加Route&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/4b0dffe93e199c469282bfb3d0b837ec.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://yanxuan.nosdn.127.net/b6fe3d4fd9ae7eb47bfb5faa6c4a2c84.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;关于目录ID&lt;/strong&gt;&lt;br&gt;
+打开团队盘(或文件夹或别人共享的文件夹)，看地址栏。&lt;br&gt;
+https://drive.google.com/drive/folders/{这后面一堆代码就是id}&lt;br&gt;
+留空是根目录。&lt;/p&gt;
+">GoIndex部署教程，用Google Drive来做目录索引网盘</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/28IUd1HzY/"" data-c="
+          &lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;&lt;code&gt;PyOne&lt;/code&gt;最近凭着离线下载(完成并自动上传至&lt;code&gt;Onedrive&lt;/code&gt;)和绑定多网盘的功能被越来越多的人使用，如果你还不知道&lt;code&gt;PyOne&lt;/code&gt;是何物的可以查看该教程→&lt;a href=&#34;https://www.moerats.com/archives/734/&#34;&gt;点击查看&lt;/a&gt;。作者更新也勤奋，所以得支持一下，之前博主发过基于宝塔的手动安装教程和&lt;code&gt;Docker&lt;/code&gt;安装教程，查看：&lt;a href=&#34;https://www.moerats.com/archives/734/&#34;&gt;手动安装&lt;/a&gt;、&lt;a href=&#34;https://www.moerats.com/archives/799/&#34;&gt;Docker安装&lt;/a&gt;。不过由于宝塔的&lt;code&gt;Mongodb&lt;/code&gt;很容易出错，有些小白也不会解决，而&lt;code&gt;Docker&lt;/code&gt;也不支持&lt;code&gt;OpenVZ&lt;/code&gt;，所以博主写了个一键脚本，这里分享下。&lt;/p&gt;
+&lt;h2 id=&#34;脚本说明&#34;&gt;脚本说明&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#脚本会一键安装PyOne所需要的Mongodb、Redis、Aria2等环境，域名使用Caddy反代，自动配置SSL证书。
+
+#本脚本使用的Aria2为某大佬编译的多线程版本，其特点可以将下载速度最大化优化，博主已配置完毕，如服务器性能不足，可将线程自行调整。
+方法：修改配置文件/root/.aria2/aria2.conf，线程参数split=64，请自行调整。
+
+#Aria2已添加了BT-Trackers服务器，并定时自动更新服务器地址。
+
+#脚本使用systemctl替换了程序所使用的supervisord进程守护，所以程序的重启等命令会和官方文档上的不一样，详细的使用命令可以看文章后面。
+
+#选择域名访问的，需要提前让解析生效，不然脚本会自动断开，因为后面需要签发SSL证书，ip必须为服务器ip。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;更新&#34;&gt;更新&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;【2019.9.28】
+新增Debian 10，升级MongoDB版本到4.0，有问题可以留言。
+【2019.6.27】
+修复部分CentOS 7安装出错的问题，并新增Ubuntu系统，已在Vultr的Ubuntu 16.04、18.04、18.10、19.04上测试通过
+【2019.2.23】
+鉴于有人需要3.0版本，现已增加安装3.0版本选项，多个选择，并使用的3.0最后一个版本。
+【2019.2.16】
+修改脚本部分安装步骤，使其支持PyOne4.0
+【2019.1.31】
+修复部分系统安装启动pyone失败的问题
+【2018.11.30】
+修复PyOne刷新不出文件夹/文件的问题。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;系统要求：&lt;/strong&gt;&lt;code&gt;CentOS 7&lt;/code&gt;、&lt;code&gt;Debian 8+&lt;/code&gt;、&lt;code&gt;Ubuntu 16+&lt;/code&gt;，建议&lt;code&gt;Debian 9&lt;/code&gt;，且为刚安装好的系统，尽量不要用精简版系统。&lt;/p&gt;
+&lt;p&gt;使用命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget -N --no-check-certificate https://www.moerats.com/usr/shell/PyOne/PyOne.sh
+bash PyOne.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;根据需求选择是否使用域名访问，然后输入域名和&lt;code&gt;Aria2&lt;/code&gt;密匙即可。&lt;br&gt;
+&lt;a href=&#34;https://www.moerats.com/usr/picture/PyOne_shell.png&#34;&gt;&lt;img src=&#34;https://www.moerats.com/usr/picture/PyOne_shell.png&#34; alt=&#34;请输入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装完成后，如果打不开网站的，可以使用命令一起查看下各程序状态。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#使用域名访问的
+systemctl status aria2 mongod redis-server pyone caddy
+#使用IP访问的
+systemctl status aria2 mongod redis-server pyone
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果有显示&lt;code&gt;Active:inactive&lt;/code&gt;的，可以留言说下具体程序和系统。反之如果都为&lt;code&gt;running&lt;/code&gt;，可以检查下防火墙端口，比如阿里云，谷歌云等，还需要在服务器管理面板上开放&lt;code&gt;34567&lt;/code&gt;端口才行。&lt;/p&gt;
+&lt;h2 id=&#34;相关命令&#34;&gt;相关命令&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#以下程序均已配置开机自启，所以就不说开机自启命令了。
+
+#Redis使用命令
+启动：systemctl start redis-server
+重启：systemctl restart redis-server
+停止：systemctl stop redis-server
+状态：systemctl status redis-server
+
+#Mongodb使用命令
+启动：systemctl start mongod
+重启：systemctl restart mongod
+停止：systemctl stop mongod
+状态：systemctl status mongod
+
+#Aria2使用命令
+启动：systemctl start aria2
+重启：systemctl restart aria2
+停止：systemctl stop aria2
+状态：systemctl status aria2
+
+#Caddy使用命令(使用域名的才会安装Caddy)
+启动：systemctl start caddy
+重启：systemctl restart caddy
+停止：systemctl stop caddy
+状态：systemctl status caddy
+
+#PyOne使用命令
+启动：systemctl start pyone
+重启：systemctl restart pyone
+停止：systemctl stop pyone
+状态：systemctl status pyone
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;相关目录&#34;&gt;相关目录&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;PyOne程序目录：/root/PyOne
+Caddy配置文件目录：/root/.caddy
+Aria2配置文件目录：/root/.aria2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;相关说明&#34;&gt;相关说明&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#关于操作说明
+由于更换了原程序进程守护，所以网站右上角的重启网站按钮已失效，请在SSH客户端使用systemctl restart pyone命令重启程序。
+
+#关于离线下载
+Aria2配置文件的下载路径为/root/Download，但该程序自带的离线下载不调用配置文件，所以使用本程序离线下载的目录为/root/PyOne/upload。
+
+由于本程序离线下载不调用配置文件，所以Aria2多线程可能会发挥不出来，BT服务器也无效，不过会玩的，可以通过修改根目录的aria2.py文件某些参数达到目的，或者直接研究该教程：https://www.moerats.com/archives/697/，使用Aria2面板来离线下载更好，毕竟后者用的脚本比自带离线下载更稳定。
+
+#刷新缓存问题
+如果你在后台执行缓存刷新操作，可能短时间不会生效，建议直接在SSH客户端使用python /root/PyOne/function.py UpdateFile命令刷新
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后更多的使用方法(包括程序更新)可以查看该教程→&lt;a href=&#34;https://www.moerats.com/archives/734/&#34;&gt;点击查看&lt;/a&gt;，除了&lt;code&gt;PyOne&lt;/code&gt;启动命令不一样以外，其它都一样，包括上传等命令。&lt;/p&gt;
+">PyOne一键安装脚本 for CentOS 7/Debian 8+/Ubuntu 16+</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/pLeXJDL_N/"" data-c="
+          &lt;p&gt;JSProxy 一个基于浏览器端 JS 实现的在线代理，这里不多介绍！&lt;/p&gt;
+&lt;p&gt;本文主要介绍一下利用&lt;code&gt;CloudFlare Worker&lt;/code&gt; 来搭建一个JSProxy服务。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CloudFlare Worker&lt;/code&gt; 是 CloudFlare 的边缘计算服务。开发者可通过 JavaScript 对 CDN 进行编程，从而能灵活处理 HTTP 请求。这使得很多任务可在 CDN 上完成，无需自己的服务器参与。&lt;/p&gt;
+&lt;p&gt;CFW免费服务，支持每天10 万次免费请求！基本也够用了！&lt;/p&gt;
+&lt;h2 id=&#34;项目介绍&#34;&gt;项目介绍&lt;/h2&gt;
+&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/EtherDream/jsproxy&#34;&gt;https://github.com/EtherDream/jsproxy&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
+&lt;p&gt;Cloudflare 账号一个&lt;/p&gt;
+&lt;h2 id=&#34;使用教程&#34;&gt;使用教程&lt;/h2&gt;
+&lt;p&gt;1）打开 &lt;a href=&#34;https://workers.cloudflare.com&#34;&gt;https://workers.cloudflare.com&lt;/a&gt;，登陆上你的 Cloudflare 账号激活 Workers 服务&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://ae04.alicdn.com/kf/HTB1BwEMaET1gK0jSZFr763NCXXaY.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;然后创建一个 Workers【Create a Worker】&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://ae02.alicdn.com/kf/HTB16NsHaEY1gK0jSZFM761WcVXat.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;2）修改一下子域名，创建出来的域名格式 自定义的内容.Cloudflare用户名.workers.dev&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://ae06.alicdn.com/kf/HTB10hkMaxz1gK0jSZSg761vwpXaj.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;3）复制&lt;a href=&#34;https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js&#34;&gt; https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js&lt;/a&gt; 的内容到左侧代码（Script）区域&lt;/p&gt;
+&lt;p&gt;文章最下方有代码备份！！&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://ae03.alicdn.com/kf/HTB1EA.LaAL0gK0jSZFA763A9pXas.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;4）先点击【Run】右侧看执行效果，再点击 【Save and deploy】 部署代码&lt;/p&gt;
+&lt;p&gt;5）届时你可以访问你的站点https://xxx.子域名.workers.dev查看效果&lt;/p&gt;
+&lt;p&gt;进入站点后将线路选择切换为当前站点即可使用&lt;/p&gt;
+&lt;p&gt;特别提示：浏览网站的时候，有时候会提示加载不安全脚本，点击允许即可！&lt;/p&gt;
+&lt;h2 id=&#34;代码备份&#34;&gt;代码备份&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;&#39;use strict&#39;
+
+/**
+ * static files (404.html, sw.js, conf.js)
+ */
+const ASSET_URL = &#39;https://etherdream.github.io/jsproxy&#39;
+
+const JS_VER = 10
+const MAX_RETRY = 1
+
+/** @type {RequestInit} */
+const PREFLIGHT_INIT = {
+  status: 204,
+  headers: new Headers({
+    &#39;access-control-allow-origin&#39;: &#39;*&#39;,
+    &#39;access-control-allow-methods&#39;: &#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&#39;,
+    &#39;access-control-max-age&#39;: &#39;1728000&#39;,
+  }),
+}
+
+/**
+ * @param {any} body
+ * @param {number} status
+ * @param {Object&amp;lt;string, string&amp;gt;} headers
+ */
+function makeRes(body, status = 200, headers = {}) {
+  headers[&#39;--ver&#39;] = JS_VER
+  headers[&#39;access-control-allow-origin&#39;] = &#39;*&#39;
+  return new Response(body, {status, headers})
+}
+
+
+/**
+ * @param {string} urlStr 
+ */
+function newUrl(urlStr) {
+  try {
+    return new URL(urlStr)
+  } catch (err) {
+    return null
+  }
+}
+
+
+addEventListener(&#39;fetch&#39;, e =&amp;gt; {
+  const ret = fetchHandler(e)
+    .catch(err =&amp;gt; makeRes(&#39;cfworker error:\n&#39; + err.stack, 502))
+  e.respondWith(ret)
+})
+
+
+/**
+ * @param {FetchEvent} e 
+ */
+async function fetchHandler(e) {
+  const req = e.request
+  const urlStr = req.url
+  const urlObj = new URL(urlStr)
+  const path = urlObj.href.substr(urlObj.origin.length)
+
+  if (urlObj.protocol === &#39;http:&#39;) {
+    urlObj.protocol = &#39;https:&#39;
+    return makeRes(&#39;&#39;, 301, {
+      &#39;strict-transport-security&#39;: &#39;max-age=99999999; includeSubDomains; preload&#39;,
+      &#39;location&#39;: urlObj.href,
+    })
+  }
+
+  if (path.startsWith(&#39;/http/&#39;)) {
+    return httpHandler(req, path.substr(6))
+  }
+
+  switch (path) {
+  case &#39;/http&#39;:
+    return makeRes(&#39;请更新 cfworker 到最新版本!&#39;)
+  case &#39;/ws&#39;:
+    return makeRes(&#39;not support&#39;, 400)
+  case &#39;/works&#39;:
+    return makeRes(&#39;it works&#39;)
+  default:
+    // static files
+    return fetch(ASSET_URL + path)
+  }
+}
+
+
+/**
+ * @param {Request} req
+ * @param {string} pathname
+ */
+function httpHandler(req, pathname) {
+  const reqHdrRaw = req.headers
+  if (reqHdrRaw.has(&#39;x-jsproxy&#39;)) {
+    return Response.error()
+  }
+
+  // preflight
+  if (req.method === &#39;OPTIONS&#39; &amp;amp;&amp;amp;
+      reqHdrRaw.has(&#39;access-control-request-headers&#39;)
+  ) {
+    return new Response(null, PREFLIGHT_INIT)
+  }
+
+  let acehOld = false
+  let rawSvr = &#39;&#39;
+  let rawLen = &#39;&#39;
+  let rawEtag = &#39;&#39;
+
+  const reqHdrNew = new Headers(reqHdrRaw)
+  reqHdrNew.set(&#39;x-jsproxy&#39;, &#39;1&#39;)
+
+  // 此处逻辑和 http-dec-req-hdr.lua 大致相同
+  // https://github.com/EtherDream/jsproxy/blob/master/lua/http-dec-req-hdr.lua
+  const refer = reqHdrNew.get(&#39;referer&#39;)
+  const query = refer.substr(refer.indexOf(&#39;?&#39;) + 1)
+  if (!query) {
+    return makeRes(&#39;missing params&#39;, 403)
+  }
+  const param = new URLSearchParams(query)
+
+  for (const [k, v] of Object.entries(param)) {
+    if (k.substr(0, 2) === &#39;--&#39;) {
+      // 系统信息
+      switch (k.substr(2)) {
+      case &#39;aceh&#39;:
+        acehOld = true
+        break
+      case &#39;raw-info&#39;:
+        [rawSvr, rawLen, rawEtag] = v.split(&#39;|&#39;)
+        break
+      }
+    } else {
+      // 还原 HTTP 请求头
+      if (v) {
+        reqHdrNew.set(k, v)
+      } else {
+        reqHdrNew.delete(k)
+      }
+    }
+  }
+  if (!param.has(&#39;referer&#39;)) {
+    reqHdrNew.delete(&#39;referer&#39;)
+  }
+
+  // cfworker 会把路径中的 `//` 合并成 `/`
+  const urlStr = pathname.replace(/^(https?):\/+/, &#39;$1://&#39;)
+  const urlObj = newUrl(urlStr)
+  if (!urlObj) {
+    return makeRes(&#39;invalid proxy url: &#39; + urlStr, 403)
+  }
+
+  /** @type {RequestInit} */
+  const reqInit = {
+    method: req.method,
+    headers: reqHdrNew,
+    redirect: &#39;manual&#39;,
+  }
+  if (req.method === &#39;POST&#39;) {
+    reqInit.body = req.body
+  }
+  return proxy(urlObj, reqInit, acehOld, rawLen, 0)
+}
+
+
+/**
+ * 
+ * @param {URL} urlObj 
+ * @param {RequestInit} reqInit 
+ * @param {number} retryTimes 
+ */
+async function proxy(urlObj, reqInit, acehOld, rawLen, retryTimes) {
+  const res = await fetch(urlObj.href, reqInit)
+  const resHdrOld = res.headers
+  const resHdrNew = new Headers(resHdrOld)
+
+  let expose = &#39;*&#39;
+  
+  for (const [k, v] of resHdrOld.entries()) {
+    if (k === &#39;access-control-allow-origin&#39; ||
+        k === &#39;access-control-expose-headers&#39; ||
+        k === &#39;location&#39; ||
+        k === &#39;set-cookie&#39;
+    ) {
+      const x = &#39;--&#39; + k
+      resHdrNew.set(x, v)
+      if (acehOld) {
+        expose = expose + &#39;,&#39; + x
+      }
+      resHdrNew.delete(k)
+    }
+    else if (acehOld &amp;amp;&amp;amp;
+      k !== &#39;cache-control&#39; &amp;amp;&amp;amp;
+      k !== &#39;content-language&#39; &amp;amp;&amp;amp;
+      k !== &#39;content-type&#39; &amp;amp;&amp;amp;
+      k !== &#39;expires&#39; &amp;amp;&amp;amp;
+      k !== &#39;last-modified&#39; &amp;amp;&amp;amp;
+      k !== &#39;pragma&#39;
+    ) {
+      expose = expose + &#39;,&#39; + k
+    }
+  }
+
+  if (acehOld) {
+    expose = expose + &#39;,--s&#39;
+    resHdrNew.set(&#39;--t&#39;, &#39;1&#39;)
+  }
+
+  // verify
+  if (rawLen) {
+    const newLen = resHdrOld.get(&#39;content-length&#39;) || &#39;&#39;
+    const badLen = (rawLen !== newLen)
+
+    if (badLen) {
+      if (retryTimes &amp;lt; MAX_RETRY) {
+        urlObj = await parseYtVideoRedir(urlObj, newLen, res)
+        if (urlObj) {
+          return proxy(urlObj, reqInit, acehOld, rawLen, retryTimes + 1)
+        }
+      }
+      return makeRes(res.body, 400, {
+        &#39;--error&#39;: `bad len: ${newLen}, except: ${rawLen}`,
+        &#39;access-control-expose-headers&#39;: &#39;--error&#39;,
+      })
+    }
+
+    if (retryTimes &amp;gt; 1) {
+      resHdrNew.set(&#39;--retry&#39;, retryTimes)
+    }
+  }
+
+  let status = res.status
+
+  resHdrNew.set(&#39;access-control-expose-headers&#39;, expose)
+  resHdrNew.set(&#39;access-control-allow-origin&#39;, &#39;*&#39;)
+  resHdrNew.set(&#39;--s&#39;, status)
+  resHdrNew.set(&#39;--ver&#39;, JS_VER)
+
+  resHdrNew.delete(&#39;content-security-policy&#39;)
+  resHdrNew.delete(&#39;content-security-policy-report-only&#39;)
+  resHdrNew.delete(&#39;clear-site-data&#39;)
+
+  if (status === 301 ||
+      status === 302 ||
+      status === 303 ||
+      status === 307 ||
+      status === 308
+  ) {
+    status = status + 10
+  }
+
+  return new Response(res.body, {
+    status,
+    headers: resHdrNew,
+  })
+}
+
+
+/**
+ * @param {URL} urlObj 
+ */
+function isYtUrl(urlObj) {
+  return (
+    urlObj.host.endsWith(&#39;.googlevideo.com&#39;) &amp;amp;&amp;amp;
+    urlObj.pathname.startsWith(&#39;/videoplayback&#39;)
+  )
+}
+
+/**
+ * @param {URL} urlObj 
+ * @param {number} newLen 
+ * @param {Response} res 
+ */
+async function parseYtVideoRedir(urlObj, newLen, res) {
+  if (newLen &amp;gt; 2000) {
+    return null
+  }
+  if (!isYtUrl(urlObj)) {
+    return null
+  }
+  try {
+    const data = await res.text()
+    urlObj = new URL(data)
+  } catch (err) {
+    return null
+  }
+  if (!isYtUrl(urlObj)) {
+    return null
+  }
+  return urlObj
+}
+&lt;/code&gt;&lt;/pre&gt;
+">利用CloudFlare Worker 免费部署 JSProxy 服务</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/GLrSQjpqd/"" data-c="
+          &lt;p&gt;前一段儿时间我水了一篇文章介绍了PJ版本的Navicat，当时有大佬PM我，说有一个开源的注册机。当时也没时间测试一直没写文章！&lt;/p&gt;
+&lt;p&gt;最近几天我的Navicat出问题了，打算新装一下！正好试一试这个开源代码！果然可行！！&lt;/p&gt;
+&lt;p&gt;博主亲测：Navicat Premium 12.1.22 + Windows 10 X64 激活成功！&lt;/p&gt;
+&lt;h2 id=&#34;开源地址&#34;&gt;开源地址&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/DoubleLabyrinth/navicat-keygen&#34;&gt;https://github.com/DoubleLabyrinth/navicat-keygen&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;软件下载&#34;&gt;软件下载&lt;/h2&gt;
+&lt;p&gt;访问 &lt;a href=&#34;https://www.navicat.com.cn/products&#34;&gt;https://www.navicat.com.cn/products&lt;/a&gt;，选择自己需要的产品点击【免费试用】即可下载软件！&lt;/p&gt;
+&lt;h2 id=&#34;操作过程&#34;&gt;操作过程&lt;/h2&gt;
+&lt;p&gt;1）&lt;a href=&#34;https://github.com/DoubleLabyrinth/navicat-keygen/releases&#34;&gt;访问地址&lt;/a&gt;，下载PJ程序！注意X64的系统要选择X64的软件！&lt;/p&gt;
+&lt;p&gt;2）将软件包解压，将里面的2个文件复制到D盘！&lt;/p&gt;
+&lt;p&gt;3）以管理员运行 CMD 命令（&lt;strong&gt;按Win + X，选择 命令提示符（管理员）&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;4）分别执行以下命令！其中第一条命令中引号中的内容伟Navicat安装目录！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;navicat-patcher.exe &amp;quot;C:\Program Files\PremiumSoft\Navicat Premium 12&amp;quot;
+navicat-keygen.exe -text ./RegPrivateKey.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;执行第二条命令后，选择产品和语言以及版本！最后生成一个激活码。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Select Navicat product:
+0. DataModeler
+1. Premium
+2. MySQL
+3. PostgreSQL
+4. Oracle
+5. SQLServer
+6. SQLite
+7. MariaDB
+8. MongoDB
+9. ReportViewer
+ 
+(Input index)&amp;amp;gt; 1
+ 
+Select product language:
+0. English
+1. Simplified Chinese
+2. Traditional Chinese
+3. Japanese
+4. Polish
+5. Spanish
+6. French
+7. German
+8. Korean
+9. Russian
+10. Portuguese
+ 
+(Input index)&amp;amp;gt; 1
+ 
+(Input major version number, range: 0 ~ 15, default: 12)&amp;amp;gt; 12
+ 
+Serial number:
+NAVO-2ORP-IN5A-GQEE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;5）启动Navicat程序 – 菜单 – 帮助 – 注册。将序列号填入。&lt;/p&gt;
+&lt;p&gt;6）电脑断网，然后点击【激活】- 选择【手动激活】会生成请求码&lt;/p&gt;
+&lt;p&gt;7）将请求码复制到命令提示符框内，按&lt;strong&gt;2&lt;/strong&gt;次回车！会生成激活码！&lt;/p&gt;
+&lt;p&gt;8）将激活码复制到升级框内，点击【激活】，然后激活成功！&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://fbi.gs/2019/10/18/5da949517d237.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项&lt;/h2&gt;
+&lt;p&gt;1）之前使用其他破解版，需要卸载后重启电脑，然后删除原安装目录。&lt;/p&gt;
+&lt;p&gt;2）操作过程中错误，从头再来一次即可。&lt;/p&gt;
+&lt;p&gt;3）PJ输入的组织名不要太长！&lt;/p&gt;
+">注册激活Navicat全系产品的开源代码分享</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/one-scf/"" data-c="
+          &lt;h2 id=&#34;scf-简介&#34;&gt;SCF 简介&lt;/h2&gt;
+&lt;p&gt;腾讯云云函数（Serverless Cloud Function，SCF）是腾讯云为企业和开发者们提供的无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码，是实时文件处理和数据处理等场景下理想的计算平台。您只需使用 SCF 平台支持的语言编写核心代码并设置代码运行的条件，即可在腾讯云基础设施上弹性、安全地运行代码。&lt;/p&gt;
+&lt;p&gt;无服务器（Serverless）不是表示没有服务器，而表示当您在使用 Serverless 时，您无需关心底层资源，也无需登录服务器和优化服务器，只需关注最核心的代码片段，即可跳过复杂的、繁琐的基本工作。核心的代码片段完全由事件或者请求触发，平台根据请求自动平行调整服务资源。Serverless 拥有近乎无限的扩容能力，空闲时，不运行任何资源。代码运行无状态，可以轻易实现快速迭代、极速部署。&lt;/p&gt;
+&lt;p&gt;腾讯云 SCF 目前仍在 &lt;a href=&#34;https://cloud.tencent.com/document/product/583/17299&#34;&gt;公测&lt;/a&gt; 阶段，所有用户可免费使用，结束日期待定。公测结束后，每月仍可享受足量的 &lt;a href=&#34;https://cloud.tencent.com/document/product/583/12282&#34;&gt;免费资源使用量和免费调用次数&lt;/a&gt;，但收取 &lt;code&gt;外网出流量&lt;/code&gt; 费用。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;资源类型&lt;/th&gt;
+&lt;th&gt;每月免费额度&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;资源使用量&lt;/td&gt;
+&lt;td&gt;40 万 GBs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;调用次数&lt;/td&gt;
+&lt;td&gt;100 万次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;所谓外网出流量，即程序通过 SCF 访问外部网络的流量，对于本程序即请求微软 API 的流量，每次调用从几 B 到几 KB 不等；文件上传下载直接与微软交互，不经过 SCF。&lt;/p&gt;
+&lt;p&gt;下图（老图可能与描述不符）是我一天的使用量，大概调用了 10000 次，如果是 30 天就是 30 万次，还不到免费额度的 1/3。资源使用量 1000 GBs，30 天就是 3 万 GBs，远低于 40 万 GBs。外网出流量 0.05G ，一个月大概是 1.5 G，按照 &lt;a href=&#34;https://cloud.tencent.com/document/product/583/12281&#34;&gt;正式收费标准&lt;/a&gt; 0.8 元 / G，每月要支付 1.2 元的出流量费用，完全可以接受（目前不会收取）。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://img13.360buyimg.com/img/jfs/t1/80717/30/8984/127477/5d6be0f4E2d3ddd41/affd65fa8e220bf2.png&#34; alt=&#34;@YL51PJT6NML6PZW{TAI.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;获取-onedrive-账号&#34;&gt;获取 Onedrive 账号&lt;/h2&gt;
+&lt;p&gt;既然是利用 Onedrive，首先要获取一个账号，支持个人、企业和教育版。&lt;/p&gt;
+&lt;h2 id=&#34;创建函数服务&#34;&gt;创建函数服务&lt;/h2&gt;
+&lt;p&gt;有了账号后就可以创建函数了。登录 &lt;a href=&#34;https://console.cloud.tencent.com/scf/list&#34;&gt;腾讯云 SCF 控制台&lt;/a&gt;（在此之前要完成腾讯云 &lt;a href=&#34;https://cloud.tencent.com/document/product/378/10495&#34;&gt;实名认证&lt;/a&gt;），点击左侧菜单栏的 &lt;code&gt;函数服务&lt;/code&gt;，接着点击顶栏的地区选择下拉框，选择 &lt;code&gt;香港&lt;/code&gt;，因为大陆区域在绑定域名时需要备案，如果你拥有已备案的域名，则可以选择国内，当然不绑定域名也可以使用。接着点击蓝色的 &lt;code&gt;新建&lt;/code&gt; 按钮，创建函数。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/78335/19/8782/41051/5d6b779bEd3525463/c193a7a039e82f6e.png&#34; alt=&#34;create_a_function&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;随后在新建函数页面填写 &lt;code&gt;函数名称&lt;/code&gt;，名字随意；&lt;code&gt;运行环境&lt;/code&gt; 选择 &lt;code&gt;Php 7.2&lt;/code&gt;；&lt;code&gt;创建方式&lt;/code&gt; 选择 &lt;code&gt;模板函数&lt;/code&gt;；选择 &lt;code&gt;helloworld&lt;/code&gt; 模板，最后点击最下方的 &lt;code&gt;下一步&lt;/code&gt;。进入 &lt;code&gt;② 函数配置&lt;/code&gt; 页面后不做任何修改，直接点击 &lt;code&gt;完成&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://img11.360buyimg.com/img/jfs/t1/67123/11/8810/58169/5d6b7c32E1b6db7b4/aac10c9eab43d942.png&#34; alt=&#34;GXVWO~RYU4QSIHMEE_{PG.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;上传函数代码&#34;&gt;上传函数代码&lt;/h2&gt;
+&lt;p&gt;下载并解压 &lt;a href=&#34;https://github.com/qkqpttgf/OneDrive_SCF/archive/master.zip&#34;&gt;OneDrive_SCF&lt;/a&gt;。随后，进入 SCF &lt;code&gt;函数代码&lt;/code&gt; 面板，将 &lt;code&gt;提交方法下拉框&lt;/code&gt; 的值改为 &lt;code&gt;本地上传文件夹&lt;/code&gt;，随后点击 &lt;code&gt;上传&lt;/code&gt;，选择 &lt;code&gt;解压好的文件夹&lt;/code&gt;，最后点击 &lt;code&gt;保存&lt;/code&gt;。注意，解压后查看一下是否包含两层文件夹，如果是，上传内层。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://img11.360buyimg.com/img/jfs/t1/62901/35/8995/35468/5d6b7f28Eeff3c58a/1d30dd4b9ce9d475.png&#34; alt=&#34;D5OFS6O`X7}UTQA.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;配置环境变量&#34;&gt;配置环境变量&lt;/h2&gt;
+&lt;p&gt;进入 &lt;code&gt;函数配置&lt;/code&gt; 面板，点击靠近右上角的 &lt;code&gt;编辑&lt;/code&gt; 按钮。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://img10.360buyimg.com/img/jfs/t1/55934/31/9306/24352/5d6b82a6E03751d6d/22346a7906fb4afb.png&#34; alt=&#34;_SP7_T$@DA}LQRVA3SG}44G.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;安装前，在环境变量里添加SecretId与SecretKey（在 https://console.cloud.tencent.com/cam/capi 这里生成），获得token后，程序会自动按128字节分开，添加到环境变量的t1-t7(个人帐户只到t4)  在新面板中，将 &lt;code&gt;内存&lt;/code&gt; 修改为 &lt;code&gt;512M&lt;/code&gt;，当然 64M 也是可以运行的，需要说明的是，内存越大可用的免费时长越少；&lt;code&gt;超时时间&lt;/code&gt; 填写 &lt;code&gt;30&lt;/code&gt;，随后添加几个环境变量，它们的功能如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;th&gt;示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sitename&lt;/td&gt;
+&lt;td&gt;站点名称&lt;/td&gt;
+&lt;td&gt;无&lt;/td&gt;
+&lt;td&gt;我的网盘&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;public_path&lt;/td&gt;
+&lt;td&gt;要展示的根路径&lt;/td&gt;
+&lt;td&gt;无&lt;/td&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;private_path&lt;/td&gt;
+&lt;td&gt;要展示的根路径&lt;/td&gt;
+&lt;td&gt;使用自定义域名时必须设置&lt;/td&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;imgup_path&lt;/td&gt;
+&lt;td&gt;图床路径&lt;/td&gt;
+&lt;td&gt;其他网页可以引用上传的图片&lt;/td&gt;
+&lt;td&gt;/ 图床&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;passfile&lt;/td&gt;
+&lt;td&gt;密码文件名称&lt;/td&gt;
+&lt;td&gt;在某目录下添加该文件，里面写入密码即可加密文件夹&lt;/td&gt;
+&lt;td&gt;password.txt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;admin&lt;/td&gt;
+&lt;td&gt;管理员密码&lt;/td&gt;
+&lt;td&gt;管理员登录后功能更多&lt;/td&gt;
+&lt;td&gt;1234&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;adminloginpage&lt;/td&gt;
+&lt;td&gt;管理登录页&lt;/td&gt;
+&lt;td&gt;登录的页面不再是&#39;?admin&#39;，而是此设置的值。如果设置，登录按钮及页面隐藏&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://img13.360buyimg.com/img/jfs/t1/82068/38/8844/46527/5d6b82a8E2b44d81d/3424a3797211a478.png&#34; alt=&#34;1J8I6IJD@2J8AIH8WWQ4KM.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;添加触发方式&#34;&gt;添加触发方式&lt;/h2&gt;
+&lt;p&gt;进入函数服务的 &lt;code&gt;触发方式&lt;/code&gt; 面板，点击 &lt;code&gt;添加触发方式&lt;/code&gt;。选择触发方式下拉框中的 &lt;code&gt;API网关触发器&lt;/code&gt;，勾选下方的 &lt;code&gt;启用集成响应&lt;/code&gt;，点击 &lt;code&gt;保存&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://img14.360buyimg.com/img/jfs/t1/83154/3/8875/52837/5d6b92e5E4b004249/7cbe89ce911aff9f.png&#34; alt=&#34;SC6P6_()FK7_IB_S3(}4.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;稍等片刻，下方会出现一个 &lt;code&gt;访问路径&lt;/code&gt;，点击打开它。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://img10.360buyimg.com/img/jfs/t1/40554/26/13645/35452/5d6b9534E00ac9179/b2977f4e630803b3.png&#34; alt=&#34;2UV{Q5H@V13S956@IWG7`2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;关联网盘&#34;&gt;关联网盘&lt;/h2&gt;
+&lt;p&gt;打开页面后，选择OneDrive的版本&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://ichwl.xyz/Photo/8863881efd3154055b4eb8a816f474ad.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;确认后等待跳转，在打开的微软账号登录页面中，填写你的 &lt;code&gt;Onedrive 账号和密码&lt;/code&gt;，完成登录。&lt;/p&gt;
+&lt;p&gt;弹出来授权点击接受&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://ichwl.xyz/Photo/b6478d500cdfd73d082ca5a0c7b6a0af.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;完成后即会跳转到 &lt;code&gt;refresh token&lt;/code&gt; ,系统会自动分段填写 &lt;code&gt;refresh token&lt;/code&gt; 到配置中，5s后就会跳转到网盘页面。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;https://ichwl.xyz/Photo/66f36ebc0b1d695bfb1c3be514e6a0d0.png&#34; alt=&#34;C6QSEL5POOL75U&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;https://ichwl.xyz/Photo/TIM%E5%9B%BE%E7%89%8720191107153600.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;自定义域名可选&#34;&gt;自定义域名（可选）&lt;/h2&gt;
+&lt;p&gt;进入函数服务的 &lt;code&gt;触发方式&lt;/code&gt; 面板，点击打开 &lt;code&gt;SCF_API_SERVICE&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;https://img14.360buyimg.com/img/jfs/t1/58938/40/9235/37925/5d6b9a15E2a329579/a6ff29214e8578c4.png&#34; alt=&#34;_H1UQ7TUS.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;打开服务界面的 &lt;code&gt;自定义域名&lt;/code&gt; 面板，点击 &lt;code&gt;新建&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;14&#34;&gt;&lt;img src=&#34;https://img14.360buyimg.com/img/jfs/t1/75575/7/8907/25412/5d6b9a89E17359d86/9386a93623c95d9b.png&#34; alt=&#34;47Q4Z)PLOV{AC@AFFIS5.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在添加域名对话框中，填写你的 &lt;code&gt;域名&lt;/code&gt;，&lt;code&gt;协议&lt;/code&gt; 选择 &lt;code&gt;http&lt;/code&gt;，如果你想使用 &lt;code&gt;https&lt;/code&gt;，则必须在腾讯云 &lt;a href=&#34;https://cloud.tencent.com/document/product/400/6814&#34;&gt;申请或上传 SSL 证书&lt;/a&gt;，如果你已经在其他平台申请过推荐直接上传，因为申请一般要等待数小时才能完成。未进行上述操作你看到的 &lt;code&gt;证书下拉框&lt;/code&gt; 里将会是&lt;code&gt;无&lt;/code&gt;。网络类型勾选 &lt;code&gt;外网&lt;/code&gt;。选择 &lt;code&gt;自定义路径映射&lt;/code&gt;，添加一条记录，路径为 &lt;code&gt;/&lt;/code&gt;，指向 &lt;code&gt;发布&lt;/code&gt; 环境。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;15&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/82337/2/9023/40411/5d6de694E29a550dc/a06d1420f6bdf47e.png&#34; alt=&#34;I%G@QBED$T6OJ.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;打开你的域名解析服务商控制台，在域名解析列表里添加一条 &lt;a href=&#34;https://cloud.tencent.com/document/product/302/3450&#34;&gt;CNAME 记录&lt;/a&gt;，值便是图中上方的 &lt;code&gt;外网二级域名&lt;/code&gt;。最后点击 &lt;code&gt;提交&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;进入 &lt;code&gt;管理 API&lt;/code&gt; 面板，点击 &lt;code&gt;编辑&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;16&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/75724/35/9137/30365/5d6de5bbEbebf6709/ecf9149ecd869df3.png&#34; alt=&#34;7K.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在 &lt;code&gt;前端配置&lt;/code&gt; 面板中，将路径改为 &lt;code&gt;/&lt;/code&gt;，点击下一步。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;17&#34;&gt;&lt;img src=&#34;https://img11.360buyimg.com/img/jfs/t1/81276/18/9151/53670/5d6de5bdE22b67bd0/f9323a6cca49f732.png&#34; alt=&#34;MU0D8F.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在 &lt;code&gt;后端配置&lt;/code&gt; 中，保证已勾选 &lt;code&gt;启用集成响应&lt;/code&gt; 后点击 &lt;code&gt;下一步&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;18&#34;&gt;&lt;img src=&#34;https://img11.360buyimg.com/img/jfs/t1/77289/11/9087/26551/5d6de5c2Eaf31705b/5950b12c8261ecd7.png&#34; alt=&#34;TZDO.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在 &lt;code&gt;响应结果&lt;/code&gt; 面板，将 &lt;code&gt;返回类型&lt;/code&gt; 改为 &lt;code&gt;HTML&lt;/code&gt;，点击 &lt;code&gt;完成&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;19&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/49932/13/9445/26534/5d6de5c4Eaa7582f4/7efa4f81442852c7.png&#34; alt=&#34;afaPU.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在弹出的对话框中，点击 &lt;code&gt;前往发布服务&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;20&#34;&gt;&lt;img src=&#34;https://img14.360buyimg.com/img/jfs/t1/77585/36/9012/22830/5d6de5c6Ea2ee3023/70320d81116e8c26.png&#34; alt=&#34;fafadfEGM.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在 &lt;code&gt;服务信息&lt;/code&gt; 面板，点击靠近 &lt;code&gt;右上角&lt;/code&gt; 的 &lt;code&gt;发布&lt;/code&gt; 按钮。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;21&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/72692/38/9030/27078/5d6de5c8E56e8d3f7/37da68d26c44f8d1.png&#34; alt=&#34;fafadUHOH8MI5.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在弹出的 &lt;code&gt;发布服务&lt;/code&gt; 对话框中，将 &lt;code&gt;发布环境&lt;/code&gt; 改为 &lt;code&gt;发布&lt;/code&gt;，&lt;code&gt;备注&lt;/code&gt; 随意填写，最后点击 &lt;code&gt;提交&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;22&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/49295/10/9605/23935/5d6de5caE43782e1b/f1b36f0d54f8277b.png&#34; alt=&#34;8WBC7C0UQfadf.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;现在就可以通过自定义域名访问你的网盘了。&lt;/p&gt;
+&lt;h2 id=&#34;使用-github-pages-缩短长链接可选&#34;&gt;使用 Github Pages 缩短长链接（可选）&lt;/h2&gt;
+&lt;p&gt;如果你没有域名和服务器，可以通过 Github Pages 跳转的方式，适当缩短首次访问的路径长度，最终可以通过 &lt;code&gt;username.github.io&lt;/code&gt; 打开你的网盘。&lt;/p&gt;
+&lt;p&gt;注册并登录 &lt;a href=&#34;https://github.com/join&#34;&gt;Github&lt;/a&gt;，随后打开 &lt;a href=&#34;https://github.com/vcheckzen/redirect&#34;&gt;该仓库&lt;/a&gt;，点击靠近右上角的 &lt;code&gt;Fork&lt;/code&gt;。稍等片刻，打开页面中部的 &lt;code&gt;index.html&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;23&#34;&gt;&lt;img src=&#34;https://img13.360buyimg.com/img/jfs/t1/81433/29/9011/43730/5d6ba364E8bfbcab9/922db430228cc015.png&#34; alt=&#34;YSG)}(}WF$V6(I8Z(RF7FK.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;点击靠近 &lt;code&gt;右上角&lt;/code&gt; 的 &lt;code&gt;铅笔&lt;/code&gt; 按钮，编辑该文件。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;24&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/48643/27/9492/22737/5d6decd0E59609187/345f9d14fe3de9d1.png&#34; alt=&#34;fafdafdafQA.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;将你的 &lt;code&gt;函数 API 网关访问路径&lt;/code&gt; 替换到文件中。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;25&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/82296/16/7071/26718/5d6ba424Eeb8963e6/75e9725b397a3b7d.png&#34; alt=&#34;%{(U9@D`9.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;修改完毕后点击靠近页面最下方的 &lt;code&gt;Commit changes&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;26&#34;&gt;&lt;img src=&#34;https://img13.360buyimg.com/img/jfs/t1/46300/14/9374/21791/5d6ba442E58d82ba6/72e92de2f4ad12f1.png&#34; alt=&#34;`56PL$O1D}(V2P@4WR%P6B.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;点击靠近右上角的 &lt;code&gt;Settings&lt;/code&gt;，将 &lt;code&gt;Repository name&lt;/code&gt; 改成 &lt;code&gt;你的 Github 用户名.github.io&lt;/code&gt;，随后点击 &lt;code&gt;Rename&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;27&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/73876/14/8917/49824/5d6ba654E9c44470a/539d599e20d5e705.png&#34; alt=&#34;@(S16VV$)48~O8MHD6KYB5D.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;下拉该页面，找到 &lt;code&gt;Github Pages&lt;/code&gt;，将 &lt;code&gt;Source&lt;/code&gt; 下拉框的值改成 &lt;code&gt;master branch&lt;/code&gt;，如果没有则无需修改。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;28&#34;&gt;&lt;img src=&#34;https://img12.360buyimg.com/img/jfs/t1/43663/2/13575/33132/5d6ba655E9e64f8c4/b8a6c84311f74234.png&#34; alt=&#34;}`R6~2N@)LINVXYJ5LEP59.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;现在，就可以通过 &lt;code&gt;你的 Github 用户名.github.io&lt;/code&gt; 访问网盘了。&lt;/p&gt;
+">利用微软 OneDrive API 和腾讯云 SCF 免费搭建个人网盘</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://home.dlolb.best/post/hello-gridea/"" data-c="
+          &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
+✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/getgridea/gridea&#34;&gt;Github&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea 主页&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://fehey.com/&#34;&gt;示例网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性👇&lt;/h2&gt;
+&lt;p&gt;📝  你可以使用最酷的 &lt;strong&gt;Markdown&lt;/strong&gt; 语法，进行快速创作&lt;/p&gt;
+&lt;p&gt;🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片&lt;/p&gt;
+&lt;p&gt;🏷️  你可以对文章进行标签分组&lt;/p&gt;
+&lt;p&gt;📋  你可以自定义菜单，甚至可以创建外部链接菜单&lt;/p&gt;
+&lt;p&gt;💻  你可以在 &lt;strong&gt;Windows&lt;/strong&gt;，&lt;strong&gt;MacOS&lt;/strong&gt; 或 &lt;strong&gt;Linux&lt;/strong&gt; 设备上使用此客户端&lt;/p&gt;
+&lt;p&gt;🌎  你可以使用 &lt;strong&gt;𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌&lt;/strong&gt; 或 &lt;strong&gt;Coding Pages&lt;/strong&gt; 向世界展示，未来将支持更多平台&lt;/p&gt;
+&lt;p&gt;💬  你可以进行简单的配置，接入 &lt;a href=&#34;https://github.com/gitalk/gitalk&#34;&gt;Gitalk&lt;/a&gt; 或 &lt;a href=&#34;https://github.com/SukkaW/DisqusJS&#34;&gt;DisqusJS&lt;/a&gt; 评论系统&lt;/p&gt;
+&lt;p&gt;🇬🇧  你可以使用&lt;strong&gt;中文简体&lt;/strong&gt;或&lt;strong&gt;英语&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力&lt;/p&gt;
+&lt;p&gt;🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步&lt;/p&gt;
+&lt;p&gt;🌱 当然 &lt;strong&gt;Gridea&lt;/strong&gt; 还很年轻，有很多不足，但请相信，它会不停向前 🏃&lt;/p&gt;
+&lt;p&gt;未来，它一定会成为你离不开的伙伴&lt;/p&gt;
+&lt;p&gt;尽情发挥你的才华吧！&lt;/p&gt;
+&lt;p&gt;😘 Enjoy~&lt;/p&gt;
+">Hello Gridea</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        console.log('复制操作频率过高');
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/js/motion.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 200
+  });
+</script>
+
+
+<script src="/media/js/mouse/peace.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/js/cool.js"></script>
+
+
+</html>
