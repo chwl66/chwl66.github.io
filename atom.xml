@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://home.dlolb.best</id>
     <title>温故知新</title>
-    <updated>2020-05-30T10:57:31.144Z</updated>
+    <updated>2020-05-30T12:04:18.869Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://home.dlolb.best"/>
     <link rel="self" href="https://home.dlolb.best/atom.xml"/>
@@ -278,7 +278,7 @@ hexo d
 <figure data-type="image" tabindex="21"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/2e3d19970c709.jpg" alt="img" loading="lazy"></figure>
 <p>通过带有预览样式的Markdown编辑器实时预览书写的博文样式，也可以通过命令 hexo s --debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。</p>
 <p><strong>寻找图床</strong></p>
-<p>图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，<strong><img src="%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5" alt="图片信息" loading="lazy"></strong> 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：<a href="https://link.zhihu.com/?target=http%3A//www.tietuku.com/">贴图库图片外链</a> 国内算比较好的图床我认为有两个：新浪微博和 <a href="https://link.zhihu.com/?target=https%3A//www.qiniu.com/">七牛云</a> ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：</p>
+<p>图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，<code>![图片信息](外部链接)</code> 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：<a href="https://link.zhihu.com/?target=http%3A//www.tietuku.com/">贴图库图片外链</a> 国内算比较好的图床我认为有两个：新浪微博和 <a href="https://link.zhihu.com/?target=https%3A//www.qiniu.com/">七牛云</a> ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：</p>
 <figure data-type="image" tabindex="22"><img src="https://kyun.ltyuanfang.cn/tc/2020/05/30/f853587ebae8c.jpg" alt="img" loading="lazy"></figure>
 <p><strong>个性化设置</strong></p>
 <p>所谓的个性化设置就是根据个人需要添加不同的插件及功能。</p>

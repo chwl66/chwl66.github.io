@@ -9,14 +9,14 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>使用PicGo对接Hidove图床 | 温故知新</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1590836248692">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1590840210180">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
 <link
   href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
   rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/hljs/styles/Xcode.css"
+<link href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/hljs/styles/xcode.css"
   rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/styles/main.css">
@@ -649,26 +649,54 @@
 </div>
             
             
-  
-    
-    
-      <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
-<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
 
-<div id="disqus_thread"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
 
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
 <script>
-  var options = {
-    shortname: 'gridea',
-    apikey: 'WInTbn2XH8Lt3PHZgEDKgsag5dk7tsBGpznE0MNeBQFTwrvD05gnXtF9UUjsqwSp',
-  }
-  if ('') {
-    options.api = ''
-  }
-  var dsqjs = new DisqusJS(options)
+  new Valine({
+    el: '#vcomments',
+    appId: 'swm1ycg4Wof7eus8Ouoar4aT-MdYXbMMI',
+    appKey: '9TDzLmmh8IoLNFaziOrIdlrq',
+    avatar: '',
+    placeholder: '欢迎留下你的足迹！',
+    pageSize: '20',
+    lang: 'zh-cn',
+    enableQQ: true,
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
 </script>
-    
-  
 
           </div>
         </div>
@@ -1376,7 +1404,7 @@ hexo d
 &lt;figure data-type=&#34;image&#34; tabindex=&#34;21&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/2e3d19970c709.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;p&gt;通过带有预览样式的Markdown编辑器实时预览书写的博文样式，也可以通过命令 hexo s --debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;寻找图床&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，&lt;strong&gt;&lt;img src=&#34;%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5&#34; alt=&#34;图片信息&#34; loading=&#34;lazy&#34;&gt;&lt;/strong&gt; 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.tietuku.com/&#34;&gt;贴图库图片外链&lt;/a&gt; 国内算比较好的图床我认为有两个：新浪微博和 &lt;a href=&#34;https://link.zhihu.com/?target=https%3A//www.qiniu.com/&#34;&gt;七牛云&lt;/a&gt; ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：&lt;/p&gt;
+&lt;p&gt;图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法，&lt;code&gt;![图片信息](外部链接)&lt;/code&gt; 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//www.tietuku.com/&#34;&gt;贴图库图片外链&lt;/a&gt; 国内算比较好的图床我认为有两个：新浪微博和 &lt;a href=&#34;https://link.zhihu.com/?target=https%3A//www.qiniu.com/&#34;&gt;七牛云&lt;/a&gt; ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细，下图是博文插入图片，使用图床外链的示例：&lt;/p&gt;
 &lt;figure data-type=&#34;image&#34; tabindex=&#34;22&#34;&gt;&lt;img src=&#34;https://kyun.ltyuanfang.cn/tc/2020/05/30/f853587ebae8c.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;个性化设置&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;所谓的个性化设置就是根据个人需要添加不同的插件及功能。&lt;/p&gt;
