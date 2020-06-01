@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>温故知新</title>
-    <updated>2020-05-31T07:45:46.305Z</updated>
+    <updated>2020-06-01T02:00:47.330Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -54,7 +54,7 @@ WPS是一款非常实用且模板超多的免费软件，可是WPS的很多功�
 </li>
 <li>
 <p><strong>下载工具包</strong><br>
-下载地址：[WPS自动签到工具](https://pan.52ruoli.cn/other tool/PC tool/WPS自动签到工具.zip?preview)</p>
+下载地址：<a href="https://pan.52ruoli.cn/other%20tool/PC%20tool/WPS%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E5%B7%A5%E5%85%B7.zip?preview">WPS自动签到工具</a></p>
 </li>
 <li>
 <p><strong>阿里云创建函数计算</strong><br>
