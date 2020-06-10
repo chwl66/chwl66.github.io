@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>温故知新</title>
-    <updated>2020-06-01T02:20:01.255Z</updated>
+    <updated>2020-06-10T01:15:35.547Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -71,7 +71,7 @@ WPS是一款非常实用且模板超多的免费软件，可是WPS的很多功�
 sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
 </li>
 <li>
-<p>创建定时触发<br>
+<p><strong>创建定时触发</strong><br>
 选择代码执行右边的触发器，新建触发器<br>
 时间配置选择<em>Cron表达式</em>，输入</p>
 <blockquote>
@@ -82,6 +82,8 @@ sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
 </li>
 </ol>
 <p>转载自<a href="http://ruoli.vip/11.html">若离博客</a></p>
+<h1 id="友情提示">友情提示：</h1>
+<p><strong>wps登录后不要退出登录！要不然sid会失效，重新登录需重新获取！</strong></p>
 ]]></content>
     </entry>
     <entry>
