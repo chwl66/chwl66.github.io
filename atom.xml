@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>温故知新</title>
-    <updated>2020-06-10T08:05:53.947Z</updated>
+    <updated>2020-06-18T01:52:17.376Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, 温故知新</rights>
     <entry>
         <title type="html"><![CDATA[shareX对接hidove图床]]></title>
-        <id>https://blog.20140117.xyz/post/W3anuXLuL/</id>
-        <link href="https://blog.20140117.xyz/post/W3anuXLuL/">
+        <id>https://blog.20140117.xyz/sharex-to-hidove/</id>
+        <link href="https://blog.20140117.xyz/sharex-to-hidove/">
         </link>
         <updated>2020-05-30T10:44:24.000Z</updated>
         <content type="html"><![CDATA[<p>替换token以及URL，导入sharex即可使用！</p>
@@ -36,8 +36,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[wps自动签到打卡无限白嫖wps会员]]></title>
-        <id>https://blog.20140117.xyz/post/KgN4IP3L_/</id>
-        <link href="https://blog.20140117.xyz/post/KgN4IP3L_/">
+        <id>https://blog.20140117.xyz/wps-hui-yuan-zi-dong-qian-dao/</id>
+        <link href="https://blog.20140117.xyz/wps-hui-yuan-zi-dong-qian-dao/">
         </link>
         <updated>2020-05-30T10:40:37.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://pic.abcyun.co/image/5ecf0d0f79957.jpg" alt="WPS" loading="lazy"><br>
@@ -88,8 +88,8 @@ sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
     </entry>
     <entry>
         <title type="html"><![CDATA[使用PicGo对接Hidove图床]]></title>
-        <id>https://blog.20140117.xyz/post/bAdEMrK5G/</id>
-        <link href="https://blog.20140117.xyz/post/bAdEMrK5G/">
+        <id>https://blog.20140117.xyz/picgo-to-hidove/</id>
+        <link href="https://blog.20140117.xyz/picgo-to-hidove/">
         </link>
         <updated>2020-04-04T00:10:14.000Z</updated>
         <content type="html"><![CDATA[<p>##<strong>说明</strong><br>
@@ -126,8 +126,8 @@ sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
     </entry>
     <entry>
         <title type="html"><![CDATA[GitHub+Hexo 搭建个人网站详细教程]]></title>
-        <id>https://blog.20140117.xyz/post/WlKJ1XeEq/</id>
-        <link href="https://blog.20140117.xyz/post/WlKJ1XeEq/">
+        <id>https://blog.20140117.xyz/github-hexo/</id>
+        <link href="https://blog.20140117.xyz/github-hexo/">
         </link>
         <updated>2020-03-17T01:50:50.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言"><strong>前言：</strong></h2>
@@ -339,8 +339,8 @@ hexo d
     </entry>
     <entry>
         <title type="html"><![CDATA[博客基于Handsome主题的一些小修改教程]]></title>
-        <id>https://blog.20140117.xyz/post/gIzm3nngu/</id>
-        <link href="https://blog.20140117.xyz/post/gIzm3nngu/">
+        <id>https://blog.20140117.xyz/handsome-zhu-ti-xiu-gai/</id>
+        <link href="https://blog.20140117.xyz/handsome-zhu-ti-xiu-gai/">
         </link>
         <updated>2019-12-25T09:22:40.000Z</updated>
         <content type="html"><![CDATA[<p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
@@ -549,8 +549,8 @@ jQuery(document).ready(function($) {
     </entry>
     <entry>
         <title type="html"><![CDATA[WordPress编辑器中添加“上传到Chevereto图床”按钮]]></title>
-        <id>https://blog.20140117.xyz/post/FNHwd2cm5/</id>
-        <link href="https://blog.20140117.xyz/post/FNHwd2cm5/">
+        <id>https://blog.20140117.xyz/wordpress-bian-ji-qi-zhong-tian-jia-shang-chuan-dao-chevereto-tu-chuang-an-niu/</id>
+        <link href="https://blog.20140117.xyz/wordpress-bian-ji-qi-zhong-tian-jia-shang-chuan-dao-chevereto-tu-chuang-an-niu/">
         </link>
         <updated>2019-12-01T15:20:04.000Z</updated>
         <content type="html"><![CDATA[<p>前段时间搭建了 Chevereto 图床，但在 WordPress 编辑器里需要上传图片的时候，需要另外打开图床上传比较麻烦。这时候可以在 WordPress 的编辑器里添加个上传按钮，利用 API 上传到 Chevereto 图床，这样上传图片到图床就方便啦！</p>
@@ -699,8 +699,8 @@ jQuery('#up_to_chevereto').change(function() {
     </entry>
     <entry>
         <title type="html"><![CDATA[typecho在后台增加图床上传图片按钮]]></title>
-        <id>https://blog.20140117.xyz/post/Y80xYA7z9/</id>
-        <link href="https://blog.20140117.xyz/post/Y80xYA7z9/">
+        <id>https://blog.20140117.xyz/typecho-tian-jia-tu-chuang-an-niu/</id>
+        <link href="https://blog.20140117.xyz/typecho-tian-jia-tu-chuang-an-niu/">
         </link>
         <updated>2019-11-30T15:52:32.000Z</updated>
         <content type="html"><![CDATA[<h4 id="路过图床"><a href="https://imgse.com/">路过图床</a>是一个不错的图床网站，图片放到图床将有效缓解网站服务器带宽和存储空间的压力</h4>
@@ -719,8 +719,8 @@ jQuery('#up_to_chevereto').change(function() {
     </entry>
     <entry>
         <title type="html"><![CDATA[WordPress采集插件]]></title>
-        <id>https://blog.20140117.xyz/post/DmB2y0jPB/</id>
-        <link href="https://blog.20140117.xyz/post/DmB2y0jPB/">
+        <id>https://blog.20140117.xyz/wordpress-cai-ji-cha-jian/</id>
+        <link href="https://blog.20140117.xyz/wordpress-cai-ji-cha-jian/">
         </link>
         <updated>2019-11-28T17:16:02.000Z</updated>
         <content type="html"><![CDATA[<p><strong>简介</strong>如何安装下载插件长腿蜘蛛-CTspider 然后到WordPress插件页面点击上传，安装启用即可。 如果使用FTP上传,请使用二进制上传协议。如何授权登录长腿蜘蛛-CTspider官网注册账号（P</p>
@@ -798,8 +798,8 @@ jQuery('#up_to_chevereto').change(function() {
     </entry>
     <entry>
         <title type="html"><![CDATA[【神器】使用Folderclone秒转网友Google Drive分享文件到自己的Google Drive网盘]]></title>
-        <id>https://blog.20140117.xyz/post/d8paPRJx0/</id>
-        <link href="https://blog.20140117.xyz/post/d8paPRJx0/">
+        <id>https://blog.20140117.xyz/folderclone-to-googledrive/</id>
+        <link href="https://blog.20140117.xyz/folderclone-to-googledrive/">
         </link>
         <updated>2019-11-26T18:39:03.000Z</updated>
         <content type="html"><![CDATA[<h2 id="关于folderclone">关于Folderclone</h2>
@@ -938,8 +938,8 @@ pip install  httplib2shim
     </entry>
     <entry>
         <title type="html"><![CDATA[AriaNg + rclone 实现 Google Drive 离线下载]]></title>
-        <id>https://blog.20140117.xyz/post/OVI5xWH9j/</id>
-        <link href="https://blog.20140117.xyz/post/OVI5xWH9j/">
+        <id>https://blog.20140117.xyz/ariang-rclone-to-googledrive/</id>
+        <link href="https://blog.20140117.xyz/ariang-rclone-to-googledrive/">
         </link>
         <updated>2019-11-22T01:09:31.000Z</updated>
         <content type="html"><![CDATA[<h2 id="准备环境">准备环境</h2>
