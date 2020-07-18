@@ -8,7 +8,7 @@
 <meta name="keywords" content="村哥|个人博客|Gridea|工程人|一级建造师|工程狗|考证">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>温故知新</title>
+<title>深田咏美 | 温故知新</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1595045857479">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
@@ -48,6 +48,8 @@
 </script>
 
 
+  <meta name="description" content="深田咏美" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -180,10 +182,25 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  pisces">
+      class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/images/avatar.png"/>
@@ -225,158 +242,293 @@
 
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          WordPress
-          <small class="language" data-lan="tag">标签</small>
-        </h2>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://blog.20140117.xyz/post/wordpress-cai-ji-cha-jian/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              11-29
-              <small>WordPress采集插件</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://blog.20140117.xyz/post/shen-tian-yong-mei/">
+      深田咏美
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span>2020-07-18</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>0<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>0<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/shen-tian-yong-mei/" data-flag-title="深田咏美" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <p><img src="https://p.sda1.dev/0/d8e0292f89c2b712e950376bc4a474fa/photo_122@13-07-2020_12-41-38.webp" alt="photo_122@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/217e8f60bde607f9f357d91e33f67223/photo_121@13-07-2020_12-41-38.webp" alt="photo_121@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/694f26aa7e6f6ba0ba10a49d04b9fa79/photo_120@13-07-2020_12-41-38.webp" alt="photo_120@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/eb5aac6a771fd135635785a28f54c306/photo_119@13-07-2020_12-41-38.webp" alt="photo_119@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/1940ccca89ee3970f35fe091ddac0a73/photo_118@13-07-2020_12-41-38.webp" alt="photo_118@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/af0454547ea5c38259b9df6a0c491dda/photo_116@13-07-2020_12-41-38.webp" alt="photo_116@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/6a08a3b8585b68df776099dd14c5511d/photo_117@13-07-2020_12-41-38.webp" alt="photo_117@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/4c71f16cd4111277c671e6d19f8b2e8b/photo_114@13-07-2020_12-41-38.webp" alt="photo_114@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/878bdd048b48f30075b01b188528325d/photo_115@13-07-2020_12-41-38.webp" alt="photo_115@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/11be79bfab254a9e040aa31fe85a9dfb/photo_106@13-07-2020_12-41-25.webp" alt="photo_106@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/67891da7a3c0e38d23580e5a0fd03f24/photo_113@13-07-2020_12-41-38.webp" alt="photo_113@13-07-2020_12-41-38.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/668d9cd406a6232b6b7f3d316c431a6c/photo_112@13-07-2020_12-41-25.webp" alt="photo_112@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/28fa24170b6ea4681b108ddef62eb0e9/photo_111@13-07-2020_12-41-25.webp" alt="photo_111@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/f02f870e11d974be4ff3ada76d3dbc33/photo_100@13-07-2020_12-41-15.webp" alt="photo_100@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/bc1c2f2ba8a0b6bafc85cbe3d2ec61eb/photo_110@13-07-2020_12-41-25.webp" alt="photo_110@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/b4c6cc7fe15431e735df6b18f365fe19/photo_109@13-07-2020_12-41-25.webp" alt="photo_109@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/7938d7c14d8c9cde22cd88b7c484fa4b/photo_107@13-07-2020_12-41-25.webp" alt="photo_107@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/406e01a085d51d8fa883313d082fde74/photo_108@13-07-2020_12-41-25.webp" alt="photo_108@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/762ed677ade2046af0a55ad555487153/photo_105@13-07-2020_12-41-25.webp" alt="photo_105@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/8360234b6c630d74f9b3187e0dcd3f67/photo_104@13-07-2020_12-41-25.webp" alt="photo_104@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/2a04ed22290b20159c0553d5b765fe13/photo_102@13-07-2020_12-41-15.webp" alt="photo_102@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/18bba53b2071d60273819b12a7a9e93d/photo_103@13-07-2020_12-41-25.webp" alt="photo_103@13-07-2020_12-41-25.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/f92cdaf950edba31331df3d78a600fc0/photo_101@13-07-2020_12-41-15.webp" alt="photo_101@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/02dc5a799ceb2bfac200dc30ec267d70/photo_98@13-07-2020_12-41-15.webp" alt="photo_98@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/d241c219b67fdc5a1a2cb8d77f96b707/photo_99@13-07-2020_12-41-15.webp" alt="photo_99@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/ceb63eb57b301d195edb8ac6d57adac5/photo_97@13-07-2020_12-41-15.webp" alt="photo_97@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/0094b5d2638432442992bad78ccc8e05/photo_96@13-07-2020_12-41-15.webp" alt="photo_96@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/cfc97326a44f091d18b4711c4ec44c5c/photo_95@13-07-2020_12-41-15.webp" alt="photo_95@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/b46f75faa995bc2d3eeb2c83f8d0413e/photo_94@13-07-2020_12-41-15.webp" alt="photo_94@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/823c58043ef7277fd76bf85a7193b11c/photo_93@13-07-2020_12-41-15.webp" alt="photo_93@13-07-2020_12-41-15.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/9d50765a021d872fe3c00e9f7e19ab4c/photo_91@13-07-2020_12-41-06.webp" alt="photo_91@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/b41a215810462e0ec0b4ba717aaf0f06/photo_92@13-07-2020_12-41-06.webp" alt="photo_92@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/6f450c77582af292f7319ae1bbe7851b/photo_90@13-07-2020_12-41-06.webp" alt="photo_90@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/2a56ae92df23fdaacbe65e7dddc813c9/photo_89@13-07-2020_12-41-06.webp" alt="photo_89@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/0ddf4207df3316821fa8d7270d246003/photo_88@13-07-2020_12-41-06.webp" alt="photo_88@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/fe1891b03a2b0276d638604bd1daa4fd/photo_84@13-07-2020_12-41-06.webp" alt="photo_84@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/18715b5f2cc3e948fa6c0acccc9c7eaa/photo_87@13-07-2020_12-41-06.webp" alt="photo_87@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/3ce91623ac91510dc9e989a174d6b28d/photo_85@13-07-2020_12-41-06.webp" alt="photo_85@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/85ca13eccbc41b6a67d89cf39a2ecf7c/photo_86@13-07-2020_12-41-06.webp" alt="photo_86@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/8aa350c0c21eae2cd1055b73ae13998d/photo_80@13-07-2020_12-40-55.webp" alt="photo_80@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/fbc8344845962b5d22c066117155dc65/photo_83@13-07-2020_12-41-06.webp" alt="photo_83@13-07-2020_12-41-06.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/f1820ef60866a7b381b825d3d83455cb/photo_82@13-07-2020_12-40-55.webp" alt="photo_82@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/041815e1ce4989850f6fcddf4df7d0c1/photo_81@13-07-2020_12-40-55.webp" alt="photo_81@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/9740652a28fa21116c6c6ee4c3c04817/photo_79@13-07-2020_12-40-55.webp" alt="photo_79@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/27c28e02931ec36800efae886d275a6c/photo_78@13-07-2020_12-40-55.webp" alt="photo_78@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/9a16c39ce0cc25e1846833d14f5beb62/photo_77@13-07-2020_12-40-55.webp" alt="photo_77@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/2320c069872354100c2d842eb21be8bb/photo_76@13-07-2020_12-40-55.webp" alt="photo_76@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/2de09b92ad6eb438fa748bceaac5d1b9/photo_74@13-07-2020_12-40-55.webp" alt="photo_74@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/14b23aaeeaf6ae43f786119a47042bc3/photo_73@13-07-2020_12-40-55.webp" alt="photo_73@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/91ea9a317b2217123fad5d8186f7207d/photo_75@13-07-2020_12-40-55.webp" alt="photo_75@13-07-2020_12-40-55.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/ff9ac22bd0c26c24ba505b6ec0990157/photo_72@13-07-2020_12-40-44.webp" alt="photo_72@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/adac7551803dcf275019dd7e798b11bd/photo_69@13-07-2020_12-40-44.webp" alt="photo_69@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/b7e6e7900b32d1507e26324ef6ae004c/photo_71@13-07-2020_12-40-44.webp" alt="photo_71@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/6bb3d4fe612f973f409a38350d490f49/photo_70@13-07-2020_12-40-44.webp" alt="photo_70@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/ab3d5c628e1a96630bf2dcf6afbd758f/photo_68@13-07-2020_12-40-44.webp" alt="photo_68@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/9b1a6c3be71f04f96e74f6a6c097f752/photo_65@13-07-2020_12-40-44.webp" alt="photo_65@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/8b5a5151a4547da5045501af92283f44/photo_66@13-07-2020_12-40-44.webp" alt="photo_66@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/4af7a6ef5f70768d7560aebd0ae3885e/photo_67@13-07-2020_12-40-44.webp" alt="photo_67@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/17f09b47383b1237d3c5b2d3a5b65238/photo_64@13-07-2020_12-40-44.webp" alt="photo_64@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/2f150951db5b96177fcfaea9dfeddd4f/photo_63@13-07-2020_12-40-44.webp" alt="photo_63@13-07-2020_12-40-44.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/a2ca5e653d3621b6c156a009b53001ec/photo_61@13-07-2020_12-40-35.webp" alt="photo_61@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/19c9f662e8d59f2885310f7f3a0b3440/photo_62@13-07-2020_12-40-35.webp" alt="photo_62@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/8c24d9274933653f169305e0e59fb208/photo_60@13-07-2020_12-40-35.webp" alt="photo_60@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/1f90f76d1d92395d90d8ccd7072f5dd2/photo_59@13-07-2020_12-40-35.webp" alt="photo_59@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/8fd15d8c21da19f028f31e1a07fd0547/photo_58@13-07-2020_12-40-35.webp" alt="photo_58@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/c833d3ae5f632be66982db47d0bd221b/photo_57@13-07-2020_12-40-35.webp" alt="photo_57@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/276a09685da0ac3b23252c1d0b34710f/photo_56@13-07-2020_12-40-35.webp" alt="photo_56@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/20402d3b04fea16d8959a85ff7e92daa/photo_55@13-07-2020_12-40-35.webp" alt="photo_55@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/78be37c071725e24fc50693dd7292dad/photo_54@13-07-2020_12-40-35.webp" alt="photo_54@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/d3fd46f5e539df450abf3d6342020550/photo_53@13-07-2020_12-40-35.webp" alt="photo_53@13-07-2020_12-40-35.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/284f84eb72bf38af8c712927af01829d/photo_52@13-07-2020_12-40-23.webp" alt="photo_52@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/5c56f7b11e48d9a51a19d68aa5233de7/photo_51@13-07-2020_12-40-23.webp" alt="photo_51@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/92d7a9471ca817b9c2acdabd5d093d71/photo_50@13-07-2020_12-40-23.webp" alt="photo_50@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/7c73569c933f5e6dce4ca433eef81fbb/photo_49@13-07-2020_12-40-23.webp" alt="photo_49@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/ce4b0d2d863250981c4df5fb1938e9ca/photo_44@13-07-2020_12-40-23.webp" alt="photo_44@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/ab12338bd71d4466f25b8b2b5714ab72/photo_48@13-07-2020_12-40-23.webp" alt="photo_48@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/3e732918351f540babede575586652cf/photo_46@13-07-2020_12-40-23.webp" alt="photo_46@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/4c49d0c239fbf4c956f5424581c9d304/photo_45@13-07-2020_12-40-23.webp" alt="photo_45@13-07-2020_12-40-23.webp" loading="lazy"><br>
+<img src="https://p.sda1.dev/0/20467059469d454c55639cfb9dc43377/photo_47@13-07-2020_12-40-23.webp" alt="photo_47@13-07-2020_12-40-23.webp" loading="lazy"></p>
+
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      努力的村哥
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://blog.20140117.xyz/post/shen-tian-yong-mei/" title="深田咏美">https://blog.20140117.xyz/post/shen-tian-yong-mei/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="shareX对接hidove图床" href="https://blog.20140117.xyz/post/sharex-to-hidove/">shareX对接hidove图床</a>
+        <a class="nav-mobile-next" title="shareX对接hidove图床" href="https://blog.20140117.xyz/post/sharex-to-hidove/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'swm1ycg4Wof7eus8Ouoar4aT-MdYXbMMI',
+    appKey: '9TDzLmmh8IoLNFaziOrIdlrq',
+    avatar: '',
+    placeholder: '欢迎留下你的足迹！',
+    pageSize: '20',
+    lang: 'zh-cn',
+    enableQQ: 'true' === 'false',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
         </div>
       </div>
     </div>
@@ -1103,6 +1255,253 @@
   }
 
 </script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -3442,6 +3841,5 @@ NAVO-2ORP-IN5A-GQEE
 
 
 <script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/js/cool.js"></script>
-
 
 </html>
