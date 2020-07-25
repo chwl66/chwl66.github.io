@@ -9,7 +9,7 @@
 <meta name="description" content="农村娃来到了深山里！">
 <meta name="theme-color" content="#000">
 <title>村哥</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1595495771773">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1595682658030">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -200,19 +200,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">11</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">22</span>
+        <span class="site-item-stat-count">23</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">22</span>
+        <span class="site-item-stat-count">23</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -251,6 +251,14 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       
@@ -1082,6 +1090,60 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/"" data-c="
+          &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;Aria2 有一个配置项 &lt;code&gt;on-download-complete&lt;/code&gt;，在下载完后执行一个脚本。当下载完成后 Aria2 会给脚本传递 3 个变量 &lt;code&gt;$1&lt;/code&gt;、&lt;code&gt;$2&lt;/code&gt;、&lt;code&gt;$3&lt;/code&gt; 分别为 gid 、文件数量、文件路径。利用这个配置项和这些变量就可以实现很多功能，比如下载完成后调用 Rclone 进行上传操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将这个文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现&lt;s&gt;伪&lt;/s&gt;离线下载。&lt;/p&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
+&lt;p&gt;VPS 是必须的，如果你还没有 VPS 推荐去看《&lt;a href=&#34;https://p3terx.com/archives/cheap-and-costeffective-vps-recommended.html&#34;&gt;便宜高性价比和白嫖 VPS 推荐&lt;/a&gt;》，这里精选了博主这些年来使用过的好用的 VPS 。&lt;/p&gt;
+&lt;h2 id=&#34;安装-aria2&#34;&gt;安装 Aria2&lt;/h2&gt;
+&lt;p&gt;这里使用 &lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt;，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 &lt;code&gt;1&lt;/code&gt; 开始安装。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;wget -N git.io/aria2.sh &amp;amp;&amp;amp; chmod +x aria2.sh &amp;amp;&amp;amp; ./aria2.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;安装和配置-rclone&#34;&gt;安装和配置 Rclone&lt;/h2&gt;
+&lt;p&gt;RCLONE 官方提供了&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24=&#34;&gt;一键安装脚本&lt;/a&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装完后，输入 &lt;code&gt;rclone config&lt;/code&gt; 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《&lt;a href=&#34;https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html&#34;&gt;Rclone 安装配置教程&lt;/a&gt;》来了解配置的详细过程。&lt;/p&gt;
+&lt;h2 id=&#34;配置自动上传脚本&#34;&gt;配置自动上传脚本&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt; 整合了 &lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMl9wZXJmZWN0X2NvbmZpZw==&#34;&gt;Aria2 完美配置&lt;/a&gt; ，安装后会附带一些附加功能脚本功能脚本，RCLONE 自动上传脚本就是其中之一。由于默认不启用，所以需要手动启用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入&lt;code&gt;nano /root/.aria2c/script.conf&lt;/code&gt;打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，一般只需要修改下面2个部分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;# 网盘名称(RCLONE 配置时填写的 name)
+drive-name=OneDrive
+# 网盘目录。注释或留空为网盘根目录，末尾不要有斜杠。
+drive-dir=/DRIVEX/Download
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nano 编辑器的操作方法参见《&lt;a href=&#34;https://p3terx.com/archives/linux-nano-tutorial.html&#34;&gt;Linux 下适合新手的文本编辑器 nano 使用教程&lt;/a&gt;》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;输入&lt;code&gt;nano /root/.aria2c/aria2.conf&lt;/code&gt;打开 Aria2 配置文件进行修改。或使用&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt;中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把&lt;code&gt;clean.sh&lt;/code&gt;替换为&lt;code&gt;upload.sh&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;# 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;重启 Aria2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;service aria2 restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;当你进行完以上所有操作，现在下载文件就会自动上传至相应的网盘，本地的文件也会自动删除。&lt;/p&gt;
+&lt;p&gt;由于 Aria2 是命令行后端软件，需要配合前端 GUI 才能有更好的使用体验，对于从来没有接触过的萌新，建议去看《&lt;a href=&#34;https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html&#34;&gt;Aria2 前端面板 AriaNg 使用教程&lt;/a&gt;》来了解相关基础知识。&lt;/p&gt;
+&lt;h2 id=&#34;遇到问题如何处理&#34;&gt;遇到问题如何处理&lt;/h2&gt;
+&lt;p&gt;严格按照教程来进行操作不会遇到问题，如果有问题那一定是你自身的问题，请仔细阅读教程中的每一个字。&lt;/p&gt;
+&lt;h3 id=&#34;faq&#34;&gt;FAQ&lt;/h3&gt;
+&lt;p&gt;遇到问题先看 &lt;a href=&#34;https://p3terx.com/archives/aria2_perfect_config-faq.html&#34;&gt;FAQ&lt;/a&gt; ，这里记录了有关 Aria2 的常见问题与解决方案。&lt;/p&gt;
+&lt;h3 id=&#34;提问&#34;&gt;提问&lt;/h3&gt;
+&lt;p&gt;你可以选择加入 &lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly90Lm1lL2FyaWEyYw==&#34;&gt;Aria2 TG 群&lt;/a&gt;和小伙伴们一起讨论。要注意提问的方式和提供有用的信息。提问前最好去了解《&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL3J5YW5oYW53dS9Ib3ctVG8tQXNrLVF1ZXN0aW9ucy1UaGUtU21hcnQtV2F5L2Jsb2IvbWFzdGVyL1JFQURNRS16aF9DTi5tZA==&#34;&gt;提问的智慧&lt;/a&gt;》，这能更好的帮助你去解决问题和节约时间。诸如 “为什么不能使用？”、“那你能帮帮我吗？” 之类的问题并不能解决什么问题，你只能得到否定的回答。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;转自&lt;a href=&#34;https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html&#34;&gt;PETERX&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+">Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新）</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.20140117.xyz/post/shen-tian-yong-mei/"" data-c="

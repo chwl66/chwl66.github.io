@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>村哥</title>
-    <updated>2020-07-23T09:16:45.774Z</updated>
+    <updated>2020-07-25T13:11:09.846Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -10,6 +10,63 @@
     <logo>https://blog.20140117.xyz/images/avatar.png</logo>
     <icon>https://blog.20140117.xyz/favicon.ico</icon>
     <rights>All rights reserved 2020, 村哥</rights>
+    <entry>
+        <title type="html"><![CDATA[Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新）]]></title>
+        <id>https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/</id>
+        <link href="https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/">
+        </link>
+        <updated>2020-07-25T13:04:58.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>Aria2 有一个配置项 <code>on-download-complete</code>，在下载完后执行一个脚本。当下载完成后 Aria2 会给脚本传递 3 个变量 <code>$1</code>、<code>$2</code>、<code>$3</code> 分别为 gid 、文件数量、文件路径。利用这个配置项和这些变量就可以实现很多功能，比如下载完成后调用 Rclone 进行上传操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将这个文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现<s>伪</s>离线下载。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>VPS 是必须的，如果你还没有 VPS 推荐去看《<a href="https://p3terx.com/archives/cheap-and-costeffective-vps-recommended.html">便宜高性价比和白嫖 VPS 推荐</a>》，这里精选了博主这些年来使用过的好用的 VPS 。</p>
+<h2 id="安装-aria2">安装 Aria2</h2>
+<p>这里使用 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==">Aria2 一键安装管理脚本 增强版</a>，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 <code>1</code> 开始安装。</p>
+<pre><code class="language-none">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh
+</code></pre>
+<h2 id="安装和配置-rclone">安装和配置 Rclone</h2>
+<p>RCLONE 官方提供了<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24=">一键安装脚本</a>：</p>
+<pre><code class="language-none">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">Rclone 安装配置教程</a>》来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本">配置自动上传脚本</h2>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==">Aria2 一键安装管理脚本 增强版</a> 整合了 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMl9wZXJmZWN0X2NvbmZpZw==">Aria2 完美配置</a> ，安装后会附带一些附加功能脚本功能脚本，RCLONE 自动上传脚本就是其中之一。由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，一般只需要修改下面2个部分。</li>
+</ul>
+<pre><code class="language-none"># 网盘名称(RCLONE 配置时填写的 name)
+drive-name=OneDrive
+# 网盘目录。注释或留空为网盘根目录，末尾不要有斜杠。
+drive-dir=/DRIVEX/Download
+</code></pre>
+<blockquote>
+<p>nano 编辑器的操作方法参见《<a href="https://p3terx.com/archives/linux-nano-tutorial.html">Linux 下适合新手的文本编辑器 nano 使用教程</a>》</p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用<a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==">Aria2 一键安装管理脚本 增强版</a>中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</li>
+</ul>
+<pre><code class="language-none"># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<ul>
+<li>重启 Aria2</li>
+</ul>
+<pre><code class="language-none">service aria2 restart
+</code></pre>
+<h2 id="使用">使用</h2>
+<p>当你进行完以上所有操作，现在下载文件就会自动上传至相应的网盘，本地的文件也会自动删除。</p>
+<p>由于 Aria2 是命令行后端软件，需要配合前端 GUI 才能有更好的使用体验，对于从来没有接触过的萌新，建议去看《<a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">Aria2 前端面板 AriaNg 使用教程</a>》来了解相关基础知识。</p>
+<h2 id="遇到问题如何处理">遇到问题如何处理</h2>
+<p>严格按照教程来进行操作不会遇到问题，如果有问题那一定是你自身的问题，请仔细阅读教程中的每一个字。</p>
+<h3 id="faq">FAQ</h3>
+<p>遇到问题先看 <a href="https://p3terx.com/archives/aria2_perfect_config-faq.html">FAQ</a> ，这里记录了有关 Aria2 的常见问题与解决方案。</p>
+<h3 id="提问">提问</h3>
+<p>你可以选择加入 <a href="https://p3terx.com/go/aHR0cHM6Ly90Lm1lL2FyaWEyYw==">Aria2 TG 群</a>和小伙伴们一起讨论。要注意提问的方式和提供有用的信息。提问前最好去了解《<a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL3J5YW5oYW53dS9Ib3ctVG8tQXNrLVF1ZXN0aW9ucy1UaGUtU21hcnQtV2F5L2Jsb2IvbWFzdGVyL1JFQURNRS16aF9DTi5tZA==">提问的智慧</a>》，这能更好的帮助你去解决问题和节约时间。诸如 “为什么不能使用？”、“那你能帮帮我吗？” 之类的问题并不能解决什么问题，你只能得到否定的回答。</p>
+<blockquote>
+<p>转自<a href="https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html">PETERX</a></p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[深田咏美]]></title>
         <id>https://blog.20140117.xyz/post/shen-tian-yong-mei/</id>
@@ -1154,73 +1211,6 @@ on-download-complete=/root/rcloneupload.sh
 /etc/init.d/aria2 restart
 </code></pre>
 <h1 id="请开始你的表演">请开始你的表演</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Navicat全系产品激活的开源代码]]></title>
-        <id>https://blog.20140117.xyz/post/navicat-sign/</id>
-        <link href="https://blog.20140117.xyz/post/navicat-sign/">
-        </link>
-        <updated>2019-11-22T01:05:56.000Z</updated>
-        <content type="html"><![CDATA[<p>前一段儿时间我水了一篇文章介绍了PJ版本的Navicat，当时有大佬PM我，说有一个开源的注册机。当时也没时间测试一直没写文章！</p>
-<p>最近几天我的Navicat出问题了，打算新装一下！正好试一试这个开源代码！果然可行！！</p>
-<p>博主亲测：Navicat Premium 12.1.22 + Windows 10 X64 激活成功！</p>
-<h2 id="开源地址">开源地址</h2>
-<p><a href="https://github.com/DoubleLabyrinth/navicat-keygen">https://github.com/DoubleLabyrinth/navicat-keygen</a></p>
-<h2 id="软件下载">软件下载</h2>
-<p>访问 <a href="https://www.navicat.com.cn/products">https://www.navicat.com.cn/products</a>，选择自己需要的产品点击【免费试用】即可下载软件！</p>
-<h2 id="操作过程">操作过程</h2>
-<p>1）<a href="https://github.com/DoubleLabyrinth/navicat-keygen/releases">访问地址</a>，下载PJ程序！注意X64的系统要选择X64的软件！</p>
-<p>2）将软件包解压，将里面的2个文件复制到D盘！</p>
-<p>3）以管理员运行 CMD 命令（<strong>按Win + X，选择 命令提示符（管理员）</strong>）</p>
-<p>4）分别执行以下命令！其中第一条命令中引号中的内容伟Navicat安装目录！</p>
-<pre><code>navicat-patcher.exe &quot;C:\Program Files\PremiumSoft\Navicat Premium 12&quot;
-navicat-keygen.exe -text ./RegPrivateKey.pem
-</code></pre>
-<p>执行第二条命令后，选择产品和语言以及版本！最后生成一个激活码。</p>
-<pre><code>Select Navicat product:
-0. DataModeler
-1. Premium
-2. MySQL
-3. PostgreSQL
-4. Oracle
-5. SQLServer
-6. SQLite
-7. MariaDB
-8. MongoDB
-9. ReportViewer
- 
-(Input index)&amp;gt; 1
- 
-Select product language:
-0. English
-1. Simplified Chinese
-2. Traditional Chinese
-3. Japanese
-4. Polish
-5. Spanish
-6. French
-7. German
-8. Korean
-9. Russian
-10. Portuguese
- 
-(Input index)&amp;gt; 1
- 
-(Input major version number, range: 0 ~ 15, default: 12)&amp;gt; 12
- 
-Serial number:
-NAVO-2ORP-IN5A-GQEE
-</code></pre>
-<p>5）启动Navicat程序 – 菜单 – 帮助 – 注册。将序列号填入。</p>
-<p>6）电脑断网，然后点击【激活】- 选择【手动激活】会生成请求码</p>
-<p>7）将请求码复制到命令提示符框内，按<strong>2</strong>次回车！会生成激活码！</p>
-<p>8）将激活码复制到升级框内，点击【激活】，然后激活成功！</p>
-<figure data-type="image" tabindex="1"><img src="https://fbi.gs/2019/10/18/5da949517d237.png" alt="img" loading="lazy"></figure>
-<h2 id="注意事项">注意事项</h2>
-<p>1）之前使用其他破解版，需要卸载后重启电脑，然后删除原安装目录。</p>
-<p>2）操作过程中错误，从头再来一次即可。</p>
-<p>3）PJ输入的组织名不要太长！</p>
 ]]></content>
     </entry>
 </feed>

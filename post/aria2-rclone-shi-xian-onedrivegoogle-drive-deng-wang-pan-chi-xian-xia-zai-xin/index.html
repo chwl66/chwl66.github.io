@@ -8,7 +8,7 @@
 <meta name="keywords" content="村哥|个人博客|Gridea|工程人|一级建造师|工程狗|考证">
 <meta name="description" content="农村娃来到了深山里！">
 <meta name="theme-color" content="#000">
-<title>村哥</title>
+<title>Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新） | 村哥</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1595682658030">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
@@ -48,6 +48,8 @@
 </script>
 
 
+  <meta name="description" content="Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新）" />
+  <meta name="keywords" content="rclone,aria2,Google  Drive" />
 </head>
 
 <body>
@@ -182,8 +184,24 @@
     <div
       class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/images/avatar.png"/>
@@ -225,79 +243,443 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-aria2">安装 Aria2</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-rclone">安装和配置 Rclone</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E8%84%9A%E6%9C%AC">配置自动上传脚本</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8">使用</a></li>
+<li><a href="#%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">遇到问题如何处理</a>
+<ul>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#%E6%8F%90%E9%97%AE">提问</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box pisces box-shadow-wrapper">
-          <section class="friends-section bg-color slide-down-in">
-            <div class="firends-box">
-              <h1 class="firends-title" itemprop="name headline">友链</h1>
-              
-              
-              <a href="https://bk.20140117.xyz" target="_blank">
-                <div class="firends-item">
-                  <img src="https://dlolb.top/2020/04/09/d7c37d3ddce970aa.jpg" />
-                  <div class="right">
-                    <div class="top">
-                      吃喝玩乐
-                    </div>
-                    <div class="bottom">
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-              
-              <a href="https://dlolb.top" target="_blank">
-                <div class="firends-item">
-                  <img src="https://dlolb.top/2020/04/09/6b90ee3ec9a45216.png" />
-                  <div class="right">
-                    <div class="top">
-                      望眼欲穿
-                    </div>
-                    <div class="bottom">
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-              
-              
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
             </div>
-            <hr>
-            <div style="text-align:center">
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
-              <span class="language" data-lan="leave-message">留言添加友链</span>
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/">
+      Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新）
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span>2020-07-25</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://blog.20140117.xyz/tag/7y9dZZVUR/">
+        <span>rclone</span>
+      </a>、
+      
+      
+      
+      <a href="https://blog.20140117.xyz/tag/Bs_WIXcePd/">
+        <span>aria2</span>
+      </a>、
+      
+      
+      
+      <a href="https://blog.20140117.xyz/tag/3-SvigPicb/">
+        <span>Google  Drive</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>4<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>942<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/" data-flag-title="Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新）" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h2 id="前言">前言</h2>
+<p>Aria2 有一个配置项 <code>on-download-complete</code>，在下载完后执行一个脚本。当下载完成后 Aria2 会给脚本传递 3 个变量 <code>$1</code>、<code>$2</code>、<code>$3</code> 分别为 gid 、文件数量、文件路径。利用这个配置项和这些变量就可以实现很多功能，比如下载完成后调用 Rclone 进行上传操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将这个文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现<s>伪</s>离线下载。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>VPS 是必须的，如果你还没有 VPS 推荐去看《<a href="https://p3terx.com/archives/cheap-and-costeffective-vps-recommended.html">便宜高性价比和白嫖 VPS 推荐</a>》，这里精选了博主这些年来使用过的好用的 VPS 。</p>
+<h2 id="安装-aria2">安装 Aria2</h2>
+<p>这里使用 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==">Aria2 一键安装管理脚本 增强版</a>，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 <code>1</code> 开始安装。</p>
+<pre><code class="language-none">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh
+</code></pre>
+<h2 id="安装和配置-rclone">安装和配置 Rclone</h2>
+<p>RCLONE 官方提供了<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24=">一键安装脚本</a>：</p>
+<pre><code class="language-none">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">Rclone 安装配置教程</a>》来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本">配置自动上传脚本</h2>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==">Aria2 一键安装管理脚本 增强版</a> 整合了 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMl9wZXJmZWN0X2NvbmZpZw==">Aria2 完美配置</a> ，安装后会附带一些附加功能脚本功能脚本，RCLONE 自动上传脚本就是其中之一。由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，一般只需要修改下面2个部分。</li>
+</ul>
+<pre><code class="language-none"># 网盘名称(RCLONE 配置时填写的 name)
+drive-name=OneDrive
+# 网盘目录。注释或留空为网盘根目录，末尾不要有斜杠。
+drive-dir=/DRIVEX/Download
+</code></pre>
+<blockquote>
+<p>nano 编辑器的操作方法参见《<a href="https://p3terx.com/archives/linux-nano-tutorial.html">Linux 下适合新手的文本编辑器 nano 使用教程</a>》</p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用<a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA==">Aria2 一键安装管理脚本 增强版</a>中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</li>
+</ul>
+<pre><code class="language-none"># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<ul>
+<li>重启 Aria2</li>
+</ul>
+<pre><code class="language-none">service aria2 restart
+</code></pre>
+<h2 id="使用">使用</h2>
+<p>当你进行完以上所有操作，现在下载文件就会自动上传至相应的网盘，本地的文件也会自动删除。</p>
+<p>由于 Aria2 是命令行后端软件，需要配合前端 GUI 才能有更好的使用体验，对于从来没有接触过的萌新，建议去看《<a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">Aria2 前端面板 AriaNg 使用教程</a>》来了解相关基础知识。</p>
+<h2 id="遇到问题如何处理">遇到问题如何处理</h2>
+<p>严格按照教程来进行操作不会遇到问题，如果有问题那一定是你自身的问题，请仔细阅读教程中的每一个字。</p>
+<h3 id="faq">FAQ</h3>
+<p>遇到问题先看 <a href="https://p3terx.com/archives/aria2_perfect_config-faq.html">FAQ</a> ，这里记录了有关 Aria2 的常见问题与解决方案。</p>
+<h3 id="提问">提问</h3>
+<p>你可以选择加入 <a href="https://p3terx.com/go/aHR0cHM6Ly90Lm1lL2FyaWEyYw==">Aria2 TG 群</a>和小伙伴们一起讨论。要注意提问的方式和提供有用的信息。提问前最好去了解《<a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL3J5YW5oYW53dS9Ib3ctVG8tQXNrLVF1ZXN0aW9ucy1UaGUtU21hcnQtV2F5L2Jsb2IvbWFzdGVyL1JFQURNRS16aF9DTi5tZA==">提问的智慧</a>》，这能更好的帮助你去解决问题和节约时间。诸如 “为什么不能使用？”、“那你能帮帮我吗？” 之类的问题并不能解决什么问题，你只能得到否定的回答。</p>
+<blockquote>
+<p>转自<a href="https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html">PETERX</a></p>
+</blockquote>
+
             </div>
-            <hr>
-            <div class="friends-note">
-              <p><strong class="language" data-lan="format">友链格式：</strong></p>
-              <ul>
-                <li><span class="language" data-lan="site-name">网站名称：</span>村哥</li>
-                <li><span class="language" data-lan="site-link">网站地址：</span><a href="https://blog.20140117.xyz" data-pjax-state="">https://blog.20140117.xyz</a></li>
-                <li><span class="language" data-lan="site-desc">网站描述：</span>农村娃来到了深山里！</li>
-                <li><span class="language" data-lan="site-img">网站头像：</span>
-                  <a href="https://blog.20140117.xyz/images/avatar.png">https://blog.20140117.xyz/images/avatar.png</a>
-                </li>
-              </ul>
-            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      努力的村哥
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/" title="Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载（新）">https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://blog.20140117.xyz/tag/7y9dZZVUR/"># rclone</a>
+    
+      <a href="https://blog.20140117.xyz/tag/Bs_WIXcePd/"># aria2</a>
+    
+      <a href="https://blog.20140117.xyz/tag/3-SvigPicb/"># Google  Drive</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="深田咏美" href="https://blog.20140117.xyz/post/shen-tian-yong-mei/">深田咏美</a>
+        <a class="nav-mobile-next" title="深田咏美" href="https://blog.20140117.xyz/post/shen-tian-yong-mei/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+            
             
   <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
 <div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
@@ -348,7 +730,7 @@
   });
 </script>
 
-          </section>
+          </div>
         </div>
       </div>
     </div>
@@ -1075,6 +1457,253 @@
   }
 
 </script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -2934,6 +3563,5 @@ NAVO-2ORP-IN5A-GQEE
 
 
 <script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/js/cool.js"></script>
-
 
 </html>
