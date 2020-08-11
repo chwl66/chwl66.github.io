@@ -9,7 +9,7 @@
 <meta name="description" content="农村娃来到了深山里！">
 <meta name="theme-color" content="#000">
 <title>村哥</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1595682658030">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1597128826179">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -200,7 +200,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-count">12</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -251,6 +251,8 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
       
       
       
@@ -1087,7 +1089,7 @@
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -1101,6 +1103,139 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.20140117.xyz/post/gu-ge-bai-bao-xiang-gd-utils-da-jian-jiao-cheng/"" data-c="
+          &lt;h1 id=&#34;引言废话&#34;&gt;引言(废话)&lt;/h1&gt;
+&lt;p&gt;在Google Drive百宝箱即gd-utils出现以前，主流的谷歌云盘转存方案有三个，分别是FolderClone, AutoClone, gclone。严格来说gclone应当指Rclone的增强版，但是gclone搭配autoclone试下实现的autoclone增强版也被简单地称之为gclone。&lt;/p&gt;
+&lt;p&gt;gd-utils由何从大佬开发而成，项目地址：https://github.com/iwestlin/gd-utils gd-utils最初是一个统计Google Drive文件信息的项目，后来加入转存和Telegram机器人功能，形成了现在的Google Drive百宝箱。&lt;/p&gt;
+&lt;p&gt;gd-utils相比于其他三种转存方案具有以下优势：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更快的转存速度，具体可看GitHub项目页面的对比&lt;/li&gt;
+&lt;li&gt;具有统计功能，可统计任意具有访问权限的文件信息&lt;/li&gt;
+&lt;li&gt;可搭建tg_bot，直接发送链接给tg_bot即可进行搬运或者统计文件信息&lt;/li&gt;
+&lt;li&gt;更简单的操作逻辑，tg_bot自不必说，命令行操作也被大大简化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于之前已经使用过前三种转存方案的，应当已经生成过Service Account（下简称SA）的授权文件，搭建gd_utils就会十分简单，只需在安装好gd_utils后将SA的授权文件放入gd_utils目录下的sa文件夹即可。对于之前没有生成过SA授权文件的，需要增加一步生成授权文件的步骤。&lt;/p&gt;
+&lt;p&gt;视频版教程：https://youtu.be/UH0CW86V2hw&lt;br&gt;
+Telegram交流群：https://t.me/joinchat/H5PXokpGVE7to41XsqFhsA&lt;/p&gt;
+&lt;h1 id=&#34;准备工作&#34;&gt;准备工作&lt;/h1&gt;
+&lt;p&gt;**SA获取教程：&lt;strong&gt;https://qianjie.space/posts/32e66009.html&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;推荐SSH工具：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;FinalShell&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mac安装链接：&lt;a href=&#34;http://www.hostbuf.com/downloads/finalshell_install.pkg&#34;&gt;FinalShell For Mac&lt;/a&gt;&lt;br&gt;
+Win安装链接：&lt;a href=&#34;http://www.hostbuf.com/downloads/finalshell_install.exe&#34;&gt;FinalShell For Win&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Xshell + Xftp (仅支持Win平台)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;安装链接：&lt;a href=&#34;https://www.netsarang.com/zh/free-for-home-school/&#34;&gt;Xshell &amp;amp; Xftp&lt;/a&gt;&lt;br&gt;
+Xshell &amp;amp; Xftp对个人免费提供，填入姓名与邮箱即可收到下载链接&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;PS: 懒得折腾的可以选择安装无需域名和nginx的分支版。优点是无需申请域名配置解析，bot更容易安装，缺点是功能更新和bug修复存在滞后，后期维护要看分支版作者的勤奋程度了。&lt;/p&gt;
+&lt;p&gt;一键安装脚本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/dissipator/gd-utils/master/gdutilsinstall.sh )&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果安装成功后bot使用时报如下错误：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://s1.ax1x.com/2020/07/31/al3BeP.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;请执行如下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /root/gd-utils
+pm2 reload index
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
+&lt;p&gt;VPS安装可以使用oneking大佬的一键安装脚本，已适配Ubuntu，Debian，CentOS等主流Linux系统。使用方法：只需复制以下链接到VPS命令行窗口粘贴回车即可以执行。&lt;/p&gt;
+&lt;h2 id=&#34;gdutils项目转存查询部分安装&#34;&gt;gdutils项目转存查询部分安装&lt;/h2&gt;
+&lt;h3 id=&#34;vps执行以下代码&#34;&gt;VPS执行以下代码：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilsinstall.sh)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;转存部分很容易安装成功，安装成功后如不需要Bot可按下Ctrl+C退出，并上传SA授权文件至sa文件夹下即可使用，如需安装Bot按下任意键开始部署，部署说明参考下文。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://s1.ax1x.com/2020/08/01/a3ebQ0.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;上传sa授权文件至sa文件夹&#34;&gt;上传SA授权文件至sa文件夹：&lt;/h3&gt;
+&lt;p&gt;之前安装过&lt;code&gt;gclone&lt;/code&gt;，&lt;code&gt;Autoclone&lt;/code&gt;或者&lt;code&gt;FolderClone&lt;/code&gt;的可以在相应安装目录下的&lt;code&gt;account&lt;/code&gt;文件夹下找到SA授权文件，利用推荐的Shell工具可以很方便的上传到&lt;code&gt;gd-utils&lt;/code&gt;的&lt;code&gt;sa&lt;/code&gt;目录下。&lt;/p&gt;
+&lt;h2 id=&#34;gdutils项目一键部署脚本之tg机器人部分&#34;&gt;gdutils项目一键部署脚本之“Tg机器人部分”&lt;/h2&gt;
+&lt;p&gt;百宝箱的bot部分却比较复杂，相当一部分人会部署失败。&lt;/p&gt;
+&lt;h3 id=&#34;准备工作-2&#34;&gt;准备工作&lt;/h3&gt;
+&lt;p&gt;首先你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：&lt;a href=&#34;http://localhost:4000/posts/23838298.html&#34;&gt;申请免费域名并配置Cloudflare解析&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;添加域名解析，假设你申请的域名为abc.com，则：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类型：A&lt;br&gt;
+名称：bot (自定义前缀)&lt;br&gt;
+IPv4地址：VPS公网IP&lt;br&gt;
+代理状态：橙色云（已代理）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://s1.ax1x.com/2020/08/01/a3r7sx.png&#34; alt=&#34;域名解析&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;域名解析&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;SSL/TLS设置为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;灵活
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://s1.ax1x.com/2020/07/29/aZiEwQ.png&#34; alt=&#34;SSL/TLS设置&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;SSL/TLS设置&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;tg_bot安装&#34;&gt;Tg_Bot安装&lt;/h2&gt;
+&lt;h4 id=&#34;安装脚本&#34;&gt;安装脚本：&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilsbotinstall.sh)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;tg_bot配置过程中需要输入以下四个参数&#34;&gt;TG_Bot配置过程中需要输入以下四个参数：&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;机器人TOKEN&lt;/strong&gt;：这个在Telegram里面找&lt;a href=&#34;https://t.me/botfather&#34;&gt;@BotFather&lt;/a&gt;注册即可获得&lt;br&gt;
+&lt;strong&gt;Telegram用户ID&lt;/strong&gt;：在Telegram里面向机器人&lt;a href=&#34;https://t.me/userinfobot&#34;&gt;@userinfobot&lt;/a&gt;发送消息即可获得&lt;br&gt;
+&lt;strong&gt;Google team drive ID&lt;/strong&gt;：即为你转存文件的默认地址，脚本强制要求写谷歌团队盘ID。此ID仅作为默认转存ID，转存时你也可以选择其他添加过sa成员的团队盘作为目标盘。&lt;br&gt;
+&lt;strong&gt;域名&lt;/strong&gt;：你在cloudflare上解析到VPS的域名（例如：bot.abc.com）&lt;br&gt;
+脚本安装问题请发邮件： &lt;a href=&#34;mailto:vitaminor@gmail.com&#34;&gt;vitaminor@gmail.com&lt;/a&gt;&lt;br&gt;
+&lt;img src=&#34;https://s1.ax1x.com/2020/07/30/anE1yR.png&#34; alt=&#34;机器人TOKEN示例&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;strong&gt;机器人TOKEN示例&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://s1.ax1x.com/2020/07/30/anANxs.png&#34; alt=&#34;Telegram用户ID示例&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;strong&gt;Telegram用户ID示例&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://s1.ax1x.com/2020/07/30/anE6Tf.png&#34; alt=&#34;Google team drive ID示例&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;strong&gt;Google team drive ID示例&lt;/strong&gt;&lt;br&gt;
+部署完成后给机器人发&lt;code&gt;/help&lt;/code&gt;若正常返回帮助信息说明已部署成功，但是可能发生命令行操作可正常统计转存，bot却提示没有可用的SA，执行以下命令即可正常使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /root/gd-utils
+pm2 reload server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此时bot并不会开机自启，VPS重启后bot会没有反应，执行以下代码配置开机自启&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pm2 save
+pm2 startup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;常见问题&#34;&gt;常见问题&lt;/h1&gt;
+&lt;h5 id=&#34;命令行如何操作&#34;&gt;命令行如何操作：&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;cd /root/gd-utils
+./copy 源ID 目标ID -S  //转存命令
+./count ID -S  //统计命令
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;更新代码&#34;&gt;更新代码：&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;cd /root/gd-utils
+git pull &amp;amp;&amp;amp; pm2 reload server   //如果未配置机器人可以只执行git pull
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;vps重启后bot失效&#34;&gt;VPS重启后Bot失效：&lt;/h5&gt;
+&lt;p&gt;重启后bot失效是因为没有配置自启动，若已失效，请先启动&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;##原版启动命令
+cd /root/gd-utils &amp;amp;&amp;amp; pm2 start server.js
+##不使用域名分支版启动命令
+cd /root/gd-utils &amp;amp;&amp;amp; pm2 start index.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置开机自启：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pm2 save
+pm2 startup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;sa不可用&#34;&gt;SA不可用：&lt;/h5&gt;
+&lt;p&gt;如果你看到如下报错，则说明有不可用的SA或者其他奇怪的东西混入sa文件夹了。&lt;br&gt;
+&lt;img src=&#34;https://s1.ax1x.com/2020/07/29/aZBSqP.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+此时你需要选择一个你的sa拥有阅读权限的目录ID，并执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./validate-sa.js 你的目录ID
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+">谷歌百宝箱gd-utils搭建教程</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.20140117.xyz/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai-xin/"" data-c="
@@ -2794,6 +2929,28 @@ NAVO-2ORP-IN5A-GQEE
 
 <input hidden id="copy" />
 <script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
   let language = '';
   if (language !== '') {
     let map = new Map();
@@ -2943,6 +3100,8 @@ NAVO-2ORP-IN5A-GQEE
 
 
 <script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/js/cool.js"></script>
+
+
 
 
 </html>
