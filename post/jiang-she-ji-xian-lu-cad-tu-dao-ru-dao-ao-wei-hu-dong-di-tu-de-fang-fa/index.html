@@ -8,7 +8,7 @@
 <meta name="keywords" content="村哥|个人博客|Gridea|工程人|一级建造师|工程狗|考证">
 <meta name="description" content="农村娃来到了深山里！">
 <meta name="theme-color" content="#000">
-<title>村哥</title>
+<title>将设计线路CAD图导入到奥维互动地图的方法 | 村哥</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1603264654065">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
@@ -48,6 +48,8 @@
 </script>
 
 
+  <meta name="description" content="将设计线路CAD图导入到奥维互动地图的方法" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -180,10 +182,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  pisces">
+      class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/images/avatar.png"/>
@@ -225,132 +243,500 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E7%94%9F%E6%88%90dxf%E6%A0%BC%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%BA%BF%E8%B7%AF%E5%9B%BE"><strong>一、生成dxf格式设计线路图</strong></a></li>
+<li><a href="#%E4%BA%8C-%E5%B0%86%E8%AE%BE%E8%AE%A1%E7%BA%BF%E8%B7%AF%E5%9B%BE%E5%AF%BC%E5%85%A5%E5%88%B0%E5%A5%A5%E7%BB%B4%E4%BA%92%E5%8A%A8%E5%9C%B0%E5%9B%BE%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD"><strong>二、将设计线路图导入到奥维互动地图浏览器中</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          上传
-          <small class="language" data-lan="tag">标签</small>
-        </h2>
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://blog.20140117.xyz/post/typecho-pic/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              11-30
-              <small>typecho增加上传图片按钮到图床</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://blog.20140117.xyz/post/jiang-she-ji-xian-lu-cad-tu-dao-ru-dao-ao-wei-hu-dong-di-tu-de-fang-fa/">
+      将设计线路CAD图导入到奥维互动地图的方法
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2020-10-21 15:15:12">2020-10-21</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>5<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1320<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/jiang-she-ji-xian-lu-cad-tu-dao-ru-dao-ao-wei-hu-dong-di-tu-de-fang-fa/" data-flag-title="将设计线路CAD图导入到奥维互动地图的方法" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <p>将设计线路CAD图导入到奥维互动地图的方法</p>
+<p>**概要：**奥维互动地图是第三方地图浏览器做的非常不错的软件，同时支持多种知名地图，三维地图，地理规划，位置与轨迹分享等，可以同时在电脑端和手机上浏览，在电脑端将文件整理好后再同步到手机上即可浏览，下面给大家讲解一下如何将设计线路CAD图导入到奥维互动地图浏览器中。</p>
+<p><strong>准备工具：</strong></p>
+<p><strong>1、奥维互动浏览器（windows客户端、android客户端或iOS客户端）</strong></p>
+<p>下载地址：</p>
+<p>http://www.fffsky.com/blog/post/ovital.html</p>
+<p><strong>2、测量坐标计算程序V5</strong></p>
+<p>下载地址：</p>
+<p>http://www.fffsky.com/blog/post/VBA_Survey_V5.html</p>
+<p><strong>3、AutoCAD 2007</strong></p>
+<p>下载地址：</p>
+<p>http://www.fffsky.com/survey/soft</p>
+<p><strong>4、设计曲线要素</strong></p>
+<p>下载地址：本文附件</p>
+<p><strong>5、设计控制点（平面坐标及经纬度）</strong></p>
+<p>下载地址：本文附件</p>
+<p>奥维互动地图导入CAD图形时可以支持<strong>北京54坐标</strong>、<strong>西安80坐标</strong>、<strong>CGCS2000坐标</strong>及默认<strong>WGS84坐标</strong>，导入CAD图通过关联点匹配，本文以奥维互动地图默认坐标系<strong>WGS84</strong>椭球为基准讲解方法。</p>
+<p>测试版本：奥维互动地图浏览器(V6.6.8 X64)</p>
+<p>操作步骤：</p>
+<h3 id="一-生成dxf格式设计线路图"><strong>一、生成dxf格式设计线路图</strong></h3>
+<p>生成dxf设计线路图的方法是通过“测量坐标计算程序V5”做成scr脚本文件再通过AutoCAD展点成图，其方法如下：</p>
+<p>双击“测量坐标计算程序V5.xlsm”运行该程序</p>
+<figure data-type="image" tabindex="1"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/9854ff71ad165.jpeg" alt="beepress-image-2-3-0-2526-1507899768-1.jpeg" loading="lazy"></figure>
+<p>Office excel 2010以上版本会提示启用宏，点击“启用内容”或者把安全级别设置中或低即可运行“<strong>具体启用方法请参考测量坐标计算程序V5说明</strong>”。</p>
+<figure data-type="image" tabindex="2"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/afb5a45f1c4b8.jpeg" alt="beepress-image-2-3-0-2526-1507899769.jpeg" loading="lazy"></figure>
+<p>启用内容后弹出程序界面，点击“交点法坐标”——“曲线要素表”。</p>
+<figure data-type="image" tabindex="3"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/fe13e63ae5d6e.jpeg" alt="beepress-image-2-3-0-2526-1507899769-1.jpeg" loading="lazy"></figure>
+<p>进入曲线要素表输入完毕“交点里程、交点坐标、曲线半径、缓和曲线”等内容后点击“进入直曲表”按钮。</p>
+<figure data-type="image" tabindex="4"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/a0c71e8f8ff72.jpeg" alt="beepress-image-2-3-0-2526-1507899770.jpeg" loading="lazy"></figure>
+<p>进入直曲表后会提示点击“生成要素”按钮。</p>
+<figure data-type="image" tabindex="5"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/64eb06e6ca1c0.jpeg" alt="beepress-image-2-3-0-2526-1507899770-1.jpeg" loading="lazy"></figure>
+<p>直曲表生成完毕后进入交点法坐标“坐标正算”表格。</p>
+<figure data-type="image" tabindex="6"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e2e329b488029.jpeg" alt="beepress-image-2-3-0-2526-1507899770-2.jpeg" loading="lazy"></figure>
+<p>进入“交点法坐标”的“坐标正算”表格后点击“自动生成坐标”按钮，间距根据自己要求输入，默认值也可以。</p>
+<figure data-type="image" tabindex="7"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/d010dff784551.jpeg" alt="beepress-image-2-3-0-2526-1507899771.jpeg" loading="lazy"></figure>
+<p>坐标生成完毕点击右上角“导出中桩脚本SCR”按钮。</p>
+<figure data-type="image" tabindex="8"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e911751f0bddc.jpeg" alt="beepress-image-2-3-0-2526-1507899771-1.jpeg" loading="lazy"></figure>
+<p>提示输入前缀：可以输入DK或K等自定义字符。</p>
+<figure data-type="image" tabindex="9"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/6ac5118c43b17.jpeg" alt="beepress-image-2-3-0-2526-1507899771-2.jpeg" loading="lazy"></figure>
+<p>导出成功会提示保存路径。</p>
+<figure data-type="image" tabindex="10"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/1043e1b939958.jpeg" alt="beepress-image-2-3-0-2526-1507899771-3.jpeg" loading="lazy"></figure>
+<p>启动AutoCAD2007软件。</p>
+<figure data-type="image" tabindex="11"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/de92d1d217c6a.jpeg" alt="beepress-image-2-3-0-2526-1507899772.jpeg" loading="lazy"></figure>
+<p>在顶部点击“工具”——运行脚本——选择“交点法坐标.scr”脚本文件——打开。</p>
+<figure data-type="image" tabindex="12"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/faee8a178de38.jpeg" alt="beepress-image-2-3-0-2526-1507899772-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/1c76c9c115f35.jpeg" alt="beepress-image-2-3-0-2526-1507899772-2.jpeg" loading="lazy"></figure>
+<p>图形展点生成完毕后按下enter键确定，然后输入ZOOM——enter键——E——enter键——enter键，显示范围图形。</p>
+<figure data-type="image" tabindex="14"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/5b6f20000d56a.jpeg" alt="beepress-image-2-3-0-2526-1507899773.jpeg" loading="lazy"></figure>
+<p>点击“文件”——另存为——输入文件名，文件类型：<strong>AutoCAD2007 DXF</strong>（*.dxf）——保存。</p>
+<figure data-type="image" tabindex="15"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/0f598d5cb5381.jpeg" alt="beepress-image-2-3-0-2526-1507899773-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/f1dc48280a9e6.jpeg" alt="beepress-image-2-3-0-2526-1507899774.jpeg" loading="lazy"></figure>
+<h3 id="二-将设计线路图导入到奥维互动地图浏览器中"><strong>二、将设计线路图导入到奥维互动地图浏览器中</strong></h3>
+<p>启动奥维互动地图浏览器——点击系统——选择导入对象。</p>
+<figure data-type="image" tabindex="17"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/2a753db1d63de.jpeg" alt="beepress-image-2-3-0-2526-1507899774-1.jpeg" loading="lazy"></figure>
+<p>选择生成的“线路设计图.dxf”图形文件——打开。</p>
+<figure data-type="image" tabindex="18"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/0111c21e7ee51.jpeg" alt="beepress-image-2-3-0-2526-1507899775.jpeg" loading="lazy"></figure>
+<p>此时弹出解析文件对话框，选择“关联点转换坐标”——方案管理。</p>
+<figure data-type="image" tabindex="19"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/7088deaafb2ef.jpeg" alt="beepress-image-2-3-0-2526-1507899775-1.jpeg" loading="lazy"></figure>
+<p>点击“添加”——输入关联点名称——添加关联点——添加。</p>
+<figure data-type="image" tabindex="20"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/3d58578346abf.jpeg" alt="beepress-image-2-3-0-2526-1507899776.jpeg" loading="lazy"></figure>
+<p><strong>提示：本文以WGS84椭球作为讲解，所以选择默认，如果您的坐标类型不属于WGS84需要选择对应的坐标类型。</strong></p>
+<figure data-type="image" tabindex="21"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/efd2a864ac097.jpeg" alt="beepress-image-2-3-0-2526-1507899776-1.jpeg" loading="lazy"></figure>
+<p>我们将准备的控制点坐标添加到关联点中。</p>
+<p><strong>在添加控制点时采用的是经纬度和平面坐标，需要将控制点坐标转换为经纬度（度）格式</strong>再添加，其坐标转换软件如下：</p>
+<p>测量坐标转换软件下载地址：</p>
+<p>http://www.fffsky.com/blog/post/survey_xyz_Coord.html</p>
+<figure data-type="image" tabindex="22"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/c1c6779a4a726.jpeg" alt="beepress-image-2-3-0-2526-1507899776-2.jpeg" loading="lazy"></figure>
+<p>添加关联点时XY坐标需要调换输入， 因为CAD属于数学坐标系，数学坐标系和测量坐标系相反——添加至少3个关联点——确定。</p>
+<figure data-type="image" tabindex="23"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/6610e9e86a733.jpeg" alt="beepress-image-2-3-0-2526-1507899777.jpeg" loading="lazy"></figure>
+<p>关联点添加完毕后在前面方框打勾——确定。</p>
+<figure data-type="image" tabindex="24"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/7b1c0b5a5519b.jpeg" alt="beepress-image-2-3-0-2526-1507899777-1.jpeg" loading="lazy"></figure>
+<p>点击保存按钮“<strong>注意选择坐标类型</strong>”，WGS84椭球坐标类型选择：默认。</p>
+<p>中央经线：一般是中央子午线，由于关联点采用的方法属于坐标平移旋转经测试输入中央经线与输入0导入的图形位置没有区别。</p>
+<figure data-type="image" tabindex="25"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/74efd49d220e8.jpeg" alt="beepress-image-2-3-0-2526-1507899778.jpeg" loading="lazy"></figure>
+<p>选中添加的方案点击“更新”按钮——确定——关闭。</p>
+<figure data-type="image" tabindex="26"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e45fe801ebb43.jpeg" alt="beepress-image-2-3-0-2526-1507899779.jpeg" loading="lazy"></figure>
+<p>当前方案：选择添加的“铁四院控制点”方案——应用到系统设置——是。</p>
+<figure data-type="image" tabindex="27"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/0a0388a601afa.jpeg" alt="beepress-image-2-3-0-2526-1507899780.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="28"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/1600573a53b60.jpeg" alt="beepress-image-2-3-0-2526-1507899780-1.jpeg" loading="lazy"></figure>
+<p>点击“开始解析”——导入。</p>
+<figure data-type="image" tabindex="29"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/fba68d689c54b.jpeg" alt="beepress-image-2-3-0-2526-1507899780-2.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="30"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/c37094432ec96.jpeg" alt="beepress-image-2-3-0-2526-1507899781.jpeg" loading="lazy"></figure>
+<p>导入到奥维互动地图的设计线路图，由于图片分辨率较低所以看起来有些模糊，放大后可以看清楚。</p>
+<figure data-type="image" tabindex="31"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e49a5b8ad7774.jpeg" alt="beepress-image-2-3-0-2526-1507899781-1.jpeg" loading="lazy"></figure>
+<p>当图级放大到20级后的设计线路图及里程。</p>
+<figure data-type="image" tabindex="32"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/bbfa472d14069.jpeg" alt="beepress-image-2-3-0-2526-1507899782.jpeg" loading="lazy"></figure>
+<p>在收藏夹中点击标签“里程”显示（图级：23级）效果图示如下：</p>
+<figure data-type="image" tabindex="33"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/bc047f7f81511.jpeg" alt="beepress-image-2-3-0-2526-1507899782-1.jpeg" loading="lazy"></figure>
+<p>提示：将设计线路图同步到手机上后会提示“自定义风格无法显示”，是因为免费用户无法使用自定义图标，所以手机上显示的里程不与线路垂直，可以正常显示。</p>
+<figure data-type="image" tabindex="34"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/39b4cc13df190.jpeg" alt="beepress-image-2-3-0-2526-1507899783.jpeg" loading="lazy"></figure>
+<p>在手机上显示的设计线路图，图示如下：</p>
+<figure data-type="image" tabindex="35"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/2320918834a47.jpeg" alt="beepress-image-2-3-0-2526-1507899783-1.jpeg" loading="lazy"></figure>
+
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      努力的村哥
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://blog.20140117.xyz/post/jiang-she-ji-xian-lu-cad-tu-dao-ru-dao-ao-wei-hu-dong-di-tu-de-fang-fa/" title="将设计线路CAD图导入到奥维互动地图的方法">https://blog.20140117.xyz/post/jiang-she-ji-xian-lu-cad-tu-dao-ru-dao-ao-wei-hu-dong-di-tu-de-fang-fa/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="谷歌百宝箱gd-utils搭建教程" href="https://blog.20140117.xyz/post/gu-ge-bai-bao-xiang-gd-utils-da-jian-jiao-cheng/">谷歌百宝箱gd-utils搭建教程</a>
+        <a class="nav-mobile-next" title="谷歌百宝箱gd-utils搭建教程" href="https://blog.20140117.xyz/post/gu-ge-bai-bao-xiang-gd-utils-da-jian-jiao-cheng/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'swm1ycg4Wof7eus8Ouoar4aT-MdYXbMMI',
+    appKey: '9TDzLmmh8IoLNFaziOrIdlrq',
+    avatar: '',
+    placeholder: '欢迎留下你的足迹！',
+    pageSize: '20',
+    lang: 'zh-cn',
+    enableQQ: 'true' === 'false',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
         </div>
       </div>
     </div>
@@ -1077,6 +1463,253 @@
   }
 
 </script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -3188,7 +3821,6 @@ NAVO-2ORP-IN5A-GQEE
 
 
 <script src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/js/cool.js"></script>
-
 
 
 
