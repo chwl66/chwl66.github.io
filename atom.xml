@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>村哥</title>
-    <updated>2020-10-21T07:46:16.609Z</updated>
+    <updated>2020-11-07T03:23:09.010Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://blog.20140117.xyz/images/avatar.png</logo>
     <icon>https://blog.20140117.xyz/favicon.ico</icon>
     <rights>All rights reserved 2020, 村哥</rights>
+    <entry>
+        <title type="html"><![CDATA[大临结构计算]]></title>
+        <id>https://blog.20140117.xyz/post/da-lin-jie-gou-ji-suan/</id>
+        <link href="https://blog.20140117.xyz/post/da-lin-jie-gou-ji-suan/">
+        </link>
+        <updated>2020-11-07T03:01:34.000Z</updated>
+        <content type="html"><![CDATA[<p><video src="https://kcdn.ltyuanfang.cn/yun/118/5f9f7545582ecCLSUFF【桥隧】《大临结构设计计算》_10.mp4" controls="controls" width="500" height="300">您的浏览器不支持播放该视频！</video></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[将设计线路CAD图导入到奥维互动地图的方法]]></title>
         <id>https://blog.20140117.xyz/post/jiang-she-ji-xian-lu-cad-tu-dao-ru-dao-ao-wei-hu-dong-di-tu-de-fang-fa/</id>
@@ -925,156 +934,6 @@ jQuery(document).ready(function($) {
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;(JS文件路径)&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>暂时只说这么多，修改方案很多由<a href="https://mikuac.com/">Zero博主</a>提供，还有通过本博客联系作者购买<code>Handsome</code>主题的，可打<code>9</code>折优惠。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WordPress添加“上传到Chevereto图床”按钮]]></title>
-        <id>https://blog.20140117.xyz/post/wordpress-chevereto/</id>
-        <link href="https://blog.20140117.xyz/post/wordpress-chevereto/">
-        </link>
-        <updated>2019-12-01T15:20:04.000Z</updated>
-        <content type="html"><![CDATA[<p>前段时间搭建了 Chevereto 图床，但在 WordPress 编辑器里需要上传图片的时候，需要另外打开图床上传比较麻烦。这时候可以在 WordPress 的编辑器里添加个上传按钮，利用 API 上传到 Chevereto 图床，这样上传图片到图床就方便啦！</p>
-<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2019/12/01/Qmrvq0.png" alt="Qmrvq0.png" loading="lazy"></figure>
-<p>下面我把详细啊方法记录一下：</p>
-<h3 id="chevereto">Chevereto</h3>
-<p>获取 API KEY: 登录，转到 <code>仪表盘-设置-API</code>，将  <code>API v1 key</code>  记录下来;</p>
-<p>API 后端设置: 进入 Chevereto 的安装目录，将 <code>app/routes/route.api.php</code> 文件拷贝到 <code>app/routes/overrides/route.api.php</code> 文件;</p>
-<p>允许跨域: 打开 <code>app/routes/overrides/route.api.php</code>，添加</p>
-<pre><code>header('Access-Control-Allow-Origin: https://spiritx.xyz');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type, Accept, Authorization, X-Requested-With, Origin, Accept');
-</code></pre>
-<p>记得把白名单 <code>https://spiritx.xyz</code> 改成自己的域名或者改成* （所有域名可用）；</p>
-<p>设置 API user(可选): 在 <code>app/routes/overrides/route.api.php</code> 中，找到<code>$uploaded_id = CHV\Image::uploadToWebsite($source);</code>那一行，更改为</p>
-<pre><code>$uploaded_id = CHV\Image::uploadToWebsite($source,admin);
-</code></pre>
-<p>将 admin 替换为图床中的用户;</p>
-<h3 id="wordpress-53版本以下用">WordPress 5.3版本以下用</h3>
-<p>前端添加上传按钮(media button)： 将以下代码添加到<a href="https://www.yunloc.com/tag/wordpress">WordPress</a>正在使用的主题目录的 functions.php 中</p>
-<pre><code>//添加图床上传按钮
-add_action('media_buttons', 'add_my_media_button');
-function add_my_media_button() {
-    $currentUser = wp_get_current_user();
-        if(!empty($currentUser-&gt;roles) &amp;&amp; in_array('administrator', $currentUser-&gt;roles)){
-            $DOMAIN=&quot;图床的域名&quot;;
-            $APIkey=&quot;图床的API v1 key&quot;;// 是管理员
-        }
-        else
-            return 0;  // 非管理员
-    echo '
-            &lt;input id=&quot;up_to_chevereto&quot; type=&quot;file&quot; accept=&quot;image/*&quot; multiple=&quot;multiple&quot;/&gt;
-            &lt;label for=&quot;up_to_chevereto&quot; id=&quot;up_img_label&quot;&gt;&lt;i class=&quot;fa fa-picture-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传图片到Chevereto&lt;/label&gt;
-          ';
-?&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-#up_to_chevereto {
-  display: none;
-}
-#up_img_label {
-  color: #fff;
-  background-color: #16a085;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 5.2px;
-}
-&lt;/style&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-$('#up_to_chevereto').change(function() {
-  window.wpActiveEditor = null;
-  for (var i = 0; i &lt; this.files.length; i++) {
-    var f=this.files[i];
-    var formData=new FormData();
-    formData.append('source',f);
-    $.ajax({
-        async:true,
-        crossDomain:true,
-        url:'https://&lt;?php echo $DOMAIN; ?&gt;/api/1/upload/?key=&lt;?php echo $APIkey; ?&gt;&amp;format=json',
-        type : 'POST',
-        processData : false,
-        contentType : false,
-        data:formData,
-        beforeSend: function (xhr) {
-            $('#up_img_label').html('&lt;i class=&quot;fa fa-spinner rotating&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Uploading...');
-        },
-        success:function(res){
-            wp.media.editor.insert('&lt;a href='+res.image.url+'&gt;&lt;img src='+res.image.url+' alt='+res.image.title+'&gt;&lt;/img&gt;&lt;/a&gt;');
-            $(&quot;#up_img_label&quot;).html('&lt;i class=&quot;fa fa-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传成功,继续上传');
-        },
-        error: function (){
-            $(&quot;#up_img_label&quot;).html('&lt;i class=&quot;fa fa-times&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传失败，重新上传');
-        }
-    });
-  }
-});
-&lt;/script&gt;
-&lt;?php
-}
-</code></pre>
-<h3 id="wordpress-53版本用">WordPress 5.3版本用</h3>
-<pre><code>//添加图床上传按钮
-add_action('media_buttons', 'add_my_media_button');
-function add_my_media_button() {
-    $currentUser = wp_get_current_user();
-        if(!empty($currentUser-&gt;roles) &amp;&amp; in_array('administrator', $currentUser-&gt;roles)){
-            $DOMAIN=&quot;图床的域名&quot;;
-            $APIkey=&quot;图床的API v1 key&quot;;// 是管理员
-        }
-        else
-            return 0;  // 非管理员
-    echo '
-            &lt;input id=&quot;up_to_chevereto&quot; type=&quot;file&quot; accept=&quot;image/*&quot; multiple=&quot;multiple&quot;/&gt;
-            &lt;label for=&quot;up_to_chevereto&quot; id=&quot;up_img_label&quot;&gt;&lt;i class=&quot;fa fa-picture-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传图片到Chevereto&lt;/label&gt;
-          ';
-?&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-#up_to_chevereto {
-  display: none;
-}
-#up_img_label {
-  color: #fff;
-  background-color: #16a085;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 5.2px;
-}
-&lt;/style&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-jQuery('#up_to_chevereto').change(function() {
-  window.wpActiveEditor = null;
-  for (var i = 0; i &lt; this.files.length; i++) {
-    var f=this.files[i];
-    var formData=new FormData();
-    formData.append('source',f);
-    jQuery.ajax({
-        async:true,
-        crossDomain:true,
-        url:'https://&lt;?php echo $DOMAIN; ?&gt;/api/1/upload/?key=&lt;?php echo $APIkey; ?&gt;&amp;format=json',
-        type : 'POST',
-        processData : false,
-        contentType : false,
-        data:formData,
-        beforeSend: function (xhr) {
-            jQuery('#up_img_label').html('&lt;i class=&quot;fa fa-spinner rotating&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Uploading...');
-        },
-        success:function(res){
-            wp.media.editor.insert('&lt;a href='+res.image.url+'&gt;&lt;img src='+res.image.url+' alt='+res.image.title+'&gt;&lt;/img&gt;&lt;/a&gt;');
-            jQuery(&quot;#up_img_label&quot;).html('&lt;i class=&quot;fa fa-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传成功,继续上传');
-        },
-        error: function (){
-            jQuery(&quot;#up_img_label&quot;).html('&lt;i class=&quot;fa fa-times&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传失败，重新上传');
-        }
-    });
-  }
-});
-&lt;/script&gt;
-&lt;?php
-}
-</code></pre>
-<p>style里的样式可以根据自己偏好自定义</p>
-<h3 id="使用预览">使用预览</h3>
-<p>这里我的编辑器用的是WP Editor.md，界面不同但不影响上传按钮的使用</p>
-<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2019/12/01/QmrzZV.gif" alt="QmrzZV.gif" loading="lazy"></figure>
-<h4 id="文章引用至-spirit的小站-转载请注明出处">文章引用至 <a href="https://spiritx.xyz/843.html">spirit的小站</a> 转载请注明出处！</h4>
 ]]></content>
     </entry>
 </feed>
