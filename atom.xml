@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>村哥</title>
-    <updated>2020-11-07T03:23:09.010Z</updated>
+    <updated>2020-11-26T02:58:29.532Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -10,6 +10,66 @@
     <logo>https://blog.20140117.xyz/images/avatar.png</logo>
     <icon>https://blog.20140117.xyz/favicon.ico</icon>
     <rights>All rights reserved 2020, 村哥</rights>
+    <entry>
+        <title type="html"><![CDATA[利用Azure免费Web搭建Bitwarden]]></title>
+        <id>https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/</id>
+        <link href="https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/">
+        </link>
+        <updated>2020-11-26T02:53:19.000Z</updated>
+        <content type="html"><![CDATA[<p>1、应用程序服务(App Service)，添加，输入名称，发布选中Docker，操作系统选Linux，区域按需选择，SKU和大小选择免费的F1计划，直接查看并创建，再点击创建</p>
+<p>2、稍等几分钟部署完成后点击转入资源</p>
+<p>3、修改一些环境配置，侧边栏 设置（配置）， 应用程序设置，<code>WEBSITES_ENABLE_APP_SERVICE_STORAGE</code>值改为<code>true</code>，部署槽位设置不要勾选</p>
+<p>4、侧边栏 设置（配置），常规设置，Web套接字(web sockets)改为开，点击保存，继续</p>
+<p>5、侧边栏 开发工具（高级工具） - 转到 - 导航栏点击Bash，执行如下命令，可以Ctrl+V粘贴</p>
+<pre><code>mkdir /home/site/wwwroot/bitwarden
+wget -P /home/site/wwwroot/bitwarden/ https://raw.githubusercontent.com/hjh142857/scripts/master/Azure_Bitwarden/bitwarden.sh
+</code></pre>
+<p>6、侧边栏 设置（容器配置），Docker Compose (预览版) ，Docker Hub，公开Public，连续部署（关），按自己需求修改好docker-compose.yml中的环境变量配置，粘贴完yml配置后点击保存（tips: yml配置的中文注释要删掉，不然会出现点保存没反应）</p>
+<p>7、侧边栏 概述Overview - 重新启动Restart</p>
+<p>8、弄完之后去 https://uptimerobot.com/ 开一个网页监控防止休眠，6小时实测，设置半小时一次http访问就没问题了</p>
+<p>如何更新镜像<br>
+保证两倍定时备份周期内没有提交密码更新或注册新用户，之后按照步骤7重新启动即可。如YML文件中默认设置的定时周期是10分钟，则20分钟内不提交新的数据即可。正常情况Azure会自动拉取最新的镜像，如果发现没有自动拉取最新镜像，可以在YML配置文件中修改image项目，指定引用的镜像版本，如把<code>image: bitwardenrs/server:alpine</code>改成<code>image: bitwardenrs/server:1.15.1-alpine</code>。建议选择alpine打包的系列以节省免费计划有限的资源配额。</p>
+<p>Web Admin登陆后跳转到localhost怎么办<br>
+方法1：网页后退，再刷新页面。相当于手动把localhost改成了自己的域名<br>
+方法2：参照20200616更新后的YML配置文件，添加DOMAIN环境变量</p>
+<p>YML的参考配置</p>
+<pre><code>version: '3'
+
+services:
+bitwarden:
+    image: bitwardenrs/server:alpine
+    restart: always
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/site/wwwroot/bitwarden:/home
+    entrypoint: /home/bitwarden.sh
+    command: [&quot;/bitwarden_rs&quot;]
+    environment:                                   # 环境变量配置完成必须删除所有中文注释，否则无法保存
+    - WEBSOCKET_ENABLED=true                     # 启用websocket，用于推送密码变化
+    - SIGNUPS_ALLOWED=true                       # 允许注册新用户，设置为false则禁止新注册
+    - WEB_VAULT_ENABLED=true                     # 用户web页面，设置为false则关闭
+    - ADMIN_TOKEN=your_web_admin_panel_password  # web管理员页面的密码，不设置则关闭管理面板，详细请阅读README
+    - DOMAIN=https://your_domain                 # 域名设置，免费F1计划域名格式为https://xxx.azurewebsites.net
+    - REALTIME_BAK_CYCLE=10                      # 定时备份间隔分钟数，需要能被60整除，设置为0则关闭所有备份（包括FTP备份）
+    - DAILY_BAK_COUNTS=5                         # FTP每日备份的保留份数，每天北京时间0时备份
+    - FTP_URL=ftp://your_ftp_url/your_folder/    # FTP备份地址，必须以/结尾，否则会出现错误。不设置本项则禁用远程FTP备份
+    - FTP_USER=your_ftp_username                 # FTP用户名，不启用远程FTP备份可以不设置
+    - FTP_PASS=your_ftp_password                 # FTP密码，不启用远程FTP备份可以不设置
+
+nginx:
+    image: nginx:alpine
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/site/wwwroot/bitwarden:/home
+    ports:
+    - &quot;80:80&quot;
+    restart: always
+    entrypoint: /home/bitwarden.sh
+    command: [&quot;nginx&quot;,&quot;-g&quot;,&quot;daemon off;&quot;]
+    depends_on:
+    - bitwarden
+</code></pre>
+<p>Github项目： https://github.com/hjh142857/scripts</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[大临结构计算]]></title>
         <id>https://blog.20140117.xyz/post/da-lin-jie-gou-ji-suan/</id>
@@ -724,216 +784,6 @@ hexo d
 <p>有很多人私信问我High功能特效如何设置，这里推荐一篇同是Next主题网站博主的文章：<a href="https://link.zhihu.com/?target=http%3A//www.iamlj.com/2016/08/add-special-effect-harlem-shake-for-hexo/">为Hexo Next主题添加哈林摇特效（五）</a></p>
 <p><strong>其他</strong></p>
 <p>终于写到这里了，也算是基本圆满完成了我的写作初衷，总结自己的一些经验，分享一些有趣的东西，不过脖子也是僵硬的受不了。我知道很多人想要建立自己的个人网站却一直没有付诸行动，希望这篇文章能给你一点点灵感与想法，just do it。本文是windows平台的搭建过程，其他平台可以参看相关资料，也有很多其他优秀的博客框架值得学习。如果有任何建议或想法、或疑问欢迎在评论区交流， 做好的网站不妨在评论区贴出网址，让大家一起学习。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Handsome主题的一些CSS修改]]></title>
-        <id>https://blog.20140117.xyz/post/handsome-css/</id>
-        <link href="https://blog.20140117.xyz/post/handsome-css/">
-        </link>
-        <updated>2019-12-25T09:22:40.000Z</updated>
-        <content type="html"><![CDATA[<p>**说明：**博客用<code>Handsome</code>主题一年多了，体验还不错，特别适合做个人博客，而博主基于原主题做了下小小的修改，使其更加好看点，鉴于经常有人问博主修改方法，这里就在博客里说一下，顺便也说一下博客没有使用的修改方案，给同样使用<code>Handsome</code>主题的做下参考。</p>
-<h2 id="方法">方法</h2>
-<p><strong>1、首页文章版式圆角化</strong><br>
-本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>#圆角大小可修改15px数值(别复制该行)
-/*首页文章版式圆角化*/
-.panel{
-    border: none;
-    border-radius: 15px;
-}
-
-.panel-small{
-    border: none;
-    border-radius: 15px;
-}
-
-.item-thumb{
-    border-radius: 15px;  
-}
-</code></pre>
-<p><strong>2、首页文章图片获取焦点放大</strong><br>
-本项修改的是首页文章图片，将鼠标放到首页头图后使其放大。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>#放大的时间和大小自行修改以下数值(别复制该行)
-/*首页文章图片获取焦点放大*/
-.item-thumb{
-    cursor: pointer;  
-    transition: all 0.6s;  
-}
-
-.item-thumb:hover{
-      transform: scale(1.05);  
-}
-
-.item-thumb-small{
-    cursor: pointer;  
-    transition: all 0.6s;
-}
-
-.item-thumb-small:hover{
-    transform: scale(1.05);
-}
-</code></pre>
-<p><strong>3、首页头像转动并放大</strong><br>
-本项修改的是首页头像，将鼠标放至头像后使其转动并放大。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>#转动快慢和头像大小自行修改数值(别复制该行)
-/*首页头像自动旋转*/
-.thumb-lg{
-    width:130px;
-}
-
-.avatar{
-    -webkit-transition: 0.4s;
-    -webkit-transition: -webkit-transform 0.4s ease-out;
-    transition: transform 0.4s ease-out;
-    -moz-transition: -moz-transform 0.4s ease-out; 
-}
-
-.avatar:hover{
-    transform: rotateZ(360deg);
-    -webkit-transform: rotateZ(360deg);
-    -moz-transform: rotateZ(360deg);
-}
-
-#aside-user span.avatar{
-    animation-timing-function:cubic-bezier(0,0,.07,1)!important;
-    border:0 solid
-}
-
-#aside-user span.avatar:hover{
-    transform:rotate(360deg) scale(1.2);
-    border-width:5px;
-    animation:avatar .5s
-}
-</code></pre>
-<p><strong>4、首页头像放大并自动旋转</strong><br>
-本项修改的是首页头像，效果就是将首页头像放大，并使其自动旋转。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>#旋转速度请修改3s数值(别复制该行)
-/*首页头像放大并自动旋转*/
-.thumb-lg{
-    width:130px;
-}
-
-@-webkit-keyframes rotation{
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-.img-full{
-    -webkit-transform: rotate(360deg);
-    animation: rotation 3s linear infinite;
-    -moz-animation: rotation 3s linear infinite;
-    -webkit-animation: rotation 3s linear infinite;
-    -o-animation: rotation 3s linear infinite;
-}
-</code></pre>
-<p><strong>5、文章标题居中</strong><br>
-本项修改的是文章标题，使其居中。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>/*文章标题居中*/
-.panel h2{
-    text-align: center; 
-}
-.post-item-foot-icon{
-    text-align: center;
-}
-</code></pre>
-<p><strong>6、首页文章版式阴影化</strong><br>
-本项修改的是首页文章版式，包括图片使其四周加上一层绚丽的阴影。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>#阴影颜色修改rgba后面的值(别复制该行)
-/*panel阴影*/
-.panel{
-   box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-}
-
-.panel:hover{
-    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-}
-
-.panel-small{
-    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-}
-
-.panel-small:hover{
-    box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-    -moz-box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
-}
-
-#如果也想使盒子四周也有阴影，加上以下代码
-.app.container {
-    box-shadow: 0 0 30px rgba(255, 112, 173, 0.35);
-}
-</code></pre>
-<p><strong>7、自定义滚动条滑块</strong><br>
-本项修改针对浏览器最右边的滚动条滑块，使其改变样式。将以下代码添加至后台主题设置 自定义<code>CSS</code>。</p>
-<pre><code>/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-::-webkit-scrollbar{
-    width: 3px;
-    height: 16px;
-    background-color: rgba(255,255,255,0);
-}
- 
-/*定义滚动条轨道 内阴影+圆角*/
-::-webkit-scrollbar-track{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: rgba(255,255,255,0);
-}
- 
-/*定义滑块 内阴影+圆角*/
-::-webkit-scrollbar-thumb{
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
-}
-</code></pre>
-<p><strong>8、评论表情修改</strong><br>
-本项修改评论表情，将原始表情替换成泡泡和阿鲁，只需要替换主题文件里的<code>OwO.min.js</code>和<code>OwO.json</code>文件就可以了。文件下载：<a href="https://www.moerats.com/usr/down/HS_OwO.zip">HS_OwO.zip</a>。<code>OwO.min.js</code>在<code>handsome/assets/js/features</code>文件夹，<code>OwO.json</code>在<code>handsome/usr</code>文件夹。</p>
-<p><strong>9、鼠标点击特效</strong><br>
-将以下代码放在主题的<code>handsome/component/footer.php</code>中的``之前即可。</p>
-<pre><code>#字体自行修改
-&lt;script type=&quot;text/javascript&quot;&gt; 
-/* 鼠标特效 */
-var a_idx = 0; 
-jQuery(document).ready(function($) { 
-    $(&quot;body&quot;).click(function(e) { 
-        var a = new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;); 
-        var $i = $(&quot;&lt;span/&gt;&quot;).text(a[a_idx]); 
-        a_idx = (a_idx + 1) % a.length; 
-        var x = e.pageX, 
-        y = e.pageY; 
-        $i.css({ 
-            &quot;z-index&quot;: 999999999999999999999999999999999999999999999999999999999999999999999, 
-            &quot;top&quot;: y - 20, 
-            &quot;left&quot;: x, 
-            &quot;position&quot;: &quot;absolute&quot;, 
-            &quot;font-weight&quot;: &quot;bold&quot;, 
-            &quot;color&quot;: &quot;#ff6651&quot; 
-        }); 
-        $(&quot;body&quot;).append($i); 
-        $i.animate({ 
-            &quot;top&quot;: y - 180, 
-            &quot;opacity&quot;: 0 
-        }, 
-        1500, 
-        function() { 
-            $i.remove(); 
-        }); 
-    }); 
-}); 
-&lt;/script&gt;
-</code></pre>
-<p><strong>10、评论框特效</strong><br>
-下载特效<code>JS</code>文件：<a href="https://www.moerats.com/usr/down/commentTyping.js">commentTyping.js</a>，将其放在网站目录某个地方，然后编辑主题文件<code>handsome/component/footer.php</code>，在``后面添加以下代码。</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;(JS文件路径)&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p>暂时只说这么多，修改方案很多由<a href="https://mikuac.com/">Zero博主</a>提供，还有通过本博客联系作者购买<code>Handsome</code>主题的，可打<code>9</code>折优惠。</p>
 ]]></content>
     </entry>
 </feed>

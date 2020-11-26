@@ -8,7 +8,7 @@
 <meta name="keywords" content="村哥|个人博客|Gridea|工程人|一级建造师|工程狗|考证">
 <meta name="description" content="农村娃来到了深山里！">
 <meta name="theme-color" content="#000">
-<title>利用CloudFlare Worker 免费部署 JSProxy 服务 | 村哥</title>
+<title>利用Azure免费Web搭建Bitwarden | 村哥</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1606359324478">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
@@ -48,7 +48,7 @@
 </script>
 
 
-  <meta name="description" content="利用CloudFlare Worker 免费部署 JSProxy 服务" />
+  <meta name="description" content="利用Azure免费Web搭建Bitwarden" />
   <meta name="keywords" content="" />
 </head>
 
@@ -200,8 +200,7 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/images/avatar.png"/>
@@ -243,198 +242,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D">项目介绍</a></li>
-<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">使用教程</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81%E5%A4%87%E4%BB%BD">代码备份</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -522,8 +329,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.20140117.xyz/post/pLeXJDL_N/">
-      利用CloudFlare Worker 免费部署 JSProxy 服务
+    <a class="post-title-link" href="https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/">
+      利用Azure免费Web搭建Bitwarden
     </a>
   </h1>
   <div class="post-meta">
@@ -531,23 +338,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2019-11-22 09:06:45">2019-11-22</span>
+      <span class="publish-time" data-t="2020-11-26 10:53:19">2020-11-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6<span class="language" data-lan="minute">分钟</span></span>
+      <span>4<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1086<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>858<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/pLeXJDL_N/" data-flag-title="利用CloudFlare Worker 免费部署 JSProxy 服务" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/" data-flag-title="利用Azure免费Web搭建Bitwarden" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -556,320 +363,58 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>JSProxy 一个基于浏览器端 JS 实现的在线代理，这里不多介绍！</p>
-<p>本文主要介绍一下利用<code>CloudFlare Worker</code> 来搭建一个JSProxy服务。</p>
-<p><code>CloudFlare Worker</code> 是 CloudFlare 的边缘计算服务。开发者可通过 JavaScript 对 CDN 进行编程，从而能灵活处理 HTTP 请求。这使得很多任务可在 CDN 上完成，无需自己的服务器参与。</p>
-<p>CFW免费服务，支持每天10 万次免费请求！基本也够用了！</p>
-<h2 id="项目介绍">项目介绍</h2>
-<p>项目地址：<a href="https://github.com/EtherDream/jsproxy">https://github.com/EtherDream/jsproxy</a></p>
-<h2 id="准备工作">准备工作</h2>
-<p>Cloudflare 账号一个</p>
-<h2 id="使用教程">使用教程</h2>
-<p>1）打开 <a href="https://workers.cloudflare.com">https://workers.cloudflare.com</a>，登陆上你的 Cloudflare 账号激活 Workers 服务</p>
-<figure data-type="image" tabindex="1"><img src="https://ae04.alicdn.com/kf/HTB1BwEMaET1gK0jSZFr763NCXXaY.png" alt="img" loading="lazy"></figure>
-<p>然后创建一个 Workers【Create a Worker】</p>
-<figure data-type="image" tabindex="2"><img src="https://ae02.alicdn.com/kf/HTB16NsHaEY1gK0jSZFM761WcVXat.png" alt="img" loading="lazy"></figure>
-<p>2）修改一下子域名，创建出来的域名格式 自定义的内容.Cloudflare用户名.workers.dev</p>
-<figure data-type="image" tabindex="3"><img src="https://ae06.alicdn.com/kf/HTB10hkMaxz1gK0jSZSg761vwpXaj.png" alt="img" loading="lazy"></figure>
-<p>3）复制<a href="https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js"> https://raw.githubusercontent.com/EtherDream/jsproxy/master/cf-worker/index.js</a> 的内容到左侧代码（Script）区域</p>
-<p>文章最下方有代码备份！！</p>
-<figure data-type="image" tabindex="4"><img src="https://ae03.alicdn.com/kf/HTB1EA.LaAL0gK0jSZFA763A9pXas.png" alt="img" loading="lazy"></figure>
-<p>4）先点击【Run】右侧看执行效果，再点击 【Save and deploy】 部署代码</p>
-<p>5）届时你可以访问你的站点https://xxx.子域名.workers.dev查看效果</p>
-<p>进入站点后将线路选择切换为当前站点即可使用</p>
-<p>特别提示：浏览网站的时候，有时候会提示加载不安全脚本，点击允许即可！</p>
-<h2 id="代码备份">代码备份</h2>
-<pre><code>'use strict'
-
-/**
- * static files (404.html, sw.js, conf.js)
- */
-const ASSET_URL = 'https://etherdream.github.io/jsproxy'
-
-const JS_VER = 10
-const MAX_RETRY = 1
-
-/** @type {RequestInit} */
-const PREFLIGHT_INIT = {
-  status: 204,
-  headers: new Headers({
-    'access-control-allow-origin': '*',
-    'access-control-allow-methods': 'GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS',
-    'access-control-max-age': '1728000',
-  }),
-}
-
-/**
- * @param {any} body
- * @param {number} status
- * @param {Object&lt;string, string&gt;} headers
- */
-function makeRes(body, status = 200, headers = {}) {
-  headers['--ver'] = JS_VER
-  headers['access-control-allow-origin'] = '*'
-  return new Response(body, {status, headers})
-}
-
-
-/**
- * @param {string} urlStr 
- */
-function newUrl(urlStr) {
-  try {
-    return new URL(urlStr)
-  } catch (err) {
-    return null
-  }
-}
-
-
-addEventListener('fetch', e =&gt; {
-  const ret = fetchHandler(e)
-    .catch(err =&gt; makeRes('cfworker error:\n' + err.stack, 502))
-  e.respondWith(ret)
-})
-
-
-/**
- * @param {FetchEvent} e 
- */
-async function fetchHandler(e) {
-  const req = e.request
-  const urlStr = req.url
-  const urlObj = new URL(urlStr)
-  const path = urlObj.href.substr(urlObj.origin.length)
-
-  if (urlObj.protocol === 'http:') {
-    urlObj.protocol = 'https:'
-    return makeRes('', 301, {
-      'strict-transport-security': 'max-age=99999999; includeSubDomains; preload',
-      'location': urlObj.href,
-    })
-  }
-
-  if (path.startsWith('/http/')) {
-    return httpHandler(req, path.substr(6))
-  }
-
-  switch (path) {
-  case '/http':
-    return makeRes('请更新 cfworker 到最新版本!')
-  case '/ws':
-    return makeRes('not support', 400)
-  case '/works':
-    return makeRes('it works')
-  default:
-    // static files
-    return fetch(ASSET_URL + path)
-  }
-}
-
-
-/**
- * @param {Request} req
- * @param {string} pathname
- */
-function httpHandler(req, pathname) {
-  const reqHdrRaw = req.headers
-  if (reqHdrRaw.has('x-jsproxy')) {
-    return Response.error()
-  }
-
-  // preflight
-  if (req.method === 'OPTIONS' &amp;&amp;
-      reqHdrRaw.has('access-control-request-headers')
-  ) {
-    return new Response(null, PREFLIGHT_INIT)
-  }
-
-  let acehOld = false
-  let rawSvr = ''
-  let rawLen = ''
-  let rawEtag = ''
-
-  const reqHdrNew = new Headers(reqHdrRaw)
-  reqHdrNew.set('x-jsproxy', '1')
-
-  // 此处逻辑和 http-dec-req-hdr.lua 大致相同
-  // https://github.com/EtherDream/jsproxy/blob/master/lua/http-dec-req-hdr.lua
-  const refer = reqHdrNew.get('referer')
-  const query = refer.substr(refer.indexOf('?') + 1)
-  if (!query) {
-    return makeRes('missing params', 403)
-  }
-  const param = new URLSearchParams(query)
-
-  for (const [k, v] of Object.entries(param)) {
-    if (k.substr(0, 2) === '--') {
-      // 系统信息
-      switch (k.substr(2)) {
-      case 'aceh':
-        acehOld = true
-        break
-      case 'raw-info':
-        [rawSvr, rawLen, rawEtag] = v.split('|')
-        break
-      }
-    } else {
-      // 还原 HTTP 请求头
-      if (v) {
-        reqHdrNew.set(k, v)
-      } else {
-        reqHdrNew.delete(k)
-      }
-    }
-  }
-  if (!param.has('referer')) {
-    reqHdrNew.delete('referer')
-  }
-
-  // cfworker 会把路径中的 `//` 合并成 `/`
-  const urlStr = pathname.replace(/^(https?):\/+/, '$1://')
-  const urlObj = newUrl(urlStr)
-  if (!urlObj) {
-    return makeRes('invalid proxy url: ' + urlStr, 403)
-  }
-
-  /** @type {RequestInit} */
-  const reqInit = {
-    method: req.method,
-    headers: reqHdrNew,
-    redirect: 'manual',
-  }
-  if (req.method === 'POST') {
-    reqInit.body = req.body
-  }
-  return proxy(urlObj, reqInit, acehOld, rawLen, 0)
-}
-
-
-/**
- * 
- * @param {URL} urlObj 
- * @param {RequestInit} reqInit 
- * @param {number} retryTimes 
- */
-async function proxy(urlObj, reqInit, acehOld, rawLen, retryTimes) {
-  const res = await fetch(urlObj.href, reqInit)
-  const resHdrOld = res.headers
-  const resHdrNew = new Headers(resHdrOld)
-
-  let expose = '*'
-  
-  for (const [k, v] of resHdrOld.entries()) {
-    if (k === 'access-control-allow-origin' ||
-        k === 'access-control-expose-headers' ||
-        k === 'location' ||
-        k === 'set-cookie'
-    ) {
-      const x = '--' + k
-      resHdrNew.set(x, v)
-      if (acehOld) {
-        expose = expose + ',' + x
-      }
-      resHdrNew.delete(k)
-    }
-    else if (acehOld &amp;&amp;
-      k !== 'cache-control' &amp;&amp;
-      k !== 'content-language' &amp;&amp;
-      k !== 'content-type' &amp;&amp;
-      k !== 'expires' &amp;&amp;
-      k !== 'last-modified' &amp;&amp;
-      k !== 'pragma'
-    ) {
-      expose = expose + ',' + k
-    }
-  }
-
-  if (acehOld) {
-    expose = expose + ',--s'
-    resHdrNew.set('--t', '1')
-  }
-
-  // verify
-  if (rawLen) {
-    const newLen = resHdrOld.get('content-length') || ''
-    const badLen = (rawLen !== newLen)
-
-    if (badLen) {
-      if (retryTimes &lt; MAX_RETRY) {
-        urlObj = await parseYtVideoRedir(urlObj, newLen, res)
-        if (urlObj) {
-          return proxy(urlObj, reqInit, acehOld, rawLen, retryTimes + 1)
-        }
-      }
-      return makeRes(res.body, 400, {
-        '--error': `bad len: ${newLen}, except: ${rawLen}`,
-        'access-control-expose-headers': '--error',
-      })
-    }
-
-    if (retryTimes &gt; 1) {
-      resHdrNew.set('--retry', retryTimes)
-    }
-  }
-
-  let status = res.status
-
-  resHdrNew.set('access-control-expose-headers', expose)
-  resHdrNew.set('access-control-allow-origin', '*')
-  resHdrNew.set('--s', status)
-  resHdrNew.set('--ver', JS_VER)
-
-  resHdrNew.delete('content-security-policy')
-  resHdrNew.delete('content-security-policy-report-only')
-  resHdrNew.delete('clear-site-data')
-
-  if (status === 301 ||
-      status === 302 ||
-      status === 303 ||
-      status === 307 ||
-      status === 308
-  ) {
-    status = status + 10
-  }
-
-  return new Response(res.body, {
-    status,
-    headers: resHdrNew,
-  })
-}
-
-
-/**
- * @param {URL} urlObj 
- */
-function isYtUrl(urlObj) {
-  return (
-    urlObj.host.endsWith('.googlevideo.com') &amp;&amp;
-    urlObj.pathname.startsWith('/videoplayback')
-  )
-}
-
-/**
- * @param {URL} urlObj 
- * @param {number} newLen 
- * @param {Response} res 
- */
-async function parseYtVideoRedir(urlObj, newLen, res) {
-  if (newLen &gt; 2000) {
-    return null
-  }
-  if (!isYtUrl(urlObj)) {
-    return null
-  }
-  try {
-    const data = await res.text()
-    urlObj = new URL(data)
-  } catch (err) {
-    return null
-  }
-  if (!isYtUrl(urlObj)) {
-    return null
-  }
-  return urlObj
-}
+              <p>1、应用程序服务(App Service)，添加，输入名称，发布选中Docker，操作系统选Linux，区域按需选择，SKU和大小选择免费的F1计划，直接查看并创建，再点击创建</p>
+<p>2、稍等几分钟部署完成后点击转入资源</p>
+<p>3、修改一些环境配置，侧边栏 设置（配置）， 应用程序设置，<code>WEBSITES_ENABLE_APP_SERVICE_STORAGE</code>值改为<code>true</code>，部署槽位设置不要勾选</p>
+<p>4、侧边栏 设置（配置），常规设置，Web套接字(web sockets)改为开，点击保存，继续</p>
+<p>5、侧边栏 开发工具（高级工具） - 转到 - 导航栏点击Bash，执行如下命令，可以Ctrl+V粘贴</p>
+<pre><code>mkdir /home/site/wwwroot/bitwarden
+wget -P /home/site/wwwroot/bitwarden/ https://raw.githubusercontent.com/hjh142857/scripts/master/Azure_Bitwarden/bitwarden.sh
 </code></pre>
+<p>6、侧边栏 设置（容器配置），Docker Compose (预览版) ，Docker Hub，公开Public，连续部署（关），按自己需求修改好docker-compose.yml中的环境变量配置，粘贴完yml配置后点击保存（tips: yml配置的中文注释要删掉，不然会出现点保存没反应）</p>
+<p>7、侧边栏 概述Overview - 重新启动Restart</p>
+<p>8、弄完之后去 https://uptimerobot.com/ 开一个网页监控防止休眠，6小时实测，设置半小时一次http访问就没问题了</p>
+<p>如何更新镜像<br>
+保证两倍定时备份周期内没有提交密码更新或注册新用户，之后按照步骤7重新启动即可。如YML文件中默认设置的定时周期是10分钟，则20分钟内不提交新的数据即可。正常情况Azure会自动拉取最新的镜像，如果发现没有自动拉取最新镜像，可以在YML配置文件中修改image项目，指定引用的镜像版本，如把<code>image: bitwardenrs/server:alpine</code>改成<code>image: bitwardenrs/server:1.15.1-alpine</code>。建议选择alpine打包的系列以节省免费计划有限的资源配额。</p>
+<p>Web Admin登陆后跳转到localhost怎么办<br>
+方法1：网页后退，再刷新页面。相当于手动把localhost改成了自己的域名<br>
+方法2：参照20200616更新后的YML配置文件，添加DOMAIN环境变量</p>
+<p>YML的参考配置</p>
+<pre><code>version: '3'
+
+services:
+bitwarden:
+    image: bitwardenrs/server:alpine
+    restart: always
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/site/wwwroot/bitwarden:/home
+    entrypoint: /home/bitwarden.sh
+    command: [&quot;/bitwarden_rs&quot;]
+    environment:                                   # 环境变量配置完成必须删除所有中文注释，否则无法保存
+    - WEBSOCKET_ENABLED=true                     # 启用websocket，用于推送密码变化
+    - SIGNUPS_ALLOWED=true                       # 允许注册新用户，设置为false则禁止新注册
+    - WEB_VAULT_ENABLED=true                     # 用户web页面，设置为false则关闭
+    - ADMIN_TOKEN=your_web_admin_panel_password  # web管理员页面的密码，不设置则关闭管理面板，详细请阅读README
+    - DOMAIN=https://your_domain                 # 域名设置，免费F1计划域名格式为https://xxx.azurewebsites.net
+    - REALTIME_BAK_CYCLE=10                      # 定时备份间隔分钟数，需要能被60整除，设置为0则关闭所有备份（包括FTP备份）
+    - DAILY_BAK_COUNTS=5                         # FTP每日备份的保留份数，每天北京时间0时备份
+    - FTP_URL=ftp://your_ftp_url/your_folder/    # FTP备份地址，必须以/结尾，否则会出现错误。不设置本项则禁用远程FTP备份
+    - FTP_USER=your_ftp_username                 # FTP用户名，不启用远程FTP备份可以不设置
+    - FTP_PASS=your_ftp_password                 # FTP密码，不启用远程FTP备份可以不设置
+
+nginx:
+    image: nginx:alpine
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/site/wwwroot/bitwarden:/home
+    ports:
+    - &quot;80:80&quot;
+    restart: always
+    entrypoint: /home/bitwarden.sh
+    command: [&quot;nginx&quot;,&quot;-g&quot;,&quot;daemon off;&quot;]
+    depends_on:
+    - bitwarden
+</code></pre>
+<p>Github项目： https://github.com/hjh142857/scripts</p>
 
             </div>
             
@@ -882,7 +427,7 @@ async function parseYtVideoRedir(urlObj, newLen, res) {
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.20140117.xyz/post/pLeXJDL_N/" title="利用CloudFlare Worker 免费部署 JSProxy 服务">https://blog.20140117.xyz/post/pLeXJDL_N/</a>
+      <a href="https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/" title="利用Azure免费Web搭建Bitwarden">https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -897,6 +442,10 @@ async function parseYtVideoRedir(urlObj, newLen, res) {
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="大临结构计算" href="https://blog.20140117.xyz/post/da-lin-jie-gou-ji-suan/">大临结构计算</a>
+        <a class="nav-mobile-next" title="大临结构计算" href="https://blog.20140117.xyz/post/da-lin-jie-gou-ji-suan/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

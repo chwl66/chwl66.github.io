@@ -9,7 +9,7 @@
 <meta name="description" content="农村娃来到了深山里！">
 <meta name="theme-color" content="#000">
 <title>将设计线路CAD图导入到奥维互动地图的方法 | 村哥</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1604718461102">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/favicon.ico?v=1606359324478">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chwl66/chwl66.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -218,7 +218,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">14</span>
+        <span class="site-item-stat-count">15</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1731,6 +1731,63 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/"" data-c="
+          &lt;p&gt;1、应用程序服务(App Service)，添加，输入名称，发布选中Docker，操作系统选Linux，区域按需选择，SKU和大小选择免费的F1计划，直接查看并创建，再点击创建&lt;/p&gt;
+&lt;p&gt;2、稍等几分钟部署完成后点击转入资源&lt;/p&gt;
+&lt;p&gt;3、修改一些环境配置，侧边栏 设置（配置）， 应用程序设置，&lt;code&gt;WEBSITES_ENABLE_APP_SERVICE_STORAGE&lt;/code&gt;值改为&lt;code&gt;true&lt;/code&gt;，部署槽位设置不要勾选&lt;/p&gt;
+&lt;p&gt;4、侧边栏 设置（配置），常规设置，Web套接字(web sockets)改为开，点击保存，继续&lt;/p&gt;
+&lt;p&gt;5、侧边栏 开发工具（高级工具） - 转到 - 导航栏点击Bash，执行如下命令，可以Ctrl+V粘贴&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir /home/site/wwwroot/bitwarden
+wget -P /home/site/wwwroot/bitwarden/ https://raw.githubusercontent.com/hjh142857/scripts/master/Azure_Bitwarden/bitwarden.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;6、侧边栏 设置（容器配置），Docker Compose (预览版) ，Docker Hub，公开Public，连续部署（关），按自己需求修改好docker-compose.yml中的环境变量配置，粘贴完yml配置后点击保存（tips: yml配置的中文注释要删掉，不然会出现点保存没反应）&lt;/p&gt;
+&lt;p&gt;7、侧边栏 概述Overview - 重新启动Restart&lt;/p&gt;
+&lt;p&gt;8、弄完之后去 https://uptimerobot.com/ 开一个网页监控防止休眠，6小时实测，设置半小时一次http访问就没问题了&lt;/p&gt;
+&lt;p&gt;如何更新镜像&lt;br&gt;
+保证两倍定时备份周期内没有提交密码更新或注册新用户，之后按照步骤7重新启动即可。如YML文件中默认设置的定时周期是10分钟，则20分钟内不提交新的数据即可。正常情况Azure会自动拉取最新的镜像，如果发现没有自动拉取最新镜像，可以在YML配置文件中修改image项目，指定引用的镜像版本，如把&lt;code&gt;image: bitwardenrs/server:alpine&lt;/code&gt;改成&lt;code&gt;image: bitwardenrs/server:1.15.1-alpine&lt;/code&gt;。建议选择alpine打包的系列以节省免费计划有限的资源配额。&lt;/p&gt;
+&lt;p&gt;Web Admin登陆后跳转到localhost怎么办&lt;br&gt;
+方法1：网页后退，再刷新页面。相当于手动把localhost改成了自己的域名&lt;br&gt;
+方法2：参照20200616更新后的YML配置文件，添加DOMAIN环境变量&lt;/p&gt;
+&lt;p&gt;YML的参考配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;version: &#39;3&#39;
+
+services:
+bitwarden:
+    image: bitwardenrs/server:alpine
+    restart: always
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/site/wwwroot/bitwarden:/home
+    entrypoint: /home/bitwarden.sh
+    command: [&amp;quot;/bitwarden_rs&amp;quot;]
+    environment:                                   # 环境变量配置完成必须删除所有中文注释，否则无法保存
+    - WEBSOCKET_ENABLED=true                     # 启用websocket，用于推送密码变化
+    - SIGNUPS_ALLOWED=true                       # 允许注册新用户，设置为false则禁止新注册
+    - WEB_VAULT_ENABLED=true                     # 用户web页面，设置为false则关闭
+    - ADMIN_TOKEN=your_web_admin_panel_password  # web管理员页面的密码，不设置则关闭管理面板，详细请阅读README
+    - DOMAIN=https://your_domain                 # 域名设置，免费F1计划域名格式为https://xxx.azurewebsites.net
+    - REALTIME_BAK_CYCLE=10                      # 定时备份间隔分钟数，需要能被60整除，设置为0则关闭所有备份（包括FTP备份）
+    - DAILY_BAK_COUNTS=5                         # FTP每日备份的保留份数，每天北京时间0时备份
+    - FTP_URL=ftp://your_ftp_url/your_folder/    # FTP备份地址，必须以/结尾，否则会出现错误。不设置本项则禁用远程FTP备份
+    - FTP_USER=your_ftp_username                 # FTP用户名，不启用远程FTP备份可以不设置
+    - FTP_PASS=your_ftp_password                 # FTP密码，不启用远程FTP备份可以不设置
+
+nginx:
+    image: nginx:alpine
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/site/wwwroot/bitwarden:/home
+    ports:
+    - &amp;quot;80:80&amp;quot;
+    restart: always
+    entrypoint: /home/bitwarden.sh
+    command: [&amp;quot;nginx&amp;quot;,&amp;quot;-g&amp;quot;,&amp;quot;daemon off;&amp;quot;]
+    depends_on:
+    - bitwarden
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Github项目： https://github.com/hjh142857/scripts&lt;/p&gt;
+">利用Azure免费Web搭建Bitwarden</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.20140117.xyz/post/da-lin-jie-gou-ji-suan/"" data-c="
