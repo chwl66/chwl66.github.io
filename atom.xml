@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>村哥</title>
-    <updated>2020-11-26T03:03:14.202Z</updated>
+    <updated>2021-01-07T03:21:56.820Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
     <subtitle>农村娃来到了深山里！</subtitle>
     <logo>https://blog.20140117.xyz/images/avatar.png</logo>
     <icon>https://blog.20140117.xyz/favicon.ico</icon>
-    <rights>All rights reserved 2020, 村哥</rights>
+    <rights>All rights reserved 2021, 村哥</rights>
     <entry>
         <title type="html"><![CDATA[利用Azure免费Web搭建Bitwarden]]></title>
         <id>https://blog.20140117.xyz/post/li-yong-azure-mian-fei-web-da-jian-bitwarden/</id>
@@ -98,76 +98,76 @@ nginx:
 <h3 id="一-生成dxf格式设计线路图"><strong>一、生成dxf格式设计线路图</strong></h3>
 <p>生成dxf设计线路图的方法是通过“测量坐标计算程序V5”做成scr脚本文件再通过AutoCAD展点成图，其方法如下：</p>
 <p>双击“测量坐标计算程序V5.xlsm”运行该程序</p>
-<figure data-type="image" tabindex="1"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/9854ff71ad165.jpeg" alt="beepress-image-2-3-0-2526-1507899768-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110526.png" alt="beepress-image-2-3-0-2526-1507899768-1.jpeg" loading="lazy"></figure>
 <p>Office excel 2010以上版本会提示启用宏，点击“启用内容”或者把安全级别设置中或低即可运行“<strong>具体启用方法请参考测量坐标计算程序V5说明</strong>”。</p>
-<figure data-type="image" tabindex="2"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/afb5a45f1c4b8.jpeg" alt="beepress-image-2-3-0-2526-1507899769.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110544.png" alt="beepress-image-2-3-0-2526-1507899769.jpeg" loading="lazy"></figure>
 <p>启用内容后弹出程序界面，点击“交点法坐标”——“曲线要素表”。</p>
-<figure data-type="image" tabindex="3"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/fe13e63ae5d6e.jpeg" alt="beepress-image-2-3-0-2526-1507899769-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110604.png" alt="beepress-image-2-3-0-2526-1507899769-1.jpeg" loading="lazy"></figure>
 <p>进入曲线要素表输入完毕“交点里程、交点坐标、曲线半径、缓和曲线”等内容后点击“进入直曲表”按钮。</p>
-<figure data-type="image" tabindex="4"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/a0c71e8f8ff72.jpeg" alt="beepress-image-2-3-0-2526-1507899770.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110624.png" alt="beepress-image-2-3-0-2526-1507899770.jpeg" loading="lazy"></figure>
 <p>进入直曲表后会提示点击“生成要素”按钮。</p>
-<figure data-type="image" tabindex="5"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/64eb06e6ca1c0.jpeg" alt="beepress-image-2-3-0-2526-1507899770-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110640.png" alt="beepress-image-2-3-0-2526-1507899770-1.jpeg" loading="lazy"></figure>
 <p>直曲表生成完毕后进入交点法坐标“坐标正算”表格。</p>
-<figure data-type="image" tabindex="6"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e2e329b488029.jpeg" alt="beepress-image-2-3-0-2526-1507899770-2.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110700.png" alt="beepress-image-2-3-0-2526-1507899770-2.jpeg" loading="lazy"></figure>
 <p>进入“交点法坐标”的“坐标正算”表格后点击“自动生成坐标”按钮，间距根据自己要求输入，默认值也可以。</p>
-<figure data-type="image" tabindex="7"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/d010dff784551.jpeg" alt="beepress-image-2-3-0-2526-1507899771.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110716.png" alt="beepress-image-2-3-0-2526-1507899771.jpeg" loading="lazy"></figure>
 <p>坐标生成完毕点击右上角“导出中桩脚本SCR”按钮。</p>
-<figure data-type="image" tabindex="8"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e911751f0bddc.jpeg" alt="beepress-image-2-3-0-2526-1507899771-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110735.png" alt="beepress-image-2-3-0-2526-1507899771-1.jpeg" loading="lazy"></figure>
 <p>提示输入前缀：可以输入DK或K等自定义字符。</p>
-<figure data-type="image" tabindex="9"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/6ac5118c43b17.jpeg" alt="beepress-image-2-3-0-2526-1507899771-2.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110751.png" alt="beepress-image-2-3-0-2526-1507899771-2.jpeg" loading="lazy"></figure>
 <p>导出成功会提示保存路径。</p>
-<figure data-type="image" tabindex="10"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/1043e1b939958.jpeg" alt="beepress-image-2-3-0-2526-1507899771-3.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110805.png" alt="beepress-image-2-3-0-2526-1507899771-3.jpeg" loading="lazy"></figure>
 <p>启动AutoCAD2007软件。</p>
-<figure data-type="image" tabindex="11"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/de92d1d217c6a.jpeg" alt="beepress-image-2-3-0-2526-1507899772.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110823.png" alt="beepress-image-2-3-0-2526-1507899772.jpeg" loading="lazy"></figure>
 <p>在顶部点击“工具”——运行脚本——选择“交点法坐标.scr”脚本文件——打开。</p>
-<figure data-type="image" tabindex="12"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/faee8a178de38.jpeg" alt="beepress-image-2-3-0-2526-1507899772-1.jpeg" loading="lazy"></figure>
-<figure data-type="image" tabindex="13"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/1c76c9c115f35.jpeg" alt="beepress-image-2-3-0-2526-1507899772-2.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110838.png" alt="beepress-image-2-3-0-2526-1507899772-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110853.png" alt="beepress-image-2-3-0-2526-1507899772-2.jpeg" loading="lazy"></figure>
 <p>图形展点生成完毕后按下enter键确定，然后输入ZOOM——enter键——E——enter键——enter键，显示范围图形。</p>
-<figure data-type="image" tabindex="14"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/5b6f20000d56a.jpeg" alt="beepress-image-2-3-0-2526-1507899773.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107110945.png" alt="beepress-image-2-3-0-2526-1507899773.jpeg" loading="lazy"></figure>
 <p>点击“文件”——另存为——输入文件名，文件类型：<strong>AutoCAD2007 DXF</strong>（*.dxf）——保存。</p>
-<figure data-type="image" tabindex="15"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/0f598d5cb5381.jpeg" alt="beepress-image-2-3-0-2526-1507899773-1.jpeg" loading="lazy"></figure>
-<figure data-type="image" tabindex="16"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/f1dc48280a9e6.jpeg" alt="beepress-image-2-3-0-2526-1507899774.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111002.png" alt="beepress-image-2-3-0-2526-1507899773-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111016.png" alt="beepress-image-2-3-0-2526-1507899774.jpeg" loading="lazy"></figure>
 <h3 id="二-将设计线路图导入到奥维互动地图浏览器中"><strong>二、将设计线路图导入到奥维互动地图浏览器中</strong></h3>
 <p>启动奥维互动地图浏览器——点击系统——选择导入对象。</p>
-<figure data-type="image" tabindex="17"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/2a753db1d63de.jpeg" alt="beepress-image-2-3-0-2526-1507899774-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111033.png" alt="beepress-image-2-3-0-2526-1507899774-1.jpeg" loading="lazy"></figure>
 <p>选择生成的“线路设计图.dxf”图形文件——打开。</p>
-<figure data-type="image" tabindex="18"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/0111c21e7ee51.jpeg" alt="beepress-image-2-3-0-2526-1507899775.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="18"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111047.png" alt="beepress-image-2-3-0-2526-1507899775.jpeg" loading="lazy"></figure>
 <p>此时弹出解析文件对话框，选择“关联点转换坐标”——方案管理。</p>
-<figure data-type="image" tabindex="19"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/7088deaafb2ef.jpeg" alt="beepress-image-2-3-0-2526-1507899775-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111105.png" alt="beepress-image-2-3-0-2526-1507899775-1.jpeg" loading="lazy"></figure>
 <p>点击“添加”——输入关联点名称——添加关联点——添加。</p>
-<figure data-type="image" tabindex="20"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/3d58578346abf.jpeg" alt="beepress-image-2-3-0-2526-1507899776.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="20"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111121.png" alt="beepress-image-2-3-0-2526-1507899776.jpeg" loading="lazy"></figure>
 <p><strong>提示：本文以WGS84椭球作为讲解，所以选择默认，如果您的坐标类型不属于WGS84需要选择对应的坐标类型。</strong></p>
-<figure data-type="image" tabindex="21"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/efd2a864ac097.jpeg" alt="beepress-image-2-3-0-2526-1507899776-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111139.png" alt="beepress-image-2-3-0-2526-1507899776-1.jpeg" loading="lazy"></figure>
 <p>我们将准备的控制点坐标添加到关联点中。</p>
 <p><strong>在添加控制点时采用的是经纬度和平面坐标，需要将控制点坐标转换为经纬度（度）格式</strong>再添加，其坐标转换软件如下：</p>
 <p>测量坐标转换软件下载地址：</p>
 <p>http://www.fffsky.com/blog/post/survey_xyz_Coord.html</p>
-<figure data-type="image" tabindex="22"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/c1c6779a4a726.jpeg" alt="beepress-image-2-3-0-2526-1507899776-2.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="22"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111156.png" alt="beepress-image-2-3-0-2526-1507899776-2.jpeg" loading="lazy"></figure>
 <p>添加关联点时XY坐标需要调换输入， 因为CAD属于数学坐标系，数学坐标系和测量坐标系相反——添加至少3个关联点——确定。</p>
-<figure data-type="image" tabindex="23"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/6610e9e86a733.jpeg" alt="beepress-image-2-3-0-2526-1507899777.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111212.png" alt="beepress-image-2-3-0-2526-1507899777.jpeg" loading="lazy"></figure>
 <p>关联点添加完毕后在前面方框打勾——确定。</p>
-<figure data-type="image" tabindex="24"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/7b1c0b5a5519b.jpeg" alt="beepress-image-2-3-0-2526-1507899777-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="24"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111229.png" alt="beepress-image-2-3-0-2526-1507899777-1.jpeg" loading="lazy"></figure>
 <p>点击保存按钮“<strong>注意选择坐标类型</strong>”，WGS84椭球坐标类型选择：默认。</p>
 <p>中央经线：一般是中央子午线，由于关联点采用的方法属于坐标平移旋转经测试输入中央经线与输入0导入的图形位置没有区别。</p>
-<figure data-type="image" tabindex="25"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/74efd49d220e8.jpeg" alt="beepress-image-2-3-0-2526-1507899778.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111302.png" alt="beepress-image-2-3-0-2526-1507899778.jpeg" loading="lazy"></figure>
 <p>选中添加的方案点击“更新”按钮——确定——关闭。</p>
-<figure data-type="image" tabindex="26"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e45fe801ebb43.jpeg" alt="beepress-image-2-3-0-2526-1507899779.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="26"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111317.png" alt="beepress-image-2-3-0-2526-1507899779.jpeg" loading="lazy"></figure>
 <p>当前方案：选择添加的“铁四院控制点”方案——应用到系统设置——是。</p>
-<figure data-type="image" tabindex="27"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/0a0388a601afa.jpeg" alt="beepress-image-2-3-0-2526-1507899780.jpeg" loading="lazy"></figure>
-<figure data-type="image" tabindex="28"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/1600573a53b60.jpeg" alt="beepress-image-2-3-0-2526-1507899780-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="27"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111333.png" alt="beepress-image-2-3-0-2526-1507899780.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="28"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111349.png" alt="beepress-image-2-3-0-2526-1507899780-1.jpeg" loading="lazy"></figure>
 <p>点击“开始解析”——导入。</p>
-<figure data-type="image" tabindex="29"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/fba68d689c54b.jpeg" alt="beepress-image-2-3-0-2526-1507899780-2.jpeg" loading="lazy"></figure>
-<figure data-type="image" tabindex="30"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/c37094432ec96.jpeg" alt="beepress-image-2-3-0-2526-1507899781.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="29"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111404.png" alt="beepress-image-2-3-0-2526-1507899780-2.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="30"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111421.png" alt="beepress-image-2-3-0-2526-1507899781.jpeg" loading="lazy"></figure>
 <p>导入到奥维互动地图的设计线路图，由于图片分辨率较低所以看起来有些模糊，放大后可以看清楚。</p>
-<figure data-type="image" tabindex="31"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/e49a5b8ad7774.jpeg" alt="beepress-image-2-3-0-2526-1507899781-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="31"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111436.png" alt="beepress-image-2-3-0-2526-1507899781-1.jpeg" loading="lazy"></figure>
 <p>当图级放大到20级后的设计线路图及里程。</p>
-<figure data-type="image" tabindex="32"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/bbfa472d14069.jpeg" alt="beepress-image-2-3-0-2526-1507899782.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="32"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111452.png" alt="beepress-image-2-3-0-2526-1507899782.jpeg" loading="lazy"></figure>
 <p>在收藏夹中点击标签“里程”显示（图级：23级）效果图示如下：</p>
-<figure data-type="image" tabindex="33"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/bc047f7f81511.jpeg" alt="beepress-image-2-3-0-2526-1507899782-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="33"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111509.png" alt="beepress-image-2-3-0-2526-1507899782-1.jpeg" loading="lazy"></figure>
 <p>提示：将设计线路图同步到手机上后会提示“自定义风格无法显示”，是因为免费用户无法使用自定义图标，所以手机上显示的里程不与线路垂直，可以正常显示。</p>
-<figure data-type="image" tabindex="34"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/39b4cc13df190.jpeg" alt="beepress-image-2-3-0-2526-1507899783.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="34"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111543.png" alt="beepress-image-2-3-0-2526-1507899783.jpeg" loading="lazy"></figure>
 <p>在手机上显示的设计线路图，图示如下：</p>
-<figure data-type="image" tabindex="35"><img src="https://kyun.ltyuanfang.cn/tc/2020/10/21/2320918834a47.jpeg" alt="beepress-image-2-3-0-2526-1507899783-1.jpeg" loading="lazy"></figure>
+<figure data-type="image" tabindex="35"><img src="https://cdn.jsdelivr.net/gh/foxpic/images/2021/20210107111558.png" alt="beepress-image-2-3-0-2526-1507899783-1.jpeg" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
