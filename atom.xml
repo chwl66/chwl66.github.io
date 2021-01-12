@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>村哥</title>
-    <updated>2021-01-07T03:21:56.820Z</updated>
+    <updated>2021-01-12T11:23:29.927Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -538,18 +538,18 @@ sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
 <h1 id="安装需要">安装需要</h1>
 <h2 id="安装picgo">安装PicGo</h2>
 <ul>
-<li><a href="https://blog.hidove.cn/go/aHR0cHM6Ly9tb2x1bmVyZmlubi5jb20vUGljR28v">https://molunerfinn.com/PicGo/</a></li>
+<li>https://molunerfinn.com/PicGo/</li>
 </ul>
 <h2 id="安装nodejs">安装Node.js</h2>
 <ul>
-<li><a href="https://blog.hidove.cn/go/aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">https://nodejs.org/en/</a></li>
+<li>https://nodejs.org/en/</li>
 </ul>
 <blockquote>
-<p>在插件界面的搜索栏搜索插件名<code>web-uploader</code>并安装</p>
+<p>在插件界面的搜索栏搜索插件名<code>web-uploader</code>并安装<br>
+[<img src="https://cdn.69s.pp.ua/2020/03/31/3655a0d9b9aa43dc.png" alt="使用PicGo对接Hidove图床" loading="lazy"></p>
 </blockquote>
-<figure data-type="image" tabindex="1"><a href="https://dlolb.top/2020/03/31/3655a0d9b9aa43dc.png"><img src="https://dlolb.top/2020/03/31/3655a0d9b9aa43dc.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
 <h2 id="配置web-uploader">配置<code>web-uploader</code></h2>
-<figure data-type="image" tabindex="2"><a href="https://dlolb.top/2020/04/01/8f06b9a51e6ece1d.png"><img src="https://dlolb.top/2020/04/01/8f06b9a51e6ece1d.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="1"><a href="https://cdn.69s.pp.ua/2020/04/01/8f06b9a51e6ece1d.png"><img src="https://cdn.69s.pp.ua/2020/04/01/8f06b9a51e6ece1d.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
 <ul>
 <li>Json路径</li>
 </ul>
@@ -561,7 +561,7 @@ sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
 <pre><code>{&quot;token&quot;:&quot;xxxxxxxxxxxxx&quot;,&quot;apiType&quot;:&quot;ali&quot;}
 </code></pre>
 <h2 id="上传完毕">上传完毕</h2>
-<figure data-type="image" tabindex="3"><a href="https://dlolb.top/2020/04/01/68fc9e9ec0006948.png"><img src="https://dlolb.top/2020/04/01/68fc9e9ec0006948.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="2"><a href="https://cdn.69s.pp.ua/2020/04/01/68fc9e9ec0006948.png"><img src="https://cdn.69s.pp.ua/2020/04/01/68fc9e9ec0006948.png" alt="使用PicGo对接Hidove图床" loading="lazy"></a></figure>
 ]]></content>
     </entry>
     <entry>
