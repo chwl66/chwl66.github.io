@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.20140117.xyz</id>
     <title>村哥</title>
-    <updated>2021-02-25T09:48:21.889Z</updated>
+    <updated>2021-06-10T09:25:57.681Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.20140117.xyz"/>
     <link rel="self" href="https://blog.20140117.xyz/atom.xml"/>
@@ -171,7 +171,7 @@ nginx:
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[谷歌百宝箱gd-utils搭建教程]]></title>
+        <title type="html"><![CDATA[谷歌百宝箱gd-utils搭建教程（已失效）]]></title>
         <id>https://blog.20140117.xyz/post/gu-ge-bai-bao-xiang-gd-utils-da-jian-jiao-cheng/</id>
         <link href="https://blog.20140117.xyz/post/gu-ge-bai-bao-xiang-gd-utils-da-jian-jiao-cheng/">
         </link>
@@ -451,7 +451,7 @@ on-download-complete=/root/.aria2c/upload.sh
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[自己动手-shareX对接hidove图床]]></title>
+        <title type="html"><![CDATA[自己动手-shareX对接hidove图床（图床已失效）]]></title>
         <id>https://blog.20140117.xyz/post/s-to-hi/</id>
         <link href="https://blog.20140117.xyz/post/s-to-hi/">
         </link>
@@ -475,7 +475,7 @@ on-download-complete=/root/.aria2c/upload.sh
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[wps自动打卡白嫖会员(签到已失效)]]></title>
+        <title type="html"><![CDATA[wps自动打卡白嫖会员(已失效)]]></title>
         <id>https://blog.20140117.xyz/post/wps-sign/</id>
         <link href="https://blog.20140117.xyz/post/wps-sign/">
         </link>
@@ -527,7 +527,7 @@ sckey获取链接：<a href="http://sc.ftqq.com/3.version">单击注册</a></p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[简单使用PicGo对接Hidove图床]]></title>
+        <title type="html"><![CDATA[简单使用PicGo对接Hidove图床（图床已失效）]]></title>
         <id>https://blog.20140117.xyz/post/picgo-to-hi/</id>
         <link href="https://blog.20140117.xyz/post/picgo-to-hi/">
         </link>
