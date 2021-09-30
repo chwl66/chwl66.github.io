@@ -2051,12 +2051,7 @@ p > code {
     margin-bottom: 10px;
   }
 }
-
-    @media (max-width: 767px) {
-      .bg-img img {
-        display: none;
-      }
-    }body {
+body {
       background-color: #eee;
     }.header {
         width: 1080px;
